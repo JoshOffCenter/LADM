@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,98 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTI-ca-LGp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Tour Cities and Dates" id="QDq-CD-wFI"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-BK-qe0">
+                                <rect key="frame" x="30" y="84" width="540" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="WW3-Td-cQu"/>
+                                </constraints>
+                                <state key="normal" title="Select City" backgroundImage="CityButton@3x.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
+                                <rect key="frame" x="30" y="217" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Z4H-Sg-Ff1"/>
+                                </constraints>
+                                <state key="normal" title="Schedule" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.21176470588235294" green="0.015686274509803921" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
+                                <rect key="frame" x="30" y="290" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
+                                </constraints>
+                                <state key="normal" title="Competition Order" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.015686274510000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ua-faK">
+                                <rect key="frame" x="30" y="362" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="rzq-hK-Mbu"/>
+                                </constraints>
+                                <state key="normal" title="Competition Results" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.015686274510000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-kj-Bwo">
+                                <rect key="frame" x="30" y="435" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="gXi-l9-X02"/>
+                                </constraints>
+                                <state key="normal" title="Specialty Awards" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.21176470589999999" green="0.015686274510000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04y-fZ-hhk">
+                                <rect key="frame" x="0.0" y="438" width="600" height="162"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.77254901960784317" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aFJ-kj-Bwo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="3Xe-j4-I6f"/>
+                            <constraint firstItem="LTI-ca-LGp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3hF-gF-Dxt"/>
+                            <constraint firstItem="cUl-BK-qe0" firstAttribute="top" secondItem="LTI-ca-LGp" secondAttribute="bottom" constant="40" id="5BB-eT-cej"/>
+                            <constraint firstItem="OT6-Dh-Wkx" firstAttribute="top" secondItem="cUl-BK-qe0" secondAttribute="bottom" constant="50" id="7r3-RR-92H"/>
+                            <constraint firstItem="aFJ-kj-Bwo" firstAttribute="top" secondItem="bk7-ua-faK" secondAttribute="bottom" constant="7.5" id="CzX-ke-6vd"/>
+                            <constraint firstAttribute="trailing" secondItem="bk7-ua-faK" secondAttribute="trailing" constant="30" id="JDx-gq-UjD"/>
+                            <constraint firstItem="04y-fZ-hhk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P7f-An-P2U"/>
+                            <constraint firstAttribute="trailing" secondItem="04y-fZ-hhk" secondAttribute="trailing" id="Qh0-ef-ZYE"/>
+                            <constraint firstItem="bk7-ua-faK" firstAttribute="top" secondItem="rN3-aI-Af8" secondAttribute="bottom" constant="7.5" id="RWP-od-iwT"/>
+                            <constraint firstItem="LTI-ca-LGp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S6I-Ic-pyr"/>
+                            <constraint firstAttribute="trailing" secondItem="cUl-BK-qe0" secondAttribute="trailing" constant="30" id="gj2-zX-avz"/>
+                            <constraint firstAttribute="trailing" secondItem="LTI-ca-LGp" secondAttribute="trailing" id="h0m-g1-54v"/>
+                            <constraint firstItem="rN3-aI-Af8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="hq3-jP-V69"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="04y-fZ-hhk" secondAttribute="bottom" id="hs0-ov-Q0x"/>
+                            <constraint firstItem="bk7-ua-faK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="jHG-aX-ECo"/>
+                            <constraint firstItem="OT6-Dh-Wkx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="kte-aR-yJ2"/>
+                            <constraint firstAttribute="trailing" secondItem="rN3-aI-Af8" secondAttribute="trailing" constant="30" id="oab-ih-uHb"/>
+                            <constraint firstAttribute="trailing" secondItem="aFJ-kj-Bwo" secondAttribute="trailing" constant="30" id="rNJ-No-m13"/>
+                            <constraint firstItem="rN3-aI-Af8" firstAttribute="top" secondItem="OT6-Dh-Wkx" secondAttribute="bottom" constant="7.5" id="tOw-W6-NV4"/>
+                            <constraint firstItem="cUl-BK-qe0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="um4-bp-79c"/>
+                            <constraint firstAttribute="trailing" secondItem="OT6-Dh-Wkx" secondAttribute="trailing" constant="30" id="yp2-LU-ZiK"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="CityButton@3x.png" width="1890" height="495"/>
+        <image name="OtherButton@3x.png" width="1890" height="387"/>
+    </resources>
 </document>

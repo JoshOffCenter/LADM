@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1560B4611AE388D700CE448B /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B45F1AE388D700CE448B /* CityButton@3x.png */; };
+		1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B4601AE388D700CE448B /* OtherButton@3x.png */; };
 		D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD11ADCD235003A4D7F /* AppDelegate.swift */; };
 		D988EBD41ADCD235003A4D7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD31ADCD235003A4D7F /* ViewController.swift */; };
 		D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988EBD51ADCD235003A4D7F /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1560B45F1AE388D700CE448B /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
+		1560B4601AE388D700CE448B /* OtherButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherButton@3x.png"; sourceTree = "<group>"; };
 		D988EBCC1ADCD235003A4D7F /* LADM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988EBD01ADCD235003A4D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D988EBD11ADCD235003A4D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1560B45E1AE388D700CE448B /* Tours and Cities */ = {
+			isa = PBXGroup;
+			children = (
+				1560B45F1AE388D700CE448B /* CityButton@3x.png */,
+				1560B4601AE388D700CE448B /* OtherButton@3x.png */,
+			);
+			path = "Tours and Cities";
+			sourceTree = "<group>";
+		};
 		D988EBC31ADCD234003A4D7F = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 				D988EBD51ADCD235003A4D7F /* Main.storyboard */,
 				D988EBD81ADCD235003A4D7F /* Images.xcassets */,
 				D988EBDA1ADCD235003A4D7F /* LaunchScreen.xib */,
+				1560B45E1AE388D700CE448B /* Tours and Cities */,
 				D988EBCF1ADCD235003A4D7F /* Supporting Files */,
 			);
 			path = LADM;
@@ -161,6 +175,7 @@
 				TargetAttributes = {
 					D988EBCB1ADCD234003A4D7F = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 3HTQ3XN55R;
 					};
 					D988EBE01ADCD235003A4D7F = {
 						CreatedOnToolsVersion = 6.2;
@@ -192,6 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */,
+				1560B4611AE388D700CE448B /* CityButton@3x.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
 				D988EBDC1ADCD235003A4D7F /* LaunchScreen.xib in Resources */,
 				D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */,
@@ -338,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -348,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -407,6 +426,7 @@
 				D988EBED1ADCD235003A4D7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D988EBEE1ADCD235003A4D7F /* Build configuration list for PBXNativeTarget "LADMTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +435,7 @@
 				D988EBF01ADCD235003A4D7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
