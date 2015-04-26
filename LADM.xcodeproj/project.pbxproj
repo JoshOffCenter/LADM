@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1560B4611AE388D700CE448B /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B45F1AE388D700CE448B /* CityButton@3x.png */; };
+		153D95011AED91DD00BAEE22 /* filterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153D95001AED91DD00BAEE22 /* filterMenuView.swift */; };
+		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
 		1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B4601AE388D700CE448B /* OtherButton@3x.png */; };
+		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
+		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
+		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
+		15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A901AEC4FBB004D3E29 /* Favorite_Disabled.png */; };
+		15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */; };
+		15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A941AEC517C004D3E29 /* EventCell.swift */; };
+		15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A961AEC5314004D3E29 /* CompEventItem.swift */; };
 		D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD11ADCD235003A4D7F /* AppDelegate.swift */; };
 		D988EBD41ADCD235003A4D7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD31ADCD235003A4D7F /* ViewController.swift */; };
 		D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988EBD51ADCD235003A4D7F /* Main.storyboard */; };
 		D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D988EBD81ADCD235003A4D7F /* Images.xcassets */; };
-		D988EBDC1ADCD235003A4D7F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D988EBDA1ADCD235003A4D7F /* LaunchScreen.xib */; };
 		D988EBE81ADCD235003A4D7F /* LADMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBE71ADCD235003A4D7F /* LADMTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,15 +35,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1560B45F1AE388D700CE448B /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
+		153D95001AED91DD00BAEE22 /* filterMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filterMenuView.swift; sourceTree = "<group>"; };
+		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
 		1560B4601AE388D700CE448B /* OtherButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherButton@3x.png"; sourceTree = "<group>"; };
+		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
+		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
+		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
+		15E84A901AEC4FBB004D3E29 /* Favorite_Disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite_Disabled.png; sourceTree = "<group>"; };
+		15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite_Enabled.png; sourceTree = "<group>"; };
+		15E84A941AEC517C004D3E29 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		15E84A961AEC5314004D3E29 /* CompEventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompEventItem.swift; sourceTree = "<group>"; };
 		D988EBCC1ADCD235003A4D7F /* LADM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988EBD01ADCD235003A4D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D988EBD11ADCD235003A4D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D988EBD31ADCD235003A4D7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D988EBD61ADCD235003A4D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D988EBD81ADCD235003A4D7F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D988EBDB1ADCD235003A4D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D988EBE11ADCD235003A4D7F /* LADMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LADMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988EBE61ADCD235003A4D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D988EBE71ADCD235003A4D7F /* LADMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LADMTests.swift; sourceTree = "<group>"; };
@@ -63,10 +77,22 @@
 		1560B45E1AE388D700CE448B /* Tours and Cities */ = {
 			isa = PBXGroup;
 			children = (
-				1560B45F1AE388D700CE448B /* CityButton@3x.png */,
+				15E84A8B1AEC459D004D3E29 /* Schedule */,
+				15E84A861AEB6481004D3E29 /* CityButton@3x.png */,
 				1560B4601AE388D700CE448B /* OtherButton@3x.png */,
 			);
 			path = "Tours and Cities";
+			sourceTree = "<group>";
+		};
+		15E84A8B1AEC459D004D3E29 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */,
+				15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */,
+				15E84A901AEC4FBB004D3E29 /* Favorite_Disabled.png */,
+				15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */,
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 		D988EBC31ADCD234003A4D7F = {
@@ -92,9 +118,12 @@
 			children = (
 				D988EBD11ADCD235003A4D7F /* AppDelegate.swift */,
 				D988EBD31ADCD235003A4D7F /* ViewController.swift */,
+				15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */,
+				15E84A941AEC517C004D3E29 /* EventCell.swift */,
+				15E84A961AEC5314004D3E29 /* CompEventItem.swift */,
+				153D95001AED91DD00BAEE22 /* filterMenuView.swift */,
 				D988EBD51ADCD235003A4D7F /* Main.storyboard */,
 				D988EBD81ADCD235003A4D7F /* Images.xcassets */,
-				D988EBDA1ADCD235003A4D7F /* LaunchScreen.xib */,
 				1560B45E1AE388D700CE448B /* Tours and Cities */,
 				D988EBCF1ADCD235003A4D7F /* Supporting Files */,
 			);
@@ -208,9 +237,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */,
-				1560B4611AE388D700CE448B /* CityButton@3x.png in Resources */,
+				15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */,
+				153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */,
+				15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */,
+				15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
-				D988EBDC1ADCD235003A4D7F /* LaunchScreen.xib in Resources */,
+				15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */,
 				D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,8 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
 				D988EBD41ADCD235003A4D7F /* ViewController.swift in Sources */,
+				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
+				153D95011AED91DD00BAEE22 /* filterMenuView.swift in Sources */,
 				D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */,
+				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,14 +295,6 @@
 				D988EBD61ADCD235003A4D7F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D988EBDA1ADCD235003A4D7F /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D988EBDB1ADCD235003A4D7F /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -355,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -366,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
