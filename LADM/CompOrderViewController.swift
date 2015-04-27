@@ -35,14 +35,20 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    var cellExpanded = false
    
    override func viewWillAppear(animated: Bool) {
-      compEvents.append(event1)
-      compEvents.append(event2)
-      compEvents.append(event3)
-      compEvents.append(event4)
-      compEvents.append(event5)
+      if tableView.numberOfRowsInSection(0) <= 0 {
+         compEvents.append(event1)
+         compEvents.append(event2)
+         compEvents.append(event3)
+         compEvents.append(event4)
+         compEvents.append(event5)
+      }
       
       filterMenuView.hidden = true
    }
+   
+   //Transition Manager
+   let transitionManager = TransitionManager()
+
    
    override func viewDidLoad() {
       
@@ -156,6 +162,11 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       filterMenuView.hidden = true
    }
    
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      let toViewController = segue.destinationViewController as! UIViewController
+      toViewController.transitioningDelegate = self.transitionManager
+   }
    
    
    

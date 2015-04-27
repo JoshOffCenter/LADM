@@ -5,6 +5,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -316,7 +317,13 @@
                                     <constraint firstAttribute="height" constant="64" id="H9d-nW-ndP"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Competition Order" id="9ig-VM-zhQ"/>
+                                    <navigationItem title="Competition Order" id="9ig-VM-zhQ">
+                                        <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="w2P-2m-wUD">
+                                            <connections>
+                                                <segue destination="C2i-pG-pMh" kind="presentation" modalPresentationStyle="overCurrentContext" id="3s1-Bn-ZAq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2g-h9-amE">
@@ -508,13 +515,161 @@
             </objects>
             <point key="canvasLocation" x="931" y="338"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="I5b-0N-ybQ">
+            <objects>
+                <viewController id="C2i-pG-pMh" customClass="MenuViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P2G-Va-Ejj"/>
+                        <viewControllerLayoutGuide type="bottom" id="3P0-TB-vDL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ga8-S5-9uR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W07-V2-CE8">
+                                <rect key="frame" x="126" y="150" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1py-Pu-bUl"/>
+                                    <constraint firstAttribute="width" constant="100" id="gtB-Va-NEf"/>
+                                </constraints>
+                                <state key="normal" image="Tours_Cities_Icons.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-kz-5Om">
+                                <rect key="frame" x="379" y="150" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3Br-6r-F2m"/>
+                                    <constraint firstAttribute="width" constant="100" id="Huf-hQ-zec"/>
+                                </constraints>
+                                <state key="normal" image="Event_Feed_Icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Cities  &amp; Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sR-YZ-Tcc">
+                                <rect key="frame" x="139" y="260" width="65" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="iMy-yB-b7r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fx-ST-s1p">
+                                <rect key="frame" x="126" y="379" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="0dM-RJ-evl"/>
+                                    <constraint firstAttribute="height" constant="100" id="wrs-ae-LxB"/>
+                                </constraints>
+                                <state key="normal" image="Contact_Icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ail-3o-6Up">
+                                <rect key="frame" x="379" y="379" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="VzT-zk-iew"/>
+                                    <constraint firstAttribute="width" constant="100" id="ZKQ-3L-Nhm"/>
+                                </constraints>
+                                <state key="normal" image="Social_Media_Icon.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xge-Rk-toG">
+                                <rect key="frame" x="395" y="260" width="67" height="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7I-4r-07S">
+                                <rect key="frame" x="152" y="489" width="47" height="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social Media" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFB-jB-FYv">
+                                <rect key="frame" x="391" y="489" width="77" height="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxO-mJ-2Lw">
+                                <rect key="frame" x="267" y="530" width="66" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unwindToMainViewController:" destination="C2i-pG-pMh" eventType="touchUpInside" id="gD6-fx-2VG"/>
+                                    <segue destination="Oid-CF-FYW" kind="unwind" unwindAction="unwindToMainViewController:" id="Wdk-Ke-gMt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="W07-V2-CE8" secondAttribute="top" multiplier="0.5" constant="1" placeholder="YES" id="3K1-k8-7eP"/>
+                            <constraint firstItem="WFB-jB-FYv" firstAttribute="centerX" secondItem="ail-3o-6Up" secondAttribute="centerX" id="8GE-H6-wpz"/>
+                            <constraint firstItem="WFB-jB-FYv" firstAttribute="top" secondItem="ail-3o-6Up" secondAttribute="bottom" constant="10" id="DC7-Zm-p3p"/>
+                            <constraint firstItem="3sR-YZ-Tcc" firstAttribute="top" secondItem="W07-V2-CE8" secondAttribute="bottom" constant="10" id="Dvo-h4-cdy"/>
+                            <constraint firstAttribute="centerX" secondItem="xr2-kz-5Om" secondAttribute="centerX" multiplier="0.7" id="HUt-7w-vt8"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="centerY" multiplier="0.5" id="KTg-bQ-YIQ"/>
+                            <constraint firstAttribute="centerX" secondItem="W07-V2-CE8" secondAttribute="centerX" multiplier="1.7" id="M0k-dI-kgk"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="3sR-YZ-Tcc" secondAttribute="centerX" constant="4.5" id="Tlt-tg-WhZ"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leadingMargin" constant="28" id="TnL-4L-ozy"/>
+                            <constraint firstAttribute="centerY" secondItem="9fx-ST-s1p" secondAttribute="centerY" multiplier="0.7" id="VZN-WW-XVL"/>
+                            <constraint firstItem="M7I-4r-07S" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="WsH-RN-Fv0"/>
+                            <constraint firstAttribute="centerY" secondItem="W07-V2-CE8" secondAttribute="centerY" multiplier="1.5" id="ZRh-0n-jzr"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="aAD-vN-9FG"/>
+                            <constraint firstItem="9fx-ST-s1p" firstAttribute="centerY" secondItem="ail-3o-6Up" secondAttribute="centerY" id="euo-jB-dtw"/>
+                            <constraint firstItem="xge-Rk-toG" firstAttribute="top" secondItem="xr2-kz-5Om" secondAttribute="bottom" constant="10" id="fwB-Ca-U9y"/>
+                            <constraint firstItem="3P0-TB-vDL" firstAttribute="top" secondItem="xxO-mJ-2Lw" secondAttribute="bottom" constant="30" id="jif-C0-dwF"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" multiplier="0.5" id="pFS-tm-IHq"/>
+                            <constraint firstAttribute="centerX" secondItem="xxO-mJ-2Lw" secondAttribute="centerX" id="pbn-PR-6bC"/>
+                            <constraint firstAttribute="centerY" secondItem="xr2-kz-5Om" secondAttribute="centerY" multiplier="1.5" id="qr1-pg-tKM"/>
+                            <constraint firstItem="xge-Rk-toG" firstAttribute="centerX" secondItem="xr2-kz-5Om" secondAttribute="centerX" id="rL3-Lo-iWj"/>
+                            <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" constant="52" id="uGS-w2-4bI"/>
+                            <constraint firstItem="xr2-kz-5Om" firstAttribute="centerX" secondItem="ail-3o-6Up" secondAttribute="centerX" id="vVI-BH-U6Q"/>
+                            <constraint firstItem="M7I-4r-07S" firstAttribute="top" secondItem="9fx-ST-s1p" secondAttribute="bottom" constant="10" id="xi9-Jo-8hr"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3K1-k8-7eP"/>
+                                <exclude reference="KTg-bQ-YIQ"/>
+                                <exclude reference="TnL-4L-ozy"/>
+                                <exclude reference="pFS-tm-IHq"/>
+                                <exclude reference="uGS-w2-4bI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="contactButton" destination="9fx-ST-s1p" id="c2t-PR-qzr"/>
+                        <outlet property="contactLabel" destination="M7I-4r-07S" id="Ou7-dJ-2CH"/>
+                        <outlet property="eventFeedButton" destination="xr2-kz-5Om" id="QDh-Dv-tai"/>
+                        <outlet property="eventFeedLabel" destination="xge-Rk-toG" id="9VD-DR-8xe"/>
+                        <outlet property="socialMediaButton" destination="ail-3o-6Up" id="EKc-Id-BJl"/>
+                        <outlet property="socialMediaLabel" destination="WFB-jB-FYv" id="E2O-3h-kNP"/>
+                        <outlet property="tourCitiesButton" destination="W07-V2-CE8" id="vFI-In-rmK"/>
+                        <outlet property="tourCitiesLabel" destination="3sR-YZ-Tcc" id="ieo-VK-hzX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rp2-FT-4d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Oid-CF-FYW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1637" y="338"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CityButton@3x.png" width="640" height="175"/>
+        <image name="Contact_Icon.png" width="200" height="200"/>
         <image name="Drop_Down_Menu.png" width="750" height="74"/>
+        <image name="Event_Feed_Icon.png" width="200" height="200"/>
         <image name="Favorite_Disabled.png" width="58" height="55"/>
         <image name="Favorite_Enabled.png" width="58" height="55"/>
         <image name="Filter_Menu_Triangle.png" width="40" height="40"/>
+        <image name="Menu_Button.png" width="38" height="25"/>
         <image name="OtherButton@3x.png" width="1890" height="387"/>
+        <image name="Social_Media_Icon.png" width="200" height="200"/>
+        <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
 </document>
