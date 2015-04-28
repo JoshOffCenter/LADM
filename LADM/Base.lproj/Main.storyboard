@@ -8,10 +8,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tours And Cities View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ToursAndCitiesViewController" id="BYZ-38-t0r" customClass="ToursAndCitiesViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,7 +26,13 @@
                                     <constraint firstAttribute="height" constant="64" id="t27-kS-b6C"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Tour Cities and Dates" id="QDq-CD-wFI"/>
+                                    <navigationItem title="Tour Cities and Dates" id="QDq-CD-wFI">
+                                        <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="enO-iO-7Vw">
+                                            <connections>
+                                                <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="BMY-ir-5hO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-BK-qe0">
@@ -45,17 +51,6 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Schedule" backgroundImage="OtherButton@3x.png">
                                     <color key="titleColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
-                                <rect key="frame" x="30" y="382" width="540" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Competition Order" backgroundImage="OtherButton@3x.png">
-                                    <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -80,6 +75,20 @@
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
+                                <rect key="frame" x="30" y="382" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Competition Order" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="competitionOrderPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6g-Nt-jBn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
@@ -106,15 +115,18 @@
                             <constraint firstAttribute="trailing" secondItem="OT6-Dh-Wkx" secondAttribute="trailing" constant="30" id="yp2-LU-ZiK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuSegue" modalPresentationStyle="overFullScreen" id="biN-BO-ZGV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="231" y="338"/>
+            <point key="canvasLocation" x="240" y="350"/>
         </scene>
         <!--Comp Order View Controller-->
         <scene sceneID="De5-x0-WK9">
             <objects>
-                <viewController id="rFF-js-ZVB" customClass="CompOrderViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompOrderViewController" id="rFF-js-ZVB" customClass="CompOrderViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pah-M4-S29"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxt-PZ-8Hz"/>
@@ -318,6 +330,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Competition Order" id="9ig-VM-zhQ">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="2kw-d4-h9W">
+                                            <connections>
+                                                <segue destination="MsS-Tl-kJz" kind="unwind" unwindAction="unwindToTourCitiesViewController:" id="PGN-9K-etH"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="w2P-2m-wUD">
                                             <connections>
                                                 <segue destination="C2i-pG-pMh" kind="presentation" modalPresentationStyle="overCurrentContext" id="3s1-Bn-ZAq"/>
@@ -512,8 +529,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuF-G4-kDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MsS-Tl-kJz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="931" y="338"/>
+            <point key="canvasLocation" x="960" y="328"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="I5b-0N-ybQ">
@@ -595,9 +613,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxO-mJ-2Lw">
-                                <rect key="frame" x="267" y="530" width="66" height="40"/>
+                                <rect key="frame" x="277" y="530" width="47" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Cancel">
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -673,7 +691,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp2-FT-4d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Oid-CF-FYW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="338"/>
+            <point key="canvasLocation" x="1637" y="394"/>
         </scene>
     </scenes>
     <resources>
@@ -689,4 +707,7 @@
         <image name="Social_Media_Icon.png" width="200" height="200"/>
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="biN-BO-ZGV"/>
+    </inferredMetricsTieBreakers>
 </document>

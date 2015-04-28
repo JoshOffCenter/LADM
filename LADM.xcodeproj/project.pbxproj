@@ -17,6 +17,7 @@
 		1587E1B91AEEA5F800E6B79F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1B81AEEA5F800E6B79F /* MenuViewController.swift */; };
 		1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */; };
 		1587E1BF1AEEE58400E6B79F /* Menu_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1587E1BE1AEEE58400E6B79F /* Menu_Button.png */; };
+		1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -25,7 +26,7 @@
 		15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A941AEC517C004D3E29 /* EventCell.swift */; };
 		15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A961AEC5314004D3E29 /* CompEventItem.swift */; };
 		D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD11ADCD235003A4D7F /* AppDelegate.swift */; };
-		D988EBD41ADCD235003A4D7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD31ADCD235003A4D7F /* ViewController.swift */; };
+		D988EBD41ADCD235003A4D7F /* ToursAndCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD31ADCD235003A4D7F /* ToursAndCitiesViewController.swift */; };
 		D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988EBD51ADCD235003A4D7F /* Main.storyboard */; };
 		D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D988EBD81ADCD235003A4D7F /* Images.xcassets */; };
 		D988EBE81ADCD235003A4D7F /* LADMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBE71ADCD235003A4D7F /* LADMTests.swift */; };
@@ -52,6 +53,7 @@
 		1587E1B81AEEA5F800E6B79F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		1587E1BE1AEEE58400E6B79F /* Menu_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_Button.png; sourceTree = "<group>"; };
+		1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlideSegue.swift; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 		D988EBCC1ADCD235003A4D7F /* LADM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988EBD01ADCD235003A4D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D988EBD11ADCD235003A4D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D988EBD31ADCD235003A4D7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D988EBD31ADCD235003A4D7F /* ToursAndCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursAndCitiesViewController.swift; sourceTree = "<group>"; };
 		D988EBD61ADCD235003A4D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D988EBD81ADCD235003A4D7F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D988EBE11ADCD235003A4D7F /* LADMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LADMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,13 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				D988EBD11ADCD235003A4D7F /* AppDelegate.swift */,
-				D988EBD31ADCD235003A4D7F /* ViewController.swift */,
+				D988EBD31ADCD235003A4D7F /* ToursAndCitiesViewController.swift */,
 				15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */,
 				15E84A941AEC517C004D3E29 /* EventCell.swift */,
 				15E84A961AEC5314004D3E29 /* CompEventItem.swift */,
 				153D95001AED91DD00BAEE22 /* filterMenuView.swift */,
 				1587E1B81AEEA5F800E6B79F /* MenuViewController.swift */,
 				1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */,
+				1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */,
 				D988EBD51ADCD235003A4D7F /* Main.storyboard */,
 				D988EBD81ADCD235003A4D7F /* Images.xcassets */,
 				1587E1AF1AEE1DD400E6B79F /* Menu */,
@@ -297,11 +300,12 @@
 			files = (
 				1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */,
 				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
-				D988EBD41ADCD235003A4D7F /* ViewController.swift in Sources */,
+				D988EBD41ADCD235003A4D7F /* ToursAndCitiesViewController.swift in Sources */,
 				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
 				1587E1B91AEEA5F800E6B79F /* MenuViewController.swift in Sources */,
 				153D95011AED91DD00BAEE22 /* filterMenuView.swift in Sources */,
 				D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */,
+				1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */,
 				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
