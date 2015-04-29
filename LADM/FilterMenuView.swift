@@ -1,5 +1,5 @@
 //
-//  filterMenuView.swift
+//  FilterMenuView.swift
 //  LADM
 //
 //  Created by Chance Daniel on 4/26/15.
@@ -14,10 +14,22 @@ extension UIView {
       mask.path = path.CGPath
       self.layer.mask = mask
    }
+   
+   
 }
 
-class filterMenuView: UIView {
+class FilterMenuView: UIView {
 
+   @IBOutlet weak var filterByLabel: UILabel!
+   @IBOutlet weak var filterDividerLabel: UILabel!
+   @IBOutlet weak var filterAgeButton: UIButton!
+   @IBOutlet weak var filterCategoryButton: UIButton!
+   @IBOutlet weak var filterDivisionButton: UIButton!
+   @IBOutlet weak var filterFavoritesButton: UIButton!
+   @IBOutlet weak var filterMenuButton: UIButton!
+
+
+   
 
    required init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
