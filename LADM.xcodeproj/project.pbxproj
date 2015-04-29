@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		153D95011AED91DD00BAEE22 /* filterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153D95001AED91DD00BAEE22 /* filterMenuView.swift */; };
 		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
 		1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B4601AE388D700CE448B /* OtherButton@3x.png */; };
 		1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1587E1B01AEE1DD400E6B79F /* Contact_Icon.png */; };
@@ -18,6 +17,7 @@
 		1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */; };
 		1587E1BF1AEEE58400E6B79F /* Menu_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1587E1BE1AEEE58400E6B79F /* Menu_Button.png */; };
 		1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */; };
+		1587E1C31AF089BD00E6B79F /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -43,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		153D95001AED91DD00BAEE22 /* filterMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = filterMenuView.swift; sourceTree = "<group>"; };
 		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
 		1560B4601AE388D700CE448B /* OtherButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherButton@3x.png"; sourceTree = "<group>"; };
 		1587E1B01AEE1DD400E6B79F /* Contact_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contact_Icon.png; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		1587E1BE1AEEE58400E6B79F /* Menu_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_Button.png; sourceTree = "<group>"; };
 		1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlideSegue.swift; sourceTree = "<group>"; };
+		1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 				15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */,
 				15E84A941AEC517C004D3E29 /* EventCell.swift */,
 				15E84A961AEC5314004D3E29 /* CompEventItem.swift */,
-				153D95001AED91DD00BAEE22 /* filterMenuView.swift */,
 				1587E1B81AEEA5F800E6B79F /* MenuViewController.swift */,
+				1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */,
 				1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */,
 				1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */,
 				D988EBD51ADCD235003A4D7F /* Main.storyboard */,
@@ -298,12 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1587E1C31AF089BD00E6B79F /* FilterMenuView.swift in Sources */,
 				1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */,
 				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
 				D988EBD41ADCD235003A4D7F /* ToursAndCitiesViewController.swift in Sources */,
 				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
 				1587E1B91AEEA5F800E6B79F /* MenuViewController.swift in Sources */,
-				153D95011AED91DD00BAEE22 /* filterMenuView.swift in Sources */,
 				D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */,
 				1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */,
 				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,

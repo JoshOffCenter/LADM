@@ -323,7 +323,7 @@
                                     <outlet property="delegate" destination="rFF-js-ZVB" id="Mh4-nV-DBD"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qx-Gv-dkK" customClass="FilterMenuView" customModule="LADM" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qx-Gv-dkK" customClass="FilterMenuView" customModule="LADM" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="436"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-tY-4dY">
@@ -383,7 +383,7 @@
                                             </mask>
                                         </variation>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kj-Cw-pAp">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Kj-Cw-pAp">
                                         <rect key="frame" x="290" y="406" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="lvd-K1-vkS"/>
@@ -396,7 +396,7 @@
                                             <action selector="filterMenuPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="kow-bF-nTd"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQD-Mt-SDW">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQD-Mt-SDW">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="vqS-Ap-I0L"/>
@@ -423,11 +423,27 @@
                                             </mask>
                                         </variation>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qB5-bz-aP3">
+                                        <rect key="frame" x="0.0" y="406" width="600" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="q1f-Sb-ivv"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="invisibleBottomFiltterMenuButtonPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="u1x-nN-JlX"/>
+                                            <action selector="invisibleFilterMenuButtonPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="eif-zu-kTA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.31372549019607843" green="0.6470588235294118" blue="0.99215686274509807" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qB5-bz-aP3" secondAttribute="bottom" id="2mX-8F-mzq"/>
                                     <constraint firstAttribute="trailing" secondItem="ifq-OJ-2HE" secondAttribute="trailing" constant="90" id="6Rc-Ug-zpd"/>
+                                    <constraint firstItem="qB5-bz-aP3" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="leading" id="6nL-Ys-9XD"/>
+                                    <constraint firstAttribute="trailing" secondItem="qB5-bz-aP3" secondAttribute="trailing" id="8Ai-3v-ogz"/>
                                     <constraint firstAttribute="centerX" secondItem="G8a-tY-4dY" secondAttribute="centerX" id="9vI-mv-5WV"/>
                                     <constraint firstItem="AQD-Mt-SDW" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="leading" id="A8I-dq-5HI"/>
                                     <constraint firstItem="dIs-DV-f9e" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="leading" constant="90" id="B0W-JS-U1Y"/>
@@ -448,8 +464,11 @@
                                     <constraint firstAttribute="centerX" secondItem="G8a-tY-4dY" secondAttribute="centerX" id="ddA-PR-ITo"/>
                                     <constraint firstAttribute="trailing" secondItem="gpC-gN-16A" secondAttribute="trailing" constant="90" id="fCc-ka-oKN"/>
                                     <constraint firstAttribute="centerX" secondItem="gpC-gN-16A" secondAttribute="centerX" id="gKI-7V-h5U"/>
+                                    <constraint firstAttribute="bottom" secondItem="AQD-Mt-SDW" secondAttribute="bottom" priority="750" id="jBF-kl-PuX"/>
                                     <constraint firstAttribute="centerX" secondItem="ifq-OJ-2HE" secondAttribute="centerX" id="jqJ-r4-r8J"/>
+                                    <constraint firstAttribute="height" constant="436" id="kt4-GK-7gu"/>
                                     <constraint firstItem="apf-AT-MBF" firstAttribute="top" secondItem="aKG-ga-iuq" secondAttribute="bottom" constant="30" id="kzJ-7d-4X6"/>
+                                    <constraint firstAttribute="bottom" secondItem="AQD-Mt-SDW" secondAttribute="bottom" id="nJi-8T-6xw"/>
                                     <constraint firstItem="dIs-DV-f9e" firstAttribute="top" secondItem="3qx-Gv-dkK" secondAttribute="top" constant="10" id="pvg-Da-hh8"/>
                                     <constraint firstAttribute="height" constant="236" id="r35-69-51x"/>
                                     <constraint firstItem="0Kj-Cw-pAp" firstAttribute="top" secondItem="3qx-Gv-dkK" secondAttribute="top" priority="250" constant="10" id="r3e-GN-obX"/>
@@ -463,13 +482,26 @@
                                     <constraint firstItem="aKG-ga-iuq" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="leading" constant="90" id="zHN-co-q2L"/>
                                 </constraints>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="G8a-tY-4dY"/>
+                                        <exclude reference="dIs-DV-f9e"/>
+                                        <exclude reference="aKG-ga-iuq"/>
+                                        <exclude reference="apf-AT-MBF"/>
+                                        <exclude reference="gpC-gN-16A"/>
+                                        <exclude reference="ifq-OJ-2HE"/>
+                                        <exclude reference="qB5-bz-aP3"/>
+                                    </mask>
                                     <mask key="constraints">
                                         <exclude reference="FuG-Js-VYF"/>
+                                        <exclude reference="kt4-GK-7gu"/>
                                         <exclude reference="r35-69-51x"/>
                                         <exclude reference="pvg-Da-hh8"/>
+                                        <exclude reference="tkO-DI-kZ5"/>
                                         <exclude reference="9vI-mv-5WV"/>
                                         <exclude reference="EYW-M3-y9P"/>
                                         <exclude reference="tvb-wT-6Pc"/>
+                                        <exclude reference="Mqi-9p-u2M"/>
+                                        <exclude reference="jBF-kl-PuX"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -554,6 +586,8 @@
                         <outlet property="filterFilterByConstraintTop" destination="vuB-Lk-qUO" id="x2g-Sf-tpm"/>
                         <outlet property="filterMenuTopConstraint" destination="poQ-Y8-enF" id="bRk-kg-BX3"/>
                         <outlet property="filterMenuView" destination="3qx-Gv-dkK" id="0j8-Ge-S0g"/>
+                        <outlet property="invisibleFilterButtonBottomConstraint" destination="jqJ-r4-r8J" id="gLV-bn-X1v"/>
+                        <outlet property="invisibleFilterButtonTopConstraint" destination="Mqi-9p-u2M" id="VNe-YR-4nt"/>
                         <outlet property="tableView" destination="Mmp-Le-naY" id="A1y-VI-SVq"/>
                     </connections>
                 </viewController>
