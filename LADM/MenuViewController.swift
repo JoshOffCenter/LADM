@@ -26,9 +26,6 @@ class MenuViewController: UIViewController {
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-   
 
    @IBAction func unwindToMainViewController(sender: UIStoryboardSegue) {
       // bug? exit segue doesn't dismiss so we do it manually...
