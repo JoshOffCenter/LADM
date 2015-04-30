@@ -35,16 +35,19 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-BK-qe0">
-                                <rect key="frame" x="30" y="176" width="540" height="83"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-BK-qe0">
+                                <rect key="frame" x="30" y="104" width="540" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="WW3-Td-cQu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Select City" backgroundImage="CityButton@3x.png"/>
+                                <connections>
+                                    <action selector="selectCityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RJj-2r-fug"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
-                                <rect key="frame" x="30" y="309" width="540" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
+                                <rect key="frame" x="30" y="237" width="540" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="Z4H-Sg-Ff1"/>
                                 </constraints>
@@ -54,8 +57,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ua-faK">
-                                <rect key="frame" x="30" y="454" width="540" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ua-faK">
+                                <rect key="frame" x="30" y="382" width="540" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="rzq-hK-Mbu"/>
                                 </constraints>
@@ -65,19 +68,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-kj-Bwo">
-                                <rect key="frame" x="30" y="527" width="540" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="gXi-l9-X02"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Specialty Awards" backgroundImage="OtherButton@3x.png">
-                                    <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
-                                <rect key="frame" x="30" y="382" width="540" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
+                                <rect key="frame" x="30" y="310" width="540" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
                                 </constraints>
@@ -90,9 +82,76 @@
                                     <action selector="competitionOrderPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6g-Nt-jBn"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INA-2q-zrv">
-                                <rect key="frame" x="6" y="206" width="600" height="162"/>
-                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-kj-Bwo">
+                                <rect key="frame" x="30" y="455" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="gXi-l9-X02"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Specialty Awards" backgroundImage="OtherButton@3x.png">
+                                    <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnb-hZ-9Kv" customClass="SelectCityView" customModule="LADM" customModuleProvider="target">
+                                <rect key="frame" x="-16" y="383" width="600" height="218"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INA-2q-zrv">
+                                        <rect key="frame" x="0.0" y="46" width="600" height="162"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQJ-9n-86d">
+                                        <rect key="frame" x="20" y="10" width="62" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="lMD-ra-wy7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="lMD-ra-wy7"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="selectCityCancelPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jPW-QQ-eYr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbL-8f-vaE">
+                                        <rect key="frame" x="533" y="10" width="47" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="selectCityDonePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgs-OE-KNo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2T-EW-UhL">
+                                        <rect key="frame" x="0.0" y="110" width="600" height="34"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectCityRowPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VBb-xj-JlD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZQJ-9n-86d" firstAttribute="leading" secondItem="qnb-hZ-9Kv" secondAttribute="leading" constant="20" id="8BH-aV-RSh"/>
+                                    <constraint firstItem="ZQJ-9n-86d" firstAttribute="top" secondItem="qnb-hZ-9Kv" secondAttribute="top" constant="10" id="PAF-it-Gne"/>
+                                    <constraint firstItem="VbL-8f-vaE" firstAttribute="top" secondItem="qnb-hZ-9Kv" secondAttribute="top" constant="10" id="QBE-cM-CNr"/>
+                                    <constraint firstItem="INA-2q-zrv" firstAttribute="leading" secondItem="qnb-hZ-9Kv" secondAttribute="leading" id="Vkw-bK-ON4"/>
+                                    <constraint firstItem="F2T-EW-UhL" firstAttribute="centerX" secondItem="INA-2q-zrv" secondAttribute="centerX" id="W2L-Wy-USD"/>
+                                    <constraint firstAttribute="trailing" secondItem="INA-2q-zrv" secondAttribute="trailing" id="gd7-da-gyi"/>
+                                    <constraint firstItem="F2T-EW-UhL" firstAttribute="centerY" secondItem="INA-2q-zrv" secondAttribute="centerY" id="kfD-W7-B0n"/>
+                                    <constraint firstItem="INA-2q-zrv" firstAttribute="top" secondItem="ZQJ-9n-86d" secondAttribute="bottom" id="rMC-lE-WNk"/>
+                                    <constraint firstItem="INA-2q-zrv" firstAttribute="top" secondItem="VbL-8f-vaE" secondAttribute="bottom" id="sOE-ic-7E6"/>
+                                    <constraint firstItem="F2T-EW-UhL" firstAttribute="width" secondItem="INA-2q-zrv" secondAttribute="width" id="spz-ms-loe"/>
+                                    <constraint firstAttribute="trailing" secondItem="VbL-8f-vaE" secondAttribute="trailing" constant="20" id="tj3-i6-zFV"/>
+                                    <constraint firstAttribute="bottom" secondItem="INA-2q-zrv" secondAttribute="bottom" constant="10" id="zIJ-a0-4sz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cityPickerView" destination="INA-2q-zrv" id="FCi-mn-0m9"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -103,7 +162,9 @@
                             <constraint firstItem="aFJ-kj-Bwo" firstAttribute="top" secondItem="bk7-ua-faK" secondAttribute="bottom" constant="7.5" id="CzX-ke-6vd"/>
                             <constraint firstAttribute="trailing" secondItem="bk7-ua-faK" secondAttribute="trailing" constant="30" id="JDx-gq-UjD"/>
                             <constraint firstItem="bk7-ua-faK" firstAttribute="top" secondItem="rN3-aI-Af8" secondAttribute="bottom" constant="7.5" id="RWP-od-iwT"/>
+                            <constraint firstAttribute="trailing" secondItem="qnb-hZ-9Kv" secondAttribute="trailing" id="RnG-XS-GQ6"/>
                             <constraint firstItem="LTI-ca-LGp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S6I-Ic-pyr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qnb-hZ-9Kv" secondAttribute="top" id="WSK-pe-Wcw"/>
                             <constraint firstAttribute="trailing" secondItem="cUl-BK-qe0" secondAttribute="trailing" constant="30" id="gj2-zX-avz"/>
                             <constraint firstAttribute="trailing" secondItem="LTI-ca-LGp" secondAttribute="trailing" id="h0m-g1-54v"/>
                             <constraint firstItem="rN3-aI-Af8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="hq3-jP-V69"/>
@@ -115,10 +176,13 @@
                             <constraint firstItem="rN3-aI-Af8" firstAttribute="top" secondItem="OT6-Dh-Wkx" secondAttribute="bottom" constant="7.5" id="tOw-W6-NV4"/>
                             <constraint firstItem="cUl-BK-qe0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="um4-bp-79c"/>
                             <constraint firstItem="cUl-BK-qe0" firstAttribute="top" relation="lessThanOrEqual" secondItem="LTI-ca-LGp" secondAttribute="bottom" constant="40" id="vul-38-lGe"/>
+                            <constraint firstItem="qnb-hZ-9Kv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yLu-AX-MJh"/>
                             <constraint firstAttribute="trailing" secondItem="OT6-Dh-Wkx" secondAttribute="trailing" constant="30" id="yp2-LU-ZiK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="selectCityButton" destination="cUl-BK-qe0" id="VHs-BR-FMg"/>
+                        <outlet property="selectCityView" destination="qnb-hZ-9Kv" id="KrW-wf-LpV"/>
                         <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuSegue" modalPresentationStyle="overFullScreen" id="biN-BO-ZGV"/>
                     </connections>
                 </viewController>
@@ -440,7 +504,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.6470588235294118" blue="0.99215686274509807" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.6470588235294118" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="qB5-bz-aP3" secondAttribute="bottom" id="2mX-8F-mzq"/>
@@ -756,6 +820,6 @@
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3s1-Bn-ZAq"/>
+        <segue reference="biN-BO-ZGV"/>
     </inferredMetricsTieBreakers>
 </document>
