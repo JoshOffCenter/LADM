@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -152,7 +152,7 @@
                                                         <constraint firstAttribute="width" secondItem="jlf-Ie-rB2" secondAttribute="height" multiplier="17:15" id="K9C-1E-bIl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -163,7 +163,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Performace Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE6-Lt-Dup">
                                                     <rect key="frame" x="244" y="30" width="112" height="21"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-DT-aBr">
@@ -194,7 +194,7 @@
                                                         <constraint firstAttribute="width" secondItem="Nj9-oL-Q14" secondAttribute="height" multiplier="17:15" id="ehs-nK-JEY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -208,7 +208,7 @@
                                                         <constraint firstAttribute="width" secondItem="yl7-gb-Xze" secondAttribute="height" multiplier="17:15" id="Imj-pu-bRp"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -222,7 +222,7 @@
                                                         <constraint firstAttribute="width" secondItem="1J9-d6-VVX" secondAttribute="height" multiplier="17:15" id="ShX-3R-975"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -236,7 +236,7 @@
                                                         <constraint firstAttribute="width" secondItem="nkf-DY-Jsp" secondAttribute="height" multiplier="17:15" id="pPI-EZ-kBa"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -608,15 +608,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W07-V2-CE8">
-                                <rect key="frame" x="126" y="150" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="1py-Pu-bUl"/>
-                                    <constraint firstAttribute="width" constant="100" id="gtB-Va-NEf"/>
-                                </constraints>
-                                <state key="normal" image="Tours_Cities_Icons.png">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVI-FZ-RN9" userLabel="InvisibleBack">
+                                <rect key="frame" x="0.0" y="0.0" width="584" height="600"/>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="back:" destination="C2i-pG-pMh" eventType="touchUpInside" id="01d-nJ-14D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-kz-5Om">
                                 <rect key="frame" x="379" y="150" width="100" height="100"/>
@@ -686,6 +685,16 @@
                                     <segue destination="Oid-CF-FYW" kind="unwind" unwindAction="unwindToMainViewController:" id="Wdk-Ke-gMt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W07-V2-CE8">
+                                <rect key="frame" x="126" y="150" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1py-Pu-bUl"/>
+                                    <constraint firstAttribute="width" constant="100" id="gtB-Va-NEf"/>
+                                </constraints>
+                                <state key="normal" image="Tours_Cities_Icons.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -701,14 +710,20 @@
                             <constraint firstAttribute="centerY" secondItem="9fx-ST-s1p" secondAttribute="centerY" multiplier="0.7" id="VZN-WW-XVL"/>
                             <constraint firstItem="M7I-4r-07S" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="WsH-RN-Fv0"/>
                             <constraint firstAttribute="centerY" secondItem="W07-V2-CE8" secondAttribute="centerY" multiplier="1.5" id="ZRh-0n-jzr"/>
+                            <constraint firstItem="xr2-kz-5Om" firstAttribute="leading" secondItem="KVI-FZ-RN9" secondAttribute="trailing" id="a55-ei-mWr"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="aAD-vN-9FG"/>
+                            <constraint firstItem="9fx-ST-s1p" firstAttribute="top" secondItem="KVI-FZ-RN9" secondAttribute="bottom" id="cPd-R4-Ofd"/>
+                            <constraint firstItem="KVI-FZ-RN9" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leading" id="dH3-5c-qsk"/>
                             <constraint firstItem="9fx-ST-s1p" firstAttribute="centerY" secondItem="ail-3o-6Up" secondAttribute="centerY" id="euo-jB-dtw"/>
                             <constraint firstItem="xge-Rk-toG" firstAttribute="top" secondItem="xr2-kz-5Om" secondAttribute="bottom" constant="10" id="fwB-Ca-U9y"/>
                             <constraint firstItem="3P0-TB-vDL" firstAttribute="top" secondItem="xxO-mJ-2Lw" secondAttribute="bottom" constant="30" id="jif-C0-dwF"/>
+                            <constraint firstItem="KVI-FZ-RN9" firstAttribute="top" secondItem="Ga8-S5-9uR" secondAttribute="top" id="kga-rd-0eu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KVI-FZ-RN9" secondAttribute="trailing" id="nm4-dm-yjV"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" multiplier="0.5" id="pFS-tm-IHq"/>
                             <constraint firstAttribute="centerX" secondItem="xxO-mJ-2Lw" secondAttribute="centerX" id="pbn-PR-6bC"/>
                             <constraint firstAttribute="centerY" secondItem="xr2-kz-5Om" secondAttribute="centerY" multiplier="1.5" id="qr1-pg-tKM"/>
                             <constraint firstItem="xge-Rk-toG" firstAttribute="centerX" secondItem="xr2-kz-5Om" secondAttribute="centerX" id="rL3-Lo-iWj"/>
+                            <constraint firstItem="3P0-TB-vDL" firstAttribute="top" secondItem="KVI-FZ-RN9" secondAttribute="bottom" id="rgV-fa-PIc"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" constant="52" id="uGS-w2-4bI"/>
                             <constraint firstItem="xr2-kz-5Om" firstAttribute="centerX" secondItem="ail-3o-6Up" secondAttribute="centerX" id="vVI-BH-U6Q"/>
                             <constraint firstItem="M7I-4r-07S" firstAttribute="top" secondItem="9fx-ST-s1p" secondAttribute="bottom" constant="10" id="xi9-Jo-8hr"/>
@@ -720,6 +735,8 @@
                                 <exclude reference="TnL-4L-ozy"/>
                                 <exclude reference="pFS-tm-IHq"/>
                                 <exclude reference="uGS-w2-4bI"/>
+                                <exclude reference="cPd-R4-Ofd"/>
+                                <exclude reference="a55-ei-mWr"/>
                             </mask>
                         </variation>
                     </view>

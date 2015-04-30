@@ -22,7 +22,10 @@ class MenuViewController: UIViewController {
    
    @IBOutlet weak var socialMediaButton: UIButton!
    @IBOutlet weak var socialMediaLabel: UILabel!
-   
+    
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
    @IBAction func unwindToMainViewController(sender: UIStoryboardSegue) {
       // bug? exit segue doesn't dismiss so we do it manually...
