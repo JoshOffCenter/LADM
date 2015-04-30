@@ -58,6 +58,15 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    @IBOutlet weak var invisibleFilterButtonTopConstraint: NSLayoutConstraint!
    @IBOutlet weak var invisibleFilterButtonBottomConstraint: NSLayoutConstraint!
    
+   //Dismiss Button
+   @IBOutlet weak var dismissButton: UIButton!
+   
+   @IBOutlet weak var dismissButtonConstraintLeft: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintTop: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
+   
+   
    
    //Test Data
    var event1 = CompEventItem(time: "3:30p", performanceTitle: "Circus", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
@@ -218,6 +227,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       expandFilterMenu()
    }
    
+   @IBAction func dismissButtonPressed(sender: AnyObject) {
+      expandFilterMenu()
+   }
    func expandFilterMenu() {
       let compactMenuSize:CGFloat = 40
       let fullMenuSize:CGFloat = self.view.frame.height - 200
@@ -245,6 +257,10 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
          UIView.animateWithDuration(0.25, animations: { () -> Void in
             self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
          })
+         
+         self.view.insertSubview(dismissButton, belowSubview: filterMenuView)
+         self.view.addConstraints([dismissButtonConstraintBottom, dismissButtonConstraintLeft, dismissButtonConstraintRight, dismissButtonConstraintTop])
+         
          filterMenuExpanded = true
       }
       else {
@@ -269,8 +285,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
 
          }, completion: nil)
-      }
+         self.dismissButton.removeFromSuperview()
 
+      }
    }
    
    

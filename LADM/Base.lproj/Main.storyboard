@@ -152,6 +152,15 @@
                                     <outlet property="cityPickerView" destination="INA-2q-zrv" id="FCi-mn-0m9"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-O8-SyV">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoE-FL-UD6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -164,7 +173,10 @@
                             <constraint firstItem="bk7-ua-faK" firstAttribute="top" secondItem="rN3-aI-Af8" secondAttribute="bottom" constant="7.5" id="RWP-od-iwT"/>
                             <constraint firstAttribute="trailing" secondItem="qnb-hZ-9Kv" secondAttribute="trailing" id="RnG-XS-GQ6"/>
                             <constraint firstItem="LTI-ca-LGp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="S6I-Ic-pyr"/>
+                            <constraint firstItem="SOi-O8-SyV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="V0Z-ie-oJZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qnb-hZ-9Kv" secondAttribute="top" id="WSK-pe-Wcw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SOi-O8-SyV" secondAttribute="bottom" id="Yju-Ut-uNq"/>
+                            <constraint firstItem="SOi-O8-SyV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ei5-vG-dbt"/>
                             <constraint firstAttribute="trailing" secondItem="cUl-BK-qe0" secondAttribute="trailing" constant="30" id="gj2-zX-avz"/>
                             <constraint firstAttribute="trailing" secondItem="LTI-ca-LGp" secondAttribute="trailing" id="h0m-g1-54v"/>
                             <constraint firstItem="rN3-aI-Af8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="hq3-jP-V69"/>
@@ -176,11 +188,22 @@
                             <constraint firstItem="rN3-aI-Af8" firstAttribute="top" secondItem="OT6-Dh-Wkx" secondAttribute="bottom" constant="7.5" id="tOw-W6-NV4"/>
                             <constraint firstItem="cUl-BK-qe0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="um4-bp-79c"/>
                             <constraint firstItem="cUl-BK-qe0" firstAttribute="top" relation="lessThanOrEqual" secondItem="LTI-ca-LGp" secondAttribute="bottom" constant="40" id="vul-38-lGe"/>
+                            <constraint firstAttribute="trailing" secondItem="SOi-O8-SyV" secondAttribute="trailing" id="wMY-hb-yVz"/>
                             <constraint firstItem="qnb-hZ-9Kv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yLu-AX-MJh"/>
                             <constraint firstAttribute="trailing" secondItem="OT6-Dh-Wkx" secondAttribute="trailing" constant="30" id="yp2-LU-ZiK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SOi-O8-SyV"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="SOi-O8-SyV" id="SSs-2b-PEI"/>
+                        <outlet property="dismissButtonConstraintBottom" destination="Yju-Ut-uNq" id="0Xi-Vm-nJ0"/>
+                        <outlet property="dismissButtonConstraintLeft" destination="V0Z-ie-oJZ" id="j6Y-dq-T5P"/>
+                        <outlet property="dismissButtonConstraintRight" destination="wMY-hb-yVz" id="r39-jP-9Sd"/>
+                        <outlet property="dismissButtonConstraintTop" destination="ei5-vG-dbt" id="CSI-up-uRA"/>
                         <outlet property="selectCityButton" destination="cUl-BK-qe0" id="VHs-BR-FMg"/>
                         <outlet property="selectCityView" destination="qnb-hZ-9Kv" id="KrW-wf-LpV"/>
                         <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuSegue" modalPresentationStyle="overFullScreen" id="biN-BO-ZGV"/>
@@ -601,25 +624,41 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhw-FQ-JX7">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="1MU-rN-bch"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mmp-Le-naY" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" id="4jD-5f-6c5"/>
                             <constraint firstAttribute="trailing" secondItem="3qx-Gv-dkK" secondAttribute="trailing" id="7jA-tM-1Y5"/>
                             <constraint firstAttribute="trailing" secondItem="Mmp-Le-naY" secondAttribute="trailing" id="9d2-PT-J5P"/>
+                            <constraint firstAttribute="bottom" secondItem="lhw-FQ-JX7" secondAttribute="bottom" id="ENO-oE-Rvt"/>
                             <constraint firstAttribute="bottom" secondItem="Mmp-Le-naY" secondAttribute="bottom" id="GDs-fU-lUb"/>
                             <constraint firstItem="6BE-sY-hu8" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="HFi-pF-8Uv"/>
                             <constraint firstItem="Mmp-Le-naY" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" id="HfY-Fh-31V"/>
                             <constraint firstAttribute="trailing" secondItem="6BE-sY-hu8" secondAttribute="trailing" id="JXi-aq-5B9"/>
+                            <constraint firstAttribute="trailing" secondItem="lhw-FQ-JX7" secondAttribute="trailing" id="LzT-nd-n0s"/>
                             <constraint firstItem="6BE-sY-hu8" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="trailing" constant="-510" id="PjM-rp-J6Y"/>
                             <constraint firstItem="3qx-Gv-dkK" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="Ro1-4H-Bge"/>
                             <constraint firstItem="Mmp-Le-naY" firstAttribute="top" secondItem="3qx-Gv-dkK" secondAttribute="bottom" id="Y7A-jW-WN0"/>
+                            <constraint firstItem="lhw-FQ-JX7" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="Yog-lk-S6P"/>
                             <constraint firstItem="Mmp-Le-naY" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" constant="40" id="gfe-7W-YWS"/>
+                            <constraint firstItem="lhw-FQ-JX7" firstAttribute="top" secondItem="pah-M4-S29" secondAttribute="bottom" id="j51-2H-9Kp"/>
                             <constraint firstItem="6BE-sY-hu8" firstAttribute="top" secondItem="I2t-Tf-eFl" secondAttribute="top" id="mql-SO-4iS"/>
                             <constraint firstItem="3qx-Gv-dkK" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" id="poQ-Y8-enF"/>
                             <constraint firstItem="Mmp-Le-naY" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="rul-wv-PtW"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lhw-FQ-JX7"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="PjM-rp-J6Y"/>
                                 <exclude reference="4jD-5f-6c5"/>
@@ -629,6 +668,11 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="dismissButton" destination="lhw-FQ-JX7" id="VVS-Jb-ra1"/>
+                        <outlet property="dismissButtonConstraintBottom" destination="ENO-oE-Rvt" id="M1N-Lj-wOe"/>
+                        <outlet property="dismissButtonConstraintLeft" destination="Yog-lk-S6P" id="t2q-NU-a6Q"/>
+                        <outlet property="dismissButtonConstraintRight" destination="LzT-nd-n0s" id="Ot8-25-HKe"/>
+                        <outlet property="dismissButtonConstraintTop" destination="j51-2H-9Kp" id="sFU-hE-G3V"/>
                         <outlet property="filterAgeConstraintLeft" destination="syB-kn-64Q" id="xa8-5r-XmT"/>
                         <outlet property="filterAgeConstraintRight" destination="6Rc-Ug-zpd" id="0oP-RO-ell"/>
                         <outlet property="filterAgeConstraintTop" destination="JMI-cG-Gwm" id="66H-Xu-yqy"/>
@@ -837,6 +881,6 @@
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="biN-BO-ZGV"/>
+        <segue reference="3s1-Bn-ZAq"/>
     </inferredMetricsTieBreakers>
 </document>

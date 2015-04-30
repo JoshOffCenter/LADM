@@ -17,6 +17,12 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    @IBOutlet weak var selectCityButton: UIButton!
    
    @IBOutlet weak var selectCityView: SelectCityView!
+   @IBOutlet weak var dismissButton: UIButton!
+   
+   @IBOutlet weak var dismissButtonConstraintLeft: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintTop: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
+   @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
    
    
    var selectedCity = "Select City"
@@ -73,6 +79,10 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    }
    
    
+   @IBAction func dismissButtonPressed(sender: AnyObject) {
+      animateSelectCityView(true)
+   }
+   
    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
       return 1
    }
@@ -105,6 +115,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       var slideDirection: CGAffineTransform!
       if shouldSlideOff == true {
           slideDirection = CGAffineTransformMakeTranslation(0, 10)
+         self.dismissButton.removeFromSuperview()
       }
       else {
           slideDirection = CGAffineTransformMakeTranslation(0, -selectCityView.frame.height + 20)
@@ -113,6 +124,16 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
             self.selectCityView.transform = slideDirection
       }, completion: nil)
+      
+      if shouldSlideOff == false {
+         self.view.insertSubview(dismissButton, belowSubview: selectCityView)
+
+         self.view.addConstraints([dismissButtonConstraintLeft, dismissButtonConstraintRight, dismissButtonConstraintTop, dismissButtonConstraintBottom])
+         
+      }
+      else {
+         self.dismissButton.removeFromSuperview()
+      }
       
    }
    
