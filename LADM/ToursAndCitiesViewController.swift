@@ -137,9 +137,6 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       
    }
    
-   
-   
-   
     
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

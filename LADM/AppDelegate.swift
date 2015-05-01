@@ -18,11 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-      
-      let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-      let tcVController = storyboard.instantiateViewControllerWithIdentifier("tourCitiesAndDatesViewController") as! ToursAndCitiesViewController
-      navController = UINavigationController(rootViewController: tcVController)
-      println(navController)
+   
             
         return true
     }
