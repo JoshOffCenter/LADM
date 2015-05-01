@@ -11,7 +11,7 @@
         <!--Tours And Cities View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ToursAndCitiesViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tourCitiesAndDatesViewController" id="BYZ-38-t0r" customClass="ToursAndCitiesViewController" customModule="LADM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -611,14 +611,10 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Competition Order" id="9ig-VM-zhQ">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="2kw-d4-h9W">
-                                            <connections>
-                                                <segue destination="MsS-Tl-kJz" kind="unwind" unwindAction="unwindToTourCitiesViewController:" id="1aR-EC-VmD"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="2kw-d4-h9W"/>
                                         <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="w2P-2m-wUD">
                                             <connections>
-                                                <segue destination="C2i-pG-pMh" kind="presentation" modalPresentationStyle="overCurrentContext" id="3s1-Bn-ZAq"/>
+                                                <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuModally" modalPresentationStyle="overFullScreen" id="3s1-Bn-ZAq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -700,10 +696,11 @@
                         <outlet property="invisibleFilterButtonBottomConstraint" destination="jqJ-r4-r8J" id="gLV-bn-X1v"/>
                         <outlet property="invisibleFilterButtonTopConstraint" destination="Mqi-9p-u2M" id="VNe-YR-4nt"/>
                         <outlet property="tableView" destination="Mmp-Le-naY" id="A1y-VI-SVq"/>
+                        <segue destination="SMf-rB-rqd" kind="unwind" identifier="unwindToTourCities" unwindAction="unwindToTourCitiesViewController:" id="wd7-hd-uHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuF-G4-kDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="MsS-Tl-kJz" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="SMf-rB-rqd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1010" y="424"/>
         </scene>
@@ -793,7 +790,6 @@
                                 </state>
                                 <connections>
                                     <action selector="unwindToMainViewController:" destination="C2i-pG-pMh" eventType="touchUpInside" id="gD6-fx-2VG"/>
-                                    <segue destination="Oid-CF-FYW" kind="unwind" unwindAction="unwindToMainViewController:" id="Wdk-Ke-gMt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W07-V2-CE8">
@@ -805,6 +801,9 @@
                                 <state key="normal" image="Tours_Cities_Icons.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tourCitesAndDatesPressed:" destination="C2i-pG-pMh" eventType="touchUpInside" id="7zk-c6-lDB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
@@ -860,12 +859,14 @@
                         <outlet property="socialMediaLabel" destination="WFB-jB-FYv" id="E2O-3h-kNP"/>
                         <outlet property="tourCitiesButton" destination="W07-V2-CE8" id="vFI-In-rmK"/>
                         <outlet property="tourCitiesLabel" destination="3sR-YZ-Tcc" id="ieo-VK-hzX"/>
+                        <segue destination="Oid-CF-FYW" kind="unwind" unwindAction="unwindToMainViewController:" id="dUV-Hv-LBL"/>
+                        <segue destination="Oid-CF-FYW" kind="unwind" identifier="unwindToTourCities" unwindAction="unwindToTourCitiesViewController:" id="cSf-oA-5fm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp2-FT-4d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Oid-CF-FYW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1637" y="394"/>
+            <point key="canvasLocation" x="1849" y="384"/>
         </scene>
     </scenes>
     <resources>

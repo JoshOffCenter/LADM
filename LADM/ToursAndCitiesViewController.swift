@@ -27,7 +27,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
    var selectedCity = "Select City"
    
-   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York"]
+   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York", "Irvine National Finals"]
    
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -156,7 +156,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    }
    
    @IBAction func unwindToTourCitiesViewController(sender: UIStoryboardSegue) {
-//      self.dismissViewControllerAnimated(true, completion: nil)
+
       
    }
     

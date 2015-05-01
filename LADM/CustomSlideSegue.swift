@@ -62,7 +62,7 @@ class CustomSlideSegue: UIStoryboardSegue {
       window?.addSubview(secondVCView.view)
       
 //      firstVCView.view.addSubview(secondVCView.view)
-      secondVCView.view.frame = firstVCView.view.window!.frame
+//      secondVCView.view.frame = firstVCView.view.window!.frame
 
       secondVCView.view.bounds = firstVCView.view.bounds
       
