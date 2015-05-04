@@ -11,7 +11,6 @@ import Darwin
 
 class CompOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
-   
    //Table View
    @IBOutlet weak var tableView: UITableView!
    
@@ -70,11 +69,11 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    
    //Test Data
-   var event1 = CompEventItem(time: "3:30p", performanceTitle: "Circus", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-   var event2 = CompEventItem(time: "3:33p", performanceTitle: "Cookies", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-   var event3 = CompEventItem(time: "3:36p", performanceTitle: "Chapel of Love", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-   var event4 = CompEventItem(time: "3:39p", performanceTitle: "Crayola Doesn't Make A Decent Crayon", studio: "Progressions Elite", age: "JR",  category: "Contemporary", division: "Group")
-   var event5 = CompEventItem(time: "3:43p", performanceTitle: "Funky Town", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
+//   var event1 = CompEventItem(time: "3:30p", performanceTitle: "Circus", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
+//   var event2 = CompEventItem(time: "3:33p", performanceTitle: "Cookies", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
+//   var event3 = CompEventItem(time: "3:36p", performanceTitle: "Chapel of Love", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
+//   var event4 = CompEventItem(time: "3:39p", performanceTitle: "Crayola Doesn't Make A Decent Crayon", studio: "Progressions Elite", age: "JR",  category: "Contemporary", division: "Group")
+//   var event5 = CompEventItem(time: "3:43p", performanceTitle: "Funky Town", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
    
    
    var compEvents = [CompEventItem]()
@@ -83,14 +82,17 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    var cellExpanded = false
    
    override func viewWillAppear(animated: Bool) {
-      if tableView.numberOfRowsInSection(0) <= 0 {
-         compEvents.append(event1)
-         compEvents.append(event2)
-         compEvents.append(event3)
-         compEvents.append(event4)
-         compEvents.append(event5)
-      }
-      
+//      if tableView.numberOfRowsInSection(0) <= 0 {
+//         compEvents.append(event1)
+//         compEvents.append(event2)
+//         compEvents.append(event3)
+//         compEvents.append(event4)
+//         compEvents.append(event5)
+//        
+//      }
+        fillData()
+    
+    
 //      filterMenuView.hidden = true
    }
    
@@ -122,6 +124,15 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       }
       
    }
+    
+    func fillData() {
+        var data = cityData[selectedCity]!.competitionSchedule
+        for (var i = 1; i < data.count;i++) {
+            var number = data[String(i)]!
+            var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
+            compEvents.append(eventItem)
+        }
+    }
 
    
    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -329,8 +340,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
       }
    }
-   
-   
+    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       let toViewController = segue.destinationViewController as! UIViewController
       toViewController.transitioningDelegate = self.transitionManager

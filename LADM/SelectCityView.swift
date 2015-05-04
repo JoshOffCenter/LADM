@@ -14,5 +14,5 @@ class SelectCityView: UIView {
    
 //   let blurEffect = UIBlurEffect(style: .Light)
 //   let blurView = UIVisualEffectView(effect: blurEffect)
-   
+    
 }

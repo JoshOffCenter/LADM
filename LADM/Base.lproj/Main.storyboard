@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -56,6 +56,7 @@
                                     <color key="titleColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk7-ua-faK">
                                 <rect key="frame" x="30" y="382" width="540" height="65"/>
@@ -67,6 +68,7 @@
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
                                 <rect key="frame" x="30" y="310" width="540" height="65"/>
@@ -78,6 +80,7 @@
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                                 <connections>
                                     <action selector="competitionOrderPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6g-Nt-jBn"/>
                                 </connections>
@@ -92,6 +95,7 @@
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                             </button>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnb-hZ-9Kv" customClass="SelectCityView" customModule="LADM" customModuleProvider="target">
                                 <rect key="frame" x="-16" y="383" width="600" height="218"/>
@@ -206,6 +210,7 @@
                         <outlet property="dismissButtonConstraintTop" destination="ei5-vG-dbt" id="CSI-up-uRA"/>
                         <outlet property="selectCityButton" destination="cUl-BK-qe0" id="VHs-BR-FMg"/>
                         <outlet property="selectCityView" destination="qnb-hZ-9Kv" id="KrW-wf-LpV"/>
+                        <outlet property="specialtyAwardsButton" destination="aFJ-kj-Bwo" id="frO-5l-p3m"/>
                         <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuSegue" modalPresentationStyle="overFullScreen" id="biN-BO-ZGV"/>
                     </connections>
                 </viewController>
@@ -884,6 +889,7 @@
         <image name="Filter_Menu_Triangle.png" width="40" height="40"/>
         <image name="Menu_Button.png" width="38" height="25"/>
         <image name="OtherButton@3x.png" width="1890" height="387"/>
+        <image name="Other_Button_Disabled@3x.png" width="38" height="25"/>
         <image name="Social_Media_Icon.png" width="200" height="200"/>
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>

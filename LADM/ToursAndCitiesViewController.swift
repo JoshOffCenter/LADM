@@ -7,15 +7,24 @@
 //
 
 import UIKit
+var cityData = Dictionary<String,CityData>()
+var selectedCity = "Select City"
+
 
 class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
    //Transition Manager
-   let transitionManager = TransitionManager()
-   var menuButtonPressed = false
-   
+    let transitionManager = TransitionManager()
+    var menuButtonPressed = false
+    var dataFetcher = DataFetcher()
+    let pickerData = ["Select City"] + DataFetcher().getCities()
+
+    @IBOutlet weak var scheduleButton: UIButton!
+    @IBOutlet weak var competitionOrderButton: UIButton!
+    @IBOutlet weak var competitionResultsButton: UIButton!
+    @IBOutlet weak var specialtyAwardsButton: UIButton!
+    
    @IBOutlet weak var selectCityButton: UIButton!
-   
    @IBOutlet weak var selectCityView: SelectCityView!
    @IBOutlet weak var dismissButton: UIButton!
    
@@ -34,7 +43,10 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       selectCityView.cityPickerView.dataSource = self
       selectCityView.cityPickerView.delegate = self
       addBlur()
+        buttonShade()
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
@@ -69,6 +81,8 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       selectCityButton.setTitle(selectedCity, forState: .Normal)
       selectCityButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 25)
       selectCityButton.titleLabel?.textAlignment = .Center
+      cityData[selectedCity] = CityData(city: selectedCity.stringByReplacingOccurrencesOfString(" ", withString: "_"))
+        buttonShade()
    }
    
    @IBAction func selectCityRowPressed(sender: AnyObject) {
@@ -76,8 +90,10 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       selectCityButton.setTitle(selectedCity, forState: .Normal)
       selectCityButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 25)
       selectCityButton.titleLabel?.textAlignment = .Center
+      cityData[selectedCity] = CityData(city: selectedCity.stringByReplacingOccurrencesOfString(" ", withString: "_"))
+        buttonShade()
    }
-   
+    
    
    @IBAction func dismissButtonPressed(sender: AnyObject) {
       animateSelectCityView(true)
@@ -99,8 +115,6 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       
       selectedCity = pickerData[row]
    }
-   
-   
    
    func addBlur() {
       let blurEffect: UIBlurEffect = UIBlurEffect(style: .Light)
@@ -156,6 +170,41 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 
       
    }
+    
+    func buttonShade() {
+        if selectedCity == "Select City" {
+            competitionOrderButton.enabled = false
+            competitionResultsButton.enabled = false
+            specialtyAwardsButton.enabled = false
+            scheduleButton.enabled = false
+            return
+        }
+        var cd = cityData[selectedCity]
+        if cd!.competitionSchedule.count == 0 {
+            competitionOrderButton.enabled = false
+        }
+        else{
+            competitionOrderButton.enabled = true
+        }
+        if cd!.dailySchedule.count == 0 {
+            scheduleButton.enabled = false
+        }
+        else {
+            scheduleButton.enabled = true
+        }
+        if cd!.specialtyAwards.count == 0 {
+            specialtyAwardsButton.enabled = false
+        }
+        else {
+            specialtyAwardsButton.enabled = true
+        }
+        if cd!.competitionResults.count == 0 {
+            competitionResultsButton.enabled = false
+        }
+        else {
+            competitionResultsButton.enabled = true
+        }
+    }
     
 
 }
