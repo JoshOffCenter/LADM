@@ -66,6 +66,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
    
+    @IBOutlet weak var invisibleFilterButton: UIButton!
    
    
    //Test Data
@@ -102,6 +103,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
       tableView.estimatedRowHeight = 80.0;
       setupFilterMenu()
+      setupGestures()
 
    }
    override func viewDidAppear(animated: Bool) {
@@ -230,6 +232,44 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    @IBAction func dismissButtonPressed(sender: AnyObject) {
       expandFilterMenu()
    }
+   
+   @IBAction func backButtonPressed(sender: AnyObject) {
+      self.performSegueWithIdentifier("unwindToTourCities", sender: self)
+
+   }
+    
+    func setupGestures() {
+        var swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        var swipeUp = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        
+        var pan = UIPanGestureRecognizer(target: self, action: Selector("handleGestures:"))
+//        var dragUp = UIPanGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        
+        swipeDown.direction = .Down
+        swipeDown.direction = .Up
+        
+        filterMenuView.addGestureRecognizer(swipeDown)
+        filterMenuView.addGestureRecognizer(swipeDown)
+        filterMenuView.addGestureRecognizer(swipeUp)
+        filterMenuView.addGestureRecognizer(pan)
+    }
+    
+    func handleGestures(sender: UISwipeGestureRecognizer){
+        if sender.isKindOfClass(UISwipeGestureRecognizer.self){
+            if sender.direction == .Down && filterMenuExpanded == false{
+                self.expandFilterMenu()
+            }
+            else if sender.direction == .Up && filterMenuExpanded == true {
+                self.expandFilterMenu()
+            }
+        }
+        else if sender.isKindOfClass(UIPanGestureRecognizer.self) {
+            if sender.state == UIGestureRecognizerState.Began {
+                expandFilterMenu()
+            }
+        }
+    }
+   
    func expandFilterMenu() {
       let compactMenuSize:CGFloat = 40
       let fullMenuSize:CGFloat = self.view.frame.height - 200
