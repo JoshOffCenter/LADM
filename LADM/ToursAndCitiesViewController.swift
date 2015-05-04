@@ -33,9 +33,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
    
-   
-   var selectedCity = "Select City"
-   
+    
 //   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York", "Irvine National Finals"]
    
     override func viewDidLoad() {
