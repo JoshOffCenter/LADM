@@ -26,6 +26,8 @@
 		15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */; };
 		15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A941AEC517C004D3E29 /* EventCell.swift */; };
 		15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A961AEC5314004D3E29 /* CompEventItem.swift */; };
+		BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */; };
+		BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */; };
 		BC2142341AF60432002BEF83 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2142331AF60432002BEF83 /* DataFetcher.swift */; };
 		BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */; };
 		BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */; };
@@ -65,6 +67,8 @@
 		15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite_Enabled.png; sourceTree = "<group>"; };
 		15E84A941AEC517C004D3E29 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		15E84A961AEC5314004D3E29 /* CompEventItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompEventItem.swift; sourceTree = "<group>"; };
+		BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle_Right.png; sourceTree = "<group>"; };
+		BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle_Left.png; sourceTree = "<group>"; };
 		BC2142331AF60432002BEF83 /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToursAndCitiesViewController.swift; sourceTree = "<group>"; };
 		BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Other_Button_Disabled@3x.png"; path = "Schedule/Other_Button_Disabled@3x.png"; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 		15E84A8B1AEC459D004D3E29 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */,
+				BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */,
 				153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */,
 				15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */,
 				15E84A901AEC4FBB004D3E29 /* Favorite_Disabled.png */,
@@ -280,11 +286,13 @@
 				1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */,
 				1587E1B51AEE1DD400E6B79F /* Event_Feed_Icon.png in Resources */,
 				1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */,
+				BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */,
 				1587E1B61AEE1DD400E6B79F /* Social_Media_Icon.png in Resources */,
 				15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */,
 				153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */,
 				15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */,
 				15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */,
+				BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
 				1587E1B71AEE1DD400E6B79F /* Tours_Cities_Icons.png in Resources */,
 				15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */,
