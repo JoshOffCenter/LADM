@@ -67,15 +67,6 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
     @IBOutlet weak var invisibleFilterButton: UIButton!
    
-   
-   //Test Data
-//   var event1 = CompEventItem(time: "3:30p", performanceTitle: "Circus", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event2 = CompEventItem(time: "3:33p", performanceTitle: "Cookies", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event3 = CompEventItem(time: "3:36p", performanceTitle: "Chapel of Love", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event4 = CompEventItem(time: "3:39p", performanceTitle: "Crayola Doesn't Make A Decent Crayon", studio: "Progressions Elite", age: "JR",  category: "Contemporary", division: "Group")
-//   var event5 = CompEventItem(time: "3:43p", performanceTitle: "Funky Town", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-   
-   
    var compEvents = [CompEventItem]()
    var selectedIndexPath: NSIndexPath? = nil
    var lastSelectedIndexPath: NSIndexPath? = nil

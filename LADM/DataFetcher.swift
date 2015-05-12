@@ -56,6 +56,8 @@ class CityData
     var competitionResults = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
     var specialtyAwards = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
     var studios = [String]()
+    var ages = [String]()
+    var categories = [String]()
     let dataFetcher = DataFetcher()
     
     init(city:String) {
@@ -65,10 +67,9 @@ class CityData
         getCompetitionResults()
         getSpecialtyAwards()
         getStudios()
+        getCategories()
+        getAges()
         
-        var x = filterCompetitionSchedule("Any Studio",age: "JR",category: "Any Category",day: "Any Day")
-        println(x)
-        println(x.count)
     }
     
     func getCompetitionSchedule() {
@@ -111,6 +112,28 @@ class CityData
             }
         }
         studios.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+    }
+    
+    func getCategories() {
+        for (key,item) in competitionSchedule {
+            var category = item["Category"]!
+            if find(categories,category) == nil {
+                categories.append(category)
+            }
+        }
+        categories.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+
+    }
+    
+    func getAges() {
+        for (key,item) in competitionSchedule {
+            var age = item["Age"]!
+            if find(ages,age) == nil {
+                ages.append(age)
+            }
+        }
+        ages.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+
     }
     
     func filterCompetitionSchedule(studio:String, age:String, category:String, day:String) -> Dictionary<String,Dictionary<String,String>> {

@@ -28,6 +28,16 @@ class FilterMenuView: UIView {
    @IBOutlet weak var filterFavoritesButton: UIButton!
    @IBOutlet weak var filterMenuButton: UIButton!
 
+    
+    var studios = ["Any Studio"] + cityData[selectedCity]!.studios
+    var ages = ["Any Age"] + cityData[selectedCity]!.ages
+    var categories = ["Any Category"] + cityData[selectedCity]!.categories
+    var days = ["Any Day","Friday","Saturday"]
+    
+    var counter = ["Studios": 0, "Ages": 0, "Categories": 0, "Days":0]
+
+
+
 
    
 
@@ -35,7 +45,45 @@ class FilterMenuView: UIView {
       super.init(coder: aDecoder)
       
       self.roundCorners(.BottomLeft | .BottomRight, radius: 5)
-      
+    
    }
+    
+    @IBAction func changeFilter (sender:UIButton) {
+        filterAgeButton.titleLabel!.numberOfLines = 3
+        filterAgeButton.titleLabel!.textAlignment = .Center
+
+        switch sender.titleLabel!.text! {
+            case "StudioButtonRight": counter["Studios"]!++
+            case "StudioButtonLeft": counter["Studios"]!--
+            case "AgeButtonRight": counter["Ages"]!++
+            case "AgeButtonLeft": counter["Ages"]!--
+            case "CategoryButtonRight": counter["Categories"]!++
+            case "CategoryButtonLeft": counter["Categories"]!--
+            case "DayButtonRight": counter["Days"]!++
+            case "DayButtonLeft": counter["Days"]!--
+        default: break
+        }
+        
+        if counter["Studios"]! < 0 {
+            counter["Studios"] = studios.count - 1
+        }
+        if counter["Ages"]! < 0 {
+            counter["Ages"] = ages.count - 1
+        }
+        if counter["Categories"]! < 0 {
+            counter["Categories"] = categories.count - 1
+        }
+        if counter["Days"]! < 0 {
+            counter["Days"] = 2
+        }
+        
+        filterAgeButton.setTitle(studios[counter["Studios"]! % studios.count], forState: UIControlState.Normal)
+        filterCategoryButton.setTitle(ages[counter["Ages"]! % ages.count], forState: UIControlState.Normal)
+        filterDivisionButton.setTitle(categories[counter["Categories"]! % categories.count], forState: UIControlState.Normal)
+        filterFavoritesButton.setTitle(days[counter["Days"]! % 3], forState: UIControlState.Normal)
+
+        
+    }
+    
    
 }

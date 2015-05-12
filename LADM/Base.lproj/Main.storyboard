@@ -512,72 +512,96 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="c0V-xs-4Mv" secondAttribute="height" multiplier="1:1" id="HIp-dh-rMC"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Left.png">
+                                        <state key="normal" title="StudioButtonLeft" image="Filter_Menu_Triangle_Left.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="Hhl-Zd-Kku"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG4-88-TtF" userLabel="StudioButtonRight">
                                         <rect key="frame" x="547" y="133" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vG4-88-TtF" secondAttribute="height" multiplier="1:1" id="2HV-kw-hgE"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Right.png">
+                                        <state key="normal" title="StudioButtonRight" image="Filter_Menu_Triangle_Right.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="pjQ-MC-Ayu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9v-Os-TYq" userLabel="AgeButtonLeft">
                                         <rect key="frame" x="41" y="203" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="p9v-Os-TYq" secondAttribute="height" multiplier="1:1" id="wzp-e4-B1S"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Left.png">
+                                        <state key="normal" title="AgeButtonLeft" image="Filter_Menu_Triangle_Left.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="yBX-2Y-sVE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4Q-WJ-0m3" userLabel="AgeButtonRight">
                                         <rect key="frame" x="547" y="203" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="J4Q-WJ-0m3" secondAttribute="height" multiplier="1:1" id="5rh-mN-nf4"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Right.png">
+                                        <state key="normal" title="AgeButtonRight" image="Filter_Menu_Triangle_Right.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="f34-6C-Waz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-SW-TbA" userLabel="CategoryButtonLeft">
                                         <rect key="frame" x="41" y="273" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="CJS-SW-TbA" secondAttribute="height" multiplier="1:1" id="KNm-J9-DSk"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Left.png">
+                                        <state key="normal" title="CategoryButtonLeft" image="Filter_Menu_Triangle_Left.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="oO5-t2-j7L"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssj-Iu-F9K" userLabel="CategoryButtonRight">
                                         <rect key="frame" x="547" y="273" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ssj-Iu-F9K" secondAttribute="height" multiplier="1:1" id="GgN-me-elE"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Right.png">
+                                        <state key="normal" title="CategoryButtonRight" image="Filter_Menu_Triangle_Right.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="BwE-gE-5P9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDD-RU-glW" userLabel="DayButtonLeft">
                                         <rect key="frame" x="41" y="343" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pDD-RU-glW" secondAttribute="height" multiplier="1:1" id="4f7-Re-jy6"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Left.png">
+                                        <state key="normal" title="DayButtonLeft" image="Filter_Menu_Triangle_Left.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="dBD-aw-mwa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GN0-48-YcE" userLabel="DayButtonRight">
                                         <rect key="frame" x="547" y="343" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GN0-48-YcE" secondAttribute="height" multiplier="1:1" id="3CO-av-U2M"/>
                                         </constraints>
-                                        <state key="normal" image="Filter_Menu_Triangle_Right.png">
+                                        <state key="normal" title="DayButtonRight" image="Filter_Menu_Triangle_Right.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeFilter:" destination="3qx-Gv-dkK" eventType="touchUpInside" id="PXo-9j-CMK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qB5-bz-aP3">
                                         <rect key="frame" x="0.0" y="406" width="600" height="30"/>
@@ -694,13 +718,13 @@
                                         <exclude reference="kt4-GK-7gu"/>
                                         <exclude reference="r35-69-51x"/>
                                         <exclude reference="pvg-Da-hh8"/>
-                                        <exclude reference="9vI-mv-5WV"/>
-                                        <exclude reference="EYW-M3-y9P"/>
-                                        <exclude reference="tvb-wT-6Pc"/>
                                         <exclude reference="Mqi-9p-u2M"/>
                                         <exclude reference="jBF-kl-PuX"/>
                                         <exclude reference="0Kx-bF-Tiq"/>
                                         <exclude reference="tkO-DI-kZ5"/>
+                                        <exclude reference="9vI-mv-5WV"/>
+                                        <exclude reference="EYW-M3-y9P"/>
+                                        <exclude reference="tvb-wT-6Pc"/>
                                         <exclude reference="5sG-Ne-hoA"/>
                                         <exclude reference="6aU-Pc-msU"/>
                                         <exclude reference="H3j-Cl-N1z"/>
