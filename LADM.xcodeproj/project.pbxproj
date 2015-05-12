@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		15016BE61AF1C0AB0018BBF2 /* SelectCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */; };
+		1504B19B1B003E6700825F0C /* Phone_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1504B19A1B003E6700825F0C /* Phone_Button.png */; };
+		15088C9D1AFFD583007360B2 /* ContactMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15088C9C1AFFD583007360B2 /* ContactMenuView.swift */; };
+		15088CA01AFFDE67007360B2 /* Blur_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15088C9F1AFFDE67007360B2 /* Blur_Menu.png */; };
+		15088CA31AFFE5E1007360B2 /* Email_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 15088CA11AFFE5E1007360B2 /* Email_Button.png */; };
 		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
 		1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B4601AE388D700CE448B /* OtherButton@3x.png */; };
 		1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1587E1B01AEE1DD400E6B79F /* Contact_Icon.png */; };
@@ -47,6 +51,10 @@
 
 /* Begin PBXFileReference section */
 		15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityView.swift; sourceTree = "<group>"; };
+		1504B19A1B003E6700825F0C /* Phone_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_Button.png; sourceTree = "<group>"; };
+		15088C9C1AFFD583007360B2 /* ContactMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactMenuView.swift; sourceTree = "<group>"; };
+		15088C9F1AFFDE67007360B2 /* Blur_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blur_Menu.png; sourceTree = "<group>"; };
+		15088CA11AFFE5E1007360B2 /* Email_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email_Button.png; sourceTree = "<group>"; };
 		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
 		1560B4601AE388D700CE448B /* OtherButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherButton@3x.png"; sourceTree = "<group>"; };
 		1587E1B01AEE1DD400E6B79F /* Contact_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contact_Icon.png; sourceTree = "<group>"; };
@@ -96,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15088C9E1AFFDE25007360B2 /* Contact Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1504B19A1B003E6700825F0C /* Phone_Button.png */,
+				15088CA11AFFE5E1007360B2 /* Email_Button.png */,
+				15088C9F1AFFDE67007360B2 /* Blur_Menu.png */,
+			);
+			name = "Contact Menu";
+			sourceTree = "<group>";
+		};
 		1560B45E1AE388D700CE448B /* Tours and Cities */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,8 +180,10 @@
 				1587E1BA1AEEA7E900E6B79F /* TransitionManager.swift */,
 				1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */,
 				BC2142331AF60432002BEF83 /* DataFetcher.swift */,
+				15088C9C1AFFD583007360B2 /* ContactMenuView.swift */,
 				D988EBD51ADCD235003A4D7F /* Main.storyboard */,
 				D988EBD81ADCD235003A4D7F /* Images.xcassets */,
+				15088C9E1AFFDE25007360B2 /* Contact Menu */,
 				1587E1AF1AEE1DD400E6B79F /* Menu */,
 				1560B45E1AE388D700CE448B /* Tours and Cities */,
 				D988EBCF1ADCD235003A4D7F /* Supporting Files */,
@@ -280,8 +300,11 @@
 				1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */,
 				1587E1B51AEE1DD400E6B79F /* Event_Feed_Icon.png in Resources */,
 				1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */,
+				15088CA01AFFDE67007360B2 /* Blur_Menu.png in Resources */,
 				1587E1B61AEE1DD400E6B79F /* Social_Media_Icon.png in Resources */,
 				15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */,
+				15088CA31AFFE5E1007360B2 /* Email_Button.png in Resources */,
+				1504B19B1B003E6700825F0C /* Phone_Button.png in Resources */,
 				153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */,
 				15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */,
 				15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */,
@@ -312,6 +335,7 @@
 				BC2142341AF60432002BEF83 /* DataFetcher.swift in Sources */,
 				1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */,
 				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
+				15088C9D1AFFD583007360B2 /* ContactMenuView.swift in Sources */,
 				BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */,
 				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
 				1587E1B91AEEA5F800E6B79F /* MenuViewController.swift in Sources */,
