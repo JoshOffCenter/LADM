@@ -101,29 +101,30 @@ class CityData
         var data = Dictionary<String,Dictionary<String,String>>()
         for (var i = 1; i <= competitionSchedule.count;i++) {
             
-            let selector = competitionSchedule[String(i)]!
+            let dataPoint = competitionSchedule[String(i)]!
             
             if studio != "Any Studio" {
-                if selector["Studio Name"] != studio {
+                if dataPoint["Studio Name"] != studio {
                     continue
                 }
             }
             if age != "Any Age" {
-                if selector["Age"] != age {
+                if dataPoint["Age"] != age {
                     continue
                 }
             }
             if category != "Any Category" {
-                if selector["Category"] != category {
+                if dataPoint["Category"] != category {
                     continue
                 }
             }
             if day != "Any Day" {
-                if selector["Day"] != day {
+                if dataPoint["Day"] != day {
                     continue
                 }
             }
-            data[String(data.count)] = ["Age": selector["Age"]!, "Category": selector["Category"]!, "Day":selector["Day"]!, "Division": selector["Division"]!, "Routine ID and Name": selector["Routine ID and Name"]!, "Studio Name": selector["Studio Name"]!, "Time": selector["Time"]!]
+            println("Hi")
+            data[String(data.count)] = ["Age": dataPoint["Age"]!, "Category": dataPoint["Category"]!, "Day":dataPoint["Day"]!, "Division": dataPoint["Division"]!, "Routine ID and Name": dataPoint["Routine ID and Name"]!, "Studio Name": dataPoint["Studio Name"]!, "Time": dataPoint["Time"]!]
         }
         
         return data

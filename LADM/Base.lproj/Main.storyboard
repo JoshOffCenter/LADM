@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -776,15 +776,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhw-FQ-JX7">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissButtonPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="1MU-rN-bch"/>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-sY-hu8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
@@ -808,26 +799,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="lhw-FQ-JX7" secondAttribute="bottom" id="ENO-oE-Rvt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mj2-6R-jXa" secondAttribute="trailing" id="GoW-CI-ui9"/>
                             <constraint firstItem="6BE-sY-hu8" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="HFi-pF-8Uv"/>
                             <constraint firstAttribute="trailing" secondItem="6BE-sY-hu8" secondAttribute="trailing" id="JXi-aq-5B9"/>
                             <constraint firstItem="mj2-6R-jXa" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" id="Kns-77-Ad1"/>
-                            <constraint firstAttribute="trailing" secondItem="lhw-FQ-JX7" secondAttribute="trailing" id="LzT-nd-n0s"/>
                             <constraint firstItem="Wxt-PZ-8Hz" firstAttribute="top" secondItem="mj2-6R-jXa" secondAttribute="bottom" id="N2r-o9-aWv"/>
                             <constraint firstItem="mj2-6R-jXa" firstAttribute="top" secondItem="6BE-sY-hu8" secondAttribute="bottom" id="P60-sI-0sN"/>
                             <constraint firstItem="Wxt-PZ-8Hz" firstAttribute="top" secondItem="mj2-6R-jXa" secondAttribute="bottom" id="YJp-J0-o0K"/>
-                            <constraint firstItem="lhw-FQ-JX7" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="Yog-lk-S6P"/>
                             <constraint firstItem="mj2-6R-jXa" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leading" id="boe-Cs-bhy"/>
-                            <constraint firstItem="lhw-FQ-JX7" firstAttribute="top" secondItem="pah-M4-S29" secondAttribute="bottom" id="j51-2H-9Kp"/>
                             <constraint firstItem="6BE-sY-hu8" firstAttribute="top" secondItem="I2t-Tf-eFl" secondAttribute="top" id="mql-SO-4iS"/>
                             <constraint firstItem="mj2-6R-jXa" firstAttribute="leading" secondItem="I2t-Tf-eFl" secondAttribute="leadingMargin" id="q3V-xN-GYr"/>
                             <constraint firstAttribute="trailing" secondItem="mj2-6R-jXa" secondAttribute="trailing" id="vQn-PL-d3S"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="lhw-FQ-JX7"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="GoW-CI-ui9"/>
                                 <exclude reference="P60-sI-0sN"/>
@@ -837,11 +821,6 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="dismissButton" destination="lhw-FQ-JX7" id="VVS-Jb-ra1"/>
-                        <outlet property="dismissButtonConstraintBottom" destination="ENO-oE-Rvt" id="M1N-Lj-wOe"/>
-                        <outlet property="dismissButtonConstraintLeft" destination="Yog-lk-S6P" id="t2q-NU-a6Q"/>
-                        <outlet property="dismissButtonConstraintRight" destination="LzT-nd-n0s" id="Ot8-25-HKe"/>
-                        <outlet property="dismissButtonConstraintTop" destination="j51-2H-9Kp" id="sFU-hE-G3V"/>
                         <outlet property="filterMenuView" destination="3qx-Gv-dkK" id="0j8-Ge-S0g"/>
                         <outlet property="invisibleFilterButton" destination="AQD-Mt-SDW" id="dod-Ym-Mna"/>
                         <outlet property="tableView" destination="Mmp-Le-naY" id="A1y-VI-SVq"/>

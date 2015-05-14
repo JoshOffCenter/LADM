@@ -89,7 +89,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       tableView.estimatedRowHeight = 80.0;
 //      setupFilterMenu()
       setupGestures()
-      fillData()
+      fillData(cityData[selectedCity]!.competitionSchedule)
 
 
    }
@@ -110,13 +110,14 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
    }
     
-    func fillData() {
-        var data = cityData[selectedCity]!.competitionSchedule
+    func fillData(data:Dictionary<String,Dictionary<String,String>>) {
+        compEvents.removeAll(keepCapacity: false)
         for (var i = 1; i < data.count;i++) {
             var number = data[String(i)]!
             var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
             compEvents.append(eventItem)
         }
+        tableView.reloadData()
     }
 
    
@@ -221,14 +222,6 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       expandFilterMenu()
    }
    
-   @IBAction func invisibleBottomFiltterMenuButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
-   @IBAction func dismissButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
    @IBAction func backButtonPressed(sender: AnyObject) {
       self.performSegueWithIdentifier("unwindToTourCities", sender: self)
 
@@ -287,72 +280,16 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
             }, completion: nil)
+            
+            var filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
+            fillData(filteredData)
+            
             filterMenuExpanded = false
         
         }
         
         
     }
-   
-//   func expandFilterMenuDEPREICATED() {
-//      let compactMenuSize:CGFloat = 40
-//      let fullMenuSize:CGFloat = self.view.frame.height - 200
-//      if filterMenuExpanded == false {
-//         
-//         filterMenuView.addSubview(filterMenuView.filterByLabel)
-//         filterMenuView.addSubview(filterMenuView.filterDividerLabel)
-//         filterMenuView.addSubview(filterMenuView.filterAgeButton)
-//         filterMenuView.addSubview(filterMenuView.filterCategoryButton)
-//         filterMenuView.addSubview(filterMenuView.filterDivisionButton)
-//         filterMenuView.addSubview(filterMenuView.filterFavoritesButton)
-//         
-////         filterMenuView.removeConstraint(invisibleFilterButtonTopConstraint)
-//         
-//         filterMenuView.addConstraints([self.filterAgeConstraintLeft,self.filterAgeConstraintRight,self.filterAgeConstraintTop, self.filterButtonConstraintBottom, self.filterButtonConstraintHeight, self.filterButtonConstraintTop, self.filterButtonConstraintWidth, self.filterCategoryConstraintLeft, self.filterCategoryConstraintRight, self.filterCategoryConstraintTop, self.filterDividerConstraintLeft, self.filterDividerConstraintRight, self.filterDivisionConstraintLeft, self.filterDivisionConstraintRight, self.filterDivisionConstraintTop, self.filterFavoritesConstraintLeft, self.filterFavoritesConstraintRight, self.filterFavoritesConstraintTop, self.filterFilterByConstraintBottom, self.filterFilterByConstraintCenter, self.filterFilterByConstraintTop, /*self.invisibleFilterButtonBottomConstraint*/])
-//
-//         
-//         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
-////            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, self.filterMenuView.frame.height + 30)
-//            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, fullMenuSize)
-//            
-//            
-//            }, completion: nil)
-//         
-//         UIView.animateWithDuration(0.25, animations: { () -> Void in
-//            self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-//         })
-//         
-//         self.view.insertSubview(dismissButton, belowSubview: filterMenuView)
-//         self.view.addConstraints([dismissButtonConstraintBottom, dismissButtonConstraintLeft, dismissButtonConstraintRight, dismissButtonConstraintTop])
-//         
-//         filterMenuExpanded = true
-//      }
-//      else {
-//   
-//         filterMenuView.filterByLabel.removeFromSuperview()
-//         
-//         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-//            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, compactMenuSize)
-//            
-//            }, completion: { (finished) -> Void
-//               in
-//               if finished {
-//               
-//                  self.setupFilterMenu()
-////                  self.filterMenuView.removeConstraint(self.invisibleFilterButtonBottomConstraint)
-////                  self.filterMenuView.addConstraint(self.invisibleFilterButtonTopConstraint)
-//               }
-//         })
-//         
-//         UIView.animateWithDuration(0.25, animations: { () -> Void in
-//            self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
-//            self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
-//
-//         }, completion: nil)
-//         self.dismissButton.removeFromSuperview()
-//
-//      }
-//   }
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       let toViewController = segue.destinationViewController as! UIViewController
