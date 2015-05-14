@@ -22,11 +22,13 @@ class FilterMenuView: UIView {
 
    @IBOutlet weak var filterByLabel: UILabel!
    @IBOutlet weak var filterDividerLabel: UILabel!
-   @IBOutlet weak var filterAgeButton: UIButton!
-   @IBOutlet weak var filterCategoryButton: UIButton!
-   @IBOutlet weak var filterDivisionButton: UIButton!
-   @IBOutlet weak var filterFavoritesButton: UIButton!
    @IBOutlet weak var filterMenuButton: UIButton!
+    
+    @IBOutlet weak var filterStudioLabel: UILabel!
+    @IBOutlet weak var filterAgeLabel: UILabel!
+    @IBOutlet weak var filterCategoryLabel: UILabel!
+    @IBOutlet weak var filterDayLabel: UILabel!
+
 
     
     var studios = ["Any Studio"] + cityData[selectedCity]!.studios
@@ -47,12 +49,14 @@ class FilterMenuView: UIView {
       self.roundCorners(.BottomLeft | .BottomRight, radius: 5)
     
    }
+   
     
     @IBAction func changeFilter (sender:UIButton) {
-        filterAgeButton.titleLabel!.numberOfLines = 3
-        filterAgeButton.titleLabel!.textAlignment = .Center
+//        filterAgeButton.titleLabel!.numberOfLines = 3
+//        filterAgeButton.titleLabel!.textAlignment = .Center
 
-        switch sender.titleLabel!.text! {
+//        switch sender.titleLabel!.text!
+        switch sender.restorationIdentifier!{
             case "StudioButtonRight": counter["Studios"]!++
             case "StudioButtonLeft": counter["Studios"]!--
             case "AgeButtonRight": counter["Ages"]!++
@@ -77,10 +81,13 @@ class FilterMenuView: UIView {
             counter["Days"] = 2
         }
         
-        filterAgeButton.setTitle(studios[counter["Studios"]! % studios.count], forState: UIControlState.Normal)
-        filterCategoryButton.setTitle(ages[counter["Ages"]! % ages.count], forState: UIControlState.Normal)
-        filterDivisionButton.setTitle(categories[counter["Categories"]! % categories.count], forState: UIControlState.Normal)
-        filterFavoritesButton.setTitle(days[counter["Days"]! % 3], forState: UIControlState.Normal)
+        filterStudioLabel.text = studios[counter["Studios"]! % studios.count]
+        filterAgeLabel.text = ages[counter["Ages"]! % studios.count]
+        filterCategoryLabel.text = categories[counter["Categories"]! % categories.count]
+        filterDayLabel.text = days[counter["Days"]! % 3]
+    
+        
+
 
         
     }

@@ -12,6 +12,7 @@ import UIKit
 class DataFetcher
 {
     let baseURL = "http:localhost:8080/LADM/"
+//    let baseURL = "http:ladmtest.com/LADM/"
     
     private func getJSON(urlToRequest: String) -> NSData? {
         return NSData(contentsOfURL: NSURL(string: urlToRequest)!)
@@ -31,8 +32,10 @@ class DataFetcher
         return (parseJSON(getJSON(baseURL + city + "/" + element)) as? Dictionary<String,AnyObject>)!
     }
     
-    func getCitiesAndDates() -> Dictionary<String,Dictionary<String,String>> {
-        return (parseJSON(getJSON(baseURL + "cities_dates")) as? Dictionary<String,Dictionary<String,String>>)!
+    func getCitiesAndDates() -> Dictionary<String,AnyObject> {
+        var citesAndDates = Dictionary<String,AnyObject>()
+        citesAndDates = (parseJSON(getJSON(baseURL + "cities_dates")) as? [String: AnyObject])!
+        return citesAndDates
     }
     
     func getCities() -> [String] {

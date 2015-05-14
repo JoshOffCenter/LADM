@@ -19,6 +19,8 @@
 		1587E1BF1AEEE58400E6B79F /* Menu_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1587E1BE1AEEE58400E6B79F /* Menu_Button.png */; };
 		1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */; };
 		1587E1C31AF089BD00E6B79F /* FilterMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */; };
+		15BC7E171B03037D00E241DC /* FilterDropdownButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E151B03037D00E241DC /* FilterDropdownButton.png */; };
+		15BC7E181B03037D00E241DC /* FilterOptionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E161B03037D00E241DC /* FilterOptionButton.png */; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -62,6 +64,8 @@
 		1587E1BE1AEEE58400E6B79F /* Menu_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu_Button.png; sourceTree = "<group>"; };
 		1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlideSegue.swift; sourceTree = "<group>"; };
 		1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterMenuView.swift; sourceTree = "<group>"; };
+		15BC7E151B03037D00E241DC /* FilterDropdownButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilterDropdownButton.png; sourceTree = "<group>"; };
+		15BC7E161B03037D00E241DC /* FilterOptionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilterOptionButton.png; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		1560B45E1AE388D700CE448B /* Tours and Cities */ = {
 			isa = PBXGroup;
 			children = (
+				15BC7E141B03037D00E241DC /* Filter Menu */,
 				15E84A8B1AEC459D004D3E29 /* Schedule */,
 				15E84A861AEB6481004D3E29 /* CityButton@3x.png */,
 				BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */,
@@ -125,6 +130,15 @@
 				1587E1B31AEE1DD400E6B79F /* Tours_Cities_Icons.png */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		15BC7E141B03037D00E241DC /* Filter Menu */ = {
+			isa = PBXGroup;
+			children = (
+				15BC7E151B03037D00E241DC /* FilterDropdownButton.png */,
+				15BC7E161B03037D00E241DC /* FilterOptionButton.png */,
+			);
+			path = "Filter Menu";
 			sourceTree = "<group>";
 		};
 		15E84A8B1AEC459D004D3E29 /* Schedule */ = {
@@ -330,10 +344,12 @@
 				153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */,
 				15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */,
 				15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */,
+				15BC7E171B03037D00E241DC /* FilterDropdownButton.png in Resources */,
 				BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
 				1587E1B71AEE1DD400E6B79F /* Tours_Cities_Icons.png in Resources */,
 				15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */,
+				15BC7E181B03037D00E241DC /* FilterOptionButton.png in Resources */,
 				D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */,
 				BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */,
 				1587E1BF1AEEE58400E6B79F /* Menu_Button.png in Resources */,
