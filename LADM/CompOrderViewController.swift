@@ -73,15 +73,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    var cellExpanded = false
    
    override func viewWillAppear(animated: Bool) {
-//      if tableView.numberOfRowsInSection(0) <= 0 {
-//         compEvents.append(event1)
-//         compEvents.append(event2)
-//         compEvents.append(event3)
-//         compEvents.append(event4)
-//         compEvents.append(event5)
-//        
-//      }
-        fillData()
+
     
     
 //      filterMenuView.hidden = true
@@ -97,6 +89,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       tableView.estimatedRowHeight = 80.0;
       setupFilterMenu()
       setupGestures()
+      fillData()
+
 
    }
    override func viewDidAppear(animated: Bool) {
