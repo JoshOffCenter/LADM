@@ -32,6 +32,13 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    @IBOutlet weak var dismissButtonConstraintTop: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+
+    
+    @IBOutlet weak var testButton: UIButton!
+//    var touchLocation: CGPoint!
+//    var animationView: UIView!
    
     
 //   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York", "Irvine National Finals"]
@@ -42,7 +49,12 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       selectCityView.cityPickerView.delegate = self
       addBlur()
         buttonShade()
+        setupNavBar()
         
+//            self.testButton.setImage(UIImage(named: "HamArrow_00000"), forState: .Normal)
+//        self.testButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal)
+
+    
     }
     
 
@@ -55,17 +67,40 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    @IBAction func menuButtonPressed(sender: AnyObject) {
       menuButtonPressed = true
       performSegueWithIdentifier("presentMenuSegue", sender: self)
-      
-   }
+    
+   
+    
+//    self.menuButton.setBackgroundImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
 
-   @IBAction func competitionOrderPressed(sender: AnyObject) {
+    
+   }
+    
+    func setupNavBar() {
+        navBar.barTintColor = self.view.backgroundColor
+        
+        navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navBar.shadowImage = UIImage()
+        let textAttributes = NSMutableDictionary(capacity:1)
+        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
+        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
+        navBar.titleTextAttributes = textAttributes as [NSObject : AnyObject]
+
+    }
+
+    @IBAction func competitionOrderTouchDown(sender: AnyObject, forEvent event: UIEvent) {
+        feedbackAnimation(sender, event: event)
+    }
+    @IBAction func competitionOrderPressed(sender: AnyObject, event: UIEvent) {
+    
       let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompOrderViewController") as! CompOrderViewController
       let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
       customSegue.perform()
+//        feedbackAnimation(sender, event: event)
    }
    
-   @IBAction func selectCityPressed(sender: AnyObject) {
+    @IBAction func selectCityPressed(sender: AnyObject, event: UIEvent) {
       animateSelectCityView(false)
+
    }
    
    
@@ -150,8 +185,46 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       
    }
 
-   
+    func feedbackAnimation(sender: AnyObject, event: UIEvent) {
+        let buttonView = sender as! UIView
+        buttonView.clipsToBounds = true
+        buttonView.backgroundColor = UIColor.clearColor()
+        if let touch = event.touchesForView(buttonView)?.first as? UITouch {
+            let point = touch.locationInView(buttonView)
+        
+//        self.view.addSubview(buttonView)
+        
+            let radius: CGFloat = 2.5
+            let seed = UIView(frame: CGRectMake(0, 0, 2 * radius, 2 * radius))
+            seed.center = point
+            seed.alpha = 0.3
+            
+            seed.backgroundColor = UIColor.lightGrayColor()
+            seed.layer.cornerRadius = radius
+            seed.layer.masksToBounds = true
+            buttonView.addSubview(seed)
+            
+        
+            UIView.animateWithDuration(1.3, delay: 0, options: nil, animations: { () -> Void in
+                let scaleTransform = CGAffineTransformMakeScale(buttonView.frame.width, buttonView.frame.width)
+                seed.transform = scaleTransform
+                
+                UIView.animateWithDuration(0.1, delay: 0.1, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+                    seed.alpha = 0
+                }, completion: nil)
+                
+            }) { (finished) -> Void in
+                seed.removeFromSuperview()
+            }
+        }
+    }
     
+    
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        let touch = touches.first as! UITouch
+//        touchLocation = touch.locationInView(animationView)
+//        
+//    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if menuButtonPressed == true {

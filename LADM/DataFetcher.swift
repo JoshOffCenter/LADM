@@ -11,7 +11,8 @@ import UIKit
 
 class DataFetcher
 {
-    let baseURL = "http:localhost:8080/LADM/"
+//    let baseURL = "http:localhost:8080/LADM/"
+    let baseURL = "http:ladmtest.com/LADM/"
     
     private func getJSON(urlToRequest: String) -> NSData? {
         return NSData(contentsOfURL: NSURL(string: urlToRequest)!)
@@ -27,12 +28,14 @@ class DataFetcher
         return boardsDictionary
     }
     
-    private func requestData(city:String, element:String) -> Dictionary<String,AnyObject> {
+    func requestData(city:String, element:String) -> Dictionary<String,AnyObject> {
         return (parseJSON(getJSON(baseURL + city + "/" + element)) as? Dictionary<String,AnyObject>)!
     }
     
-    func getCitiesAndDates() -> Dictionary<String,Dictionary<String,String>> {
-        return (parseJSON(getJSON(baseURL + "cities_dates")) as? Dictionary<String,Dictionary<String,String>>)!
+    func getCitiesAndDates() -> Dictionary<String,AnyObject> {
+        var citesAndDates = Dictionary<String,AnyObject>()
+        citesAndDates = (parseJSON(getJSON(baseURL + "cities_dates")) as? [String: AnyObject])!
+        return citesAndDates
     }
     
     func getCities() -> [String] {
@@ -45,73 +48,29 @@ class DataFetcher
         return cities.sorted{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     }
     
+    func postFavorite(city:String, routine:String) {
+        let request = NSMutableURLRequest(URL: NSURL(string: baseURL + "favorites/" + city)!)
+        request.HTTPMethod = "POST"
+        let postString = "user_id=" + UIDevice.currentDevice().identifierForVendor.UUIDString + "&routine_id=" + routine
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                println("error=\(error)")
+                return
+            }
+            
+            println("response = \(response)")
+            
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("responseString = \(responseString)")
+        }
+        task.resume()
+    }
     
 }
 
-class CityData
-{
-    let city:String!
-    var competitionSchedule = Dictionary<String,Dictionary<String,String>>()
-    var dailySchedule = Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>()
-    var competitionResults = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
-    var specialtyAwards = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
-    let dataFetcher = DataFetcher()
-    
-    init(city:String) {
-        self.city = city.lowercaseString
-        getCompetitionSchedule()
-        getDailySchedule()
-        getCompetitionSchedule()
-        getSpecialtyAwards()
-        print(dailySchedule.count)
-    }
-    
-    func refresh() {
-        getCompetitionSchedule()
-        getDailySchedule()
-        getCompetitionSchedule()
-        getSpecialtyAwards()
-    }
-    
-    func getCompetitionSchedule() -> Dictionary<String,Dictionary<String,String>> {
-        if competitionSchedule.count == 0 {
-            if let data = dataFetcher.requestData(city,element: "competition_schedule") as? Dictionary<String,Dictionary<String,String>> {
-                competitionSchedule = data
-            }
-        }
-        return competitionSchedule
-        
-    }
-    
-    func getDailySchedule() -> Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>> {
-        if dailySchedule.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "daily_schedule") as? Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>> {
-                dailySchedule = data
-            }
-        }
-        return dailySchedule
-    }
-    
-    func getCompetitionResults() -> Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-        if competitionResults.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "competition_results") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-                competitionResults = data
-            }
-        }
-        return competitionResults
-    }
-    
-    func getSpecialtyAwards() -> Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-        if specialtyAwards.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "specialty_awards") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-                specialtyAwards = data
-            }
-        }
-        return specialtyAwards
-    }
-    
-    
-}
 
 
 

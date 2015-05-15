@@ -22,59 +22,20 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    var filterMenuExpanded = false
    
-   //Filter Menu Constraints
-   @IBOutlet weak var filterFilterByConstraintCenter: NSLayoutConstraint!
-   @IBOutlet weak var filterFilterByConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterFilterByConstraintBottom: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterDividerConstraintLeft: NSLayoutConstraint!
-   @IBOutlet weak var filterDividerConstraintRight: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterAgeConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterAgeConstraintLeft: NSLayoutConstraint!
-   @IBOutlet weak var filterAgeConstraintRight: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterCategoryConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterCategoryConstraintLeft: NSLayoutConstraint!
-   @IBOutlet weak var filterCategoryConstraintRight: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterDivisionConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterDivisionConstraintLeft: NSLayoutConstraint!
-   @IBOutlet weak var filterDivisionConstraintRight: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterFavoritesConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterFavoritesConstraintLeft: NSLayoutConstraint!
-   @IBOutlet weak var filterFavoritesConstraintRight: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterButtonConstraintTop: NSLayoutConstraint!
-   @IBOutlet weak var filterButtonConstraintBottom: NSLayoutConstraint!
-   @IBOutlet weak var filterButtonConstraintHeight: NSLayoutConstraint!
-   @IBOutlet weak var filterButtonConstraintWidth: NSLayoutConstraint!
-   @IBOutlet weak var filterButtonConstraintCenter: NSLayoutConstraint!
-   
-   @IBOutlet weak var filterMenuTopConstraint: NSLayoutConstraint!
-   
-   @IBOutlet weak var invisibleFilterButtonTopConstraint: NSLayoutConstraint!
-   @IBOutlet weak var invisibleFilterButtonBottomConstraint: NSLayoutConstraint!
+
    
    //Dismiss Button
    @IBOutlet weak var dismissButton: UIButton!
-   
    @IBOutlet weak var dismissButtonConstraintLeft: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintTop: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintRight: NSLayoutConstraint!
    @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
    
     @IBOutlet weak var invisibleFilterButton: UIButton!
-   
-   
-   //Test Data
-//   var event1 = CompEventItem(time: "3:30p", performanceTitle: "Circus", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event2 = CompEventItem(time: "3:33p", performanceTitle: "Cookies", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event3 = CompEventItem(time: "3:36p", performanceTitle: "Chapel of Love", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-//   var event4 = CompEventItem(time: "3:39p", performanceTitle: "Crayola Doesn't Make A Decent Crayon", studio: "Progressions Elite", age: "JR",  category: "Contemporary", division: "Group")
-//   var event5 = CompEventItem(time: "3:43p", performanceTitle: "Funky Town", studio: "Progressions Elite", age: "JR", category: "Contemporary", division: "Group")
-   
+    
+    //Navigation Bar
+    @IBOutlet weak var navBar: UINavigationBar!
+    
    
    var compEvents = [CompEventItem]()
    var selectedIndexPath: NSIndexPath? = nil
@@ -82,18 +43,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    var cellExpanded = false
    
    override func viewWillAppear(animated: Bool) {
-//      if tableView.numberOfRowsInSection(0) <= 0 {
-//         compEvents.append(event1)
-//         compEvents.append(event2)
-//         compEvents.append(event3)
-//         compEvents.append(event4)
-//         compEvents.append(event5)
-//        
-//      }
-        fillData()
+
+//        fillData()
     
-    
-//      filterMenuView.hidden = true
    }
    
    //Transition Manager
@@ -104,34 +56,36 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       
 
       tableView.estimatedRowHeight = 80.0;
-      setupFilterMenu()
-      setupGestures()
+    setupNavBar()
+        setupGestures()
+      fillData(cityData[selectedCity]!.competitionSchedule)
 
    }
    override func viewDidAppear(animated: Bool) {
       tableView.reloadData()
    }
-   
-   func setupFilterMenu() {
-      if filterMenuExpanded == true {
-         filterMenuView.filterByLabel.removeFromSuperview()
-         filterMenuView.filterDividerLabel.removeFromSuperview()
-         filterMenuView.filterAgeButton.removeFromSuperview()
-         filterMenuView.filterCategoryButton.removeFromSuperview()
-         filterMenuView.filterDivisionButton.removeFromSuperview()
-         filterMenuView.filterFavoritesButton.removeFromSuperview()
-         filterMenuExpanded = false
-      }
-      
-   }
     
-    func fillData() {
-        var data = cityData[selectedCity]!.competitionSchedule
+    func setupNavBar() {
+        navBar.barTintColor = self.filterMenuView.backgroundColor
+        
+        navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navBar.shadowImage = UIImage()
+        let textAttributes = NSMutableDictionary(capacity:1)
+        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
+        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
+        navBar.titleTextAttributes = textAttributes as [NSObject : AnyObject]
+        
+    }
+
+    
+    func fillData(data:Dictionary<String,Dictionary<String,String>>) {
+        compEvents.removeAll(keepCapacity: false)
         for (var i = 1; i < data.count;i++) {
             var number = data[String(i)]!
             var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
             compEvents.append(eventItem)
         }
+        tableView.reloadData()
     }
 
    
@@ -236,18 +190,15 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       expandFilterMenu()
    }
    
-   @IBAction func invisibleBottomFiltterMenuButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
-   @IBAction func dismissButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
    @IBAction func backButtonPressed(sender: AnyObject) {
       self.performSegueWithIdentifier("unwindToTourCities", sender: self)
 
    }
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("presentMenuSegue", sender: self)
+        
+    }
     
     func setupGestures() {
         var swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
@@ -268,78 +219,51 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     func handleGestures(sender: UISwipeGestureRecognizer){
         if sender.isKindOfClass(UISwipeGestureRecognizer.self){
             if sender.direction == .Down && filterMenuExpanded == false{
-                self.expandFilterMenu()
+//                self.expandFilterMenu()
             }
             else if sender.direction == .Up && filterMenuExpanded == true {
-                self.expandFilterMenu()
+//                self.expandFilterMenu()
             }
         }
         else if sender.isKindOfClass(UIPanGestureRecognizer.self) {
             if sender.state == UIGestureRecognizerState.Began {
-                expandFilterMenu()
+//                expandFilterMenu()
             }
         }
     }
-   
-   func expandFilterMenu() {
-      let compactMenuSize:CGFloat = 40
-      let fullMenuSize:CGFloat = self.view.frame.height - 200
-      if filterMenuExpanded == false {
-         
-         filterMenuView.addSubview(filterMenuView.filterByLabel)
-         filterMenuView.addSubview(filterMenuView.filterDividerLabel)
-         filterMenuView.addSubview(filterMenuView.filterAgeButton)
-         filterMenuView.addSubview(filterMenuView.filterCategoryButton)
-         filterMenuView.addSubview(filterMenuView.filterDivisionButton)
-         filterMenuView.addSubview(filterMenuView.filterFavoritesButton)
-         
-//         filterMenuView.removeConstraint(invisibleFilterButtonTopConstraint)
-         
-         filterMenuView.addConstraints([self.filterAgeConstraintLeft,self.filterAgeConstraintRight,self.filterAgeConstraintTop, self.filterButtonConstraintBottom, self.filterButtonConstraintHeight, self.filterButtonConstraintTop, self.filterButtonConstraintWidth, self.filterCategoryConstraintLeft, self.filterCategoryConstraintRight, self.filterCategoryConstraintTop, self.filterDividerConstraintLeft, self.filterDividerConstraintRight, self.filterDivisionConstraintLeft, self.filterDivisionConstraintRight, self.filterDivisionConstraintTop, self.filterFavoritesConstraintLeft, self.filterFavoritesConstraintRight, self.filterFavoritesConstraintTop, self.filterFilterByConstraintBottom, self.filterFilterByConstraintCenter, self.filterFilterByConstraintTop, /*self.invisibleFilterButtonBottomConstraint*/])
-
-         
-         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
-//            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, self.filterMenuView.frame.height + 30)
-            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, fullMenuSize)
-            
-            
+    
+    func expandFilterMenu() {
+        
+        if filterMenuExpanded == false {
+            let expandFilterMenuTransform = CGAffineTransformMakeTranslation(0, filterMenuView.frame.height-80)
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
+                self.filterMenuView.transform = expandFilterMenuTransform
             }, completion: nil)
-         
-         UIView.animateWithDuration(0.25, animations: { () -> Void in
-            self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
-         })
-         
-         self.view.insertSubview(dismissButton, belowSubview: filterMenuView)
-         self.view.addConstraints([dismissButtonConstraintBottom, dismissButtonConstraintLeft, dismissButtonConstraintRight, dismissButtonConstraintTop])
-         
-         filterMenuExpanded = true
-      }
-      else {
-   
-         filterMenuView.filterByLabel.removeFromSuperview()
-         
-         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-            self.filterMenuView.frame.size = CGSizeMake(self.filterMenuView.frame.width, compactMenuSize)
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+            })
+            filterMenuExpanded = true
+        }
+        else {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.15, options: nil, animations: { () -> Void in
+                self.filterMenuView.transform = CGAffineTransformIdentity
+                }, completion: nil)
+        
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
+                self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
+            }, completion: nil)
             
-            }, completion: { (finished) -> Void
-               in
-               if finished {
-               
-                  self.setupFilterMenu()
-//                  self.filterMenuView.removeConstraint(self.invisibleFilterButtonBottomConstraint)
-//                  self.filterMenuView.addConstraint(self.invisibleFilterButtonTopConstraint)
-               }
-         })
-         
-         UIView.animateWithDuration(0.25, animations: { () -> Void in
-            self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
-            self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
-
-         }, completion: nil)
-         self.dismissButton.removeFromSuperview()
-
-      }
-   }
+            var filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
+            fillData(filteredData)
+            
+            filterMenuExpanded = false
+        
+        }
+        
+        
+    }
+   
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       let toViewController = segue.destinationViewController as! UIViewController
