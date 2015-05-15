@@ -77,13 +77,14 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     
-    func fillData() {
-        var data = cityData[selectedCity]!.competitionSchedule
+    func fillData(data:Dictionary<String,Dictionary<String,String>>) {
+        compEvents.removeAll(keepCapacity: false)
         for (var i = 1; i < data.count;i++) {
             var number = data[String(i)]!
             var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
             compEvents.append(eventItem)
         }
+        tableView.reloadData()
     }
 
    
@@ -188,14 +189,6 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       expandFilterMenu()
    }
    
-   @IBAction func invisibleBottomFiltterMenuButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
-   @IBAction func dismissButtonPressed(sender: AnyObject) {
-      expandFilterMenu()
-   }
-   
    @IBAction func backButtonPressed(sender: AnyObject) {
       self.performSegueWithIdentifier("unwindToTourCities", sender: self)
 
@@ -259,6 +252,10 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI/2))
                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
             }, completion: nil)
+            
+            var filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
+            fillData(filteredData)
+            
             filterMenuExpanded = false
         
         }

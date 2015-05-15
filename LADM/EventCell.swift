@@ -48,6 +48,7 @@ class EventCell: UITableViewCell {
       }
       else {
          favoriteButton.selected = true
+         
       }
    }
 }

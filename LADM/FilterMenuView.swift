@@ -82,7 +82,7 @@ class FilterMenuView: UIView {
         }
         
         filterStudioLabel.text = studios[counter["Studios"]! % studios.count]
-        filterAgeLabel.text = ages[counter["Ages"]! % studios.count]
+        filterAgeLabel.text = ages[counter["Ages"]! % ages.count]
         filterCategoryLabel.text = categories[counter["Categories"]! % categories.count]
         filterDayLabel.text = days[counter["Days"]! % 3]
     
