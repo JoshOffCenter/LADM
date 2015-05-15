@@ -854,6 +854,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVI-FZ-RN9" userLabel="InvisibleBack">
                                 <rect key="frame" x="0.0" y="0.0" width="584" height="600"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -889,6 +890,9 @@
                                 <state key="normal" image="Contact_Icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="contactButtonPressed:" destination="C2i-pG-pMh" eventType="touchUpInside" id="lNc-Fc-FqI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ail-3o-6Up">
                                 <rect key="frame" x="379" y="379" width="100" height="100"/>
@@ -941,16 +945,67 @@
                                     <action selector="tourCitesAndDatesPressed:" destination="C2i-pG-pMh" eventType="touchUpInside" id="7zk-c6-lDB"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sny-yH-p1g" customClass="ContactMenu" customModule="LADM" customModuleProvider="target">
+                                <rect key="frame" x="150" y="125" width="300" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Me6-wI-TIh">
+                                        <rect key="frame" x="88" y="35" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="4DL-Hf-FG0"/>
+                                            <constraint firstAttribute="width" constant="125" id="waE-6k-zcN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Phone_Button.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="phoneButtonPressed:" destination="sny-yH-p1g" eventType="touchUpInside" id="GTj-U7-vqj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTZ-MF-gEu">
+                                        <rect key="frame" x="88" y="190" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="YVp-vf-kjD"/>
+                                            <constraint firstAttribute="width" constant="125" id="tfE-qa-BIN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Email_Button.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="emailButtonPressed:" destination="sny-yH-p1g" eventType="touchUpInside" id="7u4-Ea-UPL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Me6-wI-TIh" firstAttribute="top" secondItem="sny-yH-p1g" secondAttribute="top" constant="35" id="Ai0-RU-R5w"/>
+                                    <constraint firstAttribute="bottom" secondItem="GTZ-MF-gEu" secondAttribute="bottom" constant="20" id="DgK-fQ-Afg"/>
+                                    <constraint firstAttribute="bottom" secondItem="GTZ-MF-gEu" secondAttribute="bottom" constant="35" id="FG5-eO-4QF"/>
+                                    <constraint firstAttribute="width" constant="300" id="NrR-Sr-Cwa"/>
+                                    <constraint firstItem="Me6-wI-TIh" firstAttribute="top" secondItem="sny-yH-p1g" secondAttribute="top" constant="20" id="T31-RI-ICL"/>
+                                    <constraint firstAttribute="height" constant="350" id="mXR-cp-y72"/>
+                                    <constraint firstAttribute="centerX" secondItem="GTZ-MF-gEu" secondAttribute="centerX" id="sIq-LB-dmR"/>
+                                    <constraint firstAttribute="centerX" secondItem="Me6-wI-TIh" secondAttribute="centerX" id="utG-5h-6fN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T31-RI-ICL"/>
+                                        <exclude reference="DgK-fQ-Afg"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="W07-V2-CE8" secondAttribute="top" multiplier="0.5" constant="1" placeholder="YES" id="3K1-k8-7eP"/>
                             <constraint firstItem="WFB-jB-FYv" firstAttribute="centerX" secondItem="ail-3o-6Up" secondAttribute="centerX" id="8GE-H6-wpz"/>
+                            <constraint firstAttribute="centerY" secondItem="sny-yH-p1g" secondAttribute="centerY" id="BX5-9Q-T0R"/>
                             <constraint firstItem="WFB-jB-FYv" firstAttribute="top" secondItem="ail-3o-6Up" secondAttribute="bottom" constant="10" id="DC7-Zm-p3p"/>
                             <constraint firstItem="3sR-YZ-Tcc" firstAttribute="top" secondItem="W07-V2-CE8" secondAttribute="bottom" constant="10" id="Dvo-h4-cdy"/>
                             <constraint firstAttribute="centerX" secondItem="xr2-kz-5Om" secondAttribute="centerX" multiplier="0.7" id="HUt-7w-vt8"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="centerY" multiplier="0.5" id="KTg-bQ-YIQ"/>
                             <constraint firstAttribute="centerX" secondItem="W07-V2-CE8" secondAttribute="centerX" multiplier="1.7" id="M0k-dI-kgk"/>
+                            <constraint firstItem="sny-yH-p1g" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leading" constant="40" id="Ph6-eX-Yhq"/>
+                            <constraint firstAttribute="trailing" secondItem="sny-yH-p1g" secondAttribute="trailing" constant="40" id="R4g-Oh-4Go"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="3sR-YZ-Tcc" secondAttribute="centerX" constant="4.5" id="Tlt-tg-WhZ"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leadingMargin" constant="28" id="TnL-4L-ozy"/>
                             <constraint firstAttribute="centerY" secondItem="9fx-ST-s1p" secondAttribute="centerY" multiplier="0.7" id="VZN-WW-XVL"/>
@@ -960,10 +1015,14 @@
                             <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="aAD-vN-9FG"/>
                             <constraint firstItem="9fx-ST-s1p" firstAttribute="top" secondItem="KVI-FZ-RN9" secondAttribute="bottom" id="cPd-R4-Ofd"/>
                             <constraint firstItem="KVI-FZ-RN9" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leading" id="dH3-5c-qsk"/>
+                            <constraint firstAttribute="centerX" secondItem="sny-yH-p1g" secondAttribute="centerX" id="eMs-Pt-v28"/>
                             <constraint firstItem="9fx-ST-s1p" firstAttribute="centerY" secondItem="ail-3o-6Up" secondAttribute="centerY" id="euo-jB-dtw"/>
+                            <constraint firstItem="WFB-jB-FYv" firstAttribute="top" secondItem="sny-yH-p1g" secondAttribute="bottom" constant="260" id="ffo-pD-864"/>
                             <constraint firstItem="xge-Rk-toG" firstAttribute="top" secondItem="xr2-kz-5Om" secondAttribute="bottom" constant="10" id="fwB-Ca-U9y"/>
                             <constraint firstItem="3P0-TB-vDL" firstAttribute="top" secondItem="xxO-mJ-2Lw" secondAttribute="bottom" constant="30" id="jif-C0-dwF"/>
                             <constraint firstItem="KVI-FZ-RN9" firstAttribute="top" secondItem="Ga8-S5-9uR" secondAttribute="top" id="kga-rd-0eu"/>
+                            <constraint firstItem="KVI-FZ-RN9" firstAttribute="top" secondItem="sny-yH-p1g" secondAttribute="bottom" constant="-450" id="lwq-iH-L0t"/>
+                            <constraint firstItem="sny-yH-p1g" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" constant="130" id="m2g-UH-R17"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KVI-FZ-RN9" secondAttribute="trailing" id="nm4-dm-yjV"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="bottom" multiplier="0.5" id="pFS-tm-IHq"/>
                             <constraint firstAttribute="centerX" secondItem="xxO-mJ-2Lw" secondAttribute="centerX" id="pbn-PR-6bC"/>
@@ -976,6 +1035,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="lwq-iH-L0t"/>
+                                <exclude reference="Ph6-eX-Yhq"/>
+                                <exclude reference="R4g-Oh-4Go"/>
+                                <exclude reference="m2g-UH-R17"/>
                                 <exclude reference="3K1-k8-7eP"/>
                                 <exclude reference="KTg-bQ-YIQ"/>
                                 <exclude reference="TnL-4L-ozy"/>
@@ -983,14 +1046,24 @@
                                 <exclude reference="uGS-w2-4bI"/>
                                 <exclude reference="cPd-R4-Ofd"/>
                                 <exclude reference="a55-ei-mWr"/>
+                                <exclude reference="ffo-pD-864"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="contactButton" destination="9fx-ST-s1p" id="c2t-PR-qzr"/>
                         <outlet property="contactLabel" destination="M7I-4r-07S" id="Ou7-dJ-2CH"/>
+                        <outlet property="contactMenu" destination="sny-yH-p1g" id="yTS-wY-C2y"/>
+                        <outlet property="contactMenuConstraintHorizontalCenter" destination="eMs-Pt-v28" id="fES-hT-ubP"/>
+                        <outlet property="contactMenuConstraintVerticalCenter" destination="BX5-9Q-T0R" id="G0y-zm-Iul"/>
+                        <outlet property="emailButton" destination="GTZ-MF-gEu" id="Sty-f1-Cks"/>
+                        <outlet property="emailButtonConstraintBottom" destination="FG5-eO-4QF" id="oJ7-db-kif"/>
+                        <outlet property="emailButtonConstraintCenter" destination="sIq-LB-dmR" id="MJH-5S-GMt"/>
                         <outlet property="eventFeedButton" destination="xr2-kz-5Om" id="QDh-Dv-tai"/>
                         <outlet property="eventFeedLabel" destination="xge-Rk-toG" id="9VD-DR-8xe"/>
+                        <outlet property="phoneButton" destination="Me6-wI-TIh" id="Bb2-7Y-gc5"/>
+                        <outlet property="phoneButtonConstraintCenter" destination="utG-5h-6fN" id="Idt-y8-Lhd"/>
+                        <outlet property="phoneButtonConstraintTop" destination="Ai0-RU-R5w" id="b46-RD-xXw"/>
                         <outlet property="socialMediaButton" destination="ail-3o-6Up" id="EKc-Id-BJl"/>
                         <outlet property="socialMediaLabel" destination="WFB-jB-FYv" id="E2O-3h-kNP"/>
                         <outlet property="tourCitiesButton" destination="W07-V2-CE8" id="vFI-In-rmK"/>
@@ -1008,6 +1081,7 @@
     <resources>
         <image name="CityButton@3x.png" width="640" height="175"/>
         <image name="Contact_Icon.png" width="200" height="200"/>
+        <image name="Email_Button.png" width="250" height="250"/>
         <image name="Event_Feed_Icon.png" width="200" height="200"/>
         <image name="Favorite_Disabled.png" width="58" height="55"/>
         <image name="Favorite_Enabled.png" width="58" height="55"/>
@@ -1015,6 +1089,7 @@
         <image name="Menu_Button.png" width="40" height="22"/>
         <image name="OtherButton@3x.png" width="1890" height="387"/>
         <image name="Other_Button_Disabled@3x.png" width="1890" height="396"/>
+        <image name="Phone_Button.png" width="250" height="250"/>
         <image name="Social_Media_Icon.png" width="200" height="200"/>
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
