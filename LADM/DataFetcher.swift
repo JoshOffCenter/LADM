@@ -9,10 +9,30 @@
 
 import UIKit
 
-class DataFetcher
+class DataFetcher: UIDevice
 {
-//    let baseURL = "http:localhost:8080/LADM/"
-    let baseURL = "http:ladmtest.com/LADM/"
+    var baseURL: String!
+    let device = UIDevice.currentDevice()
+
+    
+    override init(){
+        if device.model == "iPhone Simulator" {
+            baseURL = "http:localhost:8080/LADM/"
+        }
+        else{
+            baseURL = "http://ladmtest.com/LADM/"
+        }
+    }
+//    if (UIDevice.currentDevice().model == "iPhone Simulator"){
+//    
+//
+//        baseURL = "http:localhost:8080/LADM/"
+//    }
+//    else {
+//        baseURL = "http://ladmtest.com/LADM/"
+//
+//    }
+
     
     private func getJSON(urlToRequest: String) -> NSData? {
         return NSData(contentsOfURL: NSURL(string: urlToRequest)!)

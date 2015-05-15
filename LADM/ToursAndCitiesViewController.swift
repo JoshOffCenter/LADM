@@ -35,10 +35,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
-    
-    @IBOutlet weak var testButton: UIButton!
-//    var touchLocation: CGPoint!
-//    var animationView: UIView!
+
    
     
 //   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York", "Irvine National Finals"]
