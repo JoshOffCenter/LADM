@@ -44,7 +44,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    override func viewWillAppear(animated: Bool) {
 
-        fillData()
+//        fillData()
     
    }
    
@@ -58,6 +58,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       tableView.estimatedRowHeight = 80.0;
     setupNavBar()
         setupGestures()
+      fillData(cityData[selectedCity]!.competitionSchedule)
 
    }
    override func viewDidAppear(animated: Bool) {
