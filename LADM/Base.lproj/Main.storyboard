@@ -975,7 +975,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="Me6-wI-TIh" firstAttribute="top" secondItem="sny-yH-p1g" secondAttribute="top" constant="35" id="Ai0-RU-R5w"/>
                                     <constraint firstAttribute="bottom" secondItem="GTZ-MF-gEu" secondAttribute="bottom" constant="20" id="DgK-fQ-Afg"/>
