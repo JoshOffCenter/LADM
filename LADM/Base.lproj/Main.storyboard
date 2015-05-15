@@ -20,16 +20,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LTI-ca-LGp">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTI-ca-LGp">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="t27-kS-b6C"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Tour Cities and Dates" id="QDq-CD-wFI">
-                                        <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="enO-iO-7Vw">
+                                        <barButtonItem key="leftBarButtonItem" image="Menu_Button.png" id="J4U-eU-b20">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
-                                                <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="BMY-ir-5hO"/>
+                                                <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="mtJ-FF-dba"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -43,7 +45,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Select City" backgroundImage="CityButton@3x.png"/>
                                 <connections>
-                                    <action selector="selectCityPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RJj-2r-fug"/>
+                                    <action selector="selectCityPressed:event:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fjy-9u-4D9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
@@ -70,7 +72,7 @@
                                 </state>
                                 <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
                                 <rect key="frame" x="30" y="310" width="540" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
@@ -78,11 +80,12 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Competition Order" backgroundImage="OtherButton@3x.png">
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
+                                <state key="highlighted" backgroundImage="OtherButton@3x.png"/>
                                 <connections>
-                                    <action selector="competitionOrderPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X6g-Nt-jBn"/>
+                                    <action selector="competitionOrderPressed:event:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nd1-cK-Kex"/>
+                                    <action selector="competitionOrderTouchDown:forEvent:" destination="BYZ-38-t0r" eventType="touchDown" id="9sx-gA-jlx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFJ-kj-Bwo">
@@ -96,6 +99,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-O8-SyV">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoE-FL-UD6"/>
+                                </connections>
                             </button>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnb-hZ-9Kv" customClass="SelectCityView" customModule="LADM" customModuleProvider="target">
                                 <rect key="frame" x="-16" y="409" width="600" height="192"/>
@@ -156,15 +168,6 @@
                                     <outlet property="cityPickerView" destination="INA-2q-zrv" id="FCi-mn-0m9"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOi-O8-SyV">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dismissButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoE-FL-UD6"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -210,6 +213,8 @@
                         <outlet property="dismissButtonConstraintLeft" destination="V0Z-ie-oJZ" id="j6Y-dq-T5P"/>
                         <outlet property="dismissButtonConstraintRight" destination="wMY-hb-yVz" id="r39-jP-9Sd"/>
                         <outlet property="dismissButtonConstraintTop" destination="ei5-vG-dbt" id="CSI-up-uRA"/>
+                        <outlet property="menuButton" destination="J4U-eU-b20" id="lVk-hd-99C"/>
+                        <outlet property="navBar" destination="LTI-ca-LGp" id="6jz-Cs-bg8"/>
                         <outlet property="scheduleButton" destination="OT6-Dh-Wkx" id="hf1-mb-gNg"/>
                         <outlet property="selectCityButton" destination="cUl-BK-qe0" id="VHs-BR-FMg"/>
                         <outlet property="selectCityView" destination="qnb-hZ-9Kv" id="KrW-wf-LpV"/>
@@ -424,12 +429,6 @@
                                             <outlet property="delegate" destination="rFF-js-ZVB" id="Mh4-nV-DBD"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Any Studio" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWg-46-dOA">
-                                        <rect key="frame" x="250" y="118" width="100" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qx-Gv-dkK" customClass="FilterMenuView" customModule="LADM" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
                                         <subviews>
@@ -785,21 +784,19 @@
                                     <action selector="dismissButtonPressed:" destination="rFF-js-ZVB" eventType="touchUpInside" id="1MU-rN-bch"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-sY-hu8">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BE-sY-hu8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="H9d-nW-ndP"/>
                                 </constraints>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.20392156862745098" green="0.47843137254901963" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Competition Order" id="9ig-VM-zhQ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="rewind" id="2kw-d4-h9W">
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="rFF-js-ZVB" id="WY8-qZ-SN0"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="Menu_Button.png" id="w2P-2m-wUD">
-                                            <connections>
-                                                <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuModally" modalPresentationStyle="overFullScreen" id="3s1-Bn-ZAq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -844,8 +841,10 @@
                         <outlet property="dismissButtonConstraintTop" destination="j51-2H-9Kp" id="sFU-hE-G3V"/>
                         <outlet property="filterMenuView" destination="3qx-Gv-dkK" id="0j8-Ge-S0g"/>
                         <outlet property="invisibleFilterButton" destination="AQD-Mt-SDW" id="dod-Ym-Mna"/>
+                        <outlet property="navBar" destination="6BE-sY-hu8" id="6Tt-Qq-u6W"/>
                         <outlet property="tableView" destination="Mmp-Le-naY" id="A1y-VI-SVq"/>
                         <segue destination="SMf-rB-rqd" kind="unwind" identifier="unwindToTourCities" unwindAction="unwindToTourCitiesViewController:" id="wd7-hd-uHg"/>
+                        <segue destination="C2i-pG-pMh" kind="presentation" identifier="presentMenuSegue" modalPresentationStyle="overFullScreen" id="MOh-Xx-iaw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuF-G4-kDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1025,13 +1024,13 @@
         <image name="Favorite_Disabled.png" width="58" height="55"/>
         <image name="Favorite_Enabled.png" width="58" height="55"/>
         <image name="FilterDropdownButton.png" width="130" height="20"/>
-        <image name="Menu_Button.png" width="38" height="25"/>
+        <image name="Menu_Button.png" width="40" height="22"/>
         <image name="OtherButton@3x.png" width="1890" height="387"/>
         <image name="Other_Button_Disabled@3x.png" width="1890" height="396"/>
         <image name="Social_Media_Icon.png" width="200" height="200"/>
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3s1-Bn-ZAq"/>
+        <segue reference="MOh-Xx-iaw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,8 +11,8 @@ import UIKit
 
 class DataFetcher
 {
-    let baseURL = "http:localhost:8080/LADM/"
-//    let baseURL = "http:ladmtest.com/LADM/"
+//    let baseURL = "http:localhost:8080/LADM/"
+    let baseURL = "http:ladmtest.com/LADM/"
     
     private func getJSON(urlToRequest: String) -> NSData? {
         return NSData(contentsOfURL: NSURL(string: urlToRequest)!)
