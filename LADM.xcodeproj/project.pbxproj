@@ -8,83 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		15016BE61AF1C0AB0018BBF2 /* SelectCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */; };
-		150941A71B05BA0E0022550B /* HamArrow0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415A1B05BA0D0022550B /* HamArrow0.png */; };
-		150941A81B05BA0E0022550B /* HamArrow1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415B1B05BA0D0022550B /* HamArrow1.png */; };
-		150941A91B05BA0E0022550B /* HamArrow2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415C1B05BA0D0022550B /* HamArrow2.png */; };
-		150941AA1B05BA0E0022550B /* HamArrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415D1B05BA0D0022550B /* HamArrow3.png */; };
-		150941AB1B05BA0E0022550B /* HamArrow4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415E1B05BA0D0022550B /* HamArrow4.png */; };
-		150941AC1B05BA0E0022550B /* HamArrow5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509415F1B05BA0D0022550B /* HamArrow5.png */; };
-		150941AD1B05BA0E0022550B /* HamArrow6.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941601B05BA0D0022550B /* HamArrow6.png */; };
-		150941AE1B05BA0E0022550B /* HamArrow7.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941611B05BA0D0022550B /* HamArrow7.png */; };
-		150941AF1B05BA0E0022550B /* HamArrow8.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941621B05BA0D0022550B /* HamArrow8.png */; };
-		150941B01B05BA0E0022550B /* HamArrow9.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941631B05BA0D0022550B /* HamArrow9.png */; };
-		150941B11B05BA0E0022550B /* HamArrow10.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941641B05BA0D0022550B /* HamArrow10.png */; };
-		150941B21B05BA0E0022550B /* HamArrow11.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941651B05BA0D0022550B /* HamArrow11.png */; };
-		150941B31B05BA0E0022550B /* HamArrow12.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941661B05BA0D0022550B /* HamArrow12.png */; };
-		150941B41B05BA0E0022550B /* HamArrow13.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941671B05BA0D0022550B /* HamArrow13.png */; };
-		150941B51B05BA0E0022550B /* HamArrow14.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941681B05BA0D0022550B /* HamArrow14.png */; };
-		150941B61B05BA0E0022550B /* HamArrow15.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941691B05BA0D0022550B /* HamArrow15.png */; };
-		150941B71B05BA0E0022550B /* HamArrow16.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416A1B05BA0D0022550B /* HamArrow16.png */; };
-		150941B81B05BA0E0022550B /* HamArrow17.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416B1B05BA0D0022550B /* HamArrow17.png */; };
-		150941B91B05BA0E0022550B /* HamArrow18.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416C1B05BA0D0022550B /* HamArrow18.png */; };
-		150941BA1B05BA0E0022550B /* HamArrow19.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416D1B05BA0D0022550B /* HamArrow19.png */; };
-		150941BB1B05BA0E0022550B /* HamArrow20.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416E1B05BA0D0022550B /* HamArrow20.png */; };
-		150941BC1B05BA0E0022550B /* HamArrow21.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509416F1B05BA0D0022550B /* HamArrow21.png */; };
-		150941BD1B05BA0E0022550B /* HamArrow22.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941701B05BA0D0022550B /* HamArrow22.png */; };
-		150941BE1B05BA0E0022550B /* HamArrow23.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941711B05BA0E0022550B /* HamArrow23.png */; };
-		150941BF1B05BA0E0022550B /* HamArrow24.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941721B05BA0E0022550B /* HamArrow24.png */; };
-		150941C01B05BA0E0022550B /* HamArrow25.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941731B05BA0E0022550B /* HamArrow25.png */; };
-		150941C11B05BA0E0022550B /* HamArrow26.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941741B05BA0E0022550B /* HamArrow26.png */; };
-		150941C21B05BA0E0022550B /* HamArrow27.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941751B05BA0E0022550B /* HamArrow27.png */; };
-		150941C31B05BA0E0022550B /* HamArrow28.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941761B05BA0E0022550B /* HamArrow28.png */; };
-		150941C41B05BA0E0022550B /* HamArrow29.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941771B05BA0E0022550B /* HamArrow29.png */; };
-		150941C51B05BA0E0022550B /* HamArrow30.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941781B05BA0E0022550B /* HamArrow30.png */; };
-		150941C61B05BA0E0022550B /* HamArrow31.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941791B05BA0E0022550B /* HamArrow31.png */; };
-		150941C71B05BA0E0022550B /* HamArrow32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417A1B05BA0E0022550B /* HamArrow32.png */; };
-		150941C81B05BA0E0022550B /* HamArrow33.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417B1B05BA0E0022550B /* HamArrow33.png */; };
-		150941C91B05BA0E0022550B /* HamArrow34.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417C1B05BA0E0022550B /* HamArrow34.png */; };
-		150941CA1B05BA0E0022550B /* HamArrow35.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417D1B05BA0E0022550B /* HamArrow35.png */; };
-		150941CB1B05BA0E0022550B /* HamArrow36.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417E1B05BA0E0022550B /* HamArrow36.png */; };
-		150941CC1B05BA0E0022550B /* HamArrow37.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509417F1B05BA0E0022550B /* HamArrow37.png */; };
-		150941CD1B05BA0E0022550B /* HamArrow38.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941801B05BA0E0022550B /* HamArrow38.png */; };
-		150941CE1B05BA0E0022550B /* HamArrow39.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941811B05BA0E0022550B /* HamArrow39.png */; };
-		150941CF1B05BA0E0022550B /* HamArrow40.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941821B05BA0E0022550B /* HamArrow40.png */; };
-		150941D01B05BA0E0022550B /* HamArrow41.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941831B05BA0E0022550B /* HamArrow41.png */; };
-		150941D11B05BA0E0022550B /* HamArrow42.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941841B05BA0E0022550B /* HamArrow42.png */; };
-		150941D21B05BA0E0022550B /* HamArrow43.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941851B05BA0E0022550B /* HamArrow43.png */; };
-		150941D31B05BA0E0022550B /* HamArrow44.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941861B05BA0E0022550B /* HamArrow44.png */; };
-		150941D41B05BA0E0022550B /* HamArrow45.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941871B05BA0E0022550B /* HamArrow45.png */; };
-		150941D51B05BA0E0022550B /* HamArrow46.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941881B05BA0E0022550B /* HamArrow46.png */; };
-		150941D61B05BA0E0022550B /* HamArrow47.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941891B05BA0E0022550B /* HamArrow47.png */; };
-		150941D71B05BA0E0022550B /* HamArrow48.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418A1B05BA0E0022550B /* HamArrow48.png */; };
-		150941D81B05BA0E0022550B /* HamArrow49.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418B1B05BA0E0022550B /* HamArrow49.png */; };
-		150941D91B05BA0E0022550B /* HamArrow50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418C1B05BA0E0022550B /* HamArrow50.png */; };
-		150941DA1B05BA0E0022550B /* HamArrow51.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418D1B05BA0E0022550B /* HamArrow51.png */; };
-		150941DB1B05BA0E0022550B /* HamArrow52.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418E1B05BA0E0022550B /* HamArrow52.png */; };
-		150941DC1B05BA0E0022550B /* HamArrow53.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509418F1B05BA0E0022550B /* HamArrow53.png */; };
-		150941DD1B05BA0E0022550B /* HamArrow54.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941901B05BA0E0022550B /* HamArrow54.png */; };
-		150941DE1B05BA0E0022550B /* HamArrow55.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941911B05BA0E0022550B /* HamArrow55.png */; };
-		150941DF1B05BA0E0022550B /* HamArrow56.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941921B05BA0E0022550B /* HamArrow56.png */; };
-		150941E01B05BA0E0022550B /* HamArrow57.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941931B05BA0E0022550B /* HamArrow57.png */; };
-		150941E11B05BA0E0022550B /* HamArrow58.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941941B05BA0E0022550B /* HamArrow58.png */; };
-		150941E21B05BA0E0022550B /* HamArrow59.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941951B05BA0E0022550B /* HamArrow59.png */; };
-		150941E31B05BA0E0022550B /* HamArrow60.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941961B05BA0E0022550B /* HamArrow60.png */; };
-		150941E41B05BA0E0022550B /* HamArrow61.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941971B05BA0E0022550B /* HamArrow61.png */; };
-		150941E51B05BA0E0022550B /* HamArrow62.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941981B05BA0E0022550B /* HamArrow62.png */; };
-		150941E61B05BA0E0022550B /* HamArrow63.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941991B05BA0E0022550B /* HamArrow63.png */; };
-		150941E71B05BA0E0022550B /* HamArrow64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419A1B05BA0E0022550B /* HamArrow64.png */; };
-		150941E81B05BA0E0022550B /* HamArrow65.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419B1B05BA0E0022550B /* HamArrow65.png */; };
-		150941E91B05BA0E0022550B /* HamArrow66.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419C1B05BA0E0022550B /* HamArrow66.png */; };
-		150941EA1B05BA0E0022550B /* HamArrow67.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419D1B05BA0E0022550B /* HamArrow67.png */; };
-		150941EB1B05BA0E0022550B /* HamArrow68.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419E1B05BA0E0022550B /* HamArrow68.png */; };
-		150941EC1B05BA0E0022550B /* HamArrow69.png in Resources */ = {isa = PBXBuildFile; fileRef = 1509419F1B05BA0E0022550B /* HamArrow69.png */; };
-		150941ED1B05BA0E0022550B /* HamArrow70.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A01B05BA0E0022550B /* HamArrow70.png */; };
-		150941EE1B05BA0E0022550B /* HamArrow71.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A11B05BA0E0022550B /* HamArrow71.png */; };
-		150941EF1B05BA0E0022550B /* HamArrow72.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A21B05BA0E0022550B /* HamArrow72.png */; };
-		150941F01B05BA0E0022550B /* HamArrow73.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A31B05BA0E0022550B /* HamArrow73.png */; };
-		150941F11B05BA0E0022550B /* HamArrow74.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A41B05BA0E0022550B /* HamArrow74.png */; };
-		150941F21B05BA0E0022550B /* HamArrow75.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A51B05BA0E0022550B /* HamArrow75.png */; };
-		150941F31B05BA0E0022550B /* HamArrow76.png in Resources */ = {isa = PBXBuildFile; fileRef = 150941A61B05BA0E0022550B /* HamArrow76.png */; };
 		15384C861B055DEC0045DECA /* Menu_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C851B055DEC0045DECA /* Menu_Button@2x.png */; };
 		15384C8C1B057DB30045DECA /* CircleMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */; };
 		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
@@ -102,6 +25,27 @@
 		159DAC7A1B05CDBB008DA2EA /* ContactMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159DAC791B05CDBB008DA2EA /* ContactMenuView.swift */; };
 		15BC7E171B03037D00E241DC /* FilterDropdownButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E151B03037D00E241DC /* FilterDropdownButton.png */; };
 		15BC7E181B03037D00E241DC /* FilterOptionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E161B03037D00E241DC /* FilterOptionButton.png */; };
+		15BE38771B06A1950081ED87 /* HamArrow0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382A1B06A1950081ED87 /* HamArrow0@2x.png */; };
+		15BE38781B06A1950081ED87 /* HamArrow1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382B1B06A1950081ED87 /* HamArrow1@2x.png */; };
+		15BE38791B06A1950081ED87 /* HamArrow2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382C1B06A1950081ED87 /* HamArrow2@2x.png */; };
+		15BE387A1B06A1950081ED87 /* HamArrow3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382D1B06A1950081ED87 /* HamArrow3@2x.png */; };
+		15BE387B1B06A1950081ED87 /* HamArrow4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382E1B06A1950081ED87 /* HamArrow4@2x.png */; };
+		15BE387C1B06A1950081ED87 /* HamArrow5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE382F1B06A1950081ED87 /* HamArrow5@2x.png */; };
+		15BE387D1B06A1950081ED87 /* HamArrow6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38301B06A1950081ED87 /* HamArrow6@2x.png */; };
+		15BE387E1B06A1950081ED87 /* HamArrow7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38311B06A1950081ED87 /* HamArrow7@2x.png */; };
+		15BE387F1B06A1950081ED87 /* HamArrow8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38321B06A1950081ED87 /* HamArrow8@2x.png */; };
+		15BE38801B06A1950081ED87 /* HamArrow9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38331B06A1950081ED87 /* HamArrow9@2x.png */; };
+		15BE38811B06A1950081ED87 /* HamArrow10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38341B06A1950081ED87 /* HamArrow10@2x.png */; };
+		15BE38821B06A1950081ED87 /* HamArrow11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38351B06A1950081ED87 /* HamArrow11@2x.png */; };
+		15BE38831B06A1950081ED87 /* HamArrow12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38361B06A1950081ED87 /* HamArrow12@2x.png */; };
+		15BE38841B06A1950081ED87 /* HamArrow13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38371B06A1950081ED87 /* HamArrow13@2x.png */; };
+		15BE38851B06A1950081ED87 /* HamArrow14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38381B06A1950081ED87 /* HamArrow14@2x.png */; };
+		15BE38861B06A1950081ED87 /* HamArrow15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE38391B06A1950081ED87 /* HamArrow15@2x.png */; };
+		15BE38871B06A1950081ED87 /* HamArrow16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383A1B06A1950081ED87 /* HamArrow16@2x.png */; };
+		15BE38881B06A1950081ED87 /* HamArrow17@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383B1B06A1950081ED87 /* HamArrow17@2x.png */; };
+		15BE38891B06A1950081ED87 /* HamArrow18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383C1B06A1950081ED87 /* HamArrow18@2x.png */; };
+		15BE388A1B06A1950081ED87 /* HamArrow19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */; };
+		15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -134,83 +78,6 @@
 
 /* Begin PBXFileReference section */
 		15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityView.swift; sourceTree = "<group>"; };
-		1509415A1B05BA0D0022550B /* HamArrow0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow0.png; sourceTree = "<group>"; };
-		1509415B1B05BA0D0022550B /* HamArrow1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow1.png; sourceTree = "<group>"; };
-		1509415C1B05BA0D0022550B /* HamArrow2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow2.png; sourceTree = "<group>"; };
-		1509415D1B05BA0D0022550B /* HamArrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow3.png; sourceTree = "<group>"; };
-		1509415E1B05BA0D0022550B /* HamArrow4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow4.png; sourceTree = "<group>"; };
-		1509415F1B05BA0D0022550B /* HamArrow5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow5.png; sourceTree = "<group>"; };
-		150941601B05BA0D0022550B /* HamArrow6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow6.png; sourceTree = "<group>"; };
-		150941611B05BA0D0022550B /* HamArrow7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow7.png; sourceTree = "<group>"; };
-		150941621B05BA0D0022550B /* HamArrow8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow8.png; sourceTree = "<group>"; };
-		150941631B05BA0D0022550B /* HamArrow9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow9.png; sourceTree = "<group>"; };
-		150941641B05BA0D0022550B /* HamArrow10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow10.png; sourceTree = "<group>"; };
-		150941651B05BA0D0022550B /* HamArrow11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow11.png; sourceTree = "<group>"; };
-		150941661B05BA0D0022550B /* HamArrow12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow12.png; sourceTree = "<group>"; };
-		150941671B05BA0D0022550B /* HamArrow13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow13.png; sourceTree = "<group>"; };
-		150941681B05BA0D0022550B /* HamArrow14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow14.png; sourceTree = "<group>"; };
-		150941691B05BA0D0022550B /* HamArrow15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow15.png; sourceTree = "<group>"; };
-		1509416A1B05BA0D0022550B /* HamArrow16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow16.png; sourceTree = "<group>"; };
-		1509416B1B05BA0D0022550B /* HamArrow17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow17.png; sourceTree = "<group>"; };
-		1509416C1B05BA0D0022550B /* HamArrow18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow18.png; sourceTree = "<group>"; };
-		1509416D1B05BA0D0022550B /* HamArrow19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow19.png; sourceTree = "<group>"; };
-		1509416E1B05BA0D0022550B /* HamArrow20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow20.png; sourceTree = "<group>"; };
-		1509416F1B05BA0D0022550B /* HamArrow21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow21.png; sourceTree = "<group>"; };
-		150941701B05BA0D0022550B /* HamArrow22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow22.png; sourceTree = "<group>"; };
-		150941711B05BA0E0022550B /* HamArrow23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow23.png; sourceTree = "<group>"; };
-		150941721B05BA0E0022550B /* HamArrow24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow24.png; sourceTree = "<group>"; };
-		150941731B05BA0E0022550B /* HamArrow25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow25.png; sourceTree = "<group>"; };
-		150941741B05BA0E0022550B /* HamArrow26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow26.png; sourceTree = "<group>"; };
-		150941751B05BA0E0022550B /* HamArrow27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow27.png; sourceTree = "<group>"; };
-		150941761B05BA0E0022550B /* HamArrow28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow28.png; sourceTree = "<group>"; };
-		150941771B05BA0E0022550B /* HamArrow29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow29.png; sourceTree = "<group>"; };
-		150941781B05BA0E0022550B /* HamArrow30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow30.png; sourceTree = "<group>"; };
-		150941791B05BA0E0022550B /* HamArrow31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow31.png; sourceTree = "<group>"; };
-		1509417A1B05BA0E0022550B /* HamArrow32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow32.png; sourceTree = "<group>"; };
-		1509417B1B05BA0E0022550B /* HamArrow33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow33.png; sourceTree = "<group>"; };
-		1509417C1B05BA0E0022550B /* HamArrow34.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow34.png; sourceTree = "<group>"; };
-		1509417D1B05BA0E0022550B /* HamArrow35.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow35.png; sourceTree = "<group>"; };
-		1509417E1B05BA0E0022550B /* HamArrow36.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow36.png; sourceTree = "<group>"; };
-		1509417F1B05BA0E0022550B /* HamArrow37.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow37.png; sourceTree = "<group>"; };
-		150941801B05BA0E0022550B /* HamArrow38.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow38.png; sourceTree = "<group>"; };
-		150941811B05BA0E0022550B /* HamArrow39.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow39.png; sourceTree = "<group>"; };
-		150941821B05BA0E0022550B /* HamArrow40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow40.png; sourceTree = "<group>"; };
-		150941831B05BA0E0022550B /* HamArrow41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow41.png; sourceTree = "<group>"; };
-		150941841B05BA0E0022550B /* HamArrow42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow42.png; sourceTree = "<group>"; };
-		150941851B05BA0E0022550B /* HamArrow43.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow43.png; sourceTree = "<group>"; };
-		150941861B05BA0E0022550B /* HamArrow44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow44.png; sourceTree = "<group>"; };
-		150941871B05BA0E0022550B /* HamArrow45.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow45.png; sourceTree = "<group>"; };
-		150941881B05BA0E0022550B /* HamArrow46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow46.png; sourceTree = "<group>"; };
-		150941891B05BA0E0022550B /* HamArrow47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow47.png; sourceTree = "<group>"; };
-		1509418A1B05BA0E0022550B /* HamArrow48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow48.png; sourceTree = "<group>"; };
-		1509418B1B05BA0E0022550B /* HamArrow49.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow49.png; sourceTree = "<group>"; };
-		1509418C1B05BA0E0022550B /* HamArrow50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow50.png; sourceTree = "<group>"; };
-		1509418D1B05BA0E0022550B /* HamArrow51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow51.png; sourceTree = "<group>"; };
-		1509418E1B05BA0E0022550B /* HamArrow52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow52.png; sourceTree = "<group>"; };
-		1509418F1B05BA0E0022550B /* HamArrow53.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow53.png; sourceTree = "<group>"; };
-		150941901B05BA0E0022550B /* HamArrow54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow54.png; sourceTree = "<group>"; };
-		150941911B05BA0E0022550B /* HamArrow55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow55.png; sourceTree = "<group>"; };
-		150941921B05BA0E0022550B /* HamArrow56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow56.png; sourceTree = "<group>"; };
-		150941931B05BA0E0022550B /* HamArrow57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow57.png; sourceTree = "<group>"; };
-		150941941B05BA0E0022550B /* HamArrow58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow58.png; sourceTree = "<group>"; };
-		150941951B05BA0E0022550B /* HamArrow59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow59.png; sourceTree = "<group>"; };
-		150941961B05BA0E0022550B /* HamArrow60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow60.png; sourceTree = "<group>"; };
-		150941971B05BA0E0022550B /* HamArrow61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow61.png; sourceTree = "<group>"; };
-		150941981B05BA0E0022550B /* HamArrow62.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow62.png; sourceTree = "<group>"; };
-		150941991B05BA0E0022550B /* HamArrow63.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow63.png; sourceTree = "<group>"; };
-		1509419A1B05BA0E0022550B /* HamArrow64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow64.png; sourceTree = "<group>"; };
-		1509419B1B05BA0E0022550B /* HamArrow65.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow65.png; sourceTree = "<group>"; };
-		1509419C1B05BA0E0022550B /* HamArrow66.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow66.png; sourceTree = "<group>"; };
-		1509419D1B05BA0E0022550B /* HamArrow67.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow67.png; sourceTree = "<group>"; };
-		1509419E1B05BA0E0022550B /* HamArrow68.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow68.png; sourceTree = "<group>"; };
-		1509419F1B05BA0E0022550B /* HamArrow69.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow69.png; sourceTree = "<group>"; };
-		150941A01B05BA0E0022550B /* HamArrow70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow70.png; sourceTree = "<group>"; };
-		150941A11B05BA0E0022550B /* HamArrow71.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow71.png; sourceTree = "<group>"; };
-		150941A21B05BA0E0022550B /* HamArrow72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow72.png; sourceTree = "<group>"; };
-		150941A31B05BA0E0022550B /* HamArrow73.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow73.png; sourceTree = "<group>"; };
-		150941A41B05BA0E0022550B /* HamArrow74.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow74.png; sourceTree = "<group>"; };
-		150941A51B05BA0E0022550B /* HamArrow75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow75.png; sourceTree = "<group>"; };
-		150941A61B05BA0E0022550B /* HamArrow76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HamArrow76.png; sourceTree = "<group>"; };
 		15384C851B055DEC0045DECA /* Menu_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_Button@2x.png"; sourceTree = "<group>"; };
 		15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleMenuButton@2x.png"; sourceTree = "<group>"; };
 		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
@@ -228,6 +95,27 @@
 		159DAC791B05CDBB008DA2EA /* ContactMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactMenuView.swift; sourceTree = "<group>"; };
 		15BC7E151B03037D00E241DC /* FilterDropdownButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilterDropdownButton.png; sourceTree = "<group>"; };
 		15BC7E161B03037D00E241DC /* FilterOptionButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FilterOptionButton.png; sourceTree = "<group>"; };
+		15BE382A1B06A1950081ED87 /* HamArrow0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow0@2x.png"; sourceTree = "<group>"; };
+		15BE382B1B06A1950081ED87 /* HamArrow1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow1@2x.png"; sourceTree = "<group>"; };
+		15BE382C1B06A1950081ED87 /* HamArrow2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow2@2x.png"; sourceTree = "<group>"; };
+		15BE382D1B06A1950081ED87 /* HamArrow3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow3@2x.png"; sourceTree = "<group>"; };
+		15BE382E1B06A1950081ED87 /* HamArrow4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow4@2x.png"; sourceTree = "<group>"; };
+		15BE382F1B06A1950081ED87 /* HamArrow5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow5@2x.png"; sourceTree = "<group>"; };
+		15BE38301B06A1950081ED87 /* HamArrow6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow6@2x.png"; sourceTree = "<group>"; };
+		15BE38311B06A1950081ED87 /* HamArrow7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow7@2x.png"; sourceTree = "<group>"; };
+		15BE38321B06A1950081ED87 /* HamArrow8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow8@2x.png"; sourceTree = "<group>"; };
+		15BE38331B06A1950081ED87 /* HamArrow9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow9@2x.png"; sourceTree = "<group>"; };
+		15BE38341B06A1950081ED87 /* HamArrow10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow10@2x.png"; sourceTree = "<group>"; };
+		15BE38351B06A1950081ED87 /* HamArrow11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow11@2x.png"; sourceTree = "<group>"; };
+		15BE38361B06A1950081ED87 /* HamArrow12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow12@2x.png"; sourceTree = "<group>"; };
+		15BE38371B06A1950081ED87 /* HamArrow13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow13@2x.png"; sourceTree = "<group>"; };
+		15BE38381B06A1950081ED87 /* HamArrow14@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow14@2x.png"; sourceTree = "<group>"; };
+		15BE38391B06A1950081ED87 /* HamArrow15@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow15@2x.png"; sourceTree = "<group>"; };
+		15BE383A1B06A1950081ED87 /* HamArrow16@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow16@2x.png"; sourceTree = "<group>"; };
+		15BE383B1B06A1950081ED87 /* HamArrow17@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow17@2x.png"; sourceTree = "<group>"; };
+		15BE383C1B06A1950081ED87 /* HamArrow18@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow18@2x.png"; sourceTree = "<group>"; };
+		15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow19@2x.png"; sourceTree = "<group>"; };
+		15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow20@2x.png"; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -273,83 +161,27 @@
 		150940BF1B05B3F60022550B /* MenuButtonCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				1509415A1B05BA0D0022550B /* HamArrow0.png */,
-				1509415B1B05BA0D0022550B /* HamArrow1.png */,
-				1509415C1B05BA0D0022550B /* HamArrow2.png */,
-				1509415D1B05BA0D0022550B /* HamArrow3.png */,
-				1509415E1B05BA0D0022550B /* HamArrow4.png */,
-				1509415F1B05BA0D0022550B /* HamArrow5.png */,
-				150941601B05BA0D0022550B /* HamArrow6.png */,
-				150941611B05BA0D0022550B /* HamArrow7.png */,
-				150941621B05BA0D0022550B /* HamArrow8.png */,
-				150941631B05BA0D0022550B /* HamArrow9.png */,
-				150941641B05BA0D0022550B /* HamArrow10.png */,
-				150941651B05BA0D0022550B /* HamArrow11.png */,
-				150941661B05BA0D0022550B /* HamArrow12.png */,
-				150941671B05BA0D0022550B /* HamArrow13.png */,
-				150941681B05BA0D0022550B /* HamArrow14.png */,
-				150941691B05BA0D0022550B /* HamArrow15.png */,
-				1509416A1B05BA0D0022550B /* HamArrow16.png */,
-				1509416B1B05BA0D0022550B /* HamArrow17.png */,
-				1509416C1B05BA0D0022550B /* HamArrow18.png */,
-				1509416D1B05BA0D0022550B /* HamArrow19.png */,
-				1509416E1B05BA0D0022550B /* HamArrow20.png */,
-				1509416F1B05BA0D0022550B /* HamArrow21.png */,
-				150941701B05BA0D0022550B /* HamArrow22.png */,
-				150941711B05BA0E0022550B /* HamArrow23.png */,
-				150941721B05BA0E0022550B /* HamArrow24.png */,
-				150941731B05BA0E0022550B /* HamArrow25.png */,
-				150941741B05BA0E0022550B /* HamArrow26.png */,
-				150941751B05BA0E0022550B /* HamArrow27.png */,
-				150941761B05BA0E0022550B /* HamArrow28.png */,
-				150941771B05BA0E0022550B /* HamArrow29.png */,
-				150941781B05BA0E0022550B /* HamArrow30.png */,
-				150941791B05BA0E0022550B /* HamArrow31.png */,
-				1509417A1B05BA0E0022550B /* HamArrow32.png */,
-				1509417B1B05BA0E0022550B /* HamArrow33.png */,
-				1509417C1B05BA0E0022550B /* HamArrow34.png */,
-				1509417D1B05BA0E0022550B /* HamArrow35.png */,
-				1509417E1B05BA0E0022550B /* HamArrow36.png */,
-				1509417F1B05BA0E0022550B /* HamArrow37.png */,
-				150941801B05BA0E0022550B /* HamArrow38.png */,
-				150941811B05BA0E0022550B /* HamArrow39.png */,
-				150941821B05BA0E0022550B /* HamArrow40.png */,
-				150941831B05BA0E0022550B /* HamArrow41.png */,
-				150941841B05BA0E0022550B /* HamArrow42.png */,
-				150941851B05BA0E0022550B /* HamArrow43.png */,
-				150941861B05BA0E0022550B /* HamArrow44.png */,
-				150941871B05BA0E0022550B /* HamArrow45.png */,
-				150941881B05BA0E0022550B /* HamArrow46.png */,
-				150941891B05BA0E0022550B /* HamArrow47.png */,
-				1509418A1B05BA0E0022550B /* HamArrow48.png */,
-				1509418B1B05BA0E0022550B /* HamArrow49.png */,
-				1509418C1B05BA0E0022550B /* HamArrow50.png */,
-				1509418D1B05BA0E0022550B /* HamArrow51.png */,
-				1509418E1B05BA0E0022550B /* HamArrow52.png */,
-				1509418F1B05BA0E0022550B /* HamArrow53.png */,
-				150941901B05BA0E0022550B /* HamArrow54.png */,
-				150941911B05BA0E0022550B /* HamArrow55.png */,
-				150941921B05BA0E0022550B /* HamArrow56.png */,
-				150941931B05BA0E0022550B /* HamArrow57.png */,
-				150941941B05BA0E0022550B /* HamArrow58.png */,
-				150941951B05BA0E0022550B /* HamArrow59.png */,
-				150941961B05BA0E0022550B /* HamArrow60.png */,
-				150941971B05BA0E0022550B /* HamArrow61.png */,
-				150941981B05BA0E0022550B /* HamArrow62.png */,
-				150941991B05BA0E0022550B /* HamArrow63.png */,
-				1509419A1B05BA0E0022550B /* HamArrow64.png */,
-				1509419B1B05BA0E0022550B /* HamArrow65.png */,
-				1509419C1B05BA0E0022550B /* HamArrow66.png */,
-				1509419D1B05BA0E0022550B /* HamArrow67.png */,
-				1509419E1B05BA0E0022550B /* HamArrow68.png */,
-				1509419F1B05BA0E0022550B /* HamArrow69.png */,
-				150941A01B05BA0E0022550B /* HamArrow70.png */,
-				150941A11B05BA0E0022550B /* HamArrow71.png */,
-				150941A21B05BA0E0022550B /* HamArrow72.png */,
-				150941A31B05BA0E0022550B /* HamArrow73.png */,
-				150941A41B05BA0E0022550B /* HamArrow74.png */,
-				150941A51B05BA0E0022550B /* HamArrow75.png */,
-				150941A61B05BA0E0022550B /* HamArrow76.png */,
+				15BE382A1B06A1950081ED87 /* HamArrow0@2x.png */,
+				15BE382B1B06A1950081ED87 /* HamArrow1@2x.png */,
+				15BE382C1B06A1950081ED87 /* HamArrow2@2x.png */,
+				15BE382D1B06A1950081ED87 /* HamArrow3@2x.png */,
+				15BE382E1B06A1950081ED87 /* HamArrow4@2x.png */,
+				15BE382F1B06A1950081ED87 /* HamArrow5@2x.png */,
+				15BE38301B06A1950081ED87 /* HamArrow6@2x.png */,
+				15BE38311B06A1950081ED87 /* HamArrow7@2x.png */,
+				15BE38321B06A1950081ED87 /* HamArrow8@2x.png */,
+				15BE38331B06A1950081ED87 /* HamArrow9@2x.png */,
+				15BE38341B06A1950081ED87 /* HamArrow10@2x.png */,
+				15BE38351B06A1950081ED87 /* HamArrow11@2x.png */,
+				15BE38361B06A1950081ED87 /* HamArrow12@2x.png */,
+				15BE38371B06A1950081ED87 /* HamArrow13@2x.png */,
+				15BE38381B06A1950081ED87 /* HamArrow14@2x.png */,
+				15BE38391B06A1950081ED87 /* HamArrow15@2x.png */,
+				15BE383A1B06A1950081ED87 /* HamArrow16@2x.png */,
+				15BE383B1B06A1950081ED87 /* HamArrow17@2x.png */,
+				15BE383C1B06A1950081ED87 /* HamArrow18@2x.png */,
+				15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */,
+				15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */,
 			);
 			path = MenuButtonCatalog;
 			sourceTree = "<group>";
@@ -594,103 +426,47 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				150941C41B05BA0E0022550B /* HamArrow29.png in Resources */,
-				150941BF1B05BA0E0022550B /* HamArrow24.png in Resources */,
-				150941C61B05BA0E0022550B /* HamArrow31.png in Resources */,
-				150941C21B05BA0E0022550B /* HamArrow27.png in Resources */,
-				150941D51B05BA0E0022550B /* HamArrow46.png in Resources */,
-				150941D01B05BA0E0022550B /* HamArrow41.png in Resources */,
-				150941BD1B05BA0E0022550B /* HamArrow22.png in Resources */,
 				1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */,
-				150941EB1B05BA0E0022550B /* HamArrow68.png in Resources */,
-				150941F11B05BA0E0022550B /* HamArrow74.png in Resources */,
-				150941E31B05BA0E0022550B /* HamArrow60.png in Resources */,
-				150941E21B05BA0E0022550B /* HamArrow59.png in Resources */,
-				150941B71B05BA0E0022550B /* HamArrow16.png in Resources */,
-				150941C71B05BA0E0022550B /* HamArrow32.png in Resources */,
-				150941ED1B05BA0E0022550B /* HamArrow70.png in Resources */,
-				150941C11B05BA0E0022550B /* HamArrow26.png in Resources */,
-				150941D31B05BA0E0022550B /* HamArrow44.png in Resources */,
-				150941F01B05BA0E0022550B /* HamArrow73.png in Resources */,
 				1587E1B51AEE1DD400E6B79F /* Event_Feed_Icon.png in Resources */,
-				150941AF1B05BA0E0022550B /* HamArrow8.png in Resources */,
-				150941A81B05BA0E0022550B /* HamArrow1.png in Resources */,
 				1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */,
-				150941CA1B05BA0E0022550B /* HamArrow35.png in Resources */,
-				150941B81B05BA0E0022550B /* HamArrow17.png in Resources */,
-				150941E91B05BA0E0022550B /* HamArrow66.png in Resources */,
-				150941BA1B05BA0E0022550B /* HamArrow19.png in Resources */,
-				150941C31B05BA0E0022550B /* HamArrow28.png in Resources */,
-				150941B31B05BA0E0022550B /* HamArrow12.png in Resources */,
-				150941C91B05BA0E0022550B /* HamArrow34.png in Resources */,
 				BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */,
-				150941B01B05BA0E0022550B /* HamArrow9.png in Resources */,
-				150941B61B05BA0E0022550B /* HamArrow15.png in Resources */,
-				150941D81B05BA0E0022550B /* HamArrow49.png in Resources */,
-				150941CE1B05BA0E0022550B /* HamArrow39.png in Resources */,
 				1587E1B61AEE1DD400E6B79F /* Social_Media_Icon.png in Resources */,
-				150941AA1B05BA0E0022550B /* HamArrow3.png in Resources */,
 				15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */,
-				150941B21B05BA0E0022550B /* HamArrow11.png in Resources */,
+				15BE38781B06A1950081ED87 /* HamArrow1@2x.png in Resources */,
+				15BE387A1B06A1950081ED87 /* HamArrow3@2x.png in Resources */,
+				15BE38871B06A1950081ED87 /* HamArrow16@2x.png in Resources */,
 				159DAC781B05CDA3008DA2EA /* Phone_Button.png in Resources */,
-				150941F21B05BA0E0022550B /* HamArrow75.png in Resources */,
-				150941C81B05BA0E0022550B /* HamArrow33.png in Resources */,
-				150941EA1B05BA0E0022550B /* HamArrow67.png in Resources */,
-				150941CB1B05BA0E0022550B /* HamArrow36.png in Resources */,
-				150941E11B05BA0E0022550B /* HamArrow58.png in Resources */,
-				150941DB1B05BA0E0022550B /* HamArrow52.png in Resources */,
-				150941C01B05BA0E0022550B /* HamArrow25.png in Resources */,
-				150941C51B05BA0E0022550B /* HamArrow30.png in Resources */,
-				150941D41B05BA0E0022550B /* HamArrow45.png in Resources */,
+				15BE38791B06A1950081ED87 /* HamArrow2@2x.png in Resources */,
+				15BE387E1B06A1950081ED87 /* HamArrow7@2x.png in Resources */,
 				153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */,
-				150941E41B05BA0E0022550B /* HamArrow61.png in Resources */,
-				150941E61B05BA0E0022550B /* HamArrow63.png in Resources */,
 				15384C8C1B057DB30045DECA /* CircleMenuButton@2x.png in Resources */,
-				150941E01B05BA0E0022550B /* HamArrow57.png in Resources */,
+				15BE387B1B06A1950081ED87 /* HamArrow4@2x.png in Resources */,
 				15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */,
-				150941B11B05BA0E0022550B /* HamArrow10.png in Resources */,
-				150941B91B05BA0E0022550B /* HamArrow18.png in Resources */,
-				150941CD1B05BA0E0022550B /* HamArrow38.png in Resources */,
-				150941BE1B05BA0E0022550B /* HamArrow23.png in Resources */,
+				15BE388A1B06A1950081ED87 /* HamArrow19@2x.png in Resources */,
+				15BE38891B06A1950081ED87 /* HamArrow18@2x.png in Resources */,
+				15BE38881B06A1950081ED87 /* HamArrow17@2x.png in Resources */,
 				15E84A921AEC4FBB004D3E29 /* Favorite_Disabled.png in Resources */,
+				15BE38851B06A1950081ED87 /* HamArrow14@2x.png in Resources */,
+				15BE38811B06A1950081ED87 /* HamArrow10@2x.png in Resources */,
+				15BE387F1B06A1950081ED87 /* HamArrow8@2x.png in Resources */,
+				15BE38801B06A1950081ED87 /* HamArrow9@2x.png in Resources */,
 				15BC7E171B03037D00E241DC /* FilterDropdownButton.png in Resources */,
-				150941CC1B05BA0E0022550B /* HamArrow37.png in Resources */,
-				150941AC1B05BA0E0022550B /* HamArrow5.png in Resources */,
-				150941DA1B05BA0E0022550B /* HamArrow51.png in Resources */,
-				150941D71B05BA0E0022550B /* HamArrow48.png in Resources */,
+				15BE387D1B06A1950081ED87 /* HamArrow6@2x.png in Resources */,
+				15BE38841B06A1950081ED87 /* HamArrow13@2x.png in Resources */,
 				BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */,
-				150941D11B05BA0E0022550B /* HamArrow42.png in Resources */,
-				150941AB1B05BA0E0022550B /* HamArrow4.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
 				1587E1B71AEE1DD400E6B79F /* Tours_Cities_Icons.png in Resources */,
-				150941D91B05BA0E0022550B /* HamArrow50.png in Resources */,
-				150941BB1B05BA0E0022550B /* HamArrow20.png in Resources */,
-				150941DF1B05BA0E0022550B /* HamArrow56.png in Resources */,
+				15BE38831B06A1950081ED87 /* HamArrow12@2x.png in Resources */,
+				15BE387C1B06A1950081ED87 /* HamArrow5@2x.png in Resources */,
 				15384C861B055DEC0045DECA /* Menu_Button@2x.png in Resources */,
 				15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */,
-				150941EC1B05BA0E0022550B /* HamArrow69.png in Resources */,
-				150941AE1B05BA0E0022550B /* HamArrow7.png in Resources */,
-				150941EE1B05BA0E0022550B /* HamArrow71.png in Resources */,
-				150941AD1B05BA0E0022550B /* HamArrow6.png in Resources */,
-				150941BC1B05BA0E0022550B /* HamArrow21.png in Resources */,
-				150941D61B05BA0E0022550B /* HamArrow47.png in Resources */,
-				150941F31B05BA0E0022550B /* HamArrow76.png in Resources */,
-				150941DE1B05BA0E0022550B /* HamArrow55.png in Resources */,
-				150941DD1B05BA0E0022550B /* HamArrow54.png in Resources */,
 				15BC7E181B03037D00E241DC /* FilterOptionButton.png in Resources */,
-				150941A91B05BA0E0022550B /* HamArrow2.png in Resources */,
+				15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */,
+				15BE38861B06A1950081ED87 /* HamArrow15@2x.png in Resources */,
 				D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */,
-				150941A71B05BA0E0022550B /* HamArrow0.png in Resources */,
-				150941B41B05BA0E0022550B /* HamArrow13.png in Resources */,
+				15BE38821B06A1950081ED87 /* HamArrow11@2x.png in Resources */,
 				BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */,
-				150941DC1B05BA0E0022550B /* HamArrow53.png in Resources */,
-				150941CF1B05BA0E0022550B /* HamArrow40.png in Resources */,
-				150941E71B05BA0E0022550B /* HamArrow64.png in Resources */,
-				150941D21B05BA0E0022550B /* HamArrow43.png in Resources */,
-				150941E51B05BA0E0022550B /* HamArrow62.png in Resources */,
-				150941E81B05BA0E0022550B /* HamArrow65.png in Resources */,
-				150941B51B05BA0E0022550B /* HamArrow14.png in Resources */,
-				150941EF1B05BA0E0022550B /* HamArrow72.png in Resources */,
+				15BE38771B06A1950081ED87 /* HamArrow0@2x.png in Resources */,
 				159DAC761B05CD95008DA2EA /* Email_Button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

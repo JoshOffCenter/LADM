@@ -35,6 +35,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //Navigation Bar
     @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var menuButton: UIButton!
     
    
    var compEvents = [CompEventItem]()
@@ -55,10 +56,28 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    override func viewDidLoad() {
       
 
-      tableView.estimatedRowHeight = 80.0;
+    tableView.estimatedRowHeight = 80.0;
+    tableView.layer.cornerRadius = 10
     setupNavBar()
-        setupGestures()
-      fillData(cityData[selectedCity]!.competitionSchedule)
+    setupGestures()
+    dismissButton.enabled = false
+    invisibleFilterButton.enabled = true
+    
+    fillData(cityData[selectedCity]!.competitionSchedule)
+
+    
+    var delay = 0.2 * Double(NSEC_PER_SEC)
+    var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+    dispatch_after(time, dispatch_get_main_queue()) {
+        self.menuButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 0.8), forState: UIControlState.Normal)
+    }
+    
+    delay = 0.8 * Double(NSEC_PER_SEC)
+    time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+    dispatch_after(time, dispatch_get_main_queue()) {
+        self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
+    }
+
 
    }
    override func viewDidAppear(animated: Bool) {
@@ -184,11 +203,17 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    @IBAction func filterMenuPressed(sender: AnyObject) {
       expandFilterMenu()
+
    }
    
    @IBAction func invisibleFilterMenuButtonPressed(sender: AnyObject) {
       expandFilterMenu()
    }
+    
+    
+    @IBAction func dismissButtonPressed(sender: AnyObject) {
+        expandFilterMenu()
+    }
    
    @IBAction func backButtonPressed(sender: AnyObject) {
       self.performSegueWithIdentifier("unwindToTourCities", sender: self)
@@ -219,15 +244,15 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     func handleGestures(sender: UISwipeGestureRecognizer){
         if sender.isKindOfClass(UISwipeGestureRecognizer.self){
             if sender.direction == .Down && filterMenuExpanded == false{
-//                self.expandFilterMenu()
+                self.expandFilterMenu()
             }
             else if sender.direction == .Up && filterMenuExpanded == true {
-//                self.expandFilterMenu()
+                self.expandFilterMenu()
             }
         }
         else if sender.isKindOfClass(UIPanGestureRecognizer.self) {
             if sender.state == UIGestureRecognizerState.Began {
-//                expandFilterMenu()
+                expandFilterMenu()
             }
         }
     }
@@ -243,6 +268,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //                self.filterMenuView.filterMenuButton.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
             })
             filterMenuExpanded = true
+            dismissButton.enabled = true
+            invisibleFilterButton.enabled = false
+
         }
         else {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.15, options: nil, animations: { () -> Void in
@@ -258,6 +286,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             fillData(filteredData)
             
             filterMenuExpanded = false
+            dismissButton.enabled = false
+            invisibleFilterButton.enabled = true
         
         }
         

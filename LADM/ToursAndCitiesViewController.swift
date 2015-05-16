@@ -35,6 +35,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
+    @IBOutlet weak var animButton: UIButton!
 
    
     
@@ -48,8 +49,16 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         buttonShade()
         setupNavBar()
         
+        competitionOrderButton.layer.cornerRadius = 5
+        scheduleButton.layer.cornerRadius = 5
+        competitionResultsButton.layer.cornerRadius = 5
+        specialtyAwardsButton.layer.cornerRadius = 5
+        
 //            self.testButton.setImage(UIImage(named: "HamArrow_00000"), forState: .Normal)
-//        self.testButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal)
+        
+//        self.menuButton.setBackgroundImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
+//       self.animButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 2), forState: UIControlState.Normal)
+        
 
     
     }
@@ -63,6 +72,8 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
    @IBAction func menuButtonPressed(sender: AnyObject) {
       menuButtonPressed = true
+    
+
       performSegueWithIdentifier("presentMenuSegue", sender: self)
     
    

@@ -14,7 +14,6 @@ class DataFetcher: UIDevice
     var baseURL: String!
     let device = UIDevice.currentDevice()
 
-    
     override init(){
         if device.model == "iPhone Simulator" {
             baseURL = "http:localhost:8080/LADM/"
@@ -23,15 +22,6 @@ class DataFetcher: UIDevice
             baseURL = "http://ladmtest.com/LADM/"
         }
     }
-//    if (UIDevice.currentDevice().model == "iPhone Simulator"){
-//    
-//
-//        baseURL = "http:localhost:8080/LADM/"
-//    }
-//    else {
-//        baseURL = "http://ladmtest.com/LADM/"
-//
-//    }
 
     
     private func getJSON(urlToRequest: String) -> NSData? {
