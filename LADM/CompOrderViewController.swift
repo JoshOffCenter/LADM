@@ -187,11 +187,13 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
          }
       }
       if lastSelectedIndexPath != nil {
-         var cell = tableView.cellForRowAtIndexPath(lastSelectedIndexPath!) as! EventCell
+        if let cell = tableView.cellForRowAtIndexPath(lastSelectedIndexPath!) as? EventCell {
          cell.studioLabel.removeFromSuperview()
          cell.ageLabel.removeFromSuperview()
          cell.categoryLabel.removeFromSuperview()
          cell.divisionLabel.removeFromSuperview()
+        }
+        
       }
       tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       lastSelectedIndexPath = selectedIndexPath
