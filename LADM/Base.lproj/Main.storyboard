@@ -891,7 +891,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuF-G4-kDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SMf-rB-rqd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="869" y="350"/>
+            <point key="canvasLocation" x="953" y="740"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="I5b-0N-ybQ">
@@ -1128,7 +1128,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rp2-FT-4d4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Oid-CF-FYW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1849" y="384"/>
+            <point key="canvasLocation" x="1687" y="270"/>
         </scene>
     </scenes>
     <resources>
