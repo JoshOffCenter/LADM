@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 
 class CityData
@@ -21,6 +22,8 @@ class CityData
     var categories = [String]()
     let dataFetcher = DataFetcher()
     
+    var x :AnyObject?
+    
     init(city:String) {
         self.city = city.lowercaseString
         getCompetitionSchedule()
@@ -30,7 +33,6 @@ class CityData
         getStudios()
         getCategories()
         getAges()
-        
     }
     
     func getCompetitionSchedule() {
@@ -127,6 +129,8 @@ class CityData
         }
         
         return data
+        
+        
         
     }
     

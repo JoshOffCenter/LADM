@@ -95,6 +95,11 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 
     }
 
+    @IBAction func schedulePressed(sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
+        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+        customSegue.perform()
+    }
     @IBAction func competitionOrderTouchDown(sender: AnyObject, forEvent event: UIEvent) {
         feedbackAnimation(sender, event: event)
     }
@@ -193,10 +198,13 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       
    }
 
+    @IBAction func scheduleButtonDown(sender: AnyObject, forEvent event: UIEvent) {
+        feedbackAnimation(sender, event: event)
+    }
     func feedbackAnimation(sender: AnyObject, event: UIEvent) {
         let buttonView = sender as! UIView
         buttonView.clipsToBounds = true
-        buttonView.backgroundColor = UIColor.clearColor()
+        //buttonView.backgroundColor = UIColor.clearColor()
         if let touch = event.touchesForView(buttonView)?.first as? UITouch {
             let point = touch.locationInView(buttonView)
         
@@ -209,7 +217,6 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
             
             seed.backgroundColor = UIColor.lightGrayColor()
             seed.layer.cornerRadius = radius
-            seed.layer.masksToBounds = true
             buttonView.addSubview(seed)
             
         
