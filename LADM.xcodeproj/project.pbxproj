@@ -46,6 +46,9 @@
 		15BE38891B06A1950081ED87 /* HamArrow18@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383C1B06A1950081ED87 /* HamArrow18@2x.png */; };
 		15BE388A1B06A1950081ED87 /* HamArrow19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */; };
 		15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */; };
+		15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */; };
+		15D44E9D1B0EDCAE00EFCA0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1C16B31B0A7A840079E282 /* Alamofire.framework */; };
+		15D44E9E1B0EDCAE00EFCA0A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC1C16B31B0A7A840079E282 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -72,6 +75,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		15D44E9F1B0EDCAE00EFCA0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BC1C16A91B0A7A840079E282 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DD67C0A1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
 		BC1C16B01B0A7A840079E282 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BC1C16A91B0A7A840079E282 /* Alamofire.xcodeproj */;
@@ -117,6 +127,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		15D44EA11B0EDCAE00EFCA0A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				15D44E9E1B0EDCAE00EFCA0A /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC1C16BC1B0A7ABB0079E282 /* Copy Framework */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +191,7 @@
 		15BE383C1B06A1950081ED87 /* HamArrow18@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow18@2x.png"; sourceTree = "<group>"; };
 		15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow19@2x.png"; sourceTree = "<group>"; };
 		15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow20@2x.png"; sourceTree = "<group>"; };
+		15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC1C16C01B0AC6AD0079E282 /* Alamofire.framework in Frameworks */,
+				15D44E9D1B0EDCAE00EFCA0A /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +368,7 @@
 				1587E1B81AEEA5F800E6B79F /* MenuViewController.swift */,
 				BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */,
 				BC2B23491B0D858C00DE2910 /* ScheduleViewController.swift */,
+				15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -430,11 +454,13 @@
 				D988EBC91ADCD234003A4D7F /* Frameworks */,
 				D988EBCA1ADCD234003A4D7F /* Resources */,
 				BC1C16BC1B0A7ABB0079E282 /* Copy Framework */,
+				15D44EA11B0EDCAE00EFCA0A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				BC1C16BF1B0AC6850079E282 /* PBXTargetDependency */,
+				15D44EA01B0EDCAE00EFCA0A /* PBXTargetDependency */,
 			);
 			name = LADM;
 			productName = LADM;
@@ -614,6 +640,7 @@
 				15016BE61AF1C0AB0018BBF2 /* SelectCityView.swift in Sources */,
 				1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */,
 				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,
+				15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */,
 				BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -629,6 +656,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		15D44EA01B0EDCAE00EFCA0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire OSX";
+			targetProxy = 15D44E9F1B0EDCAE00EFCA0A /* PBXContainerItemProxy */;
+		};
 		BC1C16BF1B0AC6850079E282 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";

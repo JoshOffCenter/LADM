@@ -8,18 +8,29 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
-    
+class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate {
+    //Class Variables
     var scheduleItems = [ScheduleItem]()
+    var day: String!
+    
+    
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var selectorView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    //SelectorView Content
+    @IBOutlet weak var satButton: UIButton!
+    @IBOutlet weak var sunButton: UIButton!
+    @IBOutlet weak var toggleView: UIView!
+    @IBOutlet weak var groupButton: UIButton!
+    
+    
     override func viewDidLoad() {
         setUpNavBar()
         fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
+        setupToggleView()
     }
     
     func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
@@ -70,6 +81,66 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         cell.timeLabel.text = item.time
         cell.eventLabel.text = item.event
         return cell
+    }
+    
+    
+    //MARK: Setup Toggle View
+    func setupToggleView() {
+        toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
+    }
+    
+    //MARK: Setup Popover View
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+
+    func setupPopoverView() -> PopoverViewController {
+        let storybard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        var popoverViewController = storybard.instantiateViewControllerWithIdentifier("PopoverViewController") as! PopoverViewController
+        popoverViewController.modalPresentationStyle = .Popover
+        popoverViewController.preferredContentSize = CGSizeMake(50, 100)
+        return popoverViewController
+    }
+    
+    //MARK: Button IBActions
+    
+    @IBAction func toggleDay(sender: UIButton, forEvent event: UIEvent) {
+        if let day = sender.titleLabel {
+            self.day = day.text
+        }
+        sender.setTitleColor(self.selectorView.backgroundColor, forState: .Normal)
+        if sender == satButton {
+            sunButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        else {
+            satButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        
+        UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.toggleView.center = sender.center
+        }, completion: nil)
+    }
+    
+    
+    @IBAction func groupButtonPressed(sender: UIButton) {
+//        let pcv = setupPopoverView()
+//        let pvmc = setupPopoverView().popoverPresentationController
+//        pvmc?.permittedArrowDirections = UIPopoverArrowDirection.Up
+//        pvmc?.delegate = self
+//        pvmc?.sourceView = sender
+//        pvmc?.sourceRect = CGRect(x: sender.center.x, y: sender.center.y, width: 1, height: 1)
+//        adaptivePresentationStyleForPresentationController(pvmc)
+//        presentViewController(pcv, animated: true, completion: nil)
+    }
+    
+    //Mark Segue Overrides
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "groupPopoverSegue" {
+            let popoverViewController = segue.destinationViewController as! PopoverViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            popoverViewController.popoverPresentationController!.delegate = self
+        }
+        
     }
     
     
