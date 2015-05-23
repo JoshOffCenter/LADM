@@ -24,6 +24,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var sunButton: UIButton!
     @IBOutlet weak var toggleView: UIView!
     @IBOutlet weak var groupButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,22 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
         setupToggleView()
+        
+        var delay = 0.2 * Double(NSEC_PER_SEC)
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.menuButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 0.8), forState: UIControlState.Normal)
+        }
+        
+        delay = 0.8 * Double(NSEC_PER_SEC)
+        time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
+        }
+        
+
+        tableView.layer.cornerRadius = 10
+
     }
     
     func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
@@ -103,6 +120,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     //MARK: Button IBActions
+    
+    @IBAction func backButtonPressed(sender: UIButton) {
+        performSegueWithIdentifier("unwindToTourCities", sender: self)
+    }
+    
     
     @IBAction func toggleDay(sender: UIButton, forEvent event: UIEvent) {
         if let day = sender.titleLabel {
