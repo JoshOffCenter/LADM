@@ -47,8 +47,6 @@
 		15BE388A1B06A1950081ED87 /* HamArrow19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */; };
 		15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */; };
 		15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */; };
-		15D44E9D1B0EDCAE00EFCA0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1C16B31B0A7A840079E282 /* Alamofire.framework */; };
-		15D44E9E1B0EDCAE00EFCA0A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC1C16B31B0A7A840079E282 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -56,8 +54,6 @@
 		15E84A931AEC4FBB004D3E29 /* Favorite_Enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A911AEC4FBB004D3E29 /* Favorite_Enabled.png */; };
 		15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A941AEC517C004D3E29 /* EventCell.swift */; };
 		15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A961AEC5314004D3E29 /* CompEventItem.swift */; };
-		BC1C16C01B0AC6AD0079E282 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1C16B11B0A7A840079E282 /* Alamofire.framework */; };
-		BC1C16C11B0AC8620079E282 /* Alamofire.framework in Copy Framework */ = {isa = PBXBuildFile; fileRef = BC1C16B11B0A7A840079E282 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */; };
 		BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */; };
 		BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItem.swift */; };
