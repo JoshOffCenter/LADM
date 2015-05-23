@@ -47,6 +47,9 @@
 		15BE388A1B06A1950081ED87 /* HamArrow19@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */; };
 		15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */; };
 		15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */; };
+		15DE3EA01B10478A005004BE /* Facebook_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DE3E9E1B10478A005004BE /* Facebook_Button.png */; };
+		15DE3EA11B10478A005004BE /* Twitter_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 15DE3E9F1B10478A005004BE /* Twitter_Button.png */; };
+		15DE3EA31B1049CD005004BE /* SocialMediaMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DE3EA21B1049CD005004BE /* SocialMediaMenuView.swift */; };
 		15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A861AEB6481004D3E29 /* CityButton@3x.png */; };
 		15E84A8D1AEC459D004D3E29 /* Drop_Down_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */; };
 		15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */; };
@@ -144,6 +147,9 @@
 		15BE383D1B06A1950081ED87 /* HamArrow19@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow19@2x.png"; sourceTree = "<group>"; };
 		15BE383E1B06A1950081ED87 /* HamArrow20@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HamArrow20@2x.png"; sourceTree = "<group>"; };
 		15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		15DE3E9E1B10478A005004BE /* Facebook_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Facebook_Button.png; sourceTree = "<group>"; };
+		15DE3E9F1B10478A005004BE /* Twitter_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_Button.png; sourceTree = "<group>"; };
+		15DE3EA21B1049CD005004BE /* SocialMediaMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaMenuView.swift; sourceTree = "<group>"; };
 		15E84A861AEB6481004D3E29 /* CityButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityButton@3x.png"; sourceTree = "<group>"; };
 		15E84A8C1AEC459D004D3E29 /* Drop_Down_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drop_Down_Menu.png; sourceTree = "<group>"; };
 		15E84A8E1AEC49BF004D3E29 /* CompOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompOrderViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 		1587E1AF1AEE1DD400E6B79F /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				15DE3E9D1B10478A005004BE /* SocialMediaMenu */,
 				159DAC741B05CD08008DA2EA /* Contact Menu */,
 				150940BF1B05B3F60022550B /* MenuButtonCatalog */,
 				15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */,
@@ -260,6 +267,15 @@
 				15BC7E161B03037D00E241DC /* FilterOptionButton.png */,
 			);
 			path = "Filter Menu";
+			sourceTree = "<group>";
+		};
+		15DE3E9D1B10478A005004BE /* SocialMediaMenu */ = {
+			isa = PBXGroup;
+			children = (
+				15DE3E9E1B10478A005004BE /* Facebook_Button.png */,
+				15DE3E9F1B10478A005004BE /* Twitter_Button.png */,
+			);
+			path = SocialMediaMenu;
 			sourceTree = "<group>";
 		};
 		15E84A8B1AEC459D004D3E29 /* Schedule */ = {
@@ -293,6 +309,7 @@
 				15E84A941AEC517C004D3E29 /* EventCell.swift */,
 				BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */,
 				159DAC791B05CDBB008DA2EA /* ContactMenuView.swift */,
+				15DE3EA21B1049CD005004BE /* SocialMediaMenuView.swift */,
 				15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */,
 				1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */,
 			);
@@ -493,6 +510,7 @@
 				BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */,
 				D988EBD71ADCD235003A4D7F /* Main.storyboard in Resources */,
 				1587E1B71AEE1DD400E6B79F /* Tours_Cities_Icons.png in Resources */,
+				15DE3EA01B10478A005004BE /* Facebook_Button.png in Resources */,
 				15BE38831B06A1950081ED87 /* HamArrow12@2x.png in Resources */,
 				15BE387C1B06A1950081ED87 /* HamArrow5@2x.png in Resources */,
 				15384C861B055DEC0045DECA /* Menu_Button@2x.png in Resources */,
@@ -501,6 +519,7 @@
 				15BE388B1B06A1950081ED87 /* HamArrow20@2x.png in Resources */,
 				15BE38861B06A1950081ED87 /* HamArrow15@2x.png in Resources */,
 				D988EBD91ADCD235003A4D7F /* Images.xcassets in Resources */,
+				15DE3EA11B10478A005004BE /* Twitter_Button.png in Resources */,
 				15BE38821B06A1950081ED87 /* HamArrow11@2x.png in Resources */,
 				BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */,
 				15BE38771B06A1950081ED87 /* HamArrow0@2x.png in Resources */,
@@ -530,6 +549,7 @@
 				BC2B23511B0D9C7100DE2910 /* ScheduleCell.swift in Sources */,
 				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
 				BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */,
+				15DE3EA31B1049CD005004BE /* SocialMediaMenuView.swift in Sources */,
 				159DAC7A1B05CDBB008DA2EA /* ContactMenuView.swift in Sources */,
 				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
 				BC2B234F1B0D95DD00DE2910 /* ScheduleItem.swift in Sources */,

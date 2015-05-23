@@ -1143,6 +1143,9 @@
                                 <state key="normal" image="Social_Media_Icon.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="socialMediaButtonPressed:" destination="C2i-pG-pMh" eventType="touchUpInside" id="il5-Ay-PhQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xge-Rk-toG">
                                 <rect key="frame" x="395" y="260" width="67" height="18"/>
@@ -1233,6 +1236,54 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHf-Vd-NtL" customClass="SocialMediaMenuView" customModule="LADM" customModuleProvider="target">
+                                <rect key="frame" x="150" y="125" width="300" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oai-jP-p4A">
+                                        <rect key="frame" x="88" y="35" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="dYH-Jj-tea"/>
+                                            <constraint firstAttribute="width" constant="125" id="sel-cB-61K"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Facebook_Button.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="facebookButtonPressed:" destination="yHf-Vd-NtL" eventType="touchUpInside" id="WtB-fT-6I9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJZ-JV-2Si">
+                                        <rect key="frame" x="88" y="190" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="Wgs-61-Cns"/>
+                                            <constraint firstAttribute="width" constant="125" id="zg0-F3-Tem"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Twitter_Button.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="twitterButtonPressed:" destination="yHf-Vd-NtL" eventType="touchUpInside" id="DB4-QK-K21"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="sJZ-JV-2Si" secondAttribute="centerX" id="3Te-9V-AEV"/>
+                                    <constraint firstAttribute="centerX" secondItem="oai-jP-p4A" secondAttribute="centerX" id="5MZ-xG-Wg7"/>
+                                    <constraint firstAttribute="height" constant="350" id="E7A-QB-xma"/>
+                                    <constraint firstAttribute="bottom" secondItem="sJZ-JV-2Si" secondAttribute="bottom" constant="20" id="PrV-UJ-KHq"/>
+                                    <constraint firstItem="oai-jP-p4A" firstAttribute="top" secondItem="yHf-Vd-NtL" secondAttribute="top" constant="20" id="bwN-pC-cbb"/>
+                                    <constraint firstItem="oai-jP-p4A" firstAttribute="top" secondItem="yHf-Vd-NtL" secondAttribute="top" constant="35" id="eTL-xu-trk"/>
+                                    <constraint firstAttribute="bottom" secondItem="sJZ-JV-2Si" secondAttribute="bottom" constant="35" id="tYS-P8-z3c"/>
+                                    <constraint firstAttribute="width" constant="300" id="uCF-Uu-dC0"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bwN-pC-cbb"/>
+                                        <exclude reference="PrV-UJ-KHq"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1242,6 +1293,7 @@
                             <constraint firstItem="WFB-jB-FYv" firstAttribute="top" secondItem="ail-3o-6Up" secondAttribute="bottom" constant="10" id="DC7-Zm-p3p"/>
                             <constraint firstItem="3sR-YZ-Tcc" firstAttribute="top" secondItem="W07-V2-CE8" secondAttribute="bottom" constant="10" id="Dvo-h4-cdy"/>
                             <constraint firstAttribute="centerX" secondItem="xr2-kz-5Om" secondAttribute="centerX" multiplier="0.7" id="HUt-7w-vt8"/>
+                            <constraint firstAttribute="centerY" secondItem="yHf-Vd-NtL" secondAttribute="centerY" id="K1R-V8-ja8"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="top" secondItem="P2G-Va-Ejj" secondAttribute="centerY" multiplier="0.5" id="KTg-bQ-YIQ"/>
                             <constraint firstAttribute="centerX" secondItem="W07-V2-CE8" secondAttribute="centerX" multiplier="1.7" id="M0k-dI-kgk"/>
                             <constraint firstItem="sny-yH-p1g" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leading" constant="40" id="Ph6-eX-Yhq"/>
@@ -1253,6 +1305,7 @@
                             <constraint firstAttribute="centerY" secondItem="W07-V2-CE8" secondAttribute="centerY" multiplier="1.5" id="ZRh-0n-jzr"/>
                             <constraint firstItem="xr2-kz-5Om" firstAttribute="leading" secondItem="KVI-FZ-RN9" secondAttribute="trailing" id="a55-ei-mWr"/>
                             <constraint firstItem="W07-V2-CE8" firstAttribute="centerX" secondItem="9fx-ST-s1p" secondAttribute="centerX" id="aAD-vN-9FG"/>
+                            <constraint firstAttribute="centerX" secondItem="yHf-Vd-NtL" secondAttribute="centerX" id="aKZ-Y4-fcD"/>
                             <constraint firstItem="9fx-ST-s1p" firstAttribute="top" secondItem="KVI-FZ-RN9" secondAttribute="bottom" id="cPd-R4-Ofd"/>
                             <constraint firstItem="KVI-FZ-RN9" firstAttribute="leading" secondItem="Ga8-S5-9uR" secondAttribute="leading" id="dH3-5c-qsk"/>
                             <constraint firstAttribute="centerX" secondItem="sny-yH-p1g" secondAttribute="centerX" id="eMs-Pt-v28"/>
@@ -1275,16 +1328,16 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="lwq-iH-L0t"/>
+                                <exclude reference="cPd-R4-Ofd"/>
                                 <exclude reference="Ph6-eX-Yhq"/>
                                 <exclude reference="R4g-Oh-4Go"/>
                                 <exclude reference="m2g-UH-R17"/>
+                                <exclude reference="lwq-iH-L0t"/>
                                 <exclude reference="3K1-k8-7eP"/>
                                 <exclude reference="KTg-bQ-YIQ"/>
                                 <exclude reference="TnL-4L-ozy"/>
                                 <exclude reference="pFS-tm-IHq"/>
                                 <exclude reference="uGS-w2-4bI"/>
-                                <exclude reference="cPd-R4-Ofd"/>
                                 <exclude reference="a55-ei-mWr"/>
                                 <exclude reference="ffo-pD-864"/>
                             </mask>
@@ -1301,13 +1354,22 @@
                         <outlet property="emailButtonConstraintCenter" destination="sIq-LB-dmR" id="MJH-5S-GMt"/>
                         <outlet property="eventFeedButton" destination="xr2-kz-5Om" id="QDh-Dv-tai"/>
                         <outlet property="eventFeedLabel" destination="xge-Rk-toG" id="9VD-DR-8xe"/>
+                        <outlet property="facebookButton" destination="oai-jP-p4A" id="M8O-au-f2A"/>
+                        <outlet property="facebookButtonConstraintCenter" destination="5MZ-xG-Wg7" id="e5o-8j-5lv"/>
+                        <outlet property="facebookButtonConstraintTop" destination="eTL-xu-trk" id="sBJ-cP-4JK"/>
                         <outlet property="phoneButton" destination="Me6-wI-TIh" id="Bb2-7Y-gc5"/>
                         <outlet property="phoneButtonConstraintCenter" destination="utG-5h-6fN" id="Idt-y8-Lhd"/>
                         <outlet property="phoneButtonConstraintTop" destination="Ai0-RU-R5w" id="b46-RD-xXw"/>
                         <outlet property="socialMediaButton" destination="ail-3o-6Up" id="EKc-Id-BJl"/>
                         <outlet property="socialMediaLabel" destination="WFB-jB-FYv" id="E2O-3h-kNP"/>
+                        <outlet property="socialMediaMenu" destination="yHf-Vd-NtL" id="PAI-6x-BOg"/>
+                        <outlet property="socialMediaMenuConstraintHorizontalCenter" destination="aKZ-Y4-fcD" id="Wpk-H8-Ryb"/>
+                        <outlet property="socialMediaMenuVerticalCenter" destination="K1R-V8-ja8" id="fMa-W8-rr3"/>
                         <outlet property="tourCitiesButton" destination="W07-V2-CE8" id="vFI-In-rmK"/>
                         <outlet property="tourCitiesLabel" destination="3sR-YZ-Tcc" id="ieo-VK-hzX"/>
+                        <outlet property="twitterButton" destination="sJZ-JV-2Si" id="us9-ka-QDP"/>
+                        <outlet property="twitterButtonConstraintBottom" destination="tYS-P8-z3c" id="e21-D8-WsY"/>
+                        <outlet property="twitterButtonConstraintCenter" destination="3Te-9V-AEV" id="KZl-3B-cRA"/>
                         <segue destination="Oid-CF-FYW" kind="unwind" unwindAction="unwindToMainViewController:" id="dUV-Hv-LBL"/>
                         <segue destination="Oid-CF-FYW" kind="unwind" identifier="unwindToTourCities" unwindAction="unwindToTourCitiesViewController:" id="cSf-oA-5fm"/>
                     </connections>
@@ -1427,6 +1489,7 @@
         <image name="Contact_Icon.png" width="200" height="200"/>
         <image name="Email_Button.png" width="250" height="250"/>
         <image name="Event_Feed_Icon.png" width="200" height="200"/>
+        <image name="Facebook_Button.png" width="256" height="256"/>
         <image name="Favorite_Disabled.png" width="58" height="55"/>
         <image name="Favorite_Enabled.png" width="58" height="55"/>
         <image name="FilterDropdownButton.png" width="130" height="20"/>
@@ -1436,6 +1499,7 @@
         <image name="Phone_Button.png" width="250" height="250"/>
         <image name="Social_Media_Icon.png" width="200" height="200"/>
         <image name="Tours_Cities_Icons.png" width="200" height="200"/>
+        <image name="Twitter_Button.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MOh-Xx-iaw"/>
