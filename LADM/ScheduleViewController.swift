@@ -24,6 +24,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var sunButton: UIButton!
     @IBOutlet weak var toggleView: UIView!
     @IBOutlet weak var groupButton: UIButton!
+    @IBOutlet weak var menuButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -104,6 +105,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     //MARK: Button IBActions
+    
+    @IBAction func backButtonPressed(sender: UIButton) {
+        performSegueWithIdentifier("unwindToTourCities", sender: self)
+    }
+    
     
     @IBAction func toggleDay(sender: UIButton, forEvent event: UIEvent) {
         if let day = sender.titleLabel {
