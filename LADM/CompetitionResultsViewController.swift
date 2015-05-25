@@ -23,6 +23,9 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     var competionResultItemsArrays = [[CompetitionResultItem]]()
     var sectionDictionary: Dictionary<String, [CompetitionResultItem]>!
     var unfilteredDictionary: Dictionary<String, [CompetitionResultItem]>!
+    var allowNewMessage = false
+    var number: UInt32 = 0
+
 
     
     override func viewDidLoad() {
@@ -59,18 +62,27 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     //MARK: UITableViewDelegate Protocols
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if sectionDictionary.isEmpty {
+            return 1
+        }
         return sectionDictionary.count
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionArray = Array(sectionDictionary.values)
-        return sectionArray[section].count
-        
+        if !sectionDictionary.isEmpty {
+            return sectionArray[section].count
+        }
+        return 1
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionTitlesArray = Array(sectionDictionary.keys)
-        return sectionTitlesArray[section]
+        if !sectionDictionary.isEmpty{
+            return sectionTitlesArray[section]
+        }
+        return nil
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -79,18 +91,71 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let item: CompetitionResultItem
-        var cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell", forIndexPath: indexPath) as! CompetitionResultCell
+        if sectionDictionary.isEmpty {
+             var cell = tableView.dequeueReusableCellWithIdentifier("EmptyCompetitionResultsCell", forIndexPath: indexPath) as! EmptyCompetitionResultCell
+            cell.messageLabel.text = emptyMessage()
+            allowNewMessage = false
+            sectionDictionary = unfilteredDictionary
+            return cell
+        }
+        else {
+             var cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell", forIndexPath: indexPath) as! CompetitionResultCell
         
-        let sectionTitlesArray = Array(sectionDictionary.keys)
-        let sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
+            let sectionTitlesArray = Array(sectionDictionary.keys)
+            let sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
+            
+            
+            item = sectionValuesArray[indexPath.row]
+            cell.awardLabel.text = item.award
+            cell.routineLabel.text = item.routine
+            cell.studioLabel.text = item.studio
+            
+            allowNewMessage = true
+            return cell
+        }
+    }
+    
+    func emptyMessage() -> String {
+        var message: String!
+        if allowNewMessage == true {
+            number = arc4random_uniform(10)
+        }
         
+        switch number{
+        case 1:
+            message = "Sorry, the results seem to have danced away."
+            break
+        case 2:
+            message = "No results here, have you checked your dance bag?"
+            break
+        case 3:
+            message = "Oops, I just had them."
+            break
+        case 4:
+            message = "This is embarrasing, but I can't seem to find any results."
+            break
+        case 5:
+            message = "No results :("
+            break
+        case 6:
+            message = "You're all winners in my book."
+            break
+        case 7:
+            message = "Sorry I was taking a dance break and misplaced the results."
+            break
+        case 8:
+            message = "Quick! What's that over there!"
+            break
+        case 9:
+            message = "Is this your fault or mine?"
+            break
+        default:
+            message = "There are no results currently. Please check back later."
+            break
+        }
         
-        item = sectionValuesArray[indexPath.row]
-        cell.awardLabel.text = item.award
-        cell.routineLabel.text = item.routine
-        cell.studioLabel.text = item.studio
+        return message
         
-        return cell
     }
     
     // Create dicitonarys based on section titles
@@ -172,12 +237,6 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     @IBAction func searchButtonPressed(sender: AnyObject) {
         updateWithSearch()
     }
-    
-    
-    
-    
-    
-    
     
     
     //combined the nav bar and takes away shadows
