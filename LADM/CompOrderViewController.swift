@@ -237,6 +237,11 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         swipeDown.direction = .Down
         swipeDown.direction = .Up
         
+        
+        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        swipeBackGesture.edges = UIRectEdge.Left
+        self.view.addGestureRecognizer(swipeBackGesture)
+        
         filterMenuView.addGestureRecognizer(swipeDown)
         filterMenuView.addGestureRecognizer(swipeDown)
         filterMenuView.addGestureRecognizer(swipeUp)
@@ -256,6 +261,12 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             if sender.state == UIGestureRecognizerState.Began {
                 expandFilterMenu()
             }
+        }
+    }
+    
+    func handleLeftEdgeSwipe(sender: UIGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.Ended {
+            performSegueWithIdentifier("unwindToTourCities", sender: self)
         }
     }
     
@@ -295,6 +306,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         
         
     }
+    
+    
    
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -302,6 +315,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       toViewController.transitioningDelegate = self.transitionManager
    }
    
+    
    
 
 

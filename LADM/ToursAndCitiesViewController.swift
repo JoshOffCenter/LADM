@@ -201,6 +201,17 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     @IBAction func scheduleButtonDown(sender: AnyObject, forEvent event: UIEvent) {
         feedbackAnimation(sender, event: event)
     }
+    
+    @IBAction func feedbackButtonPressed(sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
+        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+        customSegue.perform()
+    }
+    
+    @IBAction func feedbackButtonDown(sender: AnyObject, forEvent event: UIEvent) {
+        feedbackAnimation(sender, event: event)
+    }
+
     func feedbackAnimation(sender: AnyObject, event: UIEvent) {
         let buttonView = sender as! UIView
         buttonView.clipsToBounds = true

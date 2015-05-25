@@ -17,6 +17,7 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     @IBOutlet weak var searchBox: UITextField!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIButton!
     
     
     var competitionResultItems = [CompetitionResultItem]()
@@ -33,11 +34,23 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         tableView.layer.cornerRadius = 10
         self.searchBox.delegate = self
         
-        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        self.view.addGestureRecognizer(tapGesture)
+        setupGestures()
 
         let notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "updateWithSearch", name: UITextFieldTextDidChangeNotification, object: searchBox)
+        
+        var delay = 0.2 * Double(NSEC_PER_SEC)
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.menuButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 0.8), forState: UIControlState.Normal)
+        }
+        
+        delay = 0.8 * Double(NSEC_PER_SEC)
+        time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
+        }
+
         
         let item1 = CompetitionResultItem(division: "Jr Duo/Trio", award: "1st Place, Platinum", category: "Contemporary", routine: "Anxieux", studio: "Dance Attack! Los Gatos")
         
@@ -260,7 +273,27 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         self.view.endEditing(true)
     }
     
+    @IBAction func backButtonPressed(sender: UIButton) {
+        performSegueWithIdentifier("unwindToTourCities", sender: self)
+    }
+    
+    //MARK: Gestures
+    func setupGestures() {
+        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapGesture)
+        
+        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        swipeBackGesture.edges = UIRectEdge.Left
+        self.view.addGestureRecognizer(swipeBackGesture)
+    }
+    
+    func handleLeftEdgeSwipe(sender: UIGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.Ended {
+            performSegueWithIdentifier("unwindToTourCities", sender: self)
+        }
+    }
 
+    
 
     
     

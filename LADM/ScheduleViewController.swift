@@ -31,6 +31,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
         setupToggleView()
+        setupGestures()
     }
     
     func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
@@ -142,6 +143,20 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         }
         
     }
+    
+    //MARK: Gestures
+    func setupGestures() {
+        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        swipeBackGesture.edges = UIRectEdge.Left
+        self.view.addGestureRecognizer(swipeBackGesture)
+    }
+    
+    func handleLeftEdgeSwipe(sender: UIGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.Ended {
+            performSegueWithIdentifier("unwindToTourCities", sender: self)
+        }
+    }
+
     
     
 }
