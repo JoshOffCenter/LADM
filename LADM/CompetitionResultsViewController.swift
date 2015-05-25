@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompetitionResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CompetitionResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     //MARK: IBOutles
     
@@ -21,12 +21,20 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     var competitionResultItems = [CompetitionResultItem]()
     var competionResultItemsArrays = [[CompetitionResultItem]]()
+    var sectionDictionary: Dictionary<String, [CompetitionResultItem]>!
+    var unfilteredDictionary: Dictionary<String, [CompetitionResultItem]>!
 
     
     override func viewDidLoad() {
         setUpNavBar()
         tableView.layer.cornerRadius = 10
+        self.searchBox.delegate = self
+        
+        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapGesture)
 
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "updateWithSearch", name: UITextFieldTextDidChangeNotification, object: searchBox)
         
         let item1 = CompetitionResultItem(division: "Jr Duo/Trio", award: "1st Place, Platinum", category: "Contemporary", routine: "Anxieux", studio: "Dance Attack! Los Gatos")
         
@@ -42,24 +50,25 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         competitionResultItems.append(item3)
         competitionResultItems.append(item4)
         competitionResultItems.append(item5)
+        sectionDictionary = divideIntoSections()
+        unfilteredDictionary = divideIntoSections()
+
         
     }
     
     //MARK: UITableViewDelegate Protocols
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return divideIntoSections().count
+        return sectionDictionary.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionDictionary = divideIntoSections()
         let sectionArray = Array(sectionDictionary.values)
         return sectionArray[section].count
         
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionDictionary = divideIntoSections()
         let sectionTitlesArray = Array(sectionDictionary.keys)
         return sectionTitlesArray[section]
     }
@@ -72,7 +81,6 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         let item: CompetitionResultItem
         var cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell", forIndexPath: indexPath) as! CompetitionResultCell
         
-        let sectionDictionary = divideIntoSections()
         let sectionTitlesArray = Array(sectionDictionary.keys)
         let sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
         
@@ -113,7 +121,61 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     func getTextFromSearchBox() -> String {
         return searchBox.text
     }
+    
+    func filterArrayWithSearchBoxString() {
+        let searchString = getTextFromSearchBox().lowercaseString
+        let sectionTitlesArray = Array(sectionDictionary.keys)
+        if searchString != "" {
+            for sectionTitle in sectionTitlesArray {
+                let sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitle]!
+                for item in sectionValuesArray {
+                    if ((item.division.lowercaseString.rangeOfString(searchString) == nil) && (item.routine.lowercaseString.rangeOfString(searchString) == nil) && (item.studio.lowercaseString.rangeOfString(searchString) == nil)) {
+                        removeItem(item)
+                    }
+                }
+            }
+        }
+        else {
+            sectionDictionary = unfilteredDictionary
+        }
 
+        
+    }
+    
+     func removeItem(item: CompetitionResultItem) {
+        let sectionTitlesArray = Array(sectionDictionary.keys)
+        
+        for sectionTitle in sectionTitlesArray {
+            var i = 0
+            var sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitle]!
+            for (i; i < sectionValuesArray.count; i++) {
+                if sectionValuesArray[i].equals(item){
+                    sectionValuesArray.removeAtIndex(i)
+                }
+            }
+            if sectionValuesArray.count <= 0 {
+                sectionDictionary.removeValueForKey(sectionTitle)
+            }
+            else {
+                sectionDictionary.updateValue(sectionValuesArray, forKey: sectionTitle)
+            }
+        }
+
+    }
+    
+    func updateWithSearch() {
+        filterArrayWithSearchBoxString()
+        tableView.reloadData()
+    }
+    
+
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        updateWithSearch()
+    }
+    
+    
+    
+    
     
     
     
@@ -127,6 +189,19 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
         navBar.titleTextAttributes = textAttributes as[NSObject:AnyObject]
     }
+    
+    
+    //Keyboard 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+
 
     
     

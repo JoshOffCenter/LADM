@@ -20,4 +20,9 @@ class CompetitionResultItem {
         self.routine = routine
         self.studio = studio
     }
+    
+    func equals(item: CompetitionResultItem) -> Bool{
+        return(self.division == item.division) && (self.award == item.award) && (self.category == item.category) && (self.routine == item.routine) && (self.studio == item.studio)
+    }
+    
 }
