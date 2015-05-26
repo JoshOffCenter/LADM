@@ -61,15 +61,35 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         let item4 = CompetitionResultItem(division: "Jr Prep Duo/Trio", award: "2nd Place, High Gold", category: "Jazz", routine: "All that Jazz", studio: "The Dance Connection")
         let item5 = CompetitionResultItem(division: "Senior", award: "IDK", category: "IDK", routine: "IDK", studio: "IDK")
     
-        competitionResultItems.append(item1)
-        competitionResultItems.append(item2)
-        competitionResultItems.append(item3)
-        competitionResultItems.append(item4)
-        competitionResultItems.append(item5)
+//        competitionResultItems.append(item1)
+//        competitionResultItems.append(item2)
+//        competitionResultItems.append(item3)
+//        competitionResultItems.append(item4)
+//        competitionResultItems.append(item5)
+
+        fillData(cityData[selectedCity]!.competitionResults)
         sectionDictionary = divideIntoSections()
         unfilteredDictionary = divideIntoSections()
 
         
+    }
+
+    func fillData(data:Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
+        competionResultItemsArrays.removeAll(keepCapacity: false)
+        for (div,item) in data {
+            for(num, vals) in item {
+                let division = div
+                let award = vals["Award or Medal"]!
+                let category = vals["Category"]!
+                let routine = vals["Routine Name"]!
+                let studio = vals["Studio"]!
+                
+                let bundle = CompetitionResultItem(division: division, award: award, category: category, routine: routine, studio: studio)
+                
+                competitionResultItems.append(bundle)
+                }
+            }
+            
     }
     
     //MARK: UITableViewDelegate Protocols
