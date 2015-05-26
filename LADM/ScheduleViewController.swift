@@ -143,6 +143,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.toggleView.center = sender.center
         }, completion: nil)
+        
+        var dayFull:String
+        if day == "SAT" {
+            dayFull = "Saturday"
+        }
+        else {
+            dayFull = "Sunday"
+        }
+        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
+        tableView.reloadData()
     }
     
     

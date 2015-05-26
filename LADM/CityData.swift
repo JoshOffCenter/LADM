@@ -99,7 +99,10 @@ class CityData
     }
     
     func filterDailySchedule(day:String, group:String) -> [ScheduleItem]{
-        var data = [ScheduleItem]()
+        if group == "Group" {
+            return [ScheduleItem]()
+        }
+       var data = [ScheduleItem](count: dailySchedule[day]![group]!.count, repeatedValue: ScheduleItem(group: "a", time: "b", faculty: "c", event: "c", info: "d", day: "e"))
         
         for (num,val) in dailySchedule[day]![group]! {
             let time = val["Time"]!
@@ -107,7 +110,7 @@ class CityData
             let event = val["Event"]!
             let info = val["Extra Information"]!
             let item = ScheduleItem(group: group, time: time, faculty: faculty, event: event, info: info, day: day)
-            data.append(item)
+            data[num.toInt()!] = item
         }
         return data
     }
