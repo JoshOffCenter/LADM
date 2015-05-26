@@ -99,7 +99,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func fillData(data:Dictionary<String,Dictionary<String,String>>) {
         compEvents.removeAll(keepCapacity: false)
-        for (var i = 1; i < data.count;i++) {
+        for (var i = 1; i <= data.count;i++) {
             var number = data[String(i)]!
             var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
             compEvents.append(eventItem)

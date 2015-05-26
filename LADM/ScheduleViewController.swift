@@ -33,6 +33,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         tableView.reloadData()
         setupToggleView()
         setupGestures()
+        day = "SAT"
         
         var delay = 0.2 * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
@@ -158,13 +159,43 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //Mark Segue Overrides
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "groupPopoverSegue" {
-            let popoverViewController = segue.destinationViewController as! PopoverViewController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            popoverViewController.popoverPresentationController!.delegate = self
+//        if segue.identifier == "groupPopoverSegue" {
+//            let popoverViewController = segue.destinationViewController as! PopoverViewController
+//            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+//            popoverViewController.popoverPresentationController!.delegate = self
+//        }
+        
+
+        if let viewController = segue.destinationViewController as? PopoverViewController{
+            viewController.onDataAvailable = {[weak self]
+                (data) in
+                if let weakSelf = self {
+                    weakSelf.callFilter(data)
+                }
+            }
+            viewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            viewController.popoverPresentationController!.delegate = self
         }
         
     }
+    
+    func callFilter(group:String) {
+        groupButton.setTitle(group, forState: UIControlState.Normal)
+        var dayFull:String
+        if day == "SAT" {
+            dayFull = "Saturday"
+        }
+        else {
+            dayFull = "Sunday"
+        }
+        
+        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
+        tableView.reloadData()
+    }
+    
+        
+    
+    
     
     //MARK: Gestures
     func setupGestures() {

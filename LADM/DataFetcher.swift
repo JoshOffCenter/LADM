@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Alamofire
 
 class DataFetcher: UIDevice
 {
@@ -16,8 +17,8 @@ class DataFetcher: UIDevice
 
     override init(){
         if device.model == "iPhone Simulator" {
-//            baseURL = "http:localhost:8080/LADM/"
-            baseURL = "http://ladm-chanceofthat.rhcloud.com/LADM/"
+            baseURL = "http:localhost:5000/LADM/"
+//            baseURL = "http://ladm-chanceofthat.rhcloud.com/LADM/"
 
         }
         else{
@@ -61,25 +62,15 @@ class DataFetcher: UIDevice
         return cities.sorted{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     }
     
-    func postFavorite(city:String, routine:String) {
-        let request = NSMutableURLRequest(URL: NSURL(string: baseURL + "favorites/" + city)!)
-        request.HTTPMethod = "POST"
-        let postString = "user_id=" + UIDevice.currentDevice().identifierForVendor.UUIDString + "&routine_id=" + routine
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil {
-                println("error=\(error)")
-                return
-            }
-            
-            println("response = \(response)")
-            
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+    func postFavorite(city:String, routine:String, action:String) {
+        Alamofire.request(.POST, baseURL + "favorites/" + city, parameters: ["user_id": UIDevice.currentDevice().identifierForVendor.UUIDString, "routine_id": routine,"action":action]).responseString { (request, response, string, error) in
+            println(string)
+            println(city)
+            println(routine)
+            println(action)
+            println(request)
+            println(string)
         }
-        task.resume()
     }
     
 }

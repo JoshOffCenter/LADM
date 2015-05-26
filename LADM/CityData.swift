@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Alamofire
 
 
 class CityData
@@ -99,6 +98,20 @@ class CityData
         
     }
     
+    func filterDailySchedule(day:String, group:String) -> [ScheduleItem]{
+        var data = [ScheduleItem]()
+        
+        for (num,val) in dailySchedule[day]![group]! {
+            let time = val["Time"]!
+            let faculty = val["Faculty"]!
+            let event = val["Event"]!
+            let info = val["Extra Information"]!
+            let item = ScheduleItem(group: group, time: time, faculty: faculty, event: event, info: info, day: day)
+            data.append(item)
+        }
+        return data
+    }
+    
     func filterCompetitionSchedule(studio:String, age:String, category:String, day:String) -> Dictionary<String,Dictionary<String,String>> {
         var data = Dictionary<String,Dictionary<String,String>>()
         for (var i = 1; i <= competitionSchedule.count;i++) {
@@ -125,7 +138,7 @@ class CityData
                     continue
                 }
             }
-            data[String(data.count)] = ["Age": dataPoint["Age"]!, "Category": dataPoint["Category"]!, "Day":dataPoint["Day"]!, "Division": dataPoint["Division"]!, "Routine ID and Name": dataPoint["Routine ID and Name"]!, "Studio Name": dataPoint["Studio Name"]!, "Time": dataPoint["Time"]!]
+            data[String(data.count + 1)] = ["Age": dataPoint["Age"]!, "Category": dataPoint["Category"]!, "Day":dataPoint["Day"]!, "Division": dataPoint["Division"]!, "Routine ID and Name": dataPoint["Routine ID and Name"]!, "Studio Name": dataPoint["Studio Name"]!, "Time": dataPoint["Time"]!]
         }
         
         return data

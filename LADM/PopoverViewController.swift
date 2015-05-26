@@ -10,6 +10,8 @@ import UIKit
 
 class PopoverViewController: UIViewController {
    
+    var onDataAvailable : ((data: String) -> ())?
+    
     //MARK: IBOutlets
 
     @IBOutlet weak var jumpstartButton: UIButton!
@@ -19,21 +21,29 @@ class PopoverViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        
+    }
+    
+    func sendData(data:String) {
+        self.onDataAvailable?(data:data)
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
         switch sender{
         case jumpstartButton:
+            sendData("Jumpstart")
             break
         case juniorButton:
+            sendData("Junior")
             break
         case seniorButton:
+            sendData("Senior")
             break
         case teacherButton:
+            sendData("Teacher")
             break
         default:
             break
+            
             
         }
         self.dismissViewControllerAnimated(true, completion: nil)
