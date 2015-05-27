@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpecialtyAwardItem {
+class SpecialtyAwardItemDepricated {
     let age: String!
     let awards: [Dictionary<String,Dictionary<String,String>>]!
     
