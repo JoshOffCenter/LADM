@@ -945,7 +945,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUh-DT-ei9">
                                 <rect key="frame" x="0.0" y="64" width="600" height="46"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzF-6K-dQB">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzF-6K-dQB">
                                         <rect key="frame" x="18" y="8" width="60" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1006,6 +1006,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Ijy-Do-INC"/>
+                                        <exclude reference="4gd-Rs-ICr"/>
+                                        <exclude reference="JT1-1D-DaU"/>
                                     </mask>
                                 </variation>
                             </view>

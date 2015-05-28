@@ -26,6 +26,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var groupButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
     
+    var testCenter:CGPoint!
+    
     
     override func viewDidLoad() {
         setUpNavBar()
@@ -51,6 +53,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         tableView.layer.cornerRadius = 10
 
     }
+    
     
     func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
         scheduleItems.removeAll(keepCapacity: false)
@@ -105,6 +108,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //MARK: Setup Toggle View
     func setupToggleView() {
+        toggleView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        toggleView.center = satButton.center
         toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
     }
     
@@ -142,6 +147,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.toggleView.center = sender.center
+            
         }, completion: nil)
         
         var dayFull:String
