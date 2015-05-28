@@ -63,15 +63,15 @@ class DataFetcher: UIDevice
     }
     
     func postFavorite(city:String, routine:String, action:String) {
-        Alamofire.request(.POST, baseURL + "favorites/" + city, parameters: ["user_id": UIDevice.currentDevice().identifierForVendor.UUIDString, "routine_id": routine,"action":action]).responseString { (request, response, string, error) in
-            println(string)
-            println(city)
-            println(routine)
-            println(action)
-            println(request)
-            println(string)
-        }
+        Alamofire.request(.POST, baseURL + "favorites/" + city, parameters: ["user_id": UIDevice.currentDevice().identifierForVendor.UUIDString, "routine_id": routine,"action":action])
     }
+    
+    func getFavorites(id:String, city:String) {
+        var data:[String]
+        
+        Alamofire.request(.GET, baseURL + "favorites/" + city + "/" + id)
+    }
+    
     
 }
 

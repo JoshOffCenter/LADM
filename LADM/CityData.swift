@@ -16,6 +16,7 @@ class CityData
     var dailySchedule = Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>()
     var competitionResults = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
     var specialtyAwards = Dictionary<String,Dictionary<String,Dictionary<String,String>>>()
+    var favorites = [String]()
     var studios = [String]()
     var ages = [String]()
     var categories = [String]()
@@ -143,11 +144,7 @@ class CityData
             }
             data[String(data.count + 1)] = ["Age": dataPoint["Age"]!, "Category": dataPoint["Category"]!, "Day":dataPoint["Day"]!, "Division": dataPoint["Division"]!, "Routine ID and Name": dataPoint["Routine ID and Name"]!, "Studio Name": dataPoint["Studio Name"]!, "Time": dataPoint["Time"]!]
         }
-        
         return data
-        
-        
-        
     }
     
 }
