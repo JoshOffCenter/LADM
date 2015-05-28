@@ -10,5 +10,8 @@ import UIKit
 
 class SpecialtyAwardCell: UITableViewCell {
     
+    @IBOutlet weak var awardLabel: UILabel!
+    @IBOutlet weak var pieceLabel: UILabel!
+    @IBOutlet weak var studioLabel: UILabel!
     
 }

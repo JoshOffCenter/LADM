@@ -8,21 +8,19 @@
 
 import UIKit
 
-class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
     
     //MARK: IBOutlets
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var searchBox: UITextField!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var menuButton: UIButton!
     
-    
-    var competitionResultItems = [CompetitionResultItem]()
-    var competionResultItemsArrays = [[CompetitionResultItem]]()
-    var sectionDictionary: Dictionary<String, [CompetitionResultItem]>!
-    var unfilteredDictionary: Dictionary<String, [CompetitionResultItem]>!
+    var specialtyAwardItems = [SpecialtyAwardItem]()
+    var sectionDictionary: Dictionary<String, [SpecialtyAwardItem]>!
+    var unfilteredDictionary: Dictionary<String, [SpecialtyAwardItem]>!
     var allowNewMessage = false
     var number: UInt32 = 0
     
@@ -30,6 +28,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         setUpNavBar()
+        fillData(cityData[selectedCity]!.specialtyAwards)
         tableView.layer.cornerRadius = 10
         self.searchBox.delegate = self
         
@@ -50,25 +49,22 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
         }
         
-        
-        let item1 = CompetitionResultItem(division: "Jr Duo/Trio", award: "1st Place, Platinum", category: "Contemporary", routine: "Anxieux", studio: "Dance Attack! Los Gatos")
-        
-        let item2 = CompetitionResultItem(division: "Jr Duo/Trio", award: "1st Place, Platinum", category: "Jazz", routine: "Love Me Right", studio: "Dance Attack! Los Gatos")
-        
-        let item3 = CompetitionResultItem(division: "Jr Prep Duo/Trio", award: "1st Place, High Gold", category: "Tap", routine: "Born To Entertain", studio: "The Dance Connection")
-        
-        let item4 = CompetitionResultItem(division: "Jr Prep Duo/Trio", award: "2nd Place, High Gold", category: "Jazz", routine: "All that Jazz", studio: "The Dance Connection")
-        let item5 = CompetitionResultItem(division: "Senior", award: "IDK", category: "IDK", routine: "IDK", studio: "IDK")
-        
-        competitionResultItems.append(item1)
-        competitionResultItems.append(item2)
-        competitionResultItems.append(item3)
-        competitionResultItems.append(item4)
-        competitionResultItems.append(item5)
-        sectionDictionary = divideIntoSections()
         unfilteredDictionary = divideIntoSections()
+        sectionDictionary = divideIntoSections()
         
         
+    }
+    
+    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
+        specialtyAwardItems.removeAll(keepCapacity: false)
+        for (div, item1) in data {
+            for (award, item2) in item1 {
+                let piece = item2["Piece"]!
+                let studio = item2["Studio"]!
+                let item = SpecialtyAwardItem(division: div, award: award, piece: piece, studio: studio)
+                specialtyAwardItems.append(item)
+            }
+        }
     }
 
     
@@ -82,6 +78,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
         }
         return sectionDictionary.count
         
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +87,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             return sectionArray[section].count
         }
         return 1
+      
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -101,34 +99,138 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let item: CompetitionResultItem
+        let item: SpecialtyAwardItem
         if sectionDictionary.isEmpty {
-            var cell = tableView.dequeueReusableCellWithIdentifier("EmptyCompetitionResultsCell", forIndexPath: indexPath) as! EmptyCompetitionResultCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
             cell.messageLabel.text = emptyMessage()
             allowNewMessage = false
             sectionDictionary = unfilteredDictionary
             return cell
         }
         else {
-            var cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell", forIndexPath: indexPath) as! CompetitionResultCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
             
             let sectionTitlesArray = Array(sectionDictionary.keys)
-            let sectionValuesArray: [CompetitionResultItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
+            let sectionValuesArray: [SpecialtyAwardItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
             
             
             item = sectionValuesArray[indexPath.row]
             cell.awardLabel.text = item.award
-            cell.routineLabel.text = item.routine
+            cell.pieceLabel.text = item.piece
             cell.studioLabel.text = item.studio
+            
             
             allowNewMessage = true
             return cell
         }
     }
+    
+    func setUpNavBar() {
+        navBar.barTintColor = searchBar.backgroundColor
+        navBar.shadowImage = UIImage()
+        let textAttributes = NSMutableDictionary(capacity: 1)
+        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
+        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
+        navBar.titleTextAttributes = textAttributes as[NSObject:AnyObject]
+    }
+    
+    //MARK: Gestures
+    func setupGestures() {
+        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapGesture)
+        
+        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        swipeBackGesture.edges = UIRectEdge.Left
+        self.view.addGestureRecognizer(swipeBackGesture)
+    }
+    
+    func handleLeftEdgeSwipe(sender: UIGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.Ended {
+            performSegueWithIdentifier("unwindToTourCities", sender: self)
+        }
+    }
+    
+    //Keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    // Create dicitonarys based on section titles
+    func divideIntoSections() -> Dictionary<String, [SpecialtyAwardItem] >{
+        var divisionDictonary = Dictionary<String, [SpecialtyAwardItem]>()
+        var lastItem = specialtyAwardItems[0]
+        var array = [SpecialtyAwardItem]()
+        
+        for item in specialtyAwardItems{
+            if item.division == lastItem.division {
+                array.append(item)
+            }
+            else {
+                divisionDictonary[lastItem.division] = array
+                array.removeAll(keepCapacity: false)
+                array.append(item)
+                
+            }
+            lastItem = item
+        }
+        
+        divisionDictonary[lastItem.division] = array
+        return divisionDictonary
+    }
+    
+    func emptyMessage() -> String {
+        var message: String!
+        if allowNewMessage == true {
+            number = arc4random_uniform(10)
+        }
+        
+        switch number{
+        case 1:
+            message = "Sorry, the results seem to have danced away."
+            break
+        case 2:
+            message = "No results here, have you checked your dance bag?"
+            break
+        case 3:
+            message = "Oops, I just had them."
+            break
+        case 4:
+            message = "This is embarrasing, but I can't seem to find any results."
+            break
+        case 5:
+            message = "No results :("
+            break
+        case 6:
+            message = "You're all winners in my book."
+            break
+        case 7:
+            message = "Sorry I was taking a dance break and misplaced the results."
+            break
+        case 8:
+            message = "Quick! What's that over there!"
+            break
+        case 9:
+            message = "Is this your fault or mine?"
+            break
+        default:
+            message = "There are no results currently. Please check back later."
+            break
+        }
+        
+        return message
+        
+    }
+
+
 
     
     
