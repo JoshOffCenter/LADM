@@ -209,6 +209,10 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         feedbackAnimation(sender, event: event)
     }
     
+
+    @IBAction func specialtyAwardsDown(sender: AnyObject, forEvent event: UIEvent) {
+        feedbackAnimation(sender, event: event)
+    }
     @IBAction func feedbackButtonPressed(sender: UIButton) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
         let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)

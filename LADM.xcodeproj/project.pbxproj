@@ -74,6 +74,7 @@
 		BC2B234F1B0D95DD00DE2910 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */; };
 		BC2B23511B0D9C7100DE2910 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */; };
 		BC6865D11B16DF77000742A9 /* EmptySpecialtyAwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */; };
+		BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */; };
 		BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */; };
 		BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */; };
 		D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD11ADCD235003A4D7F /* AppDelegate.swift */; };
@@ -183,6 +184,7 @@
 		BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySpecialtyAwardCell.swift; sourceTree = "<group>"; };
+		BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardSection.swift; sourceTree = "<group>"; };
 		BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToursAndCitiesViewController.swift; sourceTree = "<group>"; };
 		BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Other_Button_Disabled@3x.png"; path = "Schedule/Other_Button_Disabled@3x.png"; sourceTree = "<group>"; };
 		D988EBCC1ADCD235003A4D7F /* LADM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,6 +330,7 @@
 				BC1ED3FB1B027B9000FA8B34 /* CityData.swift */,
 				15F82CEE1B11783400C31ED3 /* CompetitionResultItem.swift */,
 				150A4E3D1B140F9500998C8C /* SpecialtyAwardItem.swift */,
+				BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				1587E1C31AF089BD00E6B79F /* FilterMenuView.swift in Sources */,
 				BC2142341AF60432002BEF83 /* DataFetcher.swift in Sources */,
 				BC1ED3FC1B027B9000FA8B34 /* CityData.swift in Sources */,
+				BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */,
 				15F82CF11B12907800C31ED3 /* CompetitionResultCell.swift in Sources */,
 				150A4E3A1B140B2700998C8C /* SpecialtyAwardsViewController.swift in Sources */,
 				1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */,

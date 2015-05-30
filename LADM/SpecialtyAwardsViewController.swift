@@ -12,6 +12,11 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     //MARK: IBOutlets
     
+    struct section {
+        let division: String
+        var specialtyItems = [SpecialtyAwardItem]()
+    }
+    
     @IBOutlet weak var searchBox: UITextField!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +24,9 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var menuButton: UIButton!
     
     var specialtyAwardItems = [SpecialtyAwardItem]()
-    var sectionDictionary: Dictionary<String, [SpecialtyAwardItem]>!
-    var unfilteredDictionary: Dictionary<String, [SpecialtyAwardItem]>!
+    var sectionData = [SpecialtyAwardSection]()
+//    var sectionDictionary: Dictionary<String, [SpecialtyAwardItem]>!
+//    var unfilteredDictionary: Dictionary<String, [SpecialtyAwardItem]>!
     var allowNewMessage = false
     var number: UInt32 = 0
     
@@ -29,9 +35,10 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     override func viewDidLoad() {
         setUpNavBar()
         fillData(cityData[selectedCity]!.specialtyAwards)
+        splitSections()
         tableView.layer.cornerRadius = 10
         self.searchBox.delegate = self
-        
+       
         setupGestures()
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
@@ -49,8 +56,8 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
         }
         
-        unfilteredDictionary = divideIntoSections()
-        sectionDictionary = divideIntoSections()
+//        unfilteredDictionary = divideIntoSections()
+//        sectionDictionary = divideIntoSections()
         
         
     }
@@ -65,37 +72,62 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
                 specialtyAwardItems.append(item)
             }
         }
+        
     }
-
     
-    
+    func splitSections() {
+        for item in specialtyAwardItems {
+            let division = item.division
+            var found = false
+            for s in sectionData {
+                if s.division == division {
+                    s.specialtyItems.append(item)
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                sectionData.append(SpecialtyAwardSection(div: division, firstItem:item))
+            }
+        }
+        for item in sectionData {
+            item.specialtyItems.sort({$0.award < $1.award})
+        }
+        sectionData.sort({$0.division < $1.division})
+    }
     
     
     //MARK: UITableViewDelegate Protocols
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if sectionDictionary.isEmpty {
-            return 1
+        if sectionData.isEmpty {
+           return 1
         }
-        return sectionDictionary.count
+        return sectionData.count
         
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionArray = Array(sectionDictionary.values)
-        if !sectionDictionary.isEmpty {
-            return sectionArray[section].count
-        }
-        return 1
+//        if sectionData.isEmpty {
+//            return 1
+//        }
+//        return sectionData[section].specialtyItems.count
+        if sectionData.isEmpty { return 1 }
+        return sectionData[section].specialtyItems.count
       
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionTitlesArray = Array(sectionDictionary.keys)
-        if !sectionDictionary.isEmpty{
-            return sectionTitlesArray[section]
+        //        let sectionTitlesArray = Array(sectionDictionary.keys)
+        //        if !sectionDictionary.isEmpty{
+        //            return sectionTitlesArray[section]
+        //        }
+        //        return nil
+        
+        if sectionData.isEmpty {
+            return nil
         }
-        return nil
+        return sectionData[section].division
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -103,30 +135,49 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let item: SpecialtyAwardItem
-        if sectionDictionary.isEmpty {
-            var cell = tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
+        //        let item: SpecialtyAwardItem
+        //        if sectionDictionary.isEmpty {
+        //            var cell = tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
+        //            cell.messageLabel.text = emptyMessage()
+        //            allowNewMessage = false
+        //            sectionDictionary = unfilteredDictionary
+        //            return cell
+        //        }
+        //        else {
+        //            var cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
+        //
+        //            let sectionTitlesArray = Array(sectionDictionary.keys)
+        //            let sectionValuesArray: [SpecialtyAwardItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
+        //
+        //
+        //            item = sectionValuesArray[indexPath.row]
+        //            cell.awardLabel.text = item.award
+        //            cell.pieceLabel.text = item.piece
+        //            cell.studioLabel.text = item.studio
+        //            
+        //            
+        //            allowNewMessage = true
+        //            return cell
+        //        }
+        
+        if sectionData.isEmpty {
+            var cell =  tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
             cell.messageLabel.text = emptyMessage()
             allowNewMessage = false
-            sectionDictionary = unfilteredDictionary
+            //chance does something weird here in the example
             return cell
         }
-        else {
+        
             var cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
             
-            let sectionTitlesArray = Array(sectionDictionary.keys)
-            let sectionValuesArray: [SpecialtyAwardItem] = sectionDictionary[sectionTitlesArray[indexPath.section]]!
-            
-            
-            item = sectionValuesArray[indexPath.row]
+            var item = sectionData[indexPath.section].specialtyItems[indexPath.row]
             cell.awardLabel.text = item.award
             cell.pieceLabel.text = item.piece
             cell.studioLabel.text = item.studio
             
-            
             allowNewMessage = true
             return cell
-        }
+        
     }
     
     func setUpNavBar() {
@@ -163,29 +214,35 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     func dismissKeyboard() {
         self.view.endEditing(true)
     }
-    
-    // Create dicitonarys based on section titles
-    func divideIntoSections() -> Dictionary<String, [SpecialtyAwardItem] >{
-        var divisionDictonary = Dictionary<String, [SpecialtyAwardItem]>()
-        var lastItem = specialtyAwardItems[0]
-        var array = [SpecialtyAwardItem]()
-        
-        for item in specialtyAwardItems{
-            if item.division == lastItem.division {
-                array.append(item)
-            }
-            else {
-                divisionDictonary[lastItem.division] = array
-                array.removeAll(keepCapacity: false)
-                array.append(item)
-                
-            }
-            lastItem = item
-        }
-        
-        divisionDictonary[lastItem.division] = array
-        return divisionDictonary
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("unwindToTourCities", sender: self)
     }
+
+    
+//    // Create dicitonarys based on section titles
+//    func divideIntoSections() -> Dictionary<String, [SpecialtyAwardItem] >{
+//        var divisionDictonary = Dictionary<String, [SpecialtyAwardItem]>()
+//        var lastItem = specialtyAwardItems[0]
+//        var array = [SpecialtyAwardItem]()
+//        
+//        for item in specialtyAwardItems{
+//            if item.division == lastItem.division {
+//                array.append(item)
+//            }
+//            else {
+//                divisionDictonary[lastItem.division] = array
+//                array.removeAll(keepCapacity: false)
+//                array.append(item)
+//                
+//            }
+//            lastItem = item
+//        }
+//        
+//        divisionDictonary[lastItem.division] = array
+//        return divisionDictonary
+//    }
+    
+
     
     func emptyMessage() -> String {
         var message: String!
@@ -229,9 +286,4 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
         return message
         
     }
-
-
-
-    
-    
 }
