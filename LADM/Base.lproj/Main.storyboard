@@ -1444,7 +1444,7 @@
                                             <outlet property="studioLabel" destination="V1d-uS-TcL" id="3ei-Ad-XaR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="upG-gJ-tfm" customClass="EmptySpecialtyAwardCell" customModule="LADM">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptySpecialtyAwardCell" rowHeight="80" id="upG-gJ-tfm" customClass="EmptySpecialtyAwardCell" customModule="LADM">
                                         <rect key="frame" x="0.0" y="0.0" width="580" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="upG-gJ-tfm" id="uA2-61-Bg4">
