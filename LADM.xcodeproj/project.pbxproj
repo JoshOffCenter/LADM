@@ -76,6 +76,7 @@
 		BC2B234F1B0D95DD00DE2910 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */; };
 		BC2B23511B0D9C7100DE2910 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */; };
 		BC6865D11B16DF77000742A9 /* EmptySpecialtyAwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */; };
+		BC9C8E6F1B1D9931000FF7D3 /* CompetitionResultsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9C8E6E1B1D9931000FF7D3 /* CompetitionResultsSection.swift */; };
 		BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */; };
 		BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */; };
 		BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */; };
@@ -223,6 +224,7 @@
 		BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySpecialtyAwardCell.swift; sourceTree = "<group>"; };
+		BC9C8E6E1B1D9931000FF7D3 /* CompetitionResultsSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionResultsSection.swift; sourceTree = "<group>"; };
 		BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardSection.swift; sourceTree = "<group>"; };
 		BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToursAndCitiesViewController.swift; sourceTree = "<group>"; };
 		BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Other_Button_Disabled@3x.png"; path = "Schedule/Other_Button_Disabled@3x.png"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 				15F82CEE1B11783400C31ED3 /* CompetitionResultItem.swift */,
 				150A4E3D1B140F9500998C8C /* SpecialtyAwardItem.swift */,
 				BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */,
+				BC9C8E6E1B1D9931000FF7D3 /* CompetitionResultsSection.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				1587E1C11AEF43CE00E6B79F /* CustomSlideSegue.swift in Sources */,
 				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,
 				15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */,
+				BC9C8E6F1B1D9931000FF7D3 /* CompetitionResultsSection.swift in Sources */,
 				15F82CF31B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift in Sources */,
 				BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift in Sources */,
 				15F82CEF1B11783400C31ED3 /* CompetitionResultItem.swift in Sources */,
