@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		15016BE61AF1C0AB0018BBF2 /* SelectCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */; };
+		150A4E3A1B140B2700998C8C /* SpecialtyAwardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A4E391B140B2700998C8C /* SpecialtyAwardsViewController.swift */; };
+		150A4E3C1B140C5400998C8C /* SpecialtyAwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A4E3B1B140C5400998C8C /* SpecialtyAwardCell.swift */; };
+		150A4E3E1B140F9500998C8C /* SpecialtyAwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A4E3D1B140F9500998C8C /* SpecialtyAwardItem.swift */; };
 		15384C861B055DEC0045DECA /* Menu_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C851B055DEC0045DECA /* Menu_Button@2x.png */; };
 		15384C8C1B057DB30045DECA /* CircleMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */; };
 		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
@@ -66,12 +69,14 @@
 		15F82CF31B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F82CF21B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift */; };
 		BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */; };
 		BC1ED3F21AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png in Resources */ = {isa = PBXBuildFile; fileRef = BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */; };
-		BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItem.swift */; };
+		BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift */; };
 		BC1ED3FC1B027B9000FA8B34 /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1ED3FB1B027B9000FA8B34 /* CityData.swift */; };
 		BC2142341AF60432002BEF83 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2142331AF60432002BEF83 /* DataFetcher.swift */; };
 		BC2B234A1B0D858C00DE2910 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B23491B0D858C00DE2910 /* ScheduleViewController.swift */; };
 		BC2B234F1B0D95DD00DE2910 /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */; };
 		BC2B23511B0D9C7100DE2910 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */; };
+		BC6865D11B16DF77000742A9 /* EmptySpecialtyAwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */; };
+		BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */; };
 		BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */; };
 		BCDF76E81AF6DF9A009B17AB /* Other_Button_Disabled@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */; };
 		D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988EBD11ADCD235003A4D7F /* AppDelegate.swift */; };
@@ -151,6 +156,9 @@
 
 /* Begin PBXFileReference section */
 		15016BE51AF1C0AB0018BBF2 /* SelectCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityView.swift; sourceTree = "<group>"; };
+		150A4E391B140B2700998C8C /* SpecialtyAwardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardsViewController.swift; sourceTree = "<group>"; };
+		150A4E3B1B140C5400998C8C /* SpecialtyAwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardCell.swift; sourceTree = "<group>"; };
+		150A4E3D1B140F9500998C8C /* SpecialtyAwardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardItem.swift; sourceTree = "<group>"; };
 		15384C851B055DEC0045DECA /* Menu_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_Button@2x.png"; sourceTree = "<group>"; };
 		15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleMenuButton@2x.png"; sourceTree = "<group>"; };
 		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
@@ -208,12 +216,14 @@
 		15F82CF21B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCompetitionResultCell.swift; sourceTree = "<group>"; };
 		BC1ED3EF1AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle_Right.png; sourceTree = "<group>"; };
 		BC1ED3F11AFFE46800FA8B34 /* Filter_Menu_Triangle_Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle_Left.png; sourceTree = "<group>"; };
-		BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecialtyAwardItem.swift; path = ../SpecialtyAwardItem.swift; sourceTree = "<group>"; };
+		BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecialtyAwardItemDepricated.swift; path = ../SpecialtyAwardItemDepricated.swift; sourceTree = "<group>"; };
 		BC1ED3FB1B027B9000FA8B34 /* CityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 		BC2142331AF60432002BEF83 /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		BC2B23491B0D858C00DE2910 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
 		BC2B23501B0D9C7100DE2910 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySpecialtyAwardCell.swift; sourceTree = "<group>"; };
+		BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialtyAwardSection.swift; sourceTree = "<group>"; };
 		BCDF76E51AF6DE88009B17AB /* ToursAndCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToursAndCitiesViewController.swift; sourceTree = "<group>"; };
 		BCDF76E71AF6DF9A009B17AB /* Other_Button_Disabled@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Other_Button_Disabled@3x.png"; path = "Schedule/Other_Button_Disabled@3x.png"; sourceTree = "<group>"; };
 		D988EBCC1ADCD235003A4D7F /* LADM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LADM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,10 +376,12 @@
 			children = (
 				BC2B234E1B0D95DD00DE2910 /* ScheduleItem.swift */,
 				15E84A961AEC5314004D3E29 /* CompEventItem.swift */,
-				BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItem.swift */,
+				BC1ED3F51B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift */,
 				BC2142331AF60432002BEF83 /* DataFetcher.swift */,
 				BC1ED3FB1B027B9000FA8B34 /* CityData.swift */,
 				15F82CEE1B11783400C31ED3 /* CompetitionResultItem.swift */,
+				150A4E3D1B140F9500998C8C /* SpecialtyAwardItem.swift */,
+				BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -385,6 +397,8 @@
 				1587E1C21AF089BD00E6B79F /* FilterMenuView.swift */,
 				15F82CF01B12907800C31ED3 /* CompetitionResultCell.swift */,
 				15F82CF21B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift */,
+				BC6865D01B16DF77000742A9 /* EmptySpecialtyAwardCell.swift */,
+				150A4E3B1B140C5400998C8C /* SpecialtyAwardCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -398,6 +412,7 @@
 				BC2B23491B0D858C00DE2910 /* ScheduleViewController.swift */,
 				15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */,
 				15F82CEC1B11661500C31ED3 /* CompetitionResultsViewController.swift */,
+				150A4E391B140B2700998C8C /* SpecialtyAwardsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -659,15 +674,20 @@
 				1587E1C31AF089BD00E6B79F /* FilterMenuView.swift in Sources */,
 				BC2142341AF60432002BEF83 /* DataFetcher.swift in Sources */,
 				BC1ED3FC1B027B9000FA8B34 /* CityData.swift in Sources */,
+				BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */,
 				15F82CF11B12907800C31ED3 /* CompetitionResultCell.swift in Sources */,
+				150A4E3A1B140B2700998C8C /* SpecialtyAwardsViewController.swift in Sources */,
 				1587E1BB1AEEA7E900E6B79F /* TransitionManager.swift in Sources */,
 				BC2B23511B0D9C7100DE2910 /* ScheduleCell.swift in Sources */,
+				BC6865D11B16DF77000742A9 /* EmptySpecialtyAwardCell.swift in Sources */,
 				15E84A951AEC517C004D3E29 /* EventCell.swift in Sources */,
 				BCDF76E61AF6DE88009B17AB /* ToursAndCitiesViewController.swift in Sources */,
 				15DE3EA31B1049CD005004BE /* SocialMediaMenuView.swift in Sources */,
 				159DAC7A1B05CDBB008DA2EA /* ContactMenuView.swift in Sources */,
 				15E84A971AEC5314004D3E29 /* CompEventItem.swift in Sources */,
+				150A4E3E1B140F9500998C8C /* SpecialtyAwardItem.swift in Sources */,
 				BC2B234F1B0D95DD00DE2910 /* ScheduleItem.swift in Sources */,
+				150A4E3C1B140C5400998C8C /* SpecialtyAwardCell.swift in Sources */,
 				1587E1B91AEEA5F800E6B79F /* MenuViewController.swift in Sources */,
 				15F82CED1B11661500C31ED3 /* CompetitionResultsViewController.swift in Sources */,
 				D988EBD21ADCD235003A4D7F /* AppDelegate.swift in Sources */,
@@ -676,7 +696,7 @@
 				15E84A8F1AEC49BF004D3E29 /* CompOrderViewController.swift in Sources */,
 				15D44E931B0E4DA100EFCA0A /* PopoverViewController.swift in Sources */,
 				15F82CF31B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift in Sources */,
-				BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItem.swift in Sources */,
+				BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift in Sources */,
 				15F82CEF1B11783400C31ED3 /* CompetitionResultItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
