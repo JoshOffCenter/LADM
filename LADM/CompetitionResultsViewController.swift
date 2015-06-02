@@ -96,8 +96,9 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
                 let split2 = split(item2.award){$0 == " "}
                 
                 var rank1 = self.awardRanker(split1)
-                var rank2 = self.awardRanker(split2)
                 
+                
+                var rank2 = self.awardRanker(split2)
                 
                 return rank1 > rank2
             })
@@ -118,8 +119,14 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         }
         switch arr[arr.count - 2] {
         case "High": rank += 2
-        case "Double": rank += 4; println("Double")
-        default: rank += 3
+        case "Double": rank += 4
+        default:
+            if arr[arr.count-1] == "Platinum" {
+                rank+=3
+            }
+            else {
+                rank += 1
+            }
         }
         return rank
     }
