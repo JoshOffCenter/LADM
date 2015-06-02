@@ -115,7 +115,6 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             var cell =  tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
             cell.messageLabel.text = emptyMessage()
             allowNewMessage = false
-            //chance does something weird here in the example
             return cell
         }
             var cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
