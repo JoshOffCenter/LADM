@@ -12,6 +12,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     //Class Variables
     var scheduleItems = [ScheduleItem]()
     var day: String!
+    var totalCount: Int!
+    var dayChosen: String?
     
     
     
@@ -32,6 +34,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         fillData(cityData[selectedCity]!.dailySchedule)
+        totalCount = scheduleItems.count
         tableView.reloadData()
         setupToggleView()
         setupGestures()
@@ -48,9 +51,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         dispatch_after(time, dispatch_get_main_queue()) {
             self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
         }
-        
-
         tableView.layer.cornerRadius = 10
+        
 
     }
     
@@ -86,16 +88,23 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if scheduleItems.count == totalCount {
+            return 1
+        }
         return scheduleItems.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "ScheduleCell")
-//        return cell.frame.height
+        if scheduleItems.count == totalCount {
+            return tableView.frame.height
+        }
         return 80
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if scheduleItems.count >= totalCount || scheduleItems.count == 0 {
+            return tableView.dequeueReusableCellWithIdentifier("ScheduleChooseGroupCell", forIndexPath: indexPath) as! UITableViewCell
+        }
         let item: ScheduleItem
         var cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
         item = scheduleItems[indexPath.row]
@@ -157,7 +166,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         else {
             dayFull = "Sunday"
         }
-        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
+        if dayChosen == nil {
+            fillData(cityData[selectedCity]!.dailySchedule)
+        }
+        else {
+            scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
+        }
         tableView.reloadData()
     }
     
@@ -196,6 +210,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func callFilter(group:String) {
+        dayChosen = group
         groupButton.setTitle(group, forState: UIControlState.Normal)
         var dayFull:String
         if day == "SAT" {
