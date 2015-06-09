@@ -14,6 +14,11 @@
 		15384C861B055DEC0045DECA /* Menu_Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C851B055DEC0045DECA /* Menu_Button@2x.png */; };
 		15384C8C1B057DB30045DECA /* CircleMenuButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */; };
 		153D95031AED99C300BAEE22 /* Filter_Menu_Triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */; };
+		15427FA41B22C5A40051057E /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15427FA01B22C5A40051057E /* Fabric.framework */; };
+		15427FA51B22C5A40051057E /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15427FA11B22C5A40051057E /* TwitterKit.framework */; };
+		15427FA61B22C5A40051057E /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15427FA21B22C5A40051057E /* TwitterKitResources.bundle */; };
+		15427FA71B22C5A40051057E /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15427FA31B22C5A40051057E /* TwitterCore.framework */; };
+		15427FA91B22C74E0051057E /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15427FA81B22C74E0051057E /* SocialMediaViewController.swift */; };
 		155CBC7E1B16C9B5005EB1B4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CBC771B16C8CF005EB1B4 /* Alamofire.framework */; };
 		155CBC7F1B16C9B5005EB1B4 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 155CBC771B16C8CF005EB1B4 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1560B4621AE388D700CE448B /* OtherButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1560B4601AE388D700CE448B /* OtherButton@3x.png */; };
@@ -163,6 +168,11 @@
 		15384C851B055DEC0045DECA /* Menu_Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_Button@2x.png"; sourceTree = "<group>"; };
 		15384C8B1B057DB30045DECA /* CircleMenuButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CircleMenuButton@2x.png"; sourceTree = "<group>"; };
 		153D95021AED99C300BAEE22 /* Filter_Menu_Triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_Menu_Triangle.png; sourceTree = "<group>"; };
+		15427FA01B22C5A40051057E /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		15427FA11B22C5A40051057E /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		15427FA21B22C5A40051057E /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		15427FA31B22C5A40051057E /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		15427FA81B22C74E0051057E /* SocialMediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
 		155CBC6F1B16C8CF005EB1B4 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		1560B4601AE388D700CE448B /* OtherButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OtherButton@3x.png"; sourceTree = "<group>"; };
 		1587E1B01AEE1DD400E6B79F /* Contact_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Contact_Icon.png; sourceTree = "<group>"; };
@@ -244,6 +254,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				155CBC7E1B16C9B5005EB1B4 /* Alamofire.framework in Frameworks */,
+				15427FA71B22C5A40051057E /* TwitterCore.framework in Frameworks */,
+				15427FA41B22C5A40051057E /* Fabric.framework in Frameworks */,
+				15427FA51B22C5A40051057E /* TwitterKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +429,7 @@
 				15D44E921B0E4DA100EFCA0A /* PopoverViewController.swift */,
 				15F82CEC1B11661500C31ED3 /* CompetitionResultsViewController.swift */,
 				150A4E391B140B2700998C8C /* SpecialtyAwardsViewController.swift */,
+				15427FA81B22C74E0051057E /* SocialMediaViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +449,10 @@
 				D988EBCE1ADCD235003A4D7F /* LADM */,
 				D988EBE41ADCD235003A4D7F /* LADMTests */,
 				D988EBCD1ADCD235003A4D7F /* Products */,
+				15427FA01B22C5A40051057E /* Fabric.framework */,
+				15427FA11B22C5A40051057E /* TwitterKit.framework */,
+				15427FA21B22C5A40051057E /* TwitterKitResources.bundle */,
+				15427FA31B22C5A40051057E /* TwitterCore.framework */,
 				155CBC6F1B16C8CF005EB1B4 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -502,6 +520,7 @@
 				D988EBCA1ADCD234003A4D7F /* Resources */,
 				BC1C16BC1B0A7ABB0079E282 /* Copy Framework */,
 				15D44EA11B0EDCAE00EFCA0A /* Embed Frameworks */,
+				15427F9C1B22C5030051057E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -537,6 +556,7 @@
 		D988EBC41ADCD234003A4D7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = MoonBase;
 				TargetAttributes = {
@@ -615,6 +635,7 @@
 				1587E1B51AEE1DD400E6B79F /* Event_Feed_Icon.png in Resources */,
 				1587E1B41AEE1DD400E6B79F /* Contact_Icon.png in Resources */,
 				BC1ED3F01AFFE45D00FA8B34 /* Filter_Menu_Triangle_Right.png in Resources */,
+				15427FA61B22C5A40051057E /* TwitterKitResources.bundle in Resources */,
 				1587E1B61AEE1DD400E6B79F /* Social_Media_Icon.png in Resources */,
 				15E84A871AEB6481004D3E29 /* CityButton@3x.png in Resources */,
 				15BE38781B06A1950081ED87 /* HamArrow1@2x.png in Resources */,
@@ -668,6 +689,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15427F9C1B22C5030051057E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 3ae3e7ccf246b2f2bf9f75f361560b669cc51fb0 45f407ee9b8a47f0f16f87b04cfd18256e44b72fb16f5e4b121bbd5ce24c8b5b";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D988EBC81ADCD234003A4D7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -701,6 +738,7 @@
 				BC9C8E6F1B1D9931000FF7D3 /* CompetitionResultsSection.swift in Sources */,
 				15F82CF31B12DB9500C31ED3 /* EmptyCompetitionResultCell.swift in Sources */,
 				BC1ED3F61B02719600FA8B34 /* SpecialtyAwardItemDepricated.swift in Sources */,
+				15427FA91B22C74E0051057E /* SocialMediaViewController.swift in Sources */,
 				15F82CEF1B11783400C31ED3 /* CompetitionResultItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -825,6 +863,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -837,6 +879,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
