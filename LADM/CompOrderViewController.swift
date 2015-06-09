@@ -54,7 +54,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
    
    override func viewDidLoad() {
-      
+    
+    cityData[selectedCity]!.loadFavorites()
+    
 
     tableView.estimatedRowHeight = 80.0;
     tableView.layer.cornerRadius = 10
@@ -148,7 +150,14 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       item = compEvents[indexPath.row]
       cell.timeLabel.text = item.time
       cell.performanceTitleLabel.text = item.performanceTitle
-      
+    
+    for title in cityData[selectedCity]!.favorites as [String] {
+        if title == cell.performanceTitleLabel.text {
+            cell.favoriteButton.selected = true
+        }
+    }
+    
+    
       if cellExpanded == true {
          
          cell.addSubview(cell.studioLabel)
@@ -311,6 +320,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      cityData[selectedCity]!.saveFavorites()
       let toViewController = segue.destinationViewController as! UIViewController
       toViewController.transitioningDelegate = self.transitionManager
    }

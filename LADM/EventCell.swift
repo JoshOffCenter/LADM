@@ -48,11 +48,18 @@ class EventCell: UITableViewCell {
       if favoriteButton.selected == true {
          favoriteButton.selected = false
         df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "unfavorite")
-
+        var i = 0
+        for i = 0; i < cityData[selectedCity]!.favorites.count; i++ {
+            if cityData[selectedCity]!.favorites[i] == performanceTitleLabel.text {
+                cityData[selectedCity]!.favorites.removeAtIndex(i)
+            }
+        }
+        
       }
       else {
          favoriteButton.selected = true
         df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "favorite")
+        cityData[selectedCity]!.favorites.append(self.performanceTitleLabel.text!)
         
       }
    }

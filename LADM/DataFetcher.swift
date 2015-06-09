@@ -17,8 +17,8 @@ class DataFetcher: UIDevice
 
     override init(){
         if device.model == "iPhone Simulator" {
-            baseURL = "http:localhost:5000/LADM/"
-//            baseURL = "http://ladm-chanceofthat.rhcloud.com/LADM/"
+//            baseURL = "http:localhost:5000/LADM/"
+            baseURL = "http://ladm-chanceofthat.rhcloud.com/LADM/"
 
         }
         else{

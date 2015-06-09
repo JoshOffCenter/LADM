@@ -21,6 +21,7 @@ class CityData
     var ages = [String]()
     var categories = [String]()
     let dataFetcher = DataFetcher()
+
     
     var x :AnyObject?
     
@@ -145,6 +146,18 @@ class CityData
             data[String(data.count + 1)] = ["Age": dataPoint["Age"]!, "Category": dataPoint["Category"]!, "Day":dataPoint["Day"]!, "Division": dataPoint["Division"]!, "Routine ID and Name": dataPoint["Routine ID and Name"]!, "Studio Name": dataPoint["Studio Name"]!, "Time": dataPoint["Time"]!]
         }
         return data
+    }
+    
+    func saveFavorites(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(favorites, forKey: "favorites")
+    }
+    
+    func loadFavorites(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let savedFavorites = defaults.arrayForKey("favorites") as? [String] {
+        favorites = savedFavorites
+        }
     }
     
 }

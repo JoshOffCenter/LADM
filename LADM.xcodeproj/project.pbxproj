@@ -537,6 +537,7 @@
 		D988EBC41ADCD234003A4D7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = MoonBase;
 				TargetAttributes = {

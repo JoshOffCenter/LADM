@@ -26,4 +26,5 @@ class CompEventItem {
         self.division = division
         favorited = false
     }
+    
 }
