@@ -10,6 +10,8 @@ import UIKit
 import Darwin
 
 class CompOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let dataManager = DataManager.sharedInstance
    
    //Table View
    @IBOutlet weak var tableView: UITableView!
@@ -38,7 +40,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var menuButton: UIButton!
     
    
-   var compEvents = [CompEventItem]()
+//   var compEvents = [CompEventItem]()
    var selectedIndexPath: NSIndexPath? = nil
    var lastSelectedIndexPath: NSIndexPath? = nil
    var cellExpanded = false
@@ -50,7 +52,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    }
    
    //Transition Manager
-   let transitionManager = TransitionManager()
+//   let transitionManager = TransitionManager()
 
    
    override func viewDidLoad() {
@@ -63,7 +65,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     dismissButton.enabled = false
     invisibleFilterButton.enabled = true
     
-    fillData(cityData[selectedCity]!.competitionSchedule)
+//    fillData(cityData[selectedCity]!.competitionSchedule)
 
     
     var delay = 0.2 * Double(NSEC_PER_SEC)
@@ -89,23 +91,21 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navBar.shadowImage = UIImage()
-        let textAttributes = NSMutableDictionary(capacity:1)
-        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
-        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
-        navBar.titleTextAttributes = textAttributes as [NSObject : AnyObject]
+        let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "Avenir Next Ultra Light", size: 20)!]
+        navBar.titleTextAttributes = textAttributes
         
     }
 
     
-    func fillData(data:Dictionary<String,Dictionary<String,String>>) {
-        compEvents.removeAll(keepCapacity: false)
-        for (var i = 1; i <= data.count;i++) {
-            var number = data[String(i)]!
-            var eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
-            compEvents.append(eventItem)
-        }
-        tableView.reloadData()
-    }
+//    func fillData(data:Dictionary<String,Dictionary<String,String>>) {
+//        compEvents.removeAll(keepCapacity: false)
+//        for (var i = 1; i <= data.count;i++) {
+//            var number = data[String(i)]!
+//            let eventItem = CompEventItem(time: number["Time"]!, performanceTitle: number["Routine ID and Name"]!, studio: number["Studio Name"]!, age: number["Age"]!, category: number["Category"]!, division: number["Division"]!)
+//            compEvents.append(eventItem)
+//        }
+//        tableView.reloadData()
+//    }
 
    
    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -114,7 +114,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    }
    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return compEvents.count
+      return dataManager.competitionItems.count
    }
    
    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -140,14 +140,14 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let smallHeight: CGFloat = 80.0
       let expandedHeight: CGFloat = 200.0
-      var item: CompEventItem
-      var cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
+      var item: CompetitionItem
+      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
 
       cell.selectionStyle = .None
       
-      item = compEvents[indexPath.row]
+      item = dataManager.competitionItems[indexPath.row]
       cell.timeLabel.text = item.time
-      cell.performanceTitleLabel.text = item.performanceTitle
+      cell.performanceTitleLabel.text = item.routineIDAndName
       
       if cellExpanded == true {
          
@@ -161,7 +161,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
          cell.studioLabel.text = item.studio
          cell.ageLabel.text = item.age
          cell.categoryLabel.text = item.category
-         cell.divisionLabel.text = item.division
+//         cell.divisionLabel.text = item.division
       }
       else {
          cell.studioLabel.removeFromSuperview()
@@ -228,17 +228,17 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func setupGestures() {
-        var swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
-        var swipeUp = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: Selector("handleGestures:"))
         
-        var pan = UIPanGestureRecognizer(target: self, action: Selector("handleGestures:"))
+        let pan = UIPanGestureRecognizer(target: self, action: Selector("handleGestures:"))
 //        var dragUp = UIPanGestureRecognizer(target: self, action: Selector("handleGestures:"))
         
         swipeDown.direction = .Down
         swipeDown.direction = .Up
         
         
-        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        let swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
         swipeBackGesture.edges = UIRectEdge.Left
         self.view.addGestureRecognizer(swipeBackGesture)
         
@@ -274,7 +274,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if filterMenuExpanded == false {
             let expandFilterMenuTransform = CGAffineTransformMakeTranslation(0, filterMenuView.frame.height-80)
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: [], animations: { () -> Void in
                 self.filterMenuView.transform = expandFilterMenuTransform
             }, completion: nil)
             UIView.animateWithDuration(0.25, animations: { () -> Void in
@@ -286,7 +286,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
         }
         else {
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.15, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.15, options: [], animations: { () -> Void in
                 self.filterMenuView.transform = CGAffineTransformIdentity
                 }, completion: nil)
         
@@ -295,8 +295,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.filterMenuView.filterMenuButton.transform = CGAffineTransformIdentity
             }, completion: nil)
             
-            var filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
-            fillData(filteredData)
+//            let filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
+//            fillData(filteredData)
             
             filterMenuExpanded = false
             dismissButton.enabled = false
@@ -311,8 +311,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      let toViewController = segue.destinationViewController as! UIViewController
-      toViewController.transitioningDelegate = self.transitionManager
+      let toViewController = segue.destinationViewController 
+//      toViewController.transitioningDelegate = self.transitionManager
    }
    
     

@@ -1,3 +1,4 @@
+
 //
 //  TransitionManager.swift
 //  LADM
@@ -38,13 +39,13 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
       }
       
       // add the both views to our view controller
-      container.addSubview(bottomView)
-      container.addSubview(menuView)
+      container!.addSubview(bottomView)
+      container!.addSubview(menuView)
       
       let duration = self.transitionDuration(transitionContext)
       
       // perform the animation!
-      UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
+      UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: {
          
          if (self.presenting){
             self.onStageMenuController(menuViewController) // onstage items: slide in
@@ -113,7 +114,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
    }
    
    //return animation time in seconds
-   func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+   func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
       return 0.5
    }
    

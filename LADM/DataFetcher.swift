@@ -37,7 +37,7 @@ class DataFetcher: UIDevice
         if(inputData == nil) {
             return NSDictionary()
         }
-        var boardsDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(inputData!, options: NSJSONReadingOptions.MutableContainers, error: &error)as! NSDictionary
+        let boardsDictionary: NSDictionary = (try! NSJSONSerialization.JSONObjectWithData(inputData!, options: NSJSONReadingOptions.MutableContainers))as! NSDictionary
         
         return boardsDictionary
     }
@@ -53,13 +53,13 @@ class DataFetcher: UIDevice
     }
     
     func getCities() -> [String] {
-        var citiesAndDates = getCitiesAndDates()
+        let citiesAndDates = getCitiesAndDates()
         var cities = [String]()
         
         for (key,obj) in citiesAndDates {
             cities.append(key)
         }
-        return cities.sorted{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        return cities.sort{ $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     }
     
     func postFavorite(city:String, routine:String, action:String) {

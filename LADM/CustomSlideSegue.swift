@@ -46,8 +46,8 @@ class CustomSlideSegue: UIStoryboardSegue {
    
 //      var sourceViewController: UIViewController = self.sourceViewController as UIViewController
 //      var destinationViewController: UIViewController = self.destinationViewController as UIViewController
-      var firstVCView: UIViewController = self.sourceViewController as! UIViewController
-      var secondVCView: UIViewController = self.destinationViewController as! UIViewController
+      let firstVCView: UIViewController = self.sourceViewController 
+      let secondVCView: UIViewController = self.destinationViewController 
       
     
       

@@ -20,7 +20,7 @@ class CityData
     var studios = [String]()
     var ages = [String]()
     var categories = [String]()
-    let dataFetcher = DataFetcher()
+//    let dataFetcher = DataFetcher()
     
     var x :AnyObject?
     
@@ -37,65 +37,65 @@ class CityData
     
     func getCompetitionSchedule() {
         if competitionSchedule.count == 0 {
-            if let data = dataFetcher.requestData(city,element: "competition_schedule") as? Dictionary<String,Dictionary<String,String>> {
-                competitionSchedule = data
-            }
+//            if let data = dataFetcher.requestData(city,element: "competition_schedule") as? Dictionary<String,Dictionary<String,String>> {
+//                competitionSchedule = data
+//            }
         }
     }
     
     func getDailySchedule()  {
         if dailySchedule.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "daily_schedule") as? Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>> {
-                dailySchedule = data
-            }
+//            if let data = dataFetcher.requestData(city, element: "daily_schedule") as? Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>> {
+//                dailySchedule = data
+//            }
         }
     }
     
     func getCompetitionResults() {
         if competitionResults.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "competition_results") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-                competitionResults = data
-            }
+//            if let data = dataFetcher.requestData(city, element: "competition_results") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
+//                competitionResults = data
+//            }
         }
     }
     
     func getSpecialtyAwards() {
         if specialtyAwards.count == 0 {
-            if let data = dataFetcher.requestData(city, element: "specialty_awards") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
-                specialtyAwards = data
-            }
+//            if let data = dataFetcher.requestData(city, element: "specialty_awards") as? Dictionary<String,Dictionary<String,Dictionary<String,String>>> {
+//                specialtyAwards = data
+//            }
         }
     }
     
     func getStudios() {
         for (key,item) in competitionSchedule {
-            var studio = item["Studio Name"]!
-            if find(studios,studio) == nil {
+            let studio = item["Studio Name"]!
+            if studios.indexOf(studio) == nil {
                 studios.append(studio)
             }
         }
-        studios.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        studios.sortInPlace { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
     }
     
     func getCategories() {
         for (key,item) in competitionSchedule {
-            var category = item["Category"]!
-            if find(categories,category) == nil {
+            let category = item["Category"]!
+            if categories.indexOf(category) == nil {
                 categories.append(category)
             }
         }
-        categories.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        categories.sortInPlace { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
         
     }
     
     func getAges() {
         for (key,item) in competitionSchedule {
-            var age = item["Age"]!
-            if find(ages,age) == nil {
+            let age = item["Age"]!
+            if ages.indexOf(age) == nil {
                 ages.append(age)
             }
         }
-        ages.sort { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
+        ages.sortInPlace { $0.localizedCaseInsensitiveCompare($1) == NSComparisonResult.OrderedAscending }
         
     }
     
@@ -111,7 +111,7 @@ class CityData
             let event = val["Event"]!
             let info = val["Extra Information"]!
             let item = ScheduleItem(group: group, time: time, faculty: faculty, event: event, info: info, day: day)
-            data[num.toInt()!] = item
+            data[Int(num)!] = item
         }
         return data
     }

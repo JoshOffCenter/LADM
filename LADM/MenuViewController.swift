@@ -96,7 +96,7 @@ class MenuViewController: UIViewController {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         let scaleUp = CGAffineTransformMakeScale(1, 1)
         contactMenu.transform = scaleDown
-        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: [], animations: { () -> Void in
             self.contactMenu.transform = scaleUp
         }, completion: nil)
         contactMenuOpen = true
@@ -106,7 +106,7 @@ class MenuViewController: UIViewController {
     func closeContactMenu() {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
 
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
                 self.contactMenu.transform = scaleDown
                 self.contactMenu.alpha = 0
         }) { (finished) -> Void in
@@ -133,7 +133,7 @@ class MenuViewController: UIViewController {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         let scaleUp = CGAffineTransformMakeScale(1, 1)
         socialMediaMenu.transform = scaleDown
-        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: [], animations: { () -> Void in
             self.socialMediaMenu.transform = scaleUp
             }, completion: nil)
         socialMediaMenuOpen = true
@@ -143,7 +143,7 @@ class MenuViewController: UIViewController {
     func closeSocialMediaMenu() {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
             self.socialMediaMenu.transform = scaleDown
             self.socialMediaMenu.alpha = 0
             }) { (finished) -> Void in

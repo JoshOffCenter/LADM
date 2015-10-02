@@ -10,11 +10,11 @@ import UIKit
 
 class CompetitionResultsSection {
     
-    let division: String!
-    var competitionItems = [CompetitionResultItem]()
-    init(div: String, firstItem: CompetitionResultItem) {
-        division = div
-        competitionItems.append(firstItem)
-    }
+//    let division: String!
+//    var competitionItems = [CompetitionResultItem]()
+//    init(div: String, firstItem: CompetitionResultItem) {
+//        division = div
+//        competitionItems.append(firstItem)
+//    }
     
 }

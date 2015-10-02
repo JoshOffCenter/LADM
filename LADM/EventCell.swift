@@ -10,7 +10,7 @@ import UIKit
 
 class EventCell: UITableViewCell {
     
-    let df = DataFetcher()
+//    let df = DataFetcher()
    
    @IBOutlet weak var timeLabel: UILabel!
    @IBOutlet weak var performanceTitleLabel: UILabel!
@@ -47,12 +47,12 @@ class EventCell: UITableViewCell {
    @IBAction func favoriteButtonPressed(sender: AnyObject) {
       if favoriteButton.selected == true {
          favoriteButton.selected = false
-        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "unfavorite")
+//        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "unfavorite")
 
       }
       else {
          favoriteButton.selected = true
-        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "favorite")
+//        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "favorite")
         
       }
    }

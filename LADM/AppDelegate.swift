@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 
 @UIApplicationMain
@@ -19,7 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
    
-        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent 
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+        
+        //PARSE
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("EBNRrSOrKvzwmeSBkRd4tZm3soLienluMDPF1jOU",
+            clientKey: "hJ8fFl1vLvtJX43sCfO1mdHT27HzfNjg9NIgWmbp")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        login()
+        
         return true
     }
 
@@ -45,6 +60,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func login () {
+        PFUser.logOut()
+
+        PFUser.logInWithUsernameInBackground((UIDevice.currentDevice().identifierForVendor?.UUIDString)!, password:"LADM") {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                print("Login Successful")
+            } else {
+                // The login failed. Check error to see why.
+                print("Try signup")
+                self.signUp()
+            }
+        }
+    }
+    
+    func signUp() {
+        let user = PFUser()
+        user.username = UIDevice.currentDevice().identifierForVendor?.UUIDString
+        user.password = "LADM"
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo["error"] as? NSString
+                print(errorString)
+                // Show the errorString somewhere and let the user try again.
+            } else {
+                // Hooray! Let them use the app now.
+                print("Signup Successful")
+            }
+        }
+    }
 
 }
 

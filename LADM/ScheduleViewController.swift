@@ -10,8 +10,9 @@ import UIKit
 
 class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     //Class Variables
-    var scheduleItems = [ScheduleItem]()
+//    var scheduleItems = [ScheduleItem]()
     var day: String!
+    var dataManager = DataManager.sharedInstance
     
     
     
@@ -31,7 +32,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         setUpNavBar()
-        fillData(cityData[selectedCity]!.dailySchedule)
+//        fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
         setupToggleView()
         setupGestures()
@@ -56,13 +57,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     
     func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
-        scheduleItems.removeAll(keepCapacity: false)
+//        scheduleItems.removeAll(keepCapacity: false)
         
         for (day,item) in data {
             for(group,item) in item {
                 for(number, cluster) in item {
-                    let item = ScheduleItem(group: group, time: cluster["Time"]!, faculty: cluster["Faculty"]!, event: cluster["Event"]!, info: cluster["Extra Information"]!, day: day)
-                    scheduleItems.append(item)
+//                    let item = ScheduleItem(group: group, time: cluster["Time"]!, faculty: cluster["Faculty"]!, event: cluster["Event"]!, info: cluster["Extra Information"]!, day: day)
+//                    scheduleItems.append(item)
                 }
             }
         }
@@ -73,10 +74,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     func setUpNavBar() {
         navigationBar.barTintColor = selectorView.backgroundColor
         navigationBar.shadowImage = UIImage()
-        let textAttributes = NSMutableDictionary(capacity: 1)
-        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
-        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
-        navigationBar.titleTextAttributes = textAttributes as[NSObject:AnyObject]
+        let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "Avenir Next Ultra Light", size: 20)!]
+        navigationBar.titleTextAttributes = textAttributes
     }
     
     
@@ -86,7 +85,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scheduleItems.count
+        return dataManager.scheduleItems.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -97,8 +96,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let item: ScheduleItem
-        var cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
-        item = scheduleItems[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
+        item = dataManager.scheduleItems[indexPath.row]
         cell.facultyLabel.text = item.faculty
         cell.timeLabel.text = item.time
         cell.eventLabel.text = item.event
@@ -108,9 +107,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //MARK: Setup Toggle View
     func setupToggleView() {
-        toggleView.setTranslatesAutoresizingMaskIntoConstraints(true)
+        toggleView.translatesAutoresizingMaskIntoConstraints = true
         toggleView.center = satButton.center
-        toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
+//        toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
     }
     
     //MARK: Setup Popover View
@@ -120,7 +119,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     func setupPopoverView() -> PopoverViewController {
         let storybard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var popoverViewController = storybard.instantiateViewControllerWithIdentifier("PopoverViewController") as! PopoverViewController
+        let popoverViewController = storybard.instantiateViewControllerWithIdentifier("PopoverViewController") as! PopoverViewController
         popoverViewController.modalPresentationStyle = .Popover
         popoverViewController.preferredContentSize = CGSizeMake(50, 100)
         return popoverViewController
@@ -157,7 +156,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         else {
             dayFull = "Sunday"
         }
-        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
+//        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
         tableView.reloadData()
     }
     
@@ -205,7 +204,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             dayFull = "Sunday"
         }
         
-        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
+//        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
         tableView.reloadData()
     }
     
@@ -215,7 +214,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //MARK: Gestures
     func setupGestures() {
-        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        let swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
         swipeBackGesture.edges = UIRectEdge.Left
         self.view.addGestureRecognizer(swipeBackGesture)
     }

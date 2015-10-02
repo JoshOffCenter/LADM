@@ -10,18 +10,18 @@ import UIKit
 
 class ScheduleItem {
     
-    let group,time,faculty,event,day:String!
-    var info = "No Extra Information"
+    var objectID, age, faculty, city, day, event, time, extraInfo : String!
+    var order: Int?
     
-    init(group:String,time:String, faculty:String, event:String, info:String, day:String)
-    {
-        self.group = group
-        self.time = time
+    init(objectID: String, age: String, faculty: String, city: String, day: String, event: String, time: String, extraInfo: String, order: Int) {
+        self.objectID = objectID
+        self.age = age
         self.faculty = faculty
-        self.event = event
-        if !info.isEmpty {
-            self.info = info
-        }
+        self.city = city
         self.day = day
+        self.event = event
+        self.time = time
+        self.extraInfo = extraInfo
+        self.order = order
     }
 }

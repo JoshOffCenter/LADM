@@ -11,7 +11,7 @@ import UIKit
 class ContactMenu: UIView {
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.roundCorners(UIRectCorner.AllCorners, radius: 10)
@@ -42,12 +42,12 @@ class ContactMenu: UIView {
     }
     
     @IBAction func phoneButtonPressed(sender: AnyObject) {
-        var url:NSURL = NSURL(string: "tel://8185411316")!
+        let url:NSURL = NSURL(string: "tel://8185411316")!
         UIApplication.sharedApplication().openURL(url)
     }
     
     @IBAction func emailButtonPressed(sender: AnyObject) {
-        var url:NSURL = NSURL(string: "mailto:office@ladancemagic.com")!
+        let url:NSURL = NSURL(string: "mailto:office@ladancemagic.com")!
         UIApplication.sharedApplication().openURL(url)
     }
 

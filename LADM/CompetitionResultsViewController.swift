@@ -87,30 +87,30 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
             }
         }
         for item in arr {
-            item.competitionItems.sort({
+            item.competitionItems.sortInPlace({
             (item1,item2) in
-                let place1 = item1.award[advance(item1.award.startIndex,0)]
-                let place2 = item2.award[advance(item2.award.startIndex,0)]
+                let place1 = item1.award[item1.award.startIndex.advancedBy(0)]
+                let place2 = item2.award[item2.award.startIndex.advancedBy(0)]
             
-                let split1 = split(item1.award){$0 == " "}
-                let split2 = split(item2.award){$0 == " "}
+                let split1 = item1.award.characters.split{$0 == " "}.map { String($0) }
+                let split2 = item2.award.characters.split{$0 == " "}.map { String($0) }
                 
-                var rank1 = self.awardRanker(split1)
+                let rank1 = self.awardRanker(split1)
                 
                 
-                var rank2 = self.awardRanker(split2)
+                let rank2 = self.awardRanker(split2)
                 
                 return rank1 > rank2
             })
         }
-        arr.sort({$0.division < $1.division})
+        arr.sortInPlace({$0.division < $1.division})
         return arr
     }
     
     func awardRanker(arr: [String]) -> Int {
         var rank = 0
         let firstChunk = arr[0]
-        let firstNum = String(firstChunk[advance(firstChunk.startIndex,0)]).toInt()
+        let firstNum = Int(String(firstChunk[firstChunk.startIndex.advancedBy(0)]))
         if firstNum != nil {
             rank = (4-firstNum!) * 4
         }
@@ -155,14 +155,14 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if sectionData.isEmpty {
-             var cell = tableView.dequeueReusableCellWithIdentifier("EmptyCompetitionResultsCell", forIndexPath: indexPath) as! EmptyCompetitionResultCell
+             let cell = tableView.dequeueReusableCellWithIdentifier("EmptyCompetitionResultsCell", forIndexPath: indexPath) as! EmptyCompetitionResultCell
             cell.messageLabel.text = emptyMessage()
             allowNewMessage = false
             return cell
         }
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell",forIndexPath: indexPath) as! CompetitionResultCell
-        var item = sectionData[indexPath.section].competitionItems[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell",forIndexPath: indexPath) as! CompetitionResultCell
+        let item = sectionData[indexPath.section].competitionItems[indexPath.row]
         cell.studioLabel.text = item.studio
         cell.routineLabel.text = item.routine
         cell.awardLabel.text = item.award
@@ -239,7 +239,7 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     //MARK: Search Functions
     func getTextFromSearchBox() -> String {
-        return searchBox.text
+        return searchBox.text!
     }
     
     func filterArrayWithSearchBoxString() {
@@ -272,10 +272,8 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     func setUpNavBar() {
         navBar.barTintColor = searchBar.backgroundColor
         navBar.shadowImage = UIImage()
-        let textAttributes = NSMutableDictionary(capacity: 1)
-        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
-        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
-        navBar.titleTextAttributes = textAttributes as[NSObject:AnyObject]
+        let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "Avenir Next Ultra Light", size: 20)!]
+        navBar.titleTextAttributes = textAttributes
     }
     
     //Keyboard 
@@ -294,10 +292,10 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     //MARK: Gestures
     func setupGestures() {
-        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapGesture)
         
-        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        let swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
         swipeBackGesture.edges = UIRectEdge.Left
         self.view.addGestureRecognizer(swipeBackGesture)
     }

@@ -11,7 +11,7 @@ import UIKit
 class SocialMediaMenuView: UIView {
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.roundCorners(UIRectCorner.AllCorners, radius: 10)
@@ -42,7 +42,7 @@ class SocialMediaMenuView: UIView {
     }
     
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        var url:NSURL = NSURL(string: "fb://profile/46929155757")!
+        let url:NSURL = NSURL(string: "fb://profile/46929155757")!
         if UIApplication.sharedApplication().canOpenURL(url){
             UIApplication.sharedApplication().openURL(url)
         }
@@ -52,7 +52,7 @@ class SocialMediaMenuView: UIView {
     }
     
     @IBAction func twitterButtonPressed(sender: AnyObject) {
-        var url:NSURL = NSURL(string: "twitter:///user?screen_name=ladancemagic")!
+        let url:NSURL = NSURL(string: "twitter:///user?screen_name=ladancemagic")!
         if UIApplication.sharedApplication().canOpenURL(url){
             UIApplication.sharedApplication().openURL(url)
         }

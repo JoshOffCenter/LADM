@@ -7,17 +7,20 @@
 //
 
 import UIKit
-var cityData = Dictionary<String,CityData>()
+import Parse
+
+//var cityData = Dictionary<String,CityData>()
 var selectedCity = "Select City"
 
 
 class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
    //Transition Manager
-    let transitionManager = TransitionManager()
+//    let transitionManager = TransitionManager()
     var menuButtonPressed = false
-    var dataFetcher = DataFetcher()
-    let pickerData = ["Select City"] + DataFetcher().getCities()
+//    var dataFetcher = DataFetcher()
+    var dataManager: DataManager!
+    var pickerData = ["Select City"]
 
     @IBOutlet weak var scheduleButton: UIButton!
     @IBOutlet weak var competitionOrderButton: UIButton!
@@ -37,9 +40,13 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 
     @IBOutlet weak var animButton: UIButton!
 
-   
+    
     
 //   let pickerData = ["Select City" ,"Santa Rosa", "San Francisco", "Houston", "New York", "Irvine National Finals"]
+    
+    override func viewDidAppear(animated: Bool) {
+        dataManager = DataManager.sharedInstance
+    }
    
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -59,7 +66,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 //        self.menuButton.setBackgroundImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
 //       self.animButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 2), forState: UIControlState.Normal)
         
-
+        
     
     }
     
@@ -88,10 +95,8 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         
         navBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navBar.shadowImage = UIImage()
-        let textAttributes = NSMutableDictionary(capacity:1)
-        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
-        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
-        navBar.titleTextAttributes = textAttributes as [NSObject : AnyObject]
+        let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "Avenir Next Ultra Light", size: 20)!]
+        navBar.titleTextAttributes = textAttributes
 
     }
 
@@ -102,9 +107,9 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @IBAction func specialtyAwardPressed(sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SpecialtyAwardsViewController") as! SpecialtyAwardsViewController
-        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
-        customSegue.perform()
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SpecialtyAwardsViewController") as! SpecialtyAwardsViewController
+//        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+//        customSegue.perform()
     }
     
     @IBAction func competitionOrderTouchDown(sender: AnyObject, forEvent event: UIEvent) {
@@ -115,12 +120,19 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompOrderViewController") as! CompOrderViewController
       let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
       customSegue.perform()
-//        feedbackAnimation(sender, event: event)
+        feedbackAnimation(sender, event: event)
    }
    
     @IBAction func selectCityPressed(sender: AnyObject, event: UIEvent) {
       animateSelectCityView(false)
-
+        
+        for city: PFObject in dataManager.cities {
+            if (!pickerData.contains((city.objectForKey("name") as! String))) {
+                pickerData.append((city.objectForKey("name") as! String))
+            }
+        }
+        self.selectCityView.cityPickerView.reloadAllComponents()
+        
    }
    
    
@@ -130,23 +142,25 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    }
    
    @IBAction func selectCityDonePressed(sender: AnyObject) {
-      animateSelectCityView(true)
-      selectCityButton.setTitle(selectedCity, forState: .Normal)
-      selectCityButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 25)
-      selectCityButton.titleLabel?.textAlignment = .Center
-      cityData[selectedCity] = CityData(city: selectedCity.stringByReplacingOccurrencesOfString(" ", withString: "_"))
-        buttonShade()
+        citySelectedFromPickerView()
    }
    
-   @IBAction func selectCityRowPressed(sender: AnyObject) {
-      animateSelectCityView(true)
-      selectCityButton.setTitle(selectedCity, forState: .Normal)
-      selectCityButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 25)
-      selectCityButton.titleLabel?.textAlignment = .Center
-      cityData[selectedCity] = CityData(city: selectedCity.stringByReplacingOccurrencesOfString(" ", withString: "_"))
-        buttonShade()
-   }
+    @IBAction func selectCityRowPressed(sender: AnyObject) {
+        citySelectedFromPickerView()
+    }
     
+    func citySelectedFromPickerView() {
+        animateSelectCityView(true)
+        selectCityButton.setTitle(selectedCity, forState: .Normal)
+        selectCityButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 25)
+        selectCityButton.titleLabel?.textAlignment = .Center
+//        cityData[selectedCity] = CityData(city: selectedCity.stringByReplacingOccurrencesOfString(" ", withString: "_"))
+        
+        dataManager.pullCity(selectedCity, vc: self)
+        
+//        buttonShade()
+        
+    }
    
    
    @IBAction func dismissButtonPressed(sender: AnyObject) {
@@ -189,7 +203,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
           slideDirection = CGAffineTransformMakeTranslation(0, -selectCityView.frame.height + 20)
       }
       
-      UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: { () -> Void in
+      UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
             self.selectCityView.transform = slideDirection
       }, completion: nil)
       
@@ -214,9 +228,9 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         feedbackAnimation(sender, event: event)
     }
     @IBAction func feedbackButtonPressed(sender: UIButton) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
-        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
-        customSegue.perform()
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
+//        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+//        customSegue.perform()
     }
     
     @IBAction func feedbackButtonDown(sender: AnyObject, forEvent event: UIEvent) {
@@ -227,7 +241,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         let buttonView = sender as! UIView
         buttonView.clipsToBounds = true
         //buttonView.backgroundColor = UIColor.clearColor()
-        if let touch = event.touchesForView(buttonView)?.first as? UITouch {
+        if let touch = event.touchesForView(buttonView)?.first as UITouch! {
             let point = touch.locationInView(buttonView)
         
 //        self.view.addSubview(buttonView)
@@ -242,7 +256,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
             buttonView.addSubview(seed)
             
         
-            UIView.animateWithDuration(1.3, delay: 0, options: nil, animations: { () -> Void in
+            UIView.animateWithDuration(1.3, delay: 0, options: [], animations: { () -> Void in
                 let scaleTransform = CGAffineTransformMakeScale(buttonView.frame.width, buttonView.frame.width)
                 seed.transform = scaleTransform
                 
@@ -265,8 +279,8 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if menuButtonPressed == true {
-         let toViewController = segue.destinationViewController as! UIViewController
-         toViewController.transitioningDelegate = self.transitionManager
+         let toViewController = segue.destinationViewController 
+//         toViewController.transitioningDelegate = self.transitionManager
          menuButtonPressed = false
       }
    }
@@ -282,38 +296,58 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    }
     
     func buttonShade() {
+        scheduleButton.enabled = false
+        competitionOrderButton.enabled = false
+        competitionResultsButton.enabled = false
+        specialtyAwardsButton.enabled = false
         if selectedCity == "Select City" {
-            competitionOrderButton.enabled = false
-            competitionResultsButton.enabled = false
-            specialtyAwardsButton.enabled = false
-            scheduleButton.enabled = false
             return
         }
-        var cd = cityData[selectedCity]
-        if cd!.competitionSchedule.count == 0 {
-            competitionOrderButton.enabled = false
-        }
-        else{
-            competitionOrderButton.enabled = true
-        }
-        if cd!.dailySchedule.count == 0 {
-            scheduleButton.enabled = false
-        }
-        else {
+
+        if dataManager.scheduleItems.count > 0 {
             scheduleButton.enabled = true
         }
-        if cd!.specialtyAwards.count == 0 {
-            specialtyAwardsButton.enabled = false
+            
+        if dataManager.competitionItems.count > 0 {
+            competitionOrderButton.enabled = true
         }
-        else {
-            specialtyAwardsButton.enabled = true
-        }
-        if cd!.competitionResults.count == 0 {
-            competitionResultsButton.enabled = false
-        }
-        else {
+            
+        if dataManager.resultItems.count > 0 {
             competitionResultsButton.enabled = true
         }
+        
+        if dataManager.specialtyItems.count > 0 {
+            specialtyAwardsButton.enabled = true
+        }
+        
+            
+
+
+
+
+    //        let cd = cityData[selectedCity]
+    //        if cd!.competitionSchedule.count == 0 {
+    //            competitionOrderButton.enabled = false
+    //        }
+    //        else{
+    //            competitionOrderButton.enabled = true
+    //        }
+    //        if cd!.dailySchedule.count == 0 {
+    //            scheduleButton.enabled = false
+    //        }
+    //        else {
+    //            scheduleButton.enabled = true
+    //        }
+    //        if cd!.specialtyAwards.count == 0 {
+    //            specialtyAwardsButton.enabled = false
+    //        }
+    //        else {
+    //            specialtyAwardsButton.enabled = true
+    //        }
+    //        if cd!.competitionResults.count == 0 {
+    //            competitionResultsButton.enabled = false
+    //        }
+        
     }
     
 

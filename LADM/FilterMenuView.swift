@@ -22,6 +22,8 @@ extension UIView {
 }
 
 class FilterMenuView: UIView {
+    
+    let dataManager = DataManager.sharedInstance
 
    @IBOutlet weak var filterByLabel: UILabel!
    @IBOutlet weak var filterDividerLabel: UILabel!
@@ -34,9 +36,12 @@ class FilterMenuView: UIView {
 
 
     
-    var studios = ["Any Studio"] + cityData[selectedCity]!.studios
-    var ages = ["Any Age"] + cityData[selectedCity]!.ages
-    var categories = ["Any Category"] + cityData[selectedCity]!.categories
+//    var studios = ["Any Studio"] + cityData[selectedCity]!.studios
+//    var ages = ["Any Age"] + cityData[selectedCity]!.ages
+//    var categories = ["Any Category"] + cityData[selectedCity]!.categories
+    var studios = ["Any Studio"]
+    var ages = ["Any Age"]
+    var categories = ["Any Category"]
     var days = ["Any Day","Friday","Saturday"]
     
     var counter = ["Studios": 0, "Ages": 0, "Categories": 0, "Days":0]
@@ -46,7 +51,7 @@ class FilterMenuView: UIView {
 
    
 
-   required init(coder aDecoder: NSCoder) {
+   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
 //      self.layer.cornerRadius = 10
 //      self.roundCorners(.BottomLeft, radius: 5)
@@ -55,7 +60,7 @@ class FilterMenuView: UIView {
    }
     
     func copyLabel(label: UILabel) -> UILabel {
-        var newLabel = UILabel()
+        let newLabel = UILabel()
         newLabel.text = label.text
         newLabel.font = label.font
         newLabel.textColor = label.textColor
@@ -183,7 +188,7 @@ class FilterMenuView: UIView {
         
 
         
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.1, options: nil, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.1, options: [], animations: { () -> Void in
             dummyLabel.transform = dummyOff
             dummyLabel.alpha = 0
             

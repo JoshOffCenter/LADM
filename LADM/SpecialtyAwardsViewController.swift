@@ -18,7 +18,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var menuButton: UIButton!
     
-    var specialtyAwardItems = [SpecialtyAwardItem]()
+//    var specialtyAwardItems = [SpecialtyAwardItem]()
     var totalSectionData = [SpecialtyAwardSection]()
     var sectionData = [SpecialtyAwardSection]()
     var allowNewMessage = false
@@ -55,35 +55,35 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             for (award, item2) in item1 {
                 let piece = item2["Piece"]!
                 let studio = item2["Studio"]!
-                let item = SpecialtyAwardItem(division: div, award: award, piece: piece, studio: studio)
+//                let item = SpecialtyAwardItem(division: div, award: award, piece: piece, studio: studio)
                 specialtyAwardItems.append(item)
             }
         }
         
     }
     
-    func splitSections(itemArr: [SpecialtyAwardItem]) -> [SpecialtyAwardSection]{
-        var arr = [SpecialtyAwardSection]()
-        for item in itemArr {
-            let division = item.division
-            var found = false
-            for s in arr {
-                if s.division == division {
-                    s.specialtyItems.append(item)
-                    found = true
-                    break
-                }
-            }
-            if !found {
-                arr.append(SpecialtyAwardSection(div: division, firstItem:item))
-            }
-        }
-        for item in arr {
-            item.specialtyItems.sort({$0.award < $1.award})
-        }
-        arr.sort({$0.division < $1.division})
-        return arr
-    }
+//    func splitSections(itemArr: [SpecialtyAwardItem]) -> [SpecialtyAwardSection]{
+//        var arr = [SpecialtyAwardSection]()
+//        for item in itemArr {
+//            let division = item.division
+//            var found = false
+//            for s in arr {
+//                if s.division == division {
+//                    s.specialtyItems.append(item)
+//                    found = true
+//                    break
+//                }
+//            }
+//            if !found {
+//                arr.append(SpecialtyAwardSection(div: division, firstItem:item))
+//            }
+//        }
+//        for item in arr {
+//            item.specialtyItems.sortInPlace({$0.award < $1.award})
+//        }
+//        arr.sortInPlace({$0.division < $1.division})
+//        return arr
+//    }
     
     //MARK: UITableViewDelegate Protocols
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -95,7 +95,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sectionData.isEmpty { return 1 }
-        return sectionData[section].specialtyItems.count
+//        return sectionData[section].specialtyItems.count
       
     }
     
@@ -103,7 +103,8 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
         if sectionData.isEmpty {
             return nil
         }
-        return sectionData[section].division
+//        return sectionData[section].division
+        return nil
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -112,13 +113,13 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if sectionData.isEmpty {
-            var cell =  tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
+            let cell =  tableView.dequeueReusableCellWithIdentifier("EmptySpecialtyAwardCell", forIndexPath: indexPath) as! EmptySpecialtyAwardCell
             cell.messageLabel.text = emptyMessage()
             allowNewMessage = false
             return cell
         }
-            var cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
-            var item = sectionData[indexPath.section].specialtyItems[indexPath.row]
+            let cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
+//            let item = sectionData[indexPath.section].specialtyItems[indexPath.row]
             cell.awardLabel.text = item.award
             cell.pieceLabel.text = item.piece
             cell.studioLabel.text = item.studio
@@ -129,18 +130,17 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     func setUpNavBar() {
         navBar.barTintColor = searchBar.backgroundColor
         navBar.shadowImage = UIImage()
-        let textAttributes = NSMutableDictionary(capacity: 1)
-        textAttributes.setObject(UIColor.whiteColor(), forKey: NSForegroundColorAttributeName)
-        textAttributes.setObject(UIFont(name: "Avenir Next Ultra Light", size: 20)!, forKey: NSFontAttributeName)
-        navBar.titleTextAttributes = textAttributes as[NSObject:AnyObject]
+        let textAttributes: [String : AnyObject]! = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "Avenir Next Ultra Light", size: 20)!]
+        navBar.titleTextAttributes = textAttributes
+
     }
     
     //MARK: Gestures
     func setupGestures() {
-        var tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tapGesture = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapGesture)
         
-        var swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
+        let swipeBackGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "handleLeftEdgeSwipe:")
         swipeBackGesture.edges = UIRectEdge.Left
         self.view.addGestureRecognizer(swipeBackGesture)
     }
@@ -231,6 +231,6 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func getTextFromSearchBox() -> String {
-        return searchBox.text
+        return searchBox.text!
     }
 }
