@@ -13,7 +13,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 //    var scheduleItems = [ScheduleItem]()
     var day: String!
     var dataManager = DataManager.sharedInstance
-    
+    var scheduleItems: [ScheduleItem]!
+
     
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -32,6 +33,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         setUpNavBar()
+        scheduleItems = dataManager.scheduleItems
 //        fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
         setupToggleView()
@@ -55,21 +57,21 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     }
     
+//    
+//    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
+////        scheduleItems.removeAll(keepCapacity: false)
+//        
+//        for (day,item) in data {
+//            for(group,item) in item {
+//                for(number, cluster) in item {
+////                    let item = ScheduleItem(group: group, time: cluster["Time"]!, faculty: cluster["Faculty"]!, event: cluster["Event"]!, info: cluster["Extra Information"]!, day: day)
+////                    scheduleItems.append(item)
+//                }
+//            }
+//        }
     
-    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
-//        scheduleItems.removeAll(keepCapacity: false)
         
-        for (day,item) in data {
-            for(group,item) in item {
-                for(number, cluster) in item {
-//                    let item = ScheduleItem(group: group, time: cluster["Time"]!, faculty: cluster["Faculty"]!, event: cluster["Event"]!, info: cluster["Extra Information"]!, day: day)
-//                    scheduleItems.append(item)
-                }
-            }
-        }
-        
-        
-    }
+//    }
     //combined the nav bar and takes away shadows
     func setUpNavBar() {
         navigationBar.barTintColor = selectorView.backgroundColor
@@ -85,7 +87,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.scheduleItems.count
+        return scheduleItems.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -97,7 +99,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
-        item = dataManager.scheduleItems[indexPath.row]
+        item = scheduleItems[indexPath.row]
         cell.facultyLabel.text = item.faculty
         cell.timeLabel.text = item.time
         cell.eventLabel.text = item.event
@@ -148,14 +150,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             self.toggleView.center = sender.center
             
         }, completion: nil)
+        self.callFilter(groupButton.titleLabel!.text!)
         
-        var dayFull:String
-        if day == "SAT" {
-            dayFull = "Saturday"
-        }
-        else {
-            dayFull = "Sunday"
-        }
+//        var dayFull:String
+//        if day == "SAT" {
+//            dayFull = "Saturday"
+//        }
+//        else {
+//            dayFull = "Sunday"
+//        }
 //        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: groupButton.titleLabel!.text!)
         tableView.reloadData()
     }
@@ -204,11 +207,16 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             dayFull = "Sunday"
         }
         
+        let dictionary: NSDictionary = ["day" : dayFull, "age" : group]
+        
+        scheduleItems = dataManager.filterItemsWithDictionary(dataManager.scheduleItems, dictionary: dictionary) as! [ScheduleItem]
+        
+        
 //        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
         tableView.reloadData()
     }
     
-        
+    
     
     
     

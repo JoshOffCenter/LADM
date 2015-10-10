@@ -10,10 +10,10 @@ import UIKit
 
 class SpecialtyItem {
     
-    var objectID, age, award, city, piece, studio: String!
+    var objectId, age, award, city, piece, studio: String!
     
-    init(objectID: String, age: String, award: String, city: String, piece: String, studio: String){
-        self.objectID = objectID
+    init(objectId: String, age: String, award: String, city: String, piece: String, studio: String){
+        self.objectId = objectId
         self.age = age
         self.award = award
         self.city = city

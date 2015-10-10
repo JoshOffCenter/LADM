@@ -11,15 +11,19 @@ import UIKit
 
 class ResultItem {
     
-    let objectID, ageDIV, award, category, city, routine : String!
+    let objectId, age, award, category, city, division, routine, studio : String!
+    let order : Int!
     
-    init(objectID: String, ageDIV: String, award: String, category: String, city: String, routine: String){
-       self.objectID = objectID
-        self.ageDIV = ageDIV
+    init(objectId: String, age: String, award: String, category: String, city: String, order: Int, division: String, routine: String, studio: String){
+       self.objectId = objectId
+        self.age = age
         self.award = award
         self.category = category
         self.city = city
+        self.order = order
+        self.division = division;
         self.routine = routine
+        self.studio = studio
     }
     
 //    func equals(item: CompetitionResultItem) -> Bool{

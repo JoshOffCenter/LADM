@@ -70,7 +70,7 @@ class DataManager: NSObject {
     func createScheduleItemsFromObjects(objects: [PFObject]) {
         scheduleItems.removeAll()
         for object: PFObject in objects {
-            let scheduleItem = ScheduleItem(objectID: object.objectId!, age: object.objectForKey("age") as! String, faculty: object.objectForKey("faculty") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, event: object.objectForKey("event") as! String, time: object.objectForKey("time") as! String, extraInfo: object.objectForKey("extraInfo") as! String, order: object.objectForKey("order") as! Int)
+            let scheduleItem = ScheduleItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, faculty: object.objectForKey("faculty") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, event: object.objectForKey("event") as! String, time: object.objectForKey("time") as! String, extraInfo: object.objectForKey("extraInfo") as! String, order: object.objectForKey("order") as! Int)
             scheduleItems.append(scheduleItem)
         }
     }
@@ -78,7 +78,7 @@ class DataManager: NSObject {
     func createCompetitionItemsFromObjects(objects: [PFObject]) {
         competitionItems.removeAll()
         for object: PFObject in objects {
-            let competitionItem = CompetitionItem(objectID: object.objectId!, age: object.objectForKey("age") as! String, category: object.objectForKey("category") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, routineIDAndName: object.objectForKey("routineIdAndName") as! String, studio: object.objectForKey("studio") as! String, time: object.objectForKey("time") as! String, order: object.objectForKey("order") as! Int)
+            let competitionItem = CompetitionItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, category: object.objectForKey("category") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, routineIDAndName: object.objectForKey("routineIdAndName") as! String, studio: object.objectForKey("studio") as! String, time: object.objectForKey("time") as! String, order: object.objectForKey("order") as! Int)
             competitionItems.append(competitionItem)
         }
     }
@@ -86,7 +86,7 @@ class DataManager: NSObject {
     func createSpecialtyItemsFromObjects(objects: [PFObject]) {
         specialtyItems.removeAll()
         for object: PFObject in objects {
-            let specialtyItem = SpecialtyItem(objectID: object.objectId!, age: object.objectForKey("age") as! String, award: object.objectForKey("award") as! String, city: object.objectForKey("city") as! String, piece: object.objectForKey("piece") as! String, studio: object.objectForKey("studio") as! String)
+            let specialtyItem = SpecialtyItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, award: object.objectForKey("award") as! String, city: object.objectForKey("city") as! String, piece: object.objectForKey("piece") as! String, studio: object.objectForKey("studio") as! String)
             specialtyItems.append(specialtyItem)
         }
     }
@@ -94,9 +94,35 @@ class DataManager: NSObject {
     func createResultItemsFromObjects(objects: [PFObject]) {
         resultItems.removeAll()
         for object: PFObject in objects {
-            let resultItem = ResultItem(objectID: object.objectId!, ageDIV: object.objectForKey("ageDiv") as! String, award: object.objectForKey("award") as! String, category: object.objectForKey("category") as! String, city: object.objectForKey("city") as! String, routine: object.objectForKey("routine") as! String)
+            let resultItem = ResultItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, award: object.objectForKey("award") as! String, category: object.objectForKey("category") as! String, city: object.objectForKey("city") as! String, order: object.objectForKey("order") as! Int, division: object.objectForKey("division") as! String, routine: object.objectForKey("routine") as! String, studio: object.objectForKey("studio") as! String)
             resultItems.append(resultItem)
         }
+    }
+    
+    func filterItemsWithDictionary(items: [AnyObject], dictionary: NSDictionary) -> [AnyObject] {
+        if let unfilteredItems = items as? [ScheduleItem] {
+            var filteredItems = unfilteredItems
+            for (var i = 0; i < filteredItems.count - 1; i++ ) {
+                for key in dictionary.allKeys {
+                    if let string = filteredItems[i].dictionaryRepresentation().objectForKey(key) as? String {
+                        if (string != dictionary.objectForKey(key) as! String){
+                            filteredItems.removeAtIndex(i)
+                        }
+                    } else if let int = filteredItems[i].dictionaryRepresentation().objectForKey(key) as? Int {
+                        if (int != dictionary.objectForKey(key) as! Int){
+                            filteredItems.removeAtIndex(i)
+                        }
+                        
+                    }
+                    
+                }
+            }
+            filteredItems.count
+            return filteredItems
+        }
+        
+        
+        return []
     }
     
     

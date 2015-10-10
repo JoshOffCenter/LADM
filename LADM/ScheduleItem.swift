@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ScheduleItem {
+class ScheduleItem: NSObject {
     
-    var objectID, age, faculty, city, day, event, time, extraInfo : String!
+    var objectId, age, faculty, city, day, event, time, extraInfo : String!
     var order: Int?
     
-    init(objectID: String, age: String, faculty: String, city: String, day: String, event: String, time: String, extraInfo: String, order: Int) {
-        self.objectID = objectID
+    
+    init(objectId: String, age: String, faculty: String, city: String, day: String, event: String, time: String, extraInfo: String, order: Int) {
+        self.objectId = objectId
         self.age = age
         self.faculty = faculty
         self.city = city
@@ -23,5 +24,9 @@ class ScheduleItem {
         self.time = time
         self.extraInfo = extraInfo
         self.order = order
+    }
+    
+    func dictionaryRepresentation() -> NSDictionary {
+        return ["objectId": objectId!, "age": age!, "faculty":faculty!, "city":city!, "day":day!, "event":event!, "time":time!, "extraInfo":extraInfo!, "order": order!]
     }
 }
