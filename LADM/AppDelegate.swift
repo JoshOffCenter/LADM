@@ -59,6 +59,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    @available(iOS 9.0, *)
+    func application(application: UIApplication,
+        performActionForShortcutItem shortcutItem: UIApplicationShortcutItem,
+        completionHandler: (Bool) -> Void) {
+            
+            completionHandler(handleShortcut())
+    }
+    
+    func handleShortcut() -> Bool {
+//        (UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("tourCitiesAndDatesViewController") as! ToursAndCitiesViewController).selectCityButton .sendActionsForControlEvents(UIControlEvents.TouchDown)
+        
+        return true
+    }
 
     func login () {
         PFUser.logOut()

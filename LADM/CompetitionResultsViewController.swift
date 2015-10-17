@@ -19,7 +19,9 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIButton!
     
-    var competitionResultItems = [CompetitionResultItem]()
+    let dataManager = DataManager.sharedInstance
+    var resultItems = [ResultItem]()
+    
     var totalSectionData = [CompetitionResultsSection]()
     var sectionData = [CompetitionResultsSection]()
     var allowNewMessage = false
@@ -27,10 +29,12 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidLoad() {
         setUpNavBar()
-        fillData(cityData[selectedCity]!.competitionResults)
+        resultItems = dataManager.resultItems
         
-        totalSectionData = splitSections(competitionResultItems)
-        sectionData = splitSections(competitionResultItems)
+//        fillData(cityData[selectedCity]!.competitionResults)
+        
+        totalSectionData = splitSections(resultItems)
+        sectionData = splitSections(resultItems)
         
         tableView.layer.cornerRadius = 10
         self.searchBox.delegate = self
@@ -53,83 +57,75 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         }
     }
 
-    func fillData(data:Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
-        competitionResultItems.removeAll(keepCapacity: false)
-        for (div,item) in data {
-            for(num, vals) in item {
-                let division = div
-                let award = vals["Award or Medal"]!
-                let category = vals["Category"]!
-                let routine = vals["Routine Name"]!
-                let studio = vals["Studio"]!
-                
-                let bundle = CompetitionResultItem(division: division, award: award, category: category, routine: routine, studio: studio)
-                
-                competitionResultItems.append(bundle)
-                }
-            }
-    }
+//    func fillData(data:Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
+//        competitionResultItems.removeAll(keepCapacity: false)
+//        for (div,item) in data {
+//            for(num, vals) in item {
+//                let division = div
+//                let award = vals["Award or Medal"]!
+//                let category = vals["Category"]!
+//                let routine = vals["Routine Name"]!
+//                let studio = vals["Studio"]!
+//                
+//                let bundle = CompetitionResultItem(division: division, award: award, category: category, routine: routine, studio: studio)
+//                
+//                competitionResultItems.append(bundle)
+//                }
+//            }
+//    }
     
-    func splitSections(itemArr: [CompetitionResultItem]) -> [CompetitionResultsSection] {
+    func splitSections(itemArr: [ResultItem]) -> [CompetitionResultsSection] {
         var arr = [CompetitionResultsSection]()
         for item in itemArr {
-            let division = item.division
+            let ageAndDiv = item.age + " " + item.division
+//            let division = item.division
             var found = false
             for s in arr {
-                if s.division == division {
+                if s.division == ageAndDiv {
                     s.competitionItems.append(item)
                     found = true
                     break
                 }
             }
             if !found {
-                arr.append(CompetitionResultsSection(div:division, firstItem: item))
+                arr.append(CompetitionResultsSection(div:ageAndDiv, firstItem: item))
             }
         }
-        for item in arr {
-            item.competitionItems.sortInPlace({
-            (item1,item2) in
-                let place1 = item1.award[item1.award.startIndex.advancedBy(0)]
-                let place2 = item2.award[item2.award.startIndex.advancedBy(0)]
-            
-                let split1 = item1.award.characters.split{$0 == " "}.map { String($0) }
-                let split2 = item2.award.characters.split{$0 == " "}.map { String($0) }
-                
-                let rank1 = self.awardRanker(split1)
-                
-                
-                let rank2 = self.awardRanker(split2)
-                
-                return rank1 > rank2
-            })
+
+        
+        for s in arr {
+            s.competitionItems.sortInPlace({$0.order < $1.order})
         }
+        
         arr.sortInPlace({$0.division < $1.division})
+
         return arr
     }
+
     
-    func awardRanker(arr: [String]) -> Int {
-        var rank = 0
-        let firstChunk = arr[0]
-        let firstNum = Int(String(firstChunk[firstChunk.startIndex.advancedBy(0)]))
-        if firstNum != nil {
-            rank = (4-firstNum!) * 4
-        }
-        if arr.count == 1 {
-            return 1
-        }
-        switch arr[arr.count - 2] {
-        case "High": rank += 2
-        case "Double": rank += 4
-        default:
-            if arr[arr.count-1] == "Platinum" {
-                rank+=3
-            }
-            else {
-                rank += 1
-            }
-        }
-        return rank
-    }
+//    func awardRanker(arr: [String]) -> Int {
+//        var rank = 0
+//        let firstChunk = arr[0]
+//        let firstNum = Int(String(firstChunk[firstChunk.startIndex.advancedBy(0)]))
+//        if firstNum != nil {
+//            rank = (4-firstNum!) * 4
+//        }
+//        if arr.count == 1 {
+//            return 1
+//        }
+//        switch arr[arr.count - 2] {
+//        case "High": rank += 2
+//        case "Double": rank += 4
+//        default:
+//            if arr[arr.count-1] == "Platinum" {
+//                rank+=3
+//            }
+//            else {
+//                rank += 1
+//            }
+//        }
+//        return rank
+//    }
 
     //MARK: UITableViewDelegate Protocols
     
@@ -164,6 +160,7 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("CompetitionResultCell",forIndexPath: indexPath) as! CompetitionResultCell
         let item = sectionData[indexPath.section].competitionItems[indexPath.row]
         cell.studioLabel.text = item.studio
+//        cell.studioLabel.text = String(item.order)
         cell.routineLabel.text = item.routine
         cell.awardLabel.text = item.award
         allowNewMessage = true
@@ -214,25 +211,33 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     }
     
     // Create dicitonarys based on section titles
-    func divideIntoSections() -> Dictionary<String, [CompetitionResultItem] >{
-        var divisionDictonary = Dictionary<String, [CompetitionResultItem]>()
-        var lastItem = competitionResultItems[0]
-        var array = [CompetitionResultItem]()
+    func divideIntoSections() -> Dictionary<String, [ResultItem] >{
+        var divisionDictonary = Dictionary<String, [ResultItem]>()
+        var lastItem = resultItems[0]
+//        var lastAgeAndDiv = resultItems[0].age + " " + resultItems[0].division
+        var array = [ResultItem]()
         
-        for item in competitionResultItems{
-            if item.division == lastItem.division {
+        for item in resultItems{
+            let ageAndDiv = item.age + " " + item.division
+            if ageAndDiv == lastItem.age + " " + lastItem.division {
                 array.append(item)
             }
+            
+//            if item.division == lastItem.division {
+//                array.append(item)
+//            }
+                
             else {
-                divisionDictonary[lastItem.division] = array
+//                divisionDictonary[lastItem.division] = array
+                divisionDictonary[lastItem.age + " " + lastItem.division] = array
                 array.removeAll(keepCapacity: false)
                 array.append(item)
-                
             }
             lastItem = item
         }
         
-        divisionDictonary[lastItem.division] = array
+//        divisionDictonary[lastItem.division] = array
+        divisionDictonary[lastItem.age + " " + lastItem.division] = array
         return divisionDictonary
     }
     
@@ -243,10 +248,10 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
     }
     
     func filterArrayWithSearchBoxString() {
-        var newItemList = [CompetitionResultItem]()
+        var newItemList = [ResultItem]()
         let searchString = getTextFromSearchBox().lowercaseString
         if searchString != "" {
-            for item in competitionResultItems {
+            for item in resultItems {
                 if (item.division.lowercaseString.rangeOfString(searchString) != nil || item.category.lowercaseString.rangeOfString(searchString) != nil || item.award.lowercaseString.rangeOfString(searchString) != nil || item.routine.lowercaseString.rangeOfString(searchString) != nil || item.studio.lowercaseString.rangeOfString(searchString) != nil) {
                     newItemList.append(item)
                 }
@@ -262,7 +267,7 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
         filterArrayWithSearchBoxString()
         tableView.reloadData()
     }
-    
+
 
     @IBAction func searchButtonPressed(sender: AnyObject) {
         updateWithSearch()

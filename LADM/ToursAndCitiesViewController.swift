@@ -16,7 +16,7 @@ var selectedCity = "Select City"
 class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
    //Transition Manager
-//    let transitionManager = TransitionManager()
+    let transitionManager = TransitionManager()
     var menuButtonPressed = false
 //    var dataFetcher = DataFetcher()
     var dataManager: DataManager!
@@ -107,9 +107,9 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @IBAction func specialtyAwardPressed(sender: UIButton) {
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SpecialtyAwardsViewController") as! SpecialtyAwardsViewController
-//        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
-//        customSegue.perform()
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SpecialtyAwardsViewController") as! SpecialtyAwardsViewController
+        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+        customSegue.perform()
     }
     
     @IBAction func competitionOrderTouchDown(sender: AnyObject, forEvent event: UIEvent) {
@@ -222,18 +222,17 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
     @IBAction func scheduleButtonDown(sender: AnyObject, forEvent event: UIEvent) {
         feedbackAnimation(sender, event: event)
     }
-    
 
     @IBAction func specialtyAwardsDown(sender: AnyObject, forEvent event: UIEvent) {
         feedbackAnimation(sender, event: event)
     }
-    @IBAction func feedbackButtonPressed(sender: UIButton) {
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
-//        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
-//        customSegue.perform()
+    @IBAction func competitionResultsButtonPressed(sender: UIButton) {
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("CompetitionResultsViewController") as! CompetitionResultsViewController
+        let customSegue = CustomSlideSegue(identifier: "anyid", source: self, destination: vc, shouldUnwind: false)
+        customSegue.perform()
     }
     
-    @IBAction func feedbackButtonDown(sender: AnyObject, forEvent event: UIEvent) {
+    @IBAction func competitionResultsButtonDown(sender: AnyObject, forEvent event: UIEvent) {
         feedbackAnimation(sender, event: event)
     }
 
@@ -280,7 +279,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if menuButtonPressed == true {
          let toViewController = segue.destinationViewController 
-//         toViewController.transitioningDelegate = self.transitionManager
+         toViewController.transitioningDelegate = self.transitionManager
          menuButtonPressed = false
       }
    }

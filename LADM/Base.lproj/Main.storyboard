@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B22c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B38b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -58,7 +58,7 @@
                                     <constraint firstAttribute="height" constant="83" id="WW3-Td-cQu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Select City" backgroundImage="CityButton@3x.png"/>
+                                <state key="normal" title="Select City" backgroundImage="CityButton.png"/>
                                 <connections>
                                     <action selector="selectCityPressed:event:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fjy-9u-4D9"/>
                                 </connections>
@@ -70,14 +70,14 @@
                                     <constraint firstAttribute="height" constant="65" id="rzq-hK-Mbu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Competition Results" backgroundImage="OtherButton@3x.png">
+                                <state key="normal" title="Competition Results" backgroundImage="OtherButton.png">
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
                                 <connections>
-                                    <action selector="feedbackButtonDown:forEvent:" destination="BYZ-38-t0r" eventType="touchDown" id="mDR-j5-FaB"/>
-                                    <action selector="feedbackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gN-DM-KB8"/>
+                                    <action selector="competitionResultsButtonDown:forEvent:" destination="BYZ-38-t0r" eventType="touchDown" id="awl-7A-Q1u"/>
+                                    <action selector="competitionResultsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQl-mb-qwy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN3-aI-Af8">
@@ -87,7 +87,7 @@
                                     <constraint firstAttribute="height" constant="65" id="ybX-Of-Jf5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Competition Order" backgroundImage="OtherButton@3x.png">
+                                <state key="normal" title="Competition Order" backgroundImage="OtherButton.png">
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="height" constant="65" id="gXi-l9-X02"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Specialty Awards" backgroundImage="OtherButton@3x.png">
+                                <state key="normal" title="Specialty Awards" backgroundImage="OtherButton.png">
                                     <color key="titleColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -195,7 +195,7 @@
                                     <constraint firstAttribute="height" constant="65" id="Z4H-Sg-Ff1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Schedule" backgroundImage="OtherButton@3x.png">
+                                <state key="normal" title="Schedule" backgroundImage="OtherButton.png">
                                     <color key="titleColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -291,11 +291,11 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Ie-rB2">
-                                                            <rect key="frame" x="30" y="30" width="50" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlf-Ie-rB2">
+                                                            <rect key="frame" x="30" y="30" width="34" height="20.5"/>
                                                             <animations/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="50" id="1mX-Ti-JRO"/>
+                                                                <constraint firstAttribute="width" priority="250" constant="50" id="1mX-Ti-JRO"/>
                                                                 <constraint firstAttribute="width" secondItem="jlf-Ie-rB2" secondAttribute="height" multiplier="17:15" id="K9C-1E-bIl"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
@@ -308,7 +308,7 @@
                                                             </variation>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Performace Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HE6-Lt-Dup">
-                                                            <rect key="frame" x="244" y="30" width="112" height="21"/>
+                                                            <rect key="frame" x="244" y="30" width="112" height="20.5"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -429,7 +429,7 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="nkf-DY-Jsp" secondAttribute="bottom" constant="30" id="swm-Mk-mYA"/>
                                                         <constraint firstItem="1J9-d6-VVX" firstAttribute="top" secondItem="HE6-Lt-Dup" secondAttribute="bottom" constant="30" id="tef-PW-TIl"/>
                                                         <constraint firstItem="HE6-Lt-Dup" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7S2-ZJ-UE9" secondAttribute="top" constant="5" id="uqE-HX-P5z"/>
-                                                        <constraint firstItem="HE6-Lt-Dup" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jlf-Ie-rB2" secondAttribute="trailing" constant="30" id="zCN-49-eOE"/>
+                                                        <constraint firstItem="HE6-Lt-Dup" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jlf-Ie-rB2" secondAttribute="trailing" constant="15" id="zCN-49-eOE"/>
                                                         <constraint firstAttribute="trailing" secondItem="oXb-DT-aBr" secondAttribute="trailing" constant="30" id="zSg-6s-av6"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -1334,8 +1334,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sorry, the results seem to have danced away :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-Yj-85Z">
-                                                    <rect key="frame" x="58" y="8" width="464" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, the results seem to have danced away :(" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-Yj-85Z">
+                                                    <rect key="frame" x="15" y="28" width="550" height="23.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1344,10 +1344,12 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hgk-Yj-85Z" secondAttribute="trailing" constant="30" id="7fA-FJ-klu"/>
+                                                <constraint firstItem="hgk-Yj-85Z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wzS-HV-T0S" secondAttribute="topMargin" constant="10" id="1Zp-Gj-6L5"/>
+                                                <constraint firstAttribute="trailing" secondItem="hgk-Yj-85Z" secondAttribute="trailing" constant="15" id="7fA-FJ-klu"/>
                                                 <constraint firstAttribute="centerX" secondItem="hgk-Yj-85Z" secondAttribute="centerX" id="BB8-bV-rxt"/>
-                                                <constraint firstItem="hgk-Yj-85Z" firstAttribute="leading" secondItem="wzS-HV-T0S" secondAttribute="leading" constant="30" id="vsX-D9-cla"/>
+                                                <constraint firstItem="hgk-Yj-85Z" firstAttribute="leading" secondItem="wzS-HV-T0S" secondAttribute="leading" constant="15" id="vsX-D9-cla"/>
                                                 <constraint firstAttribute="centerY" secondItem="hgk-Yj-85Z" secondAttribute="centerY" id="xdu-If-x8K"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="hgk-Yj-85Z" secondAttribute="bottom" constant="10" id="ygW-WS-D9n"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -1547,8 +1549,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sorry, the results seem to have danced away :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQQ-79-mnS">
-                                                    <rect key="frame" x="30" y="8" width="520" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, the results seem to have danced away :(" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQQ-79-mnS">
+                                                    <rect key="frame" x="15" y="29.5" width="550" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1557,10 +1559,10 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="lQQ-79-mnS" firstAttribute="leading" secondItem="uA2-61-Bg4" secondAttribute="leading" constant="30" id="0Ga-FF-jqs"/>
+                                                <constraint firstItem="lQQ-79-mnS" firstAttribute="leading" secondItem="uA2-61-Bg4" secondAttribute="leading" constant="15" id="0Ga-FF-jqs"/>
                                                 <constraint firstAttribute="centerX" secondItem="lQQ-79-mnS" secondAttribute="centerX" id="EKo-Ge-0Qr"/>
                                                 <constraint firstAttribute="centerY" secondItem="lQQ-79-mnS" secondAttribute="centerY" id="Jof-mh-n7a"/>
-                                                <constraint firstAttribute="trailing" secondItem="lQQ-79-mnS" secondAttribute="trailing" constant="30" id="fdv-7l-Nhb"/>
+                                                <constraint firstAttribute="trailing" secondItem="lQQ-79-mnS" secondAttribute="trailing" constant="15" id="fdv-7l-Nhb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -2032,7 +2034,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CityButton@3x.png" width="640" height="175"/>
+        <image name="CityButton.png" width="213" height="58"/>
         <image name="Contact_Icon.png" width="200" height="200"/>
         <image name="Email_Button.png" width="250" height="250"/>
         <image name="Event_Feed_Icon.png" width="200" height="200"/>
@@ -2042,6 +2044,7 @@
         <image name="FilterDropdownButton.png" width="130" height="20"/>
         <image name="HamArrow0.png" width="125" height="94"/>
         <image name="Magnifying_Glass.png" width="56" height="52"/>
+        <image name="OtherButton.png" width="630" height="129"/>
         <image name="OtherButton@3x.png" width="1890" height="387"/>
         <image name="Other_Button_Disabled@3x.png" width="1890" height="396"/>
         <image name="Phone_Button.png" width="250" height="250"/>
@@ -2050,6 +2053,6 @@
         <image name="Twitter_Button.png" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="biN-BO-ZGV"/>
+        <segue reference="MOh-Xx-iaw"/>
     </inferredMetricsTieBreakers>
 </document>

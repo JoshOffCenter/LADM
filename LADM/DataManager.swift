@@ -24,6 +24,7 @@ class DataManager: NSObject {
     var categories = [String]()
     var days = [String]()
     
+    var favorites:NSMutableArray = []
     
 
     

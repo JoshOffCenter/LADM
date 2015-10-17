@@ -18,7 +18,9 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var menuButton: UIButton!
     
-//    var specialtyAwardItems = [SpecialtyAwardItem]()
+    let dataManager = DataManager.sharedInstance
+    var specialtyItems = [SpecialtyItem]()
+    
     var totalSectionData = [SpecialtyAwardSection]()
     var sectionData = [SpecialtyAwardSection]()
     var allowNewMessage = false
@@ -26,9 +28,10 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         setUpNavBar()
-        fillData(cityData[selectedCity]!.specialtyAwards)
-        totalSectionData = splitSections(specialtyAwardItems)
-        sectionData = splitSections(specialtyAwardItems)
+        specialtyItems = dataManager.specialtyItems
+//        fillData(cityData[selectedCity]!.specialtyAwards)
+        totalSectionData = splitSections(specialtyItems)
+        sectionData = splitSections(specialtyItems)
         tableView.layer.cornerRadius = 10
         self.searchBox.delegate = self
         setupGestures()
@@ -49,18 +52,18 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
         }
     }
     
-    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
-        specialtyAwardItems.removeAll(keepCapacity: false)
-        for (div, item1) in data {
-            for (award, item2) in item1 {
-                let piece = item2["Piece"]!
-                let studio = item2["Studio"]!
-//                let item = SpecialtyAwardItem(division: div, award: award, piece: piece, studio: studio)
-                specialtyAwardItems.append(item)
-            }
-        }
-        
-    }
+//    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,String>>>) {
+//        specialtyAwardItems.removeAll(keepCapacity: false)
+//        for (div, item1) in data {
+//            for (award, item2) in item1 {
+//                let piece = item2["Piece"]!
+//                let studio = item2["Studio"]!
+////                let item = SpecialtyAwardItem(division: div, award: award, piece: piece, studio: studio)
+//                specialtyAwardItems.append(item)
+//            }
+//        }
+//        
+//    }
     
 //    func splitSections(itemArr: [SpecialtyAwardItem]) -> [SpecialtyAwardSection]{
 //        var arr = [SpecialtyAwardSection]()
@@ -85,6 +88,32 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
 //        return arr
 //    }
     
+    func splitSections(itemArr: [SpecialtyItem]) -> [SpecialtyAwardSection] {
+        var arr = [SpecialtyAwardSection]()
+        for item in itemArr {
+            let age = item.age
+            //            let division = item.division
+            var found = false
+            for s in arr {
+                if s.age == age {
+                    s.specialtyItems.append(item)
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                arr.append(SpecialtyAwardSection(a:age, firstItem: item))
+            }
+        }
+        
+        for s in arr {
+            s.specialtyItems.sortInPlace({$0.award < $1.award})
+        }
+        arr.sortInPlace({$0.age < $1.age})
+        return arr
+    }
+
+    
     //MARK: UITableViewDelegate Protocols
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if sectionData.isEmpty {
@@ -95,7 +124,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if sectionData.isEmpty { return 1 }
-//        return sectionData[section].specialtyItems.count
+        return sectionData[section].specialtyItems.count
       
     }
     
@@ -103,8 +132,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
         if sectionData.isEmpty {
             return nil
         }
-//        return sectionData[section].division
-        return nil
+        return sectionData[section].age
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -119,7 +147,7 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
             return cell
         }
             let cell = tableView.dequeueReusableCellWithIdentifier("SpecialtyAwardCell", forIndexPath: indexPath) as! SpecialtyAwardCell
-//            let item = sectionData[indexPath.section].specialtyItems[indexPath.row]
+            let item = sectionData[indexPath.section].specialtyItems[indexPath.row]
             cell.awardLabel.text = item.award
             cell.pieceLabel.text = item.piece
             cell.studioLabel.text = item.studio
@@ -214,11 +242,11 @@ class SpecialtyAwardsViewController: UIViewController, UITableViewDataSource, UI
     }
     
     func filterArrayWithSearchBoxString() {
-        var newItemList = [SpecialtyAwardItem]()
+        var newItemList = [SpecialtyItem]()
         let searchString = getTextFromSearchBox().lowercaseString
         if searchString != "" {
-            for item in specialtyAwardItems {
-                if(item.division.lowercaseString.rangeOfString(searchString) != nil || item.award.lowercaseString.rangeOfString(searchString) != nil || item.piece.lowercaseString.rangeOfString(searchString) != nil || item.studio.lowercaseString.rangeOfString(searchString) != nil) {
+            for item in specialtyItems {
+                if(item.age.lowercaseString.rangeOfString(searchString) != nil || item.award.lowercaseString.rangeOfString(searchString) != nil || item.piece.lowercaseString.rangeOfString(searchString) != nil || item.studio.lowercaseString.rangeOfString(searchString) != nil) {
                     newItemList.append(item)
                 }
             }

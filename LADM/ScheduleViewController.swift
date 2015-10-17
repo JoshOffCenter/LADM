@@ -34,6 +34,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         scheduleItems = dataManager.scheduleItems
+//        scheduleItems.sortInPlace({$0.order < $1.order})
+
 //        fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
         setupToggleView()
@@ -97,11 +99,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        scheduleItems.sortInPlace({$0.order < $1.order})
+
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
         item = scheduleItems[indexPath.row]
         cell.facultyLabel.text = item.faculty
-        cell.timeLabel.text = item.time
+//        cell.timeLabel.text = item.time
+        cell.timeLabel.text = String(item.order!)
+
         cell.eventLabel.text = item.event
         return cell
     }
@@ -210,6 +216,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         let dictionary: NSDictionary = ["day" : dayFull, "age" : group]
         
         scheduleItems = dataManager.filterItemsWithDictionary(dataManager.scheduleItems, dictionary: dictionary) as! [ScheduleItem]
+//        scheduleItems.sortInPlace({$0.order < $1.order})
+
         
         
 //        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)

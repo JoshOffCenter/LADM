@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class EventCell: UITableViewCell {
     
@@ -19,6 +20,8 @@ class EventCell: UITableViewCell {
    @IBOutlet weak var ageLabel: UILabel!
    @IBOutlet weak var categoryLabel: UILabel!
    @IBOutlet weak var divisionLabel: UILabel!
+    
+    var objectID: String!
    
    
    //Constraints
@@ -40,20 +43,32 @@ class EventCell: UITableViewCell {
    @IBOutlet weak var divisionConstraintRight: NSLayoutConstraint!
    
    
-   
-   
    @IBOutlet weak var favoriteButton: UIButton!
    
    @IBAction func favoriteButtonPressed(sender: AnyObject) {
-      if favoriteButton.selected == true {
-         favoriteButton.selected = false
-//        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "unfavorite")
+    let dataManager = DataManager.sharedInstance
 
-      }
-      else {
-         favoriteButton.selected = true
-//        df.postFavorite(selectedCity, routine: performanceTitleLabel.text!,action: "favorite")
-        
-      }
-   }
+        if favoriteButton.selected == true {
+            favoriteButton.selected = false
+            PFCloud.callFunctionInBackground("unfavorite", withParameters: ["objectId" : objectID]){
+                result, error in
+                if error == nil {
+                    dataManager.favorites.removeObject(self.objectID)
+                }
+                
+            }
+        }
+        else {
+            favoriteButton.selected = true
+    //        dataManager.favorites.addObject(objectID)
+            
+            PFCloud.callFunctionInBackground("favorite", withParameters: ["objectId" : objectID]){
+            result, error in
+                if error == nil {
+                    dataManager.favorites.addObject(self.objectID)
+                }
+                
+            }
+        }
+    }
 }

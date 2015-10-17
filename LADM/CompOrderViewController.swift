@@ -140,40 +140,48 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       }
    }
    
-   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let smallHeight: CGFloat = 80.0
-      let expandedHeight: CGFloat = 200.0
-      var item: CompetitionItem
-      let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let smallHeight: CGFloat = 80.0
+        let expandedHeight: CGFloat = 200.0
+        var item: CompetitionItem
+        let cell = tableView.dequeueReusableCellWithIdentifier("EventCell", forIndexPath: indexPath) as! EventCell
 
-      cell.selectionStyle = .None
+        cell.selectionStyle = .None
+
+        item = competitionItems[indexPath.row]
+        cell.timeLabel.text = item.time
+        cell.performanceTitleLabel.text = item.routineIDAndName
+        cell.objectID = item.objectId
       
-      item = competitionItems[indexPath.row]
-      cell.timeLabel.text = item.time
-      cell.performanceTitleLabel.text = item.routineIDAndName
-      
-      if cellExpanded == true {
-         
-         cell.addSubview(cell.studioLabel)
-         cell.addSubview(cell.ageLabel)
-         cell.addSubview(cell.categoryLabel)
-         cell.addSubview(cell.divisionLabel)
-         
-         cell.addConstraints([cell.studioConstraintLeft, cell.studioConstraintRight, cell.studioConstraintTop, cell.ageConstraintCenter, cell.ageConstraintLeft, cell.ageConstraintRight, cell.categoryConstraintBottom, cell.categoryConstraintCenter, cell.categoryConstraintCenterY1, cell.categoryConstraintCenterY2, cell.categoryConstraintTop, cell.divisionConstraintLeft, cell.divisionConstraintRight])
-      
-         cell.studioLabel.text = item.studio
-         cell.ageLabel.text = item.age
-         cell.categoryLabel.text = item.category
-//         cell.divisionLabel.text = item.division
-      }
-      else {
-         cell.studioLabel.removeFromSuperview()
-         cell.ageLabel.removeFromSuperview()
-         cell.categoryLabel.removeFromSuperview()
-         cell.divisionLabel.removeFromSuperview()
-      }
-      
-      return cell
+        if cellExpanded == true {
+
+            cell.addSubview(cell.studioLabel)
+            cell.addSubview(cell.ageLabel)
+            cell.addSubview(cell.categoryLabel)
+            cell.addSubview(cell.divisionLabel)
+
+            cell.addConstraints([cell.studioConstraintLeft, cell.studioConstraintRight, cell.studioConstraintTop, cell.ageConstraintCenter, cell.ageConstraintLeft, cell.ageConstraintRight, cell.categoryConstraintBottom, cell.categoryConstraintCenter, cell.categoryConstraintCenterY1, cell.categoryConstraintCenterY2, cell.categoryConstraintTop, cell.divisionConstraintLeft, cell.divisionConstraintRight])
+
+            cell.studioLabel.text = item.studio
+            cell.ageLabel.text = item.age
+            cell.categoryLabel.text = item.category
+            //         cell.divisionLabel.text = item.division
+        }
+        else {
+            cell.studioLabel.removeFromSuperview()
+            cell.ageLabel.removeFromSuperview()
+            cell.categoryLabel.removeFromSuperview()
+            cell.divisionLabel.removeFromSuperview()
+        }
+        
+        if dataManager.favorites.containsObject(item.objectId) {
+            cell.favoriteButton.selected = true
+        }
+        else {
+            cell.favoriteButton.selected = false
+        }
+    
+        return cell
    }
    
    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

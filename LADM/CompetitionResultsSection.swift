@@ -10,11 +10,15 @@ import UIKit
 
 class CompetitionResultsSection {
     
-//    let division: String!
-//    var competitionItems = [CompetitionResultItem]()
-//    init(div: String, firstItem: CompetitionResultItem) {
-//        division = div
-//        competitionItems.append(firstItem)
+    let division: String!
+    var competitionItems = [ResultItem]()
+    init(div: String, firstItem: ResultItem) {
+        division = div
+        competitionItems.append(firstItem)
+    }
+    
+//    func sort () {
+//        competitionItems.sortInPlace({$0.order < $1.order})
 //    }
     
 }

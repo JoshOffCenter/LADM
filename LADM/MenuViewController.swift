@@ -64,11 +64,19 @@ class MenuViewController: UIViewController {
     
     @IBAction func back(sender: AnyObject) {
         if contactMenuOpen == false {
-            self.dismissViewControllerAnimated(true, completion: nil)
+//            self.dismissViewControllerAnimated(true, completion: nil)
         }
         else {
             closeContactMenu()
+        }
+        if socialMediaMenuOpen == false {
+//            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else {
             closeSocialMediaMenu()
+        }
+        if contactMenuOpen == false && socialMediaMenuOpen == false {
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
         
     }
@@ -93,10 +101,11 @@ class MenuViewController: UIViewController {
     
     @IBAction func contactButtonPressed(sender: AnyObject) {
         setupContactMenu()
+//        (sender as! UIButton).userInteractionEnabled = false
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         let scaleUp = CGAffineTransformMakeScale(1, 1)
         contactMenu.transform = scaleDown
-        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [], animations: { () -> Void in
             self.contactMenu.transform = scaleUp
         }, completion: nil)
         contactMenuOpen = true
@@ -106,7 +115,7 @@ class MenuViewController: UIViewController {
     func closeContactMenu() {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
 
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
                 self.contactMenu.transform = scaleDown
                 self.contactMenu.alpha = 0
         }) { (finished) -> Void in
@@ -133,7 +142,7 @@ class MenuViewController: UIViewController {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         let scaleUp = CGAffineTransformMakeScale(1, 1)
         socialMediaMenu.transform = scaleDown
-        UIView.animateWithDuration(2, delay: 0, usingSpringWithDamping: 0.25, initialSpringVelocity: 10, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [], animations: { () -> Void in
             self.socialMediaMenu.transform = scaleUp
             }, completion: nil)
         socialMediaMenuOpen = true
@@ -143,7 +152,7 @@ class MenuViewController: UIViewController {
     func closeSocialMediaMenu() {
         let scaleDown = CGAffineTransformMakeScale(0.75, 0.75)
         
-        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
+        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 10, initialSpringVelocity: 5, options: [], animations: { () -> Void in
             self.socialMediaMenu.transform = scaleDown
             self.socialMediaMenu.alpha = 0
             }) { (finished) -> Void in

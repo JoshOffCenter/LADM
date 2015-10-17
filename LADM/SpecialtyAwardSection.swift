@@ -10,11 +10,11 @@ import UIKit
 
 class SpecialtyAwardSection {
 
-//    let division: String!
-//    var specialtyItems = [SpecialtyAwardItem]()
-//    init(div: String, firstItem: SpecialtyAwardItem) {
-//        division = div
-//        specialtyItems.append(firstItem)
-//    }
+    let age: String!
+    var specialtyItems = [SpecialtyItem]()
+    init(a: String, firstItem: SpecialtyItem) {
+        age = a
+        specialtyItems.append(firstItem)
+    }
     
 }
