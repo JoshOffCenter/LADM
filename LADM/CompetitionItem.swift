@@ -25,4 +25,8 @@ class CompetitionItem {
         self.time = time
         self.order = order
     }
+    
+    func dictionaryRepresentation() -> NSDictionary {
+        return ["objectId": objectId!, "age": age!, "category":category!, "city":city!, "day":day!, "routineIDAndName":routineIDAndName!, "studio":studio!, "time":time!, "order": order!]
+    }
 }

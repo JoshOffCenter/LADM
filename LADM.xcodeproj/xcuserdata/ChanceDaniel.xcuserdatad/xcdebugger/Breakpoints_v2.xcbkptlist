@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LADM/DataManager.swift"
-            timestampString = "465458228.489876"
+            timestampString = "466747052.405772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "pullCity(_:vc:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LADM/DataManager.swift"
-            timestampString = "466144692.134358"
+            timestampString = "466747052.405772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "filterItemsWithDictionary(_:dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LADM/DataManager.swift"
-            timestampString = "466144692.134358"
+            timestampString = "466747052.405772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "filterItemsWithDictionary(_:dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LADM/DataManager.swift"
-            timestampString = "466147330.531053"
+            timestampString = "466747052.405772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "filterItemsWithDictionary(_:dictionary:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LADM/DataManager.swift"
+            timestampString = "466747052.405772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "filterItemsWithDictionary(_:dictionary:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADM.DataManager.filterItemsWithDictionary (LADM.DataManager)(Swift.Array&lt;Swift.AnyObject&gt;, dictionary : ObjectiveC.NSDictionary) -&gt; Swift.Array&lt;Swift.AnyObject&gt;"
+                  moduleName = "LADM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chancedaniel/Documents/Development/iOS/LADM/LADM/DataManager.swift"
+                  timestampString = "466747052.408038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "6642">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LADM.DataManager.filterItemsWithDictionary (LADM.DataManager)(Swift.Array&lt;Swift.AnyObject&gt;, dictionary : ObjectiveC.NSDictionary) -&gt; Swift.Array&lt;Swift.AnyObject&gt;"
+                  moduleName = "LADM"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chancedaniel/Documents/Development/iOS/LADM/LADM/DataManager.swift"
+                  timestampString = "466747052.408191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "6654">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LADM/DataManager.swift"
+            timestampString = "466747052.405772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "filterItemsWithDictionary(_:dictionary:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +202,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LADM/DataManager.swift"
-            timestampString = "466147633.561637"
+            timestampString = "466747052.405772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "filterItemsWithDictionary(_:dictionary:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LADM/DataManager.swift"
+            timestampString = "466747052.405772"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "filterItemsWithDictionary(_:dictionary:)"
             landmarkType = "5">
          </BreakpointContent>

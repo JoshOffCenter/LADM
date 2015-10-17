@@ -12,6 +12,8 @@ import Darwin
 class CompOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let dataManager = DataManager.sharedInstance
+    var competitionItems = [CompetitionItem]()
+
    
    //Table View
    @IBOutlet weak var tableView: UITableView!
@@ -57,7 +59,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    override func viewDidLoad() {
       
-
+    competitionItems = dataManager.competitionItems
+    
     tableView.estimatedRowHeight = 80.0;
     tableView.layer.cornerRadius = 10
     setupNavBar()
@@ -114,7 +117,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    }
    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return dataManager.competitionItems.count
+      return competitionItems.count
    }
    
    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -145,7 +148,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
       cell.selectionStyle = .None
       
-      item = dataManager.competitionItems[indexPath.row]
+      item = competitionItems[indexPath.row]
       cell.timeLabel.text = item.time
       cell.performanceTitleLabel.text = item.routineIDAndName
       
@@ -297,6 +300,10 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             
 //            let filteredData = cityData[selectedCity]!.filterCompetitionSchedule(filterMenuView.filterStudioLabel.text!, age: filterMenuView.filterAgeLabel.text!, category: filterMenuView.filterCategoryLabel.text!, day: filterMenuView.filterDayLabel.text!)
 //            fillData(filteredData)
+            
+            let dictionary: NSDictionary = ["studio" : filterMenuView.filterStudioLabel.text!, "age" : filterMenuView.filterAgeLabel.text!, "category" : filterMenuView.filterCategoryLabel.text!, "day" : filterMenuView.filterDayLabel.text!]
+            competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
+            tableView.reloadData()
             
             filterMenuExpanded = false
             dismissButton.enabled = false

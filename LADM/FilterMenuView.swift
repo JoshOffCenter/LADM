@@ -33,8 +33,7 @@ class FilterMenuView: UIView {
     @IBOutlet weak var filterAgeLabel: UILabel!
     @IBOutlet weak var filterCategoryLabel: UILabel!
     @IBOutlet weak var filterDayLabel: UILabel!
-
-
+    
     
 //    var studios = ["Any Studio"] + cityData[selectedCity]!.studios
 //    var ages = ["Any Age"] + cityData[selectedCity]!.ages
@@ -42,17 +41,23 @@ class FilterMenuView: UIView {
     var studios = ["Any Studio"]
     var ages = ["Any Age"]
     var categories = ["Any Category"]
-    var days = ["Any Day","Friday","Saturday"]
+    var days = ["Any Day"]//,"Friday","Saturday","Sunday"]
     
     var counter = ["Studios": 0, "Ages": 0, "Categories": 0, "Days":0]
-
-
-
 
    
 
    required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
+    
+    dataManager.populateFilterMenu()
+    
+    studios = ["Any Studio"] + dataManager.studios
+    ages = ["Any Age"] + dataManager.ages
+    categories = ["Any Category"] + dataManager.categories
+    days = ["Any Day"] + dataManager.days
+    
+    
 //      self.layer.cornerRadius = 10
 //      self.roundCorners(.BottomLeft, radius: 5)
 //        self.roundCorners(UIRectCorner.BottomRight, radius: 5)
@@ -181,7 +186,7 @@ class FilterMenuView: UIView {
             oldLabel.text = self.categories[self.counter["Categories"]! % self.categories.count]
             break
         case "\(filterDayLabel.text!)":
-            oldLabel.text = self.days[self.counter["Days"]! % 3]
+            oldLabel.text = self.days[self.counter["Days"]! % self.days.count]
             break
         default: break
         }

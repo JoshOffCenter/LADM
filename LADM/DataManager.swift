@@ -19,6 +19,12 @@ class DataManager: NSObject {
     var specialtyItems = [SpecialtyItem]()
     
     
+    var studios = [String]()
+    var ages = [String]()
+    var categories = [String]()
+    var days = [String]()
+    
+    
 
     
     override init () {
@@ -121,10 +127,58 @@ class DataManager: NSObject {
             return filteredItems
         }
         
+        if let unfilteredItems = items as? [CompetitionItem] {
+            let filteredItems: NSMutableArray = []
+
+            var x = 0;
+            
+//            for var i = 0; i < 10; i++ {
+//                filteredItems.append(unfilteredItems[i])
+//            }
+            
+            for item in unfilteredItems {
+                filteredItems.addObject(item)
+                print(item.routineIDAndName)
+            }
+            
+            for key in dictionary.allKeys {
+                for item in unfilteredItems {
+                    x++;
+                    let compItem = item
+                    if let string = compItem.dictionaryRepresentation().objectForKey(key) as? String {
+                        if (!dictionary.objectForKey(key)!.containsString("Any ") && string != dictionary.objectForKey(key) as! String){
+                            filteredItems.removeObject(compItem)
+                        }
+                    }
+                }
+            }
+            filteredItems.count
+            return filteredItems as [AnyObject]
+        }
+        
         
         return []
     }
     
+    
+    func populateFilterMenu() {
+        for item in competitionItems {
+            if !studios.contains(item.studio) {
+                studios.append(item.studio)
+            }
+            if !categories.contains(item.category) {
+                categories.append(item.category)
+            }
+            if !ages.contains(item.age) {
+                ages.append(item.age)
+            }
+            if !days.contains(item.day){
+                days.append(item.day)
+            }
+        }
+    }
+    
+ 
     
     
     
