@@ -12,6 +12,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     //Class Variables
 //    var scheduleItems = [ScheduleItem]()
     var day: String!
+    var availableDays = [String]()
     var dataManager = DataManager.sharedInstance
     var scheduleItems: [ScheduleItem]!
 
@@ -22,8 +23,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     //SelectorView Content
-    @IBOutlet weak var satButton: UIButton!
-    @IBOutlet weak var sunButton: UIButton!
+    @IBOutlet weak var dayOneButton: UIButton!
+    @IBOutlet weak var dayTwoButton: UIButton!
+    @IBOutlet weak var dayThreeButton: UIButton!
+    
     @IBOutlet weak var toggleView: UIView!
     @IBOutlet weak var groupButton: UIButton!
     @IBOutlet weak var menuButton: UIButton!
@@ -34,13 +37,26 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         scheduleItems = dataManager.scheduleItems
-//        scheduleItems.sortInPlace({$0.order < $1.order})
+        
+        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+
 
 //        fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
-        setupToggleView()
         setupGestures()
-        day = "SAT"
+        
+        for item in scheduleItems {
+            if !availableDays.contains(item.day) {
+                availableDays.append(item.day)
+            }
+        }
+        //availableDays.append("Thurday")
+        availableDays.sortInPlace(sorterForDayButton)
+        
+        day = availableDays[0]
+        setupToggleView()
+
+        
         
         var delay = 0.2 * Double(NSEC_PER_SEC)
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
@@ -99,14 +115,37 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        scheduleItems.sortInPlace({$0.order < $1.order})
+//        scheduleItems.sortInPlace({$0.order < $1.order})
 
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
         item = scheduleItems[indexPath.row]
         cell.facultyLabel.text = item.faculty
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        var startTimeString = dateFormatter.stringFromDate(item.startTime)
+
+        if startTimeString.characters.first == "0"  {
+            startTimeString = startTimeString.substringWithRange(Range<String.Index>(start: startTimeString.startIndex.advancedBy(1), end: startTimeString.endIndex))
+            
+        }
+        
+        var endTimeString: String!
+        if (item.endTime != nil) {
+            endTimeString = dateFormatter.stringFromDate(item.endTime!)
+            if endTimeString.characters.first == "0"  {
+                endTimeString = endTimeString.substringWithRange(Range<String.Index>(start: endTimeString.startIndex.advancedBy(1), end: endTimeString.endIndex))
+                
+            }
+            endTimeString = "\n to \n" + endTimeString
+        } else {
+            endTimeString = ""
+        }
+        
+        cell.timeLabel.text = startTimeString + endTimeString
 //        cell.timeLabel.text = item.time
-        cell.timeLabel.text = String(item.order!)
+//        cell.timeLabel.text = String(item.order!)
 
         cell.eventLabel.text = item.event
         return cell
@@ -115,9 +154,26 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //MARK: Setup Toggle View
     func setupToggleView() {
+        dayOneButton.setTitle((availableDays[0] as NSString).substringToIndex(3).uppercaseString, forState: UIControlState.Normal)
+        dayTwoButton.setTitle((availableDays[1] as NSString).substringToIndex(3).uppercaseString, forState: UIControlState.Normal)
+
+        if availableDays.count == 3 {
+            dayThreeButton.setTitle((availableDays[2] as NSString).substringToIndex(3).uppercaseString, forState: UIControlState.Normal)
+            dayThreeButton.enabled = true
+            dayThreeButton.hidden = false
+        }
+        else {
+            dayThreeButton.enabled = false
+            dayThreeButton.hidden = true
+        }
+        
+        
         toggleView.translatesAutoresizingMaskIntoConstraints = true
-        toggleView.center = satButton.center
-//        toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
+        toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
+        
+        UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.toggleView.center = CGPointMake(self.dayOneButton.center.x + 3, self.dayOneButton.center.y)
+            }, completion: nil)
     }
     
     //MARK: Setup Popover View
@@ -145,11 +201,17 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             self.day = day.text
         }
         sender.setTitleColor(self.selectorView.backgroundColor, forState: .Normal)
-        if sender == satButton {
-            sunButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        if sender == dayOneButton {
+            dayTwoButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            dayThreeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        else if sender == dayTwoButton {
+            dayOneButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            dayThreeButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
         else {
-            satButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            dayOneButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            dayTwoButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
         
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
@@ -177,7 +239,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        pvmc?.delegate = self
 //        pvmc?.sourceView = sender
 //        pvmc?.sourceRect = CGRect(x: sender.center.x, y: sender.center.y, width: 1, height: 1)
-//        adaptivePresentationStyleForPresentationController(pvmc)
+////        adaptivePresentationStyleForPresentationController(pvmc)
 //        presentViewController(pcv, animated: true, completion: nil)
     }
     
@@ -224,6 +286,54 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         tableView.reloadData()
     }
     
+    
+    func sorterForDayButton(this: String, that: String) -> Bool {
+//        Monday, tuesday, wednesday , thrusday, friday, saturday, sunday
+    
+        var thisInt = -1
+        var thatInt = -1
+        
+        switch this.lowercaseString {
+        case "sunday":
+            thisInt = 0
+        case "monday":
+            thisInt = 1
+        case "tuesday":
+            thisInt = 2
+        case "wednesday":
+            thisInt = 3
+        case "thursday":
+            thisInt = 4
+        case "friday":
+            thisInt = 5
+        case "saturday":
+            thisInt = 6
+        default:
+            break;
+        }
+        
+        switch that.lowercaseString {
+        case "sunday":
+            thatInt = 0
+        case "monday":
+            thatInt = 1
+        case "tuesday":
+            thatInt = 2
+        case "wednesday":
+            thatInt = 3
+        case "thursday":
+            thatInt = 4
+        case "friday":
+            thatInt = 5
+        case "saturday":
+            thatInt = 6
+        default:
+            break;
+        }
+        
+        return thisInt < thatInt
+        
+    }
     
     
     

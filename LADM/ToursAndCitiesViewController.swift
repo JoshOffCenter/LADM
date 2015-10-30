@@ -50,6 +50,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
     override func viewDidLoad() {
       super.viewDidLoad()
+      selectCityButton.enabled = false
       selectCityView.cityPickerView.dataSource = self
       selectCityView.cityPickerView.delegate = self
       addBlur()
@@ -66,7 +67,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 //        self.menuButton.setBackgroundImage(UIImage.animatedImageNamed("HamArrow", duration: 1), forState: UIControlState.Normal, barMetrics: UIBarMetrics.Default)
 //       self.animButton.setImage(UIImage.animatedImageNamed("HamArrow", duration: 2), forState: UIControlState.Normal)
         
-        
+        setupDataManagerNotification()
     
     }
     
@@ -99,6 +100,21 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         navBar.titleTextAttributes = textAttributes
 
     }
+    
+    func setupDataManagerNotification() {
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "enableSelectCityButton",
+            name: "parseLoginCompleted",
+            object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "buttonShade",
+            name: "changeButtonShade",
+            object: nil)
+        
+        
+    }
 
     @IBAction func schedulePressed(sender: UIButton) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ScheduleViewController") as! ScheduleViewController
@@ -127,8 +143,8 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       animateSelectCityView(false)
         
         for city: PFObject in dataManager.cities {
-            if (!pickerData.contains((city.objectForKey("name") as! String))) {
-                pickerData.append((city.objectForKey("name") as! String))
+            if (!pickerData.contains((city.objectForKey("city") as! String))) {
+                pickerData.append((city.objectForKey("city") as! String))
             }
         }
         self.selectCityView.cityPickerView.reloadAllComponents()
@@ -305,6 +321,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
 
         if dataManager.scheduleItems.count > 0 {
             scheduleButton.enabled = true
+            scheduleButton.setNeedsDisplay()
         }
             
         if dataManager.competitionItems.count > 0 {
@@ -318,35 +335,10 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         if dataManager.specialtyItems.count > 0 {
             specialtyAwardsButton.enabled = true
         }
-        
-            
-
-
-
-
-    //        let cd = cityData[selectedCity]
-    //        if cd!.competitionSchedule.count == 0 {
-    //            competitionOrderButton.enabled = false
-    //        }
-    //        else{
-    //            competitionOrderButton.enabled = true
-    //        }
-    //        if cd!.dailySchedule.count == 0 {
-    //            scheduleButton.enabled = false
-    //        }
-    //        else {
-    //            scheduleButton.enabled = true
-    //        }
-    //        if cd!.specialtyAwards.count == 0 {
-    //            specialtyAwardsButton.enabled = false
-    //        }
-    //        else {
-    //            specialtyAwardsButton.enabled = true
-    //        }
-    //        if cd!.competitionResults.count == 0 {
-    //            competitionResultsButton.enabled = false
-    //        }
-        
+    }
+    
+    func enableSelectCityButton () {
+        selectCityButton.enabled = true
     }
     
 

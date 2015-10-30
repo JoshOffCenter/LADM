@@ -61,6 +61,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       
     competitionItems = dataManager.competitionItems
     
+    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+
+    
     tableView.estimatedRowHeight = 80.0;
     tableView.layer.cornerRadius = 10
     setupNavBar()
@@ -149,8 +152,17 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.selectionStyle = .None
 
         item = competitionItems[indexPath.row]
-        cell.timeLabel.text = item.time
-        cell.performanceTitleLabel.text = item.routineIDAndName
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        var dateString = dateFormatter.stringFromDate(item.startTime)
+        if dateString.characters.first == "0"  {
+            dateString = dateString.substringWithRange(Range<String.Index>(start: dateString.startIndex.advancedBy(1), end: dateString.endIndex))
+
+        }
+        
+        cell.timeLabel.text = dateString
+        cell.performanceTitleLabel.text = item.name
         cell.objectID = item.objectId
       
         if cellExpanded == true {

@@ -12,15 +12,15 @@ import UIKit
 class ResultItem {
     
     let objectId, age, award, category, city, division, routine, studio : String!
-    let order : Int!
+    let rank : Int!
     
-    init(objectId: String, age: String, award: String, category: String, city: String, order: Int, division: String, routine: String, studio: String){
-       self.objectId = objectId
+    init(objectId: String, age: String, award: String, category: String, city: String, rank: Int, division: String, routine: String, studio: String){
+        self.objectId = objectId
         self.age = age
         self.award = award
         self.category = category
         self.city = city
-        self.order = order
+        self.rank = rank
         self.division = division;
         self.routine = routine
         self.studio = studio

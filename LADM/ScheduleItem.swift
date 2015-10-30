@@ -10,23 +10,30 @@ import UIKit
 
 class ScheduleItem: NSObject {
     
-    var objectId, age, faculty, city, day, event, time, extraInfo : String!
-    var order: Int?
+    var objectId, group, faculty, city, day, event, extraInfo : String!
+    var startTime: NSDate!
+    var endTime: NSDate?
+//    var order: Int?
     
     
-    init(objectId: String, age: String, faculty: String, city: String, day: String, event: String, time: String, extraInfo: String, order: Int) {
+    init(objectId: String, group: String, faculty: String, city: String, day: String, event: String, startTime: NSDate, endTime: NSDate?, extraInfo: String) {
         self.objectId = objectId
-        self.age = age
+        self.group = group
         self.faculty = faculty
         self.city = city
         self.day = day
         self.event = event
-        self.time = time
+        self.startTime = startTime
+        self.endTime = endTime
         self.extraInfo = extraInfo
-        self.order = order
+//        self.order = order
     }
     
     func dictionaryRepresentation() -> NSDictionary {
-        return ["objectId": objectId!, "age": age!, "faculty":faculty!, "city":city!, "day":day!, "event":event!, "time":time!, "extraInfo":extraInfo!, "order": order!]
+        if (endTime != nil) {
+            return ["objectId": objectId!, "group": group!, "faculty":faculty!, "city":city!, "day":day!, "event":event!, "startTime":startTime!, "endTime":endTime!, "extraInfo":extraInfo!]
+        }
+        return ["objectId": objectId!, "group": group!, "faculty":faculty!, "city":city!, "day":day!, "event":event!, "startTime":startTime!, "extraInfo":extraInfo!]
+
     }
 }

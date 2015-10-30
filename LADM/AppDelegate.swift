@@ -11,6 +11,7 @@ import Parse
 import Bolts
 
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
    
@@ -18,22 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
    
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
-        //PARSE
-        Parse.enableLocalDatastore()
+//        //PARSE
+//        if !Parse.isLocalDatastoreEnabled() {
+//            Parse.enableLocalDatastore()
+//        }
+////
+////        // Initialize Parse.
+////        Parse.setApplicationId("EBNRrSOrKvzwmeSBkRd4tZm3soLienluMDPF1jOU",
+////            clientKey: "hJ8fFl1vLvtJX43sCfO1mdHT27HzfNjg9NIgWmbp")
+////        
+////        // [Optional] Track statistics around application opens.
+////        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+//        
+////        login()
         
-        // Initialize Parse.
-        Parse.setApplicationId("EBNRrSOrKvzwmeSBkRd4tZm3soLienluMDPF1jOU",
-            clientKey: "hJ8fFl1vLvtJX43sCfO1mdHT27HzfNjg9NIgWmbp")
-        
-        // [Optional] Track statistics around application opens.
-        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-        
-        login()
+//        handleReachablity()
         
         return true
     }
@@ -74,39 +80,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func login () {
-        PFUser.logOut()
-
-        PFUser.logInWithUsernameInBackground((UIDevice.currentDevice().identifierForVendor?.UUIDString)!, password:"LADM") {
-            (user: PFUser?, error: NSError?) -> Void in
-            if user != nil {
-                // Do stuff after successful login.
-                print("Login Successful")
-            } else {
-                // The login failed. Check error to see why.
-                print("Try signup")
-                self.signUp()
-            }
-        }
-    }
+//    func login () {
+//        PFUser.logOut()
+//
+//        PFUser.logInWithUsernameInBackground((UIDevice.currentDevice().identifierForVendor?.UUIDString)!, password:"LADM") {
+//            (user: PFUser?, error: NSError?) -> Void in
+//            if user != nil {
+//                // Do stuff after successful login.
+//                print("Login Successful")
+//            } else {
+//                // The login failed. Check error to see why.
+//                print("Try signup")
+//                self.signUp()
+//            }
+//        }
+//    }
+//    
+//    func signUp() {
+//        let user = PFUser()
+//        user.username = UIDevice.currentDevice().identifierForVendor?.UUIDString
+//        user.password = "LADM"
+//        
+//        user.signUpInBackgroundWithBlock {
+//            (succeeded: Bool, error: NSError?) -> Void in
+//            if let error = error {
+//                let errorString = error.userInfo["error"] as? NSString
+//                print(errorString)
+//                // Show the errorString somewhere and let the user try again.
+//            } else {
+//                // Hooray! Let them use the app now.
+//                print("Signup Successful")
+//            }
+//        }
+//    }
     
-    func signUp() {
-        let user = PFUser()
-        user.username = UIDevice.currentDevice().identifierForVendor?.UUIDString
-        user.password = "LADM"
-        
-        user.signUpInBackgroundWithBlock {
-            (succeeded: Bool, error: NSError?) -> Void in
-            if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
-                print(errorString)
-                // Show the errorString somewhere and let the user try again.
-            } else {
-                // Hooray! Let them use the app now.
-                print("Signup Successful")
-            }
-        }
-    }
+    
+//    func handleReachablity() {
+//         //Allocate a reachability object
+//            self.reach = Reachability.reachabilityForInternetConnection()
+//
+//        
+////            // Set the blocks
+////            self.reach!.reachableBlock = {
+////                (let reach: Reachability!) -> Void in
+////        
+////                // keep in mind this is called on a background thread
+////                // and if you are updating the UI it needs to happen
+////                // on the main thread, like this:
+////                dispatch_async(dispatch_get_main_queue()) {
+////                    print("REACHABLE!")
+////                    //PARSE
+////                    if !Parse.isLocalDatastoreEnabled() {
+////                        Parse.enableLocalDatastore()
+////                    }
+////                    
+////                    // Initialize Parse.
+////                    Parse.setApplicationId("EBNRrSOrKvzwmeSBkRd4tZm3soLienluMDPF1jOU",
+////                        clientKey: "hJ8fFl1vLvtJX43sCfO1mdHT27HzfNjg9NIgWmbp")
+////                    
+////                    // [Optional] Track statistics around application opens.
+//////                    PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+////                    self.login()
+////                }
+////            }
+////        
+////            self.reach!.unreachableBlock = {
+////                (let reach: Reachability!) -> Void in
+////                print("UNREACHABLE!")
+////                
+////            }
+//        
+//            self.reach!.startNotifier()
+//            
+////            xxreturn true
+//
+//    }
 
 }
 
