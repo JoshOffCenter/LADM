@@ -153,8 +153,7 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
    
    @IBAction func selectCityCancelPressed(sender: AnyObject) {
-      animateSelectCityView(true)
-
+        animateSelectCityView(true)
    }
    
    @IBAction func selectCityDonePressed(sender: AnyObject) {
@@ -181,6 +180,9 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
    
    @IBAction func dismissButtonPressed(sender: AnyObject) {
       animateSelectCityView(true)
+    selectedCity = pickerData[self.selectCityView.cityPickerView.selectedRowInComponent(0)]
+    citySelectedFromPickerView()
+
    }
    
    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -214,9 +216,11 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
       if shouldSlideOff == true {
           slideDirection = CGAffineTransformMakeTranslation(0, 10)
          self.dismissButton.removeFromSuperview()
+            enableButtons()
       }
       else {
           slideDirection = CGAffineTransformMakeTranslation(0, -selectCityView.frame.height + 20)
+            disableButtons()
       }
       
       UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
@@ -335,6 +339,20 @@ class ToursAndCitiesViewController: UIViewController, UIPickerViewDataSource, UI
         if dataManager.specialtyItems.count > 0 {
             specialtyAwardsButton.enabled = true
         }
+    }
+    
+    func enableButtons() {
+        scheduleButton.userInteractionEnabled = true
+        competitionOrderButton.userInteractionEnabled = true
+        competitionResultsButton.userInteractionEnabled = true
+        specialtyAwardsButton.userInteractionEnabled = true
+    }
+    
+    func disableButtons() {
+        scheduleButton.userInteractionEnabled = false
+        competitionOrderButton.userInteractionEnabled = false
+        competitionResultsButton.userInteractionEnabled = false
+        specialtyAwardsButton.userInteractionEnabled = false
     }
     
     func enableSelectCityButton () {

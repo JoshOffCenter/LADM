@@ -177,7 +177,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.studioLabel.text = item.studio
             cell.ageLabel.text = item.age
             cell.categoryLabel.text = item.category
-            //         cell.divisionLabel.text = item.division
+            cell.divisionLabel.text = item.division
         }
         else {
             cell.studioLabel.removeFromSuperview()

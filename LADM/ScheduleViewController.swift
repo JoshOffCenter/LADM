@@ -53,8 +53,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         //availableDays.append("Thurday")
         availableDays.sortInPlace(sorterForDayButton)
         
-        day = availableDays[0]
+        let dayString = availableDays[0].substringWithRange(Range<String.Index>(start: availableDays[0].startIndex.advancedBy(0), end: availableDays[0].startIndex.advancedBy(3)))
+
+        day = dayString.lowercaseString
         setupToggleView()
+        self.callFilter(groupButton.titleLabel!.text!)
+    
 
         
         
@@ -124,7 +128,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         var startTimeString = dateFormatter.stringFromDate(item.startTime)
+        
 
         if startTimeString.characters.first == "0"  {
             startTimeString = startTimeString.substringWithRange(Range<String.Index>(start: startTimeString.startIndex.advancedBy(1), end: startTimeString.endIndex))
@@ -172,7 +178,11 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         toggleView.roundCorners(UIRectCorner.AllCorners, radius: 5)
         
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-            self.toggleView.center = CGPointMake(self.dayOneButton.center.x + 3, self.dayOneButton.center.y)
+            if self.availableDays.count > 2 {
+                self.toggleView.center = CGPointMake(self.dayOneButton.center.x + 2, self.dayOneButton.center.y)
+            } else {
+                self.toggleView.center = CGPointMake(self.dayOneButton.center.x, self.dayOneButton.center.y)
+            }
             }, completion: nil)
     }
     
@@ -198,7 +208,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     @IBAction func toggleDay(sender: UIButton, forEvent event: UIEvent) {
         if let day = sender.titleLabel {
-            self.day = day.text
+            self.day = day.text?.lowercaseString
         }
         sender.setTitleColor(self.selectorView.backgroundColor, forState: .Normal)
         if sender == dayOneButton {
@@ -268,7 +278,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     func callFilter(group:String) {
         groupButton.setTitle(group, forState: UIControlState.Normal)
         var dayFull:String
-        if day == "SAT" {
+        if day == "sat" {
             dayFull = "Saturday"
         }
         else {
@@ -295,38 +305,38 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         switch this.lowercaseString {
         case "sunday":
-            thisInt = 0
-        case "monday":
-            thisInt = 1
-        case "tuesday":
-            thisInt = 2
-        case "wednesday":
-            thisInt = 3
-        case "thursday":
-            thisInt = 4
-        case "friday":
-            thisInt = 5
-        case "saturday":
             thisInt = 6
+        case "monday":
+            thisInt = 0
+        case "tuesday":
+            thisInt = 1
+        case "wednesday":
+            thisInt = 2
+        case "thursday":
+            thisInt = 3
+        case "friday":
+            thisInt = 4
+        case "saturday":
+            thisInt = 5
         default:
             break;
         }
         
         switch that.lowercaseString {
         case "sunday":
-            thatInt = 0
-        case "monday":
-            thatInt = 1
-        case "tuesday":
-            thatInt = 2
-        case "wednesday":
-            thatInt = 3
-        case "thursday":
-            thatInt = 4
-        case "friday":
-            thatInt = 5
-        case "saturday":
             thatInt = 6
+        case "monday":
+            thatInt = 0
+        case "tuesday":
+            thatInt = 1
+        case "wednesday":
+            thatInt = 2
+        case "thursday":
+            thatInt = 3
+        case "friday":
+            thatInt = 4
+        case "saturday":
+            thatInt = 5
         default:
             break;
         }
