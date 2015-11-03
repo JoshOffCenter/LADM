@@ -124,6 +124,8 @@ class DataManager: NSObject {
             } else {
                 // Hooray! Let them use the app now.
                 print("Signup Successful")
+                NSNotificationCenter.defaultCenter().postNotificationName("parseLoginCompleted", object: nil)
+
                 self.parseLoggedIn = true
             }
         }

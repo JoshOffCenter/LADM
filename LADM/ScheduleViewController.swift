@@ -37,8 +37,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         scheduleItems = dataManager.scheduleItems
-        
-        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
 
 
 //        fillData(cityData[selectedCity]!.dailySchedule)
@@ -46,6 +44,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         setupGestures()
         
         for item in scheduleItems {
+//            print(String(item.startTime) + " " + item.event + " " + item.faculty)
             if !availableDays.contains(item.day) {
                 availableDays.append(item.day)
             }
@@ -57,8 +56,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
         day = dayString.lowercaseString
         setupToggleView()
-        self.callFilter(groupButton.titleLabel!.text!)
     
+        self.callFilter(groupButton.titleLabel!.text!)
+
 
         
         
@@ -119,8 +119,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        scheduleItems.sortInPlace({$0.order < $1.order})
-
+        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+        
+        for item in scheduleItems {
+//            print(item.event + " " + item.group)
+            print(item.day)
+        }
+        
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
         item = scheduleItems[indexPath.row]
@@ -128,7 +133,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
-        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+//        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
         var startTimeString = dateFormatter.stringFromDate(item.startTime)
         
 
@@ -285,12 +291,21 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             dayFull = "Sunday"
         }
         
-        let dictionary: NSDictionary = ["day" : dayFull, "age" : group]
+        var dictionary: NSDictionary = ["day" : dayFull]
+
+        if group != "Group" {
+            dictionary = ["day" : dayFull, "group" : group]
+        }
         
         scheduleItems = dataManager.filterItemsWithDictionary(dataManager.scheduleItems, dictionary: dictionary) as! [ScheduleItem]
-//        scheduleItems.sortInPlace({$0.order < $1.order})
+        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
 
-        
+        print("Filtered Items")
+        for item in scheduleItems {
+            print(item.day)
+        }
+        print("End Filtered Items")
+
         
 //        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
         tableView.reloadData()
