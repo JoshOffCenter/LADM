@@ -15,7 +15,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     var availableDays = [String]()
     var dataManager = DataManager.sharedInstance
     var scheduleItems: [ScheduleItem]!
-
+    var scheduleSections: [ScheduleItemSection]!
     
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -37,6 +37,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         scheduleItems = dataManager.scheduleItems
+        scheduleSections = splitSections(scheduleItems)
+        
 
 
 //        fillData(cityData[selectedCity]!.dailySchedule)
@@ -79,6 +81,33 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     }
     
+    func splitSections(itemArr: [ScheduleItem]) -> [ScheduleItemSection] {
+        var arr = [ScheduleItemSection]()
+        for item in itemArr {
+            let group = item.group
+            
+            var found = false
+            for s in arr {
+                if s.group == group {
+                    s.scheduleItems.append(item)
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                arr.append(ScheduleItemSection(group:group, firstItem: item))
+            }
+        }
+//        
+//        for s in arr {
+//            s.scheduleItems.sortInPlace({$0.start < $1.rank})
+//        }
+//        
+//        arr.sortInPlace({$0.division < $1.division})
+        
+        return arr
+    }
+    
 //    
 //    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
 ////        scheduleItems.removeAll(keepCapacity: false)
@@ -105,17 +134,24 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     //MARK: UITableViewDelegate protocol methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return scheduleSections.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return scheduleItems.count
+        return scheduleSections[section].scheduleItems.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "ScheduleCell")
 //        return cell.frame.height
         return 80
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if scheduleSections[section].scheduleItems.isEmpty {
+            return nil
+        }
+        return scheduleSections[section].group
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
