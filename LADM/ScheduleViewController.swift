@@ -98,15 +98,14 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
                 arr.append(ScheduleItemSection(group:group, firstItem: item))
             }
         }
-//        
-//        for s in arr {
-//            s.scheduleItems.sortInPlace({$0.start < $1.rank})
-//        }
-//        
-//        arr.sortInPlace({$0.division < $1.division})
-        
+        for s in arr {
+            s.scheduleItems.sortInPlace({$0.startTime.compare($1.startTime) == .OrderedAscending})
+        }
+        arr.sortInPlace({$0.group < $1.group})
         return arr
     }
+    
+  
     
 //    
 //    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
@@ -155,13 +154,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
-        
-        for item in scheduleItems {
-//            print(item.event + " " + item.group)
-            print(item.day)
-        }
-        
+//        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+//
+//        for item in scheduleItems {
+////            print(item.event + " " + item.group)
+//            print(item.event)
+//        }
+//        
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
         item = scheduleItems[indexPath.row]
@@ -334,16 +333,15 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         }
         
         scheduleItems = dataManager.filterItemsWithDictionary(dataManager.scheduleItems, dictionary: dictionary) as! [ScheduleItem]
-        scheduleItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+        scheduleSections = splitSections(scheduleItems)
 
-        print("Filtered Items")
-        for item in scheduleItems {
-            print(item.day)
-        }
-        print("End Filtered Items")
+//        print("Filtered Items")
+//        for item in scheduleItems {
+//            print(item.day + " " + item.group)
+//        }
+//        print("End Filtered Items")
 
         
-//        scheduleItems = cityData[selectedCity]!.filterDailySchedule(dayFull, group: group)
         tableView.reloadData()
     }
     

@@ -327,31 +327,32 @@ class DataManager: NSObject {
     }
     
     func filterItemsWithDictionary(items: [AnyObject], dictionary: NSDictionary) -> [AnyObject] {
+        var x = 0;
+
         if let unfilteredItems = items as? [ScheduleItem] {
-            var filteredItems = unfilteredItems
-            for (var i = 0; i < filteredItems.count - 1; i++ ) {
-                for key in dictionary.allKeys {
-                    if let string = filteredItems[i].dictionaryRepresentation().objectForKey(key) as? String {
+            let filteredItems: NSMutableArray = []
+            
+            for item in unfilteredItems {
+                filteredItems.addObject(item)
+            }
+            
+            for key in dictionary.allKeys {
+                for item in unfilteredItems {
+                    x++;
+                    let schedItem = item
+                    if let string = schedItem.dictionaryRepresentation().objectForKey(key) as? String {
                         if (string != dictionary.objectForKey(key) as! String){
-                            filteredItems.removeAtIndex(i)
+                            filteredItems.removeObject(schedItem)
                         }
-                    } else if let int = filteredItems[i].dictionaryRepresentation().objectForKey(key) as? Int {
-                        if (int != dictionary.objectForKey(key) as! Int){
-                            filteredItems.removeAtIndex(i)
-                        }
-                        
                     }
-                    
                 }
             }
             filteredItems.count
-            return filteredItems
+            return filteredItems as [AnyObject]
         }
         
         if let unfilteredItems = items as? [CompetitionItem] {
             let filteredItems: NSMutableArray = []
-
-            var x = 0;
             
 //            for var i = 0; i < 10; i++ {
 //                filteredItems.append(unfilteredItems[i])

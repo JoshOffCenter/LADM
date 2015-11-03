@@ -61,7 +61,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       
     competitionItems = dataManager.competitionItems
     
-    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+//    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+//    tableView.reloadData()
 
     
     tableView.estimatedRowHeight = 80.0;
@@ -86,7 +87,12 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         self.menuButton.setImage(UIImage(named: "HamArrow20"), forState: UIControlState.Normal)
     }
 
+    
+    let dictionary: NSDictionary = ["studio" : "Any Studio", "age" : "Any Age", "category" : "Any Category", "day" : "Any Day"]
+    competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
 
+    
+    tableView.reloadData()
    }
    override func viewDidAppear(animated: Bool) {
       tableView.reloadData()
@@ -155,6 +161,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")
+
         var dateString = dateFormatter.stringFromDate(item.startTime)
         if dateString.characters.first == "0"  {
             dateString = dateString.substringWithRange(Range<String.Index>(start: dateString.startIndex.advancedBy(1), end: dateString.endIndex))
@@ -328,7 +336,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             filterMenuExpanded = false
             dismissButton.enabled = false
             invisibleFilterButton.enabled = true
-        
+         
         }
         
         
