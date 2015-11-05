@@ -97,7 +97,7 @@ class CompetitionResultsViewController: UIViewController, UITableViewDataSource,
             s.competitionItems.sortInPlace({$0.rank < $1.rank})
         }
         
-        arr.sortInPlace({$0.division < $1.division})
+        arr = arr.sort({$0.division < $1.division})
 
         return arr
     }

@@ -91,6 +91,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     let dictionary: NSDictionary = ["studio" : "Any Studio", "age" : "Any Age", "category" : "Any Category", "day" : "Any Day"]
     competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
 
+    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+
     
     tableView.reloadData()
    }
@@ -331,6 +333,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let dictionary: NSDictionary = ["studio" : filterMenuView.filterStudioLabel.text!, "age" : filterMenuView.filterAgeLabel.text!, "category" : filterMenuView.filterCategoryLabel.text!, "day" : filterMenuView.filterDayLabel.text!]
             competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
+            competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+
             tableView.reloadData()
             
             filterMenuExpanded = false
