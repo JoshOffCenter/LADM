@@ -78,6 +78,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
 
         tableView.layer.cornerRadius = 10
+        
 
     }
     
@@ -106,22 +107,32 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
   
-    
-//    
-//    func fillData(data: Dictionary<String,Dictionary<String,Dictionary<String,Dictionary<String,String>>>>) {
-////        scheduleItems.removeAll(keepCapacity: false)
-//        
-//        for (day,item) in data {
-//            for(group,item) in item {
-//                for(number, cluster) in item {
-////                    let item = ScheduleItem(group: group, time: cluster["Time"]!, faculty: cluster["Faculty"]!, event: cluster["Event"]!, info: cluster["Extra Information"]!, day: day)
-////                    scheduleItems.append(item)
-//                }
-//            }
-//        }
-    
+    func scrollToCurrent() {
+        let timeZone = NSTimeZone.localTimeZone()
+        let seconds = timeZone.secondsFromGMT
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
         
-//    }
+        var indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        
+        var soonestItem: ScheduleItem! = scheduleSections.first?.scheduleItems.first
+        
+        for var sectionIndex = 0; sectionIndex < scheduleSections.count; sectionIndex++ {
+            if soonestItem.group == groupButton.titleLabel?.text {
+                for var scheduleIndex = 0; scheduleIndex < scheduleSections[sectionIndex].scheduleItems.count; scheduleIndex++ {
+                    let item = scheduleSections[sectionIndex].scheduleItems[scheduleIndex]
+                    if item.startTime.earlierDate(date) == item.startTime {
+                        soonestItem = item
+                        indexPath = NSIndexPath(forRow: scheduleIndex, inSection: sectionIndex)
+                    }
+                }
+            }
+        }
+        if scheduleSections.count > indexPath.section && scheduleSections[indexPath.section].scheduleItems.count > indexPath.row {
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        }
+       
+    }
+    
     //combined the nav bar and takes away shadows
     func setUpNavBar() {
         navigationBar.barTintColor = selectorView.backgroundColor
@@ -163,7 +174,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        
         let item: ScheduleItem
         let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath) as! ScheduleCell
-        item = scheduleItems[indexPath.row]
+//        item = scheduleItems[indexPath.row]
+        item = scheduleSections[indexPath.section].scheduleItems[indexPath.row]
         cell.facultyLabel.text = item.faculty
         
         let dateFormatter = NSDateFormatter()
@@ -194,7 +206,13 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 //        cell.timeLabel.text = item.time
 //        cell.timeLabel.text = String(item.order!)
 
+//        if item.faculty != "" || item.event.containsString("Audition") {
+//            cell.eventLabel.text = item.event.capitalizedString
+//        } else {
+//            cell.eventLabel.text = item.event.uppercaseString
+//        }
         cell.eventLabel.text = item.event
+
         return cell
     }
     
@@ -332,6 +350,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
             dictionary = ["day" : dayFull, "group" : group]
         }
         
+        
         scheduleItems = dataManager.filterItemsWithDictionary(dataManager.scheduleItems, dictionary: dictionary) as! [ScheduleItem]
         scheduleSections = splitSections(scheduleItems)
 
@@ -343,6 +362,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
         
         tableView.reloadData()
+        scrollToCurrent()
     }
     
     

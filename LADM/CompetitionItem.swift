@@ -10,12 +10,12 @@ import UIKit
 
 class CompetitionItem {
     
-    var objectId, age, division, category, city, day, routineID, name, studio: String!
-//    var order: Int!
+    var objectId, age, division, category, city, day, name, studio: String!
+    var routineID: Int!
     var startTime: NSDate!
     var favorited = false
    
-    init(objectId: String, age: String, division: String, category: String, city: String, day: String, routineID: String, name: String, studio: String, startTime: NSDate){
+    init(objectId: String, age: String, division: String, category: String, city: String, day: String, routineID: Int, name: String, studio: String, startTime: NSDate){
         self.objectId = objectId
         self.age = age
         self.division = division

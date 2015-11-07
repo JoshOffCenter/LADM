@@ -95,6 +95,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
     
     tableView.reloadData()
+    scrollToCurrent()
    }
    override func viewDidAppear(animated: Bool) {
       tableView.reloadData()
@@ -231,6 +232,24 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       lastSelectedIndexPath = selectedIndexPath
    }
+    
+    func scrollToCurrent() {
+        let timeZone = NSTimeZone.localTimeZone()
+        let seconds = timeZone.secondsFromGMT
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        
+        var indexPath = NSIndexPath(forItem: 0, inSection: 0)
+        
+        for var competitionIndex = 0; competitionIndex < competitionItems.count; competitionIndex++ {
+            let item = competitionItems[competitionIndex]
+            if item.startTime.earlierDate(date) == item.startTime {
+                indexPath = NSIndexPath(forRow: competitionIndex, inSection: 0)
+            }
+        }
+        
+        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        
+    }
    
    func verticalTranslation(amount: CGFloat) -> CGAffineTransform {
       return CGAffineTransformMakeTranslation(0, amount)

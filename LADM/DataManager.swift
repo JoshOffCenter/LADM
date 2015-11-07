@@ -290,8 +290,6 @@ class DataManager: NSObject {
             let scheduleItem = ScheduleItem(objectId: object.objectId!, group: object["group"] as! String, faculty: object["faculty"] as! String, city: object["city"] as! String, day: object["day"] as! String, event: object["event"] as! String, startTime: object["startTime"] as! NSDate, endTime: object["endTime"] as! NSDate?, extraInfo: object["extraInfo"] as! String)
             
             
-            
-//            let scheduleItem = ScheduleItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, faculty: object.objectForKey("faculty") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, event: object.objectForKey("event") as! String, time: object.objectForKey("time") as! String, extraInfo: object.objectForKey("extraInfo") as! String, order: object.objectForKey("order") as! Int)
             scheduleItems.append(scheduleItem)
         }
     }
@@ -301,10 +299,12 @@ class DataManager: NSObject {
         PFObject.pinAllInBackground(objects)
         for object: PFObject in objects {
             
-            let competitionItem = CompetitionItem(objectId: object.objectId!, age: object["age"] as! String, division: object["division"] as! String, category: object["category"] as! String, city: object["city"] as! String, day: object["day"] as! String, routineID: object["routineID"] as! String, name: object["name"] as! String, studio: object["studio"] as! String, startTime: object["startTime"] as! NSDate)
+            if object["age"].lowercaseString != "fill" {
+                let competitionItem = CompetitionItem(objectId: object.objectId!, age: object["age"] as! String, division: object["division"] as! String, category: object["category"] as! String, city: object["city"] as! String, day: object["day"] as! String, routineID: object["routineID"] as! Int, name: object["name"] as! String, studio: object["studio"] as! String, startTime: object["startTime"] as! NSDate)
+                competitionItems.append(competitionItem)
+
+            }
             
-            //let competitionItem = CompetitionItem(objectId: object.objectId!, age: object.objectForKey("age") as! String, category: object.objectForKey("category") as! String, city: object.objectForKey("city") as! String, day: object.objectForKey("day") as! String, routineIDAndName: object.objectForKey("routineIdAndName") as! String, studio: object.objectForKey("studio") as! String, time: object.objectForKey("time") as! String, order: object.objectForKey("order") as! Int)
-            competitionItems.append(competitionItem)
         }
     }
     
@@ -360,8 +360,8 @@ class DataManager: NSObject {
             
             for item in unfilteredItems {
                 filteredItems.addObject(item)
-                print(item.routineID)
-                print(item.name)
+//                print(item.routineID)
+//                print(item.name)
             }
             
             for key in dictionary.allKeys {
