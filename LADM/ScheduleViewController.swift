@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     //Class Variables
@@ -78,8 +79,21 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
 
         tableView.layer.cornerRadius = 10
+        subscribeToParseChannel()
+
+    }
+    
+    func subscribeToParseChannel() {
+        let installation = PFInstallation.currentInstallation()
+        let installationString = String(installation.installationId)
         
 
+        PFCloud.callFunctionInBackground("cityInterest", withParameters:["city":selectedCity, "installId":installationString]) {
+            result, error in
+            if error == nil {
+            
+            }
+        }
     }
     
     func splitSections(itemArr: [ScheduleItem]) -> [ScheduleItemSection] {
