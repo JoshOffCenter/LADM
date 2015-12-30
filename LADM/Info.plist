@@ -31,6 +31,10 @@
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER).SelectCity</string>
 		</dict>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

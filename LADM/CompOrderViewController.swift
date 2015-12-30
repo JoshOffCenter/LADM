@@ -58,7 +58,10 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
    
    override func viewDidLoad() {
-      
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTable:", name: "updateCompetitionOrder", object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "triggerReload:", name: "finishedUpdating", object: nil)
+
     competitionItems = dataManager.competitionItems
     
 //    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
@@ -97,9 +100,31 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     tableView.reloadData()
     scrollToCurrent()
    }
+    
    override func viewDidAppear(animated: Bool) {
       tableView.reloadData()
    }
+    
+    func updateTable(notification: NSNotification) {
+        var currentCity = competitionItems[0].city
+        var receivedDict = notification.object!
+        if currentCity == receivedDict["city"]!! as! String {
+            print("equals")
+            dataManager.updateCompetition(currentCity)
+        }
+        tableView.reloadData()
+        print("reloaded")
+    }
+    
+    func triggerReload(notificaton: NSNotification) {
+        print("triggered")
+        let dictionary: NSDictionary = ["studio" : filterMenuView.filterStudioLabel.text!, "age" : filterMenuView.filterAgeLabel.text!, "category" : filterMenuView.filterCategoryLabel.text!, "day" : filterMenuView.filterDayLabel.text!]
+        competitionItems = dataManager.competitionItems
+        competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
+        
+        competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+        tableView.reloadData()
+    }
     
     func setupNavBar() {
         navBar.barTintColor = self.filterMenuView.backgroundColor

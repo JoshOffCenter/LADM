@@ -184,6 +184,8 @@ class DataManager: NSObject {
         }
     }
     
+    
+    
     func pullCity(name:String, vc: ToursAndCitiesViewController) {
         if name != "Select City" {
             if networkStatus != NetworkStatus.NotReachable {
@@ -397,6 +399,30 @@ class DataManager: NSObject {
             }
             if !days.contains(item.day){
                 days.append(item.day)
+            }
+        }
+    }
+    
+    func updateCompetition(city: String) {
+        if networkStatus != NetworkStatus.NotReachable {
+            PFCloud.callFunctionInBackground("pullCity", withParameters: ["city": city]) {
+                result, error in
+                if error == nil {
+                    print("cmonnn")
+                    
+                    //Handle Schedule Items
+                    self.createScheduleItemsFromObjects(result!.objectForKey("scheduleItems") as! [PFObject])
+                    
+                    //Handle Competition Items
+                    self.createCompetitionItemsFromObjects(result!.objectForKey("competitionItems") as! [PFObject])
+                    
+                    //Handle Specialty Items
+                    self.createSpecialtyItemsFromObjects(result!.objectForKey("specialtyItems") as! [PFObject])
+                    
+                    //Handle Result Items
+                    self.createResultItemsFromObjects(result!.objectForKey("resultItems") as! [PFObject])
+                    NSNotificationCenter.defaultCenter().postNotificationName("finishedUpdating", object: nil)
+                }
             }
         }
     }
