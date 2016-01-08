@@ -25,8 +25,21 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //   @IBOutlet weak var filterMenuConstraintRight: NSLayoutConstraint!
    
    var filterMenuExpanded = false
-   
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var shouldHideInstruction = false
 
+    @IBAction func closeInstructionCell(sender: AnyObject) {
+        shouldHideInstruction = true
+        tableView.reloadData()
+        
+//        UIView.beginAnimations(nil, context: nil)
+//        self.tableView.s
+//        
+//        [UIView beginAnimations:nil context:NULL];
+//        [self.tableView setTableHeaderView:nil];
+//        [UIView commitAnimations];
+        
+    }
    
    //Dismiss Button
    @IBOutlet weak var dismissButton: UIButton!
@@ -36,6 +49,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    @IBOutlet weak var dismissButtonConstraintBottom: NSLayoutConstraint!
    
     @IBOutlet weak var invisibleFilterButton: UIButton!
+    
     
     //Navigation Bar
     @IBOutlet weak var navBar: UINavigationBar!
@@ -62,6 +76,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTable:", name: "updateCompetitionOrder", object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "triggerReload:", name: "finishedUpdating", object: nil)
 
+    
+    shouldHideInstruction = defaults.boolForKey("shouldHideInstruction")
+      
     competitionItems = dataManager.competitionItems
     
 //    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
@@ -74,6 +91,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     setupGestures()
     dismissButton.enabled = false
     invisibleFilterButton.enabled = true
+    
+
     
 //    fillData(cityData[selectedCity]!.competitionSchedule)
 
@@ -152,6 +171,24 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
       //Return the number of sections.
       return 1
    }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if !shouldHideInstruction {
+            return 100
+        }
+        return 0
+    }
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if !shouldHideInstruction {
+        let cellTableViewHeader = tableView.dequeueReusableCellWithIdentifier("InstructionCell")
+        cellTableViewHeader!.frame = CGRectMake(0, 0, self.tableView.bounds.width, 100)
+//        self.tableView.tableHeaderView = cellTableViewHeader
+        
+            return cellTableViewHeader
+        }
+        return nil
+
+    }
    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return competitionItems.count
@@ -348,7 +385,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func expandFilterMenu() {
-        
+        shouldHideInstruction = true
+        defaults.setBool(shouldHideInstruction, forKey: "shouldHideInstruction")
         if filterMenuExpanded == false {
             let expandFilterMenuTransform = CGAffineTransformMakeTranslation(0, filterMenuView.frame.height-80)
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: [], animations: { () -> Void in

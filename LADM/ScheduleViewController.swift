@@ -44,6 +44,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
 //        fillData(cityData[selectedCity]!.dailySchedule)
         tableView.reloadData()
+        
         setupGestures()
         
         for item in scheduleItems {
@@ -314,26 +315,22 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         tableView.reloadData()
     }
     
-    
-    @IBAction func groupButtonPressed(sender: UIButton) {
-//        let pcv = setupPopoverView()
-//        let pvmc = setupPopoverView().popoverPresentationController
-//        pvmc?.permittedArrowDirections = UIPopoverArrowDirection.Up
-//        pvmc?.delegate = self
-//        pvmc?.sourceView = sender
-//        pvmc?.sourceRect = CGRect(x: sender.center.x, y: sender.center.y, width: 1, height: 1)
-////        adaptivePresentationStyleForPresentationController(pvmc)
-//        presentViewController(pcv, animated: true, completion: nil)
-    }
+
     
     //Mark Segue Overrides
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "groupPopoverSegue" {
-//            let popoverViewController = segue.destinationViewController as! PopoverViewController
-//            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-//            popoverViewController.popoverPresentationController!.delegate = self
-//        }
         
+        switch segue.identifier {
+        case "groupPopoverSegue"?:
+            if #available(iOS 9.0, *) {
+                let popover = segue.destinationViewController.popoverPresentationController
+                let anchor = popover?.sourceView
+                popover!.sourceRect = anchor!.bounds
+                
+            }
+        default:
+            break
+        }
 
         if let viewController = segue.destinationViewController as? PopoverViewController{
             viewController.onDataAvailable = {[weak self]
