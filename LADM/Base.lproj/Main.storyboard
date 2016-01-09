@@ -320,8 +320,8 @@
                                                                 <action selector="closeInstructionCell:" destination="rFF-js-ZVB" eventType="touchUpInside" id="50B-km-FeA"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the Bar Above to Filter Performaces" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-KW-yN4">
-                                                            <rect key="frame" x="30" y="30" width="520" height="39.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the Bar Above to Filter Performaces. Tap on a performace to see more." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-KW-yN4">
+                                                            <rect key="frame" x="15" y="20" width="550" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -335,17 +335,17 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="Hln-H3-k2o" firstAttribute="leading" secondItem="uRp-LN-xds" secondAttribute="leading" id="4Us-7G-VUL"/>
-                                                        <constraint firstItem="Sb8-KW-yN4" firstAttribute="leading" secondItem="uRp-LN-xds" secondAttribute="leading" constant="30" id="4sh-FV-sr1"/>
+                                                        <constraint firstItem="Sb8-KW-yN4" firstAttribute="leading" secondItem="uRp-LN-xds" secondAttribute="leading" constant="15" id="4sh-FV-sr1"/>
                                                         <constraint firstItem="Hln-H3-k2o" firstAttribute="top" secondItem="uRp-LN-xds" secondAttribute="top" id="GtL-lE-3fH"/>
                                                         <constraint firstAttribute="trailing" secondItem="Hln-H3-k2o" secondAttribute="trailing" id="L2h-7t-LBa"/>
                                                         <constraint firstAttribute="bottom" secondItem="Hln-H3-k2o" secondAttribute="bottom" id="N7T-jM-ade"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Sb8-KW-yN4" secondAttribute="trailing" constant="30" id="NeI-IS-NG5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Sb8-KW-yN4" secondAttribute="trailing" constant="15" id="NeI-IS-NG5"/>
                                                         <constraint firstItem="Kzq-K3-cqq" firstAttribute="top" secondItem="uRp-LN-xds" secondAttribute="topMargin" id="Npe-5a-dl6"/>
-                                                        <constraint firstItem="Sb8-KW-yN4" firstAttribute="top" secondItem="uRp-LN-xds" secondAttribute="top" constant="30" id="X04-6D-oO8"/>
+                                                        <constraint firstItem="Sb8-KW-yN4" firstAttribute="top" secondItem="uRp-LN-xds" secondAttribute="top" constant="20" id="X04-6D-oO8"/>
                                                         <constraint firstItem="Hln-H3-k2o" firstAttribute="leading" secondItem="Kzq-K3-cqq" secondAttribute="trailing" id="a22-yy-HNr"/>
                                                         <constraint firstItem="Sb8-KW-yN4" firstAttribute="top" secondItem="Kzq-K3-cqq" secondAttribute="bottom" constant="30" id="jN0-9O-Svd"/>
                                                         <constraint firstItem="Kzq-K3-cqq" firstAttribute="leading" secondItem="uRp-LN-xds" secondAttribute="leadingMargin" id="lCG-H5-tjr"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Sb8-KW-yN4" secondAttribute="bottom" constant="30" id="pRa-og-Mqq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Sb8-KW-yN4" secondAttribute="bottom" constant="20" id="pRa-og-Mqq"/>
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">

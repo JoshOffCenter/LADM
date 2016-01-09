@@ -174,14 +174,14 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if !shouldHideInstruction {
-            return 100
+            return 130
         }
         return 0
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if !shouldHideInstruction {
         let cellTableViewHeader = tableView.dequeueReusableCellWithIdentifier("InstructionCell")
-        cellTableViewHeader!.frame = CGRectMake(0, 0, self.tableView.bounds.width, 100)
+        cellTableViewHeader!.frame = CGRectMake(0, 0, self.tableView.bounds.width, 130)
 //        self.tableView.tableHeaderView = cellTableViewHeader
         
             return cellTableViewHeader
@@ -308,8 +308,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
                 indexPath = NSIndexPath(forRow: competitionIndex, inSection: 0)
             }
         }
-        
-        tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        if (date.timeIntervalSinceDate((competitionItems.last?.startTime)!) < 600) {
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+        }
         
     }
    
