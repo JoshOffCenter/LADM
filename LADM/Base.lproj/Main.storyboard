@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -49,6 +49,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
+                                <rect key="frame" x="30" y="237" width="540" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Z4H-Sg-Ff1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                <state key="normal" title="Schedule" backgroundImage="OtherButton.png">
+                                    <color key="titleColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
+                                <connections>
+                                    <action selector="scheduleButtonDown:forEvent:" destination="BYZ-38-t0r" eventType="touchDown" id="qsC-gh-hUk"/>
+                                    <action selector="schedulePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mK0-tF-X7Q"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="cUl-BK-qe0">
                                 <rect key="frame" x="30" y="104" width="540" height="83"/>
                                 <constraints>
@@ -176,22 +192,6 @@
                                     <outlet property="cityPickerView" destination="INA-2q-zrv" id="FCi-mn-0m9"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OT6-Dh-Wkx">
-                                <rect key="frame" x="30" y="237" width="540" height="65"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="65" id="Z4H-Sg-Ff1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
-                                <state key="normal" title="Schedule" backgroundImage="OtherButton.png">
-                                    <color key="titleColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="disabled" backgroundImage="Other_Button_Disabled@3x.png"/>
-                                <connections>
-                                    <action selector="scheduleButtonDown:forEvent:" destination="BYZ-38-t0r" eventType="touchDown" id="qsC-gh-hUk"/>
-                                    <action selector="schedulePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mK0-tF-X7Q"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -323,7 +323,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the Bar Above to Filter Performaces. Tap on a performace to see more." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sb8-KW-yN4">
                                                             <rect key="frame" x="15" y="20" width="550" height="59.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hln-H3-k2o">
@@ -552,13 +552,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="436"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8a-tY-4dY">
-                                                <rect key="frame" x="263" y="50" width="75" height="28"/>
+                                                <rect key="frame" x="263" y="50" width="75" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="__________________________________________" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIs-DV-f9e" userLabel="Filter Divider">
-                                                <rect key="frame" x="90" y="78" width="420" height="28"/>
+                                                <rect key="frame" x="90" y="77.5" width="420" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -858,8 +858,8 @@
                                             <constraint firstItem="p9v-Os-TYq" firstAttribute="centerY" secondItem="GT4-lP-HM1" secondAttribute="centerY" id="vvJ-En-rDO"/>
                                             <constraint firstAttribute="centerX" secondItem="0Kj-Cw-pAp" secondAttribute="centerX" id="w7o-xr-lwt"/>
                                             <constraint firstItem="p9v-Os-TYq" firstAttribute="leading" secondItem="3qx-Gv-dkK" secondAttribute="leading" constant="30" id="wm9-FL-2MD"/>
-                                            <constraint firstItem="zoI-48-ryT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c0V-xs-4Mv" secondAttribute="trailing" constant="10" id="xcb-kd-rEw"/>
-                                            <constraint firstItem="vG4-88-TtF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zoI-48-ryT" secondAttribute="trailing" constant="10" id="zEX-Ur-Tmd"/>
+                                            <constraint firstItem="zoI-48-ryT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c0V-xs-4Mv" secondAttribute="trailing" id="xcb-kd-rEw"/>
+                                            <constraint firstItem="vG4-88-TtF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zoI-48-ryT" secondAttribute="trailing" id="zEX-Ur-Tmd"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1016,12 +1016,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="580" height="101.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faculty" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5td-8s-C7o">
-                                                    <rect key="frame" x="512" y="40.5" width="48" height="20.5"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pux-iW-rNJ">
                                                     <rect key="frame" x="227.5" y="1" width="125" height="99.5"/>
                                                     <constraints>
@@ -1031,8 +1025,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alN-wk-Pga">
-                                                    <rect key="frame" x="20" y="40" width="34" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alN-wk-Pga">
+                                                    <rect key="frame" x="20" y="40" width="177.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faculty" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5td-8s-C7o">
+                                                    <rect key="frame" x="512" y="40" width="48" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1045,10 +1045,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="5td-8s-C7o" secondAttribute="trailing" constant="20" id="LgB-8D-UFQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="alN-wk-Pga" secondAttribute="centerY" id="Lld-YU-XwP"/>
                                                 <constraint firstAttribute="centerX" secondItem="pux-iW-rNJ" secondAttribute="centerX" id="Mg5-fN-J7Y"/>
-                                                <constraint firstItem="pux-iW-rNJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="alN-wk-Pga" secondAttribute="trailing" constant="10" id="TrV-Yx-fXu"/>
+                                                <constraint firstItem="pux-iW-rNJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="alN-wk-Pga" secondAttribute="trailing" constant="30" id="TrV-Yx-fXu"/>
                                                 <constraint firstAttribute="bottom" secondItem="pux-iW-rNJ" secondAttribute="bottom" constant="1" id="dNN-la-Guu"/>
                                                 <constraint firstAttribute="centerY" secondItem="5td-8s-C7o" secondAttribute="centerY" id="mNs-A5-9e4"/>
-                                                <constraint firstItem="5td-8s-C7o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pux-iW-rNJ" secondAttribute="trailing" constant="10" id="yYV-K8-t2J"/>
+                                                <constraint firstItem="5td-8s-C7o" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pux-iW-rNJ" secondAttribute="trailing" constant="5" id="yYV-K8-t2J"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

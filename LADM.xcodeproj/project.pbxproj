@@ -547,7 +547,7 @@
 				TargetAttributes = {
 					D988EBCB1ADCD234003A4D7F = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 3HTQ3XN55R;
+						DevelopmentTeam = 52YDYX6LLF;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -801,7 +801,7 @@
 				);
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moonbase.ladm.chance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moonbase.ladm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LADM/LADM-Bridging-Header.h";
@@ -823,7 +823,7 @@
 				);
 				INFOPLIST_FILE = LADM/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moonbase.ladm.chance;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moonbase.ladm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "LADM/LADM-Bridging-Header.h";

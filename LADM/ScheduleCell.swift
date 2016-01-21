@@ -15,4 +15,5 @@ class ScheduleCell: UITableViewCell {
     @IBOutlet weak var eventLabel: UILabel!
     
     
+    
 }
