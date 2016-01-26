@@ -1067,10 +1067,10 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="46"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzF-6K-dQB">
-                                        <rect key="frame" x="18" y="8" width="60" height="30"/>
+                                        <rect key="frame" x="18" y="8" width="50" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="NWf-2X-JEh"/>
+                                            <constraint firstAttribute="width" constant="50" id="NWf-2X-JEh"/>
                                             <constraint firstAttribute="height" constant="30" id="hxy-T8-6wA"/>
                                         </constraints>
                                     </view>
@@ -1894,13 +1894,13 @@
                         <viewControllerLayoutGuide type="bottom" id="WE3-Ix-Hk9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RMh-zc-TzO">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-1Z-Vhg">
-                                <rect key="frame" x="54" y="25" width="92" height="40"/>
+                                <rect key="frame" x="64" y="25" width="72" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Jumpstart">
+                                <state key="normal" title="Teacher">
                                     <color key="titleColor" red="0.19215686274509805" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1909,9 +1909,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2v-Hu-LPM">
-                                <rect key="frame" x="71" y="90" width="58" height="40"/>
+                                <rect key="frame" x="71" y="90" width="59" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Junior">
+                                <state key="normal" title="Senior">
                                     <color key="titleColor" red="0.19215686274509805" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1919,10 +1919,10 @@
                                     <action selector="buttonPressed:" destination="k9l-RL-v6R" eventType="touchUpInside" id="dei-9c-qPT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2J-qh-lb9">
-                                <rect key="frame" x="71" y="155" width="59" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2J-qh-lb9">
+                                <rect key="frame" x="79" y="155" width="44" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Senior">
+                                <state key="normal" title="Teen">
                                     <color key="titleColor" red="0.19215686274509805" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1931,14 +1931,25 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHO-Ru-Imj">
-                                <rect key="frame" x="64" y="220" width="72" height="40"/>
+                                <rect key="frame" x="71" y="220" width="58" height="40"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <state key="normal" title="Teacher">
+                                <state key="normal" title="Junior">
                                     <color key="titleColor" red="0.19215686274509805" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.19215686269999999" green="0.46274509800000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="k9l-RL-v6R" eventType="touchUpInside" id="uGS-aV-Rrg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WKh-zp-NVe">
+                                <rect key="frame" x="54" y="285" width="92" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Jumpstart">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="k9l-RL-v6R" eventType="touchUpInside" id="4dF-8L-U61"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1949,6 +1960,7 @@
                             <constraint firstAttribute="centerX" secondItem="I2J-qh-lb9" secondAttribute="centerX" id="3XQ-wD-TdM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jHO-Ru-Imj" secondAttribute="trailing" constant="61" id="8lQ-XV-dkf"/>
                             <constraint firstAttribute="centerX" secondItem="5H7-1Z-Vhg" secondAttribute="centerX" id="BLY-FS-uFK"/>
+                            <constraint firstItem="WKh-zp-NVe" firstAttribute="top" secondItem="jHO-Ru-Imj" secondAttribute="bottom" constant="25" id="EaE-mX-8an"/>
                             <constraint firstItem="jHO-Ru-Imj" firstAttribute="top" secondItem="I2J-qh-lb9" secondAttribute="bottom" constant="25" id="KE1-hR-zrC"/>
                             <constraint firstItem="I2J-qh-lb9" firstAttribute="leading" secondItem="RMh-zc-TzO" secondAttribute="leadingMargin" constant="61" id="MHY-Za-S0F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5H7-1Z-Vhg" secondAttribute="trailing" constant="61" id="Pjb-2f-HD3"/>
@@ -1957,6 +1969,7 @@
                             <constraint firstAttribute="centerX" secondItem="jHO-Ru-Imj" secondAttribute="centerX" id="cUm-Sj-3nA"/>
                             <constraint firstItem="l2v-Hu-LPM" firstAttribute="top" secondItem="5H7-1Z-Vhg" secondAttribute="bottom" constant="25" id="h8R-2j-KL7"/>
                             <constraint firstItem="jHO-Ru-Imj" firstAttribute="leading" secondItem="RMh-zc-TzO" secondAttribute="leadingMargin" constant="61" id="k24-h9-Il7"/>
+                            <constraint firstItem="WKh-zp-NVe" firstAttribute="centerX" secondItem="RMh-zc-TzO" secondAttribute="centerX" id="lhK-U7-hnZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l2v-Hu-LPM" secondAttribute="trailing" constant="61" id="m6P-xk-hXa"/>
                             <constraint firstItem="l2v-Hu-LPM" firstAttribute="leading" secondItem="RMh-zc-TzO" secondAttribute="leadingMargin" constant="61" id="y9C-np-xe5"/>
                             <constraint firstAttribute="centerX" secondItem="l2v-Hu-LPM" secondAttribute="centerX" id="yek-e7-IAZ"/>
@@ -1977,7 +1990,7 @@
                     <value key="contentSizeForViewInPopover" type="size" width="200" height="300"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="200" height="300"/>
+                    <size key="freeformSize" width="200" height="350"/>
                     <connections>
                         <outlet property="jumpstartButton" destination="5H7-1Z-Vhg" id="ces-MH-hiQ"/>
                         <outlet property="juniorButton" destination="l2v-Hu-LPM" id="o7I-Qu-aUR"/>

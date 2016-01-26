@@ -38,8 +38,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         setUpNavBar()
         scheduleItems = dataManager.scheduleItems
-        scheduleSections = splitSections(scheduleItems)
-        
+        scheduleSections = splitSections(scheduleItems)        
 
 
 //        fillData(cityData[selectedCity]!.dailySchedule)
@@ -253,7 +252,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         
         UIView.animateWithDuration(0.25, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             if self.availableDays.count > 2 {
-                self.toggleView.center = CGPointMake(self.dayOneButton.center.x + 2, self.dayOneButton.center.y)
+                self.toggleView.center = CGPointMake(self.dayOneButton.center.x - 3, self.dayOneButton.center.y)
             } else {
                 self.toggleView.center = CGPointMake(self.dayOneButton.center.x, self.dayOneButton.center.y)
             }
@@ -281,8 +280,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     
     @IBAction func toggleDay(sender: UIButton, forEvent event: UIEvent) {
-        if let day = sender.titleLabel {
-            self.day = day.text?.lowercaseString
+            if let day = sender.titleLabel {
+                self.day = day.text?.lowercaseString
         }
         sender.setTitleColor(self.selectorView.backgroundColor, forState: .Normal)
         if sender == dayOneButton {
@@ -350,6 +349,9 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
         var dayFull:String
         if day == "sat" {
             dayFull = "Saturday"
+        }
+        else if day == "fri" {
+            dayFull = "Friday"
         }
         else {
             dayFull = "Sunday"

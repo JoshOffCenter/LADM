@@ -20,7 +20,7 @@ class PopoverViewController: UIViewController {
     @IBOutlet weak var teacherButton: UIButton!
     
     override func viewDidLoad() {
-        
+       self.preferredContentSize = CGSizeMake(200, 350);
     }
     
     func sendData(data:String) {
@@ -28,24 +28,27 @@ class PopoverViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(sender: UIButton) {
-        switch sender{
-        case jumpstartButton:
-            sendData("Jumpstart")
-            break
-        case juniorButton:
-            sendData("Junior")
-            break
-        case seniorButton:
-            sendData("Senior")
-            break
-        case teacherButton:
-            sendData("Teacher")
-            break
-        default:
-            break
-            
-            
-        }
+        let returnString = sender.titleLabel!.text
+        sendData(returnString!)
+        
+//        switch sender{
+//        case jumpstartButton:
+//            sendData("Jumpstart")
+//            break
+//        case juniorButton:
+//            sendData("Junior")
+//            break
+//        case seniorButton:
+//            sendData("Senior")
+//            break
+//        case teacherButton:
+//            sendData("Teacher")
+//            break
+//        default:
+//            break
+//            
+//            
+//        }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
