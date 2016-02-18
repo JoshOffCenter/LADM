@@ -83,6 +83,12 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        dataManager.scheduleTableViewPosition = tableView.contentOffset.y;
+        
+    }
+
+    
     func subscribeToParseChannel() {
         let installation = PFInstallation.currentInstallation()
         let installationString = String(installation.installationId)
@@ -375,7 +381,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate,UITableViewD
 
         
         tableView.reloadData()
-        scrollToCurrent()
+        tableView.contentOffset.y = dataManager.scheduleTableViewPosition
+//        scrollToCurrent()
     }
     
     

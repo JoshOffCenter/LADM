@@ -39,6 +39,7 @@
 		1585CB021BD2286C00C61916 /* CustomSlideSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1587E1C01AEF43CE00E6B79F /* CustomSlideSegue.swift */; };
 		159DAC761B05CD95008DA2EA /* Email_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 159DAC751B05CD95008DA2EA /* Email_Button.png */; };
 		159DAC781B05CDA3008DA2EA /* Phone_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 159DAC771B05CDA3008DA2EA /* Phone_Button.png */; };
+		15A52EA71C759D1F0075D9C4 /* CompetitionItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A52EA61C759D1F0075D9C4 /* CompetitionItemSection.swift */; };
 		15AF98EF1BDF2F7D00EBCF1F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 15AF98EE1BDF2F7D00EBCF1F /* Reachability.m */; };
 		15BC7E171B03037D00E241DC /* FilterDropdownButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E151B03037D00E241DC /* FilterDropdownButton.png */; };
 		15BC7E181B03037D00E241DC /* FilterOptionButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 15BC7E161B03037D00E241DC /* FilterOptionButton.png */; };
@@ -158,6 +159,7 @@
 		159DAC751B05CD95008DA2EA /* Email_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email_Button.png; sourceTree = "<group>"; };
 		159DAC771B05CDA3008DA2EA /* Phone_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Phone_Button.png; sourceTree = "<group>"; };
 		159DAC791B05CDBB008DA2EA /* ContactMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactMenuView.swift; sourceTree = "<group>"; };
+		15A52EA61C759D1F0075D9C4 /* CompetitionItemSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompetitionItemSection.swift; sourceTree = "<group>"; };
 		15AF98EC1BDF2F7C00EBCF1F /* LADM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LADM-Bridging-Header.h"; sourceTree = "<group>"; };
 		15AF98ED1BDF2F7D00EBCF1F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = "../Reachability-master/Reachability.h"; sourceTree = "<group>"; };
 		15AF98EE1BDF2F7D00EBCF1F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = "../Reachability-master/Reachability.m"; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				150A4E3D1B140F9500998C8C /* SpecialtyItem.swift */,
 				BCC6C04D1B19A66F003AC3FD /* SpecialtyAwardSection.swift */,
 				BCF4824E1BE873C0007344C5 /* ScheduleItemSection.swift */,
+				15A52EA61C759D1F0075D9C4 /* CompetitionItemSection.swift */,
 				BC9C8E6E1B1D9931000FF7D3 /* CompetitionResultsSection.swift */,
 			);
 			name = Models;
@@ -648,6 +651,7 @@
 			files = (
 				151394FB1BBE147100A755FB /* DataManager.swift in Sources */,
 				BC2B234A1B0D858C00DE2910 /* ScheduleViewController.swift in Sources */,
+				15A52EA71C759D1F0075D9C4 /* CompetitionItemSection.swift in Sources */,
 				BCC6C04E1B19A66F003AC3FD /* SpecialtyAwardSection.swift in Sources */,
 				15F82CF11B12907800C31ED3 /* CompetitionResultCell.swift in Sources */,
 				1585CAFC1BD221EA00C61916 /* SpecialtyAwardsViewController.swift in Sources */,

@@ -13,6 +13,8 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let dataManager = DataManager.sharedInstance
     var competitionItems = [CompetitionItem]()
+    var competitionSections: [CompetitionItemSection]!
+
 
    
    //Table View
@@ -66,6 +68,11 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 //        fillData()
     
    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        dataManager.competitionTableViewPostion = tableView.contentOffset.y;
+
+    }
    
    //Transition Manager
 //   let transitionManager = TransitionManager()
@@ -80,6 +87,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     shouldHideInstruction = defaults.boolForKey("shouldHideInstruction")
       
     competitionItems = dataManager.competitionItems
+    competitionSections = splitSections(competitionItems)
     
 //    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
 //    tableView.reloadData()
@@ -112,13 +120,79 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let dictionary: NSDictionary = ["studio" : "Any Studio", "age" : "Any Age", "category" : "Any Category", "day" : "Any Day"]
     competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
+    
+    competitionSections = splitSections(competitionItems)
 
-    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+
+//    for item in competitionItems {
+//        print(item.name + " " + String(item.startTime))
+//    }
+//    competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+    
 
     
     tableView.reloadData()
-    scrollToCurrent()
+    tableView.contentOffset.y = dataManager.competitionTableViewPostion
+//    scrollToCurrent()
    }
+    
+    
+    func splitSections(itemArr: [CompetitionItem]) -> [CompetitionItemSection] {
+        var arr = [CompetitionItemSection]()
+        for item in itemArr {
+            let day = item.day
+            
+            var found = false
+            for s in arr {
+                if s.day == day {
+                    s.competitionItems.append(item)
+                    found = true
+                    break
+                }
+            }
+            if !found {
+                arr.append(CompetitionItemSection(day:day, firstItem: item))
+            }
+        }
+        for s in arr {
+//            s.competitionItems.sortInPlace({$0.startTime.compare($1.startTime) == .OrderedAscending})
+            s.competitionItems.sortInPlace({
+                return dateFixCompare($0, d2: $1)
+            })
+        
+//            s.competitionItems.sortInPlace(dateFixCompare($0.startTime, $1.startTime))
+        }
+        arr.sortInPlace({$0.day < $1.day})
+        return arr
+    }
+    
+    func dateFixCompare(d1: CompetitionItem, d2: CompetitionItem) -> Bool {
+        
+        
+        
+        let d1Hour = NSCalendar.currentCalendar().component(.Hour, fromDate: d1.startTime)
+        let d2Hour = NSCalendar.currentCalendar().component(.Hour, fromDate: d2.startTime)
+
+        
+        if d1Hour >= 16 && d1Hour <= 22 {
+            if d2Hour >= 16 && d2Hour <= 22 {
+                return d1.startTime.compare(d2.startTime) == .OrderedAscending
+            }
+            return false
+        }
+    
+        else if( d2Hour >= 16 && d2Hour <= 22) {
+            return true
+        }
+        
+        
+        return d1.startTime.compare(d2.startTime) == .OrderedAscending
+
+        
+//        NSCalendarUnit.
+        
+        
+    }
     
    override func viewDidAppear(animated: Bool) {
       tableView.reloadData()
@@ -141,7 +215,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
         competitionItems = dataManager.competitionItems
         competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
         
-        competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+//        competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
         tableView.reloadData()
     }
     
@@ -169,14 +243,22 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
    
    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       //Return the number of sections.
-      return 1
+//      return 1
+      return competitionSections.count
    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if competitionSections[section].competitionItems.isEmpty {
+            return nil
+        }
+        return competitionSections[section].day
+    }
 
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if !shouldHideInstruction {
             return 130
         }
-        return 0
+        return 25
     }
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if !shouldHideInstruction {
@@ -191,7 +273,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
     }
    
    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return competitionItems.count
+      return competitionSections[section].competitionItems.count
    }
    
    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -222,7 +304,7 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
 
         cell.selectionStyle = .None
 
-        item = competitionItems[indexPath.row]
+        item = competitionSections[indexPath.section].competitionItems[indexPath.row]
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
@@ -416,7 +498,9 @@ class CompOrderViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let dictionary: NSDictionary = ["studio" : filterMenuView.filterStudioLabel.text!, "age" : filterMenuView.filterAgeLabel.text!, "category" : filterMenuView.filterCategoryLabel.text!, "day" : filterMenuView.filterDayLabel.text!]
             competitionItems = dataManager.filterItemsWithDictionary(dataManager.competitionItems, dictionary: dictionary) as! [CompetitionItem]
-            competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+//            competitionItems.sortInPlace({ $0.startTime.compare($1.startTime) == NSComparisonResult.OrderedAscending })
+            competitionSections = splitSections(competitionItems)
+
 
             tableView.reloadData()
             

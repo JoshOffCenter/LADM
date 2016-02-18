@@ -25,6 +25,10 @@ class DataManager: NSObject {
     var specialtyItems = [SpecialtyItem]()
     
     
+    var competitionTableViewPostion: CGFloat = 0;
+    var scheduleTableViewPosition: CGFloat = 0;
+
+    
     var studios = [String]()
     var ages = [String]()
     var categories = [String]()
@@ -187,6 +191,9 @@ class DataManager: NSObject {
     
     
     func pullCity(name:String, vc: ToursAndCitiesViewController) {
+        competitionTableViewPostion = 0;
+        scheduleTableViewPosition = 0;
+
         if name != "Select City" {
             if networkStatus != NetworkStatus.NotReachable {
                 PFCloud.callFunctionInBackground("pullCity", withParameters: ["city" : name]) {
